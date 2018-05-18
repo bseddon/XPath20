@@ -1,0 +1,790 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xbrl 
+	xmlns:xbrli="http://www.xbrl.org/2003/instance" 
+	xmlns:link="http://www.xbrl.org/2003/linkbase" 
+	xmlns:xlink="http://www.w3.org/1999/xlink" 
+	xmlns:uk-types="http://www.xbrl.org/uk/all/types/2009-09-01" 
+	xmlns:uk-common="http://www.xbrl.org/uk/all/common/2009-09-01" 
+	xmlns:uk-cd-ref="http://www.xbrl.org/uk/all/ref/2009-09-01" 
+	xmlns:uk-countries="http://www.xbrl.org/uk/cd/countries/2009-09-01" 
+	xmlns:xbrldt="http://xbrl.org/2005/xbrldt" 
+	xmlns:uk-curr="http://www.xbrl.org/uk/cd/currencies/2009-09-01" 
+	xmlns:uk-exch="http://www.xbrl.org/uk/cd/exchanges/2009-09-01" 
+	xmlns:uk-lang="http://www.xbrl.org/uk/cd/languages/2009-09-01" 
+	xmlns:uk-bus="http://www.xbrl.org/uk/cd/business/2009-09-01" 
+	xmlns:uk-gaap-ref="http://www.xbrl.org/uk/all/gaap-ref/2009-09-01" 
+	xmlns:uk-direp="http://www.xbrl.org/uk/reports/direp/2009-09-01" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:uk-aurep="http://www.xbrl.org/uk/reports/aurep/2009-09-01" 
+	xmlns:uk-gaap="http://www.xbrl.org/uk/gaap/core/2009-09-01" 
+	xmlns:uk-gaap-full="http://www.xbrl.org/uk/gaap/core-full/2009-09-01" 
+	xmlns:ref="http://www.xbrl.org/2006/ref" 
+	xmlns:xl="http://www.xbrl.org/2003/XLink" 
+	xmlns:ix="http://www.xbrl.org/2008/inlineXBRL" 
+	xmlns:ixt="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20" 
+	xmlns:iso4217="http://www.xbrl.org/2003/iso4217" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:fn="http://www.w3.org/2005/xpath-functions" 
+	xmlns:xbrldi="http://xbrl.org/2006/xbrldi" 
+	lyquidity="http://www.lyquidity.com/uk-xbrl/2015-07-07" 
+	xmlns="http://www.xbrl.org/2003/instance"
+>
+  <link:schemaRef xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:type="simple" xlink:href="http://www.xbrl.org/uk/gaap/core/2009-09-01/uk-gaap-full-2009-09-01.xsd" />
+  <xbrli:context id="C">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2014-01-01</xbrli:startDate>
+      <xbrli:endDate>2014-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="C_B_K">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-bus:EntityOfficersDimension">uk-bus:CompanySecretaryDirector</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2014-01-01</xbrli:startDate>
+      <xbrli:endDate>2014-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="C_B_L">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-bus:EntityOfficersDimension">uk-bus:Director1</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2014-01-01</xbrli:startDate>
+      <xbrli:endDate>2014-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="C_B_M">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-bus:EntityOfficersDimension">uk-bus:Director2</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2014-01-01</xbrli:startDate>
+      <xbrli:endDate>2014-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="C_B_N">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-bus:EntityOfficersDimension">uk-bus:Director3</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2014-01-01</xbrli:startDate>
+      <xbrli:endDate>2014-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="C_B_O">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-bus:EntityOfficersDimension">uk-bus:CompanySecretary</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2014-01-01</xbrli:startDate>
+      <xbrli:endDate>2014-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="C_P_Q">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-bus:EntityContactTypeDimension">uk-bus:RegisteredOffice</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2014-01-01</xbrli:startDate>
+      <xbrli:endDate>2014-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="C_V_X">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-bus:ThirdPartyAgentTypeDimension">uk-bus:EntityAccountantsOrAuditors</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2014-01-01</xbrli:startDate>
+      <xbrli:endDate>2014-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="B">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2014-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="B_V_X">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-bus:ThirdPartyAgentTypeDimension">uk-bus:EntityAccountantsOrAuditors</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2014-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="F">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2013-01-01</xbrli:startDate>
+      <xbrli:endDate>2013-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="C_7_AH">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:BusinessSegmentsDimension">uk-gaap:TotalBusinessSegments</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2014-01-01</xbrli:startDate>
+      <xbrli:endDate>2014-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="F_7_AH">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:BusinessSegmentsDimension">uk-gaap:TotalBusinessSegments</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2013-01-01</xbrli:startDate>
+      <xbrli:endDate>2013-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="A">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2013-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="E">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2013-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="B_Y_AJ_Z_AB">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetClassesDimension">uk-gaap:Land</xbrldi:explicitMember>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetOwnershipDimension">uk-gaap:LeasedTangibleFixedAssets</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2014-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="B_Y_AC">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetClassesDimension">uk-gaap:PlantMachinery</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2014-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="B_Y_AD">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetClassesDimension">uk-gaap:FixturesFittingsToolsEquipment</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2014-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="B_Y_AE">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetClassesDimension">uk-gaap:MotorVehicles</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2014-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="E_Y_AJ_Z_AB">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetClassesDimension">uk-gaap:Land</xbrldi:explicitMember>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetOwnershipDimension">uk-gaap:LeasedTangibleFixedAssets</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2013-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="E_Y_AC">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetClassesDimension">uk-gaap:PlantMachinery</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2013-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="E_Y_AD">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetClassesDimension">uk-gaap:FixturesFittingsToolsEquipment</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2013-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="E_Y_AE">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetClassesDimension">uk-gaap:MotorVehicles</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2013-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="D">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2012-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="C_Y_AA_Z_AB">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetClassesDimension">uk-gaap:LandBuildings</xbrldi:explicitMember>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetOwnershipDimension">uk-gaap:LeasedTangibleFixedAssets</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2014-01-01</xbrli:startDate>
+      <xbrli:endDate>2014-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="C_Y_AC">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetClassesDimension">uk-gaap:PlantMachinery</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2014-01-01</xbrli:startDate>
+      <xbrli:endDate>2014-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="C_Y_AD">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetClassesDimension">uk-gaap:FixturesFittingsToolsEquipment</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2014-01-01</xbrli:startDate>
+      <xbrli:endDate>2014-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="C_Y_AE">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetClassesDimension">uk-gaap:MotorVehicles</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2014-01-01</xbrli:startDate>
+      <xbrli:endDate>2014-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="C_Z_AI">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetOwnershipDimension">uk-gaap:OwnedOrFreeholdTangibleFixedAssets</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2014-01-01</xbrli:startDate>
+      <xbrli:endDate>2014-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="F_Z_AI">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetOwnershipDimension">uk-gaap:OwnedOrFreeholdTangibleFixedAssets</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2013-01-01</xbrli:startDate>
+      <xbrli:endDate>2013-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="F_V_X">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-bus:ThirdPartyAgentTypeDimension">uk-bus:EntityAccountantsOrAuditors</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2013-01-01</xbrli:startDate>
+      <xbrli:endDate>2013-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="A_Y_AJ_Z_AB">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetClassesDimension">uk-gaap:Land</xbrldi:explicitMember>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetOwnershipDimension">uk-gaap:LeasedTangibleFixedAssets</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2013-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="A_Y_AC">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetClassesDimension">uk-gaap:PlantMachinery</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2013-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="A_Y_AD">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetClassesDimension">uk-gaap:FixturesFittingsToolsEquipment</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2013-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="A_Y_AE">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetClassesDimension">uk-gaap:MotorVehicles</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2013-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="C_Y_AJ_Z_AB">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetClassesDimension">uk-gaap:Land</xbrldi:explicitMember>
+        <xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetOwnershipDimension">uk-gaap:LeasedTangibleFixedAssets</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2014-01-01</xbrli:startDate>
+      <xbrli:endDate>2014-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="C_AK_AL">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-bus:ShareClassesDimension">uk-bus:OrdinaryShareClass1</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2014-01-01</xbrli:startDate>
+      <xbrli:endDate>2014-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="B_AK_AL">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-bus:ShareClassesDimension">uk-bus:OrdinaryShareClass1</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2014-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="E_AK_AL">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-bus:ShareClassesDimension">uk-bus:OrdinaryShareClass1</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2013-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="C_B_AO">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-bus:EntityOfficersDimension">uk-bus:AllEntityOfficers</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2014-01-01</xbrli:startDate>
+      <xbrli:endDate>2014-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:context id="F_B_AO">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.companieshouse.gov.uk/">02450755</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="uk-bus:EntityOfficersDimension">uk-bus:AllEntityOfficers</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2013-01-01</xbrli:startDate>
+      <xbrli:endDate>2013-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+  <xbrli:unit id="Pure">
+    <xbrli:measure>xbrli:pure</xbrli:measure>
+  </xbrli:unit>
+  <xbrli:unit id="Shares">
+    <xbrli:measure>xbrli:shares</xbrli:measure>
+  </xbrli:unit>
+  <xbrli:unit id="GBP">
+    <xbrli:measure>iso4217:GBP</xbrli:measure>
+  </xbrli:unit>
+  <uk-bus:UKCompaniesHouseRegisteredNumber contextRef="C">02450755</uk-bus:UKCompaniesHouseRegisteredNumber>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-bus:BusinessReportName contextRef="C">ANNUAL REPORT</uk-bus:BusinessReportName>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-bus:NameEntityOfficer contextRef="C_B_K">Mr E J Way</uk-bus:NameEntityOfficer>
+  <uk-bus:NameEntityOfficer contextRef="C_B_L">Mr A J Baxter</uk-bus:NameEntityOfficer>
+  <uk-bus:NameEntityOfficer contextRef="C_B_M">Mr S G Toone</uk-bus:NameEntityOfficer>
+  <uk-bus:NameEntityOfficer contextRef="C_B_N">Mr T Hall</uk-bus:NameEntityOfficer>
+  <uk-bus:NameEntityOfficer contextRef="C_B_O">Mr E J Way</uk-bus:NameEntityOfficer>
+  <uk-bus:UKCompaniesHouseRegisteredNumber contextRef="C">02450755</uk-bus:UKCompaniesHouseRegisteredNumber>
+  <uk-bus:AddressLine1 contextRef="C_P_Q">Arundel Road</uk-bus:AddressLine1>
+  <uk-bus:AddressLine2 contextRef="C_P_Q">Fontwell</uk-bus:AddressLine2>
+  <uk-bus:PrincipalLocation-CityOrTown contextRef="C_P_Q">Arundel</uk-bus:PrincipalLocation-CityOrTown>
+  <uk-bus:CountyRegion contextRef="C_P_Q">West Sussex</uk-bus:CountyRegion>
+  <uk-bus:PostalCodeZip contextRef="C_P_Q">BN18 0SD</uk-bus:PostalCodeZip>
+  <uk-bus:NameThirdPartyAgent contextRef="C_V_X">Carpenter Box</uk-bus:NameThirdPartyAgent>
+  <uk-bus:AddressLine1 contextRef="C_V_X">Amelia House</uk-bus:AddressLine1>
+  <uk-bus:AddressLine2 contextRef="C_V_X">Crescent Road</uk-bus:AddressLine2>
+  <uk-bus:PrincipalLocation-CityOrTown contextRef="C_V_X">Worthing</uk-bus:PrincipalLocation-CityOrTown>
+  <uk-bus:CountyRegion contextRef="C_V_X">West Sussex</uk-bus:CountyRegion>
+  <uk-bus:PostalCodeZip contextRef="C_V_X">BN11 1QR</uk-bus:PostalCodeZip>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-bus:NameEntityOfficer contextRef="C_B_K">Mr E J Way</uk-bus:NameEntityOfficer>
+  <uk-bus:NameEntityOfficer contextRef="C_B_L">Mr A J Baxter</uk-bus:NameEntityOfficer>
+  <uk-bus:NameEntityOfficer contextRef="C_B_M">Mr S G Toone</uk-bus:NameEntityOfficer>
+  <uk-bus:NameEntityOfficer contextRef="C_B_N">Mr T Hall</uk-bus:NameEntityOfficer>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-direp:StatementOnQualityCompletenessInformationProvidedToAuditors contextRef="C">So far as the directors are aware, there is no relevant audit information of which the company's auditors are unaware. Additionally, the directors have taken all the necessary steps that they ought to have taken as directors in order to make themselves aware of all relevant audit information and to establish that the company's auditors are aware of that information.</uk-direp:StatementOnQualityCompletenessInformationProvidedToAuditors>
+  <uk-direp:DirectorSigningReport contextRef="C_B_O">
+  </uk-direp:DirectorSigningReport>
+  <uk-direp:DateSigningDirectorsReport contextRef="B" format="ixt:datelonguk">22 April 2015</uk-direp:DateSigningDirectorsReport>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-aurep:OpinionAuditorsOnEntity contextRef="C_V_X">In our opinion the financial statements: give a true and fair view of the state of the company's affairs as at 31 December 2014 and of its profit for the year then ended; have been properly prepared in accordance with United Kingdom Generally Accepted Accounting Practice; and have been prepared in accordance with the requirements of the Companies Act 2006. In our opinion the information given in the Strategic Report and Directors' Report for the financial year for which the financial statements are prepared is consistent with the financial statements.</uk-aurep:OpinionAuditorsOnEntity>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-aurep:NameSeniorStatutoryAuditor contextRef="C_V_X">Eileen Houghton ACA FCCA DChA</uk-aurep:NameSeniorStatutoryAuditor>
+  <uk-bus:NameThirdPartyAgent contextRef="C_V_X">Carpenter Box</uk-bus:NameThirdPartyAgent>
+  <uk-aurep:DateAuditorsReport contextRef="B_V_X" format="ixt:datelonguk">1 May 2015</uk-aurep:DateAuditorsReport>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-gaap:TurnoverGrossOperatingRevenue contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">3,672,463</uk-gaap:TurnoverGrossOperatingRevenue>
+  <uk-gaap:TurnoverGrossOperatingRevenue contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">3,573,416</uk-gaap:TurnoverGrossOperatingRevenue>
+  <uk-gaap:CostSales contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">2,164,605</uk-gaap:CostSales>
+  <uk-gaap:CostSales contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">2,226,107</uk-gaap:CostSales>
+  <uk-gaap:GrossProfitLoss contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">1,507,858</uk-gaap:GrossProfitLoss>
+  <uk-gaap:GrossProfitLoss contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">1,347,309</uk-gaap:GrossProfitLoss>
+  <uk-gaap:DistributionCosts contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">640,593</uk-gaap:DistributionCosts>
+  <uk-gaap:DistributionCosts contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">624,014</uk-gaap:DistributionCosts>
+  <uk-gaap:AdministrativeExpenses contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">639,592</uk-gaap:AdministrativeExpenses>
+  <uk-gaap:AdministrativeExpenses contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">653,281</uk-gaap:AdministrativeExpenses>
+  <uk-gaap:OperatingProfitLoss contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">227,673</uk-gaap:OperatingProfitLoss>
+  <uk-gaap:OperatingProfitLoss contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">70,014</uk-gaap:OperatingProfitLoss>
+  <uk-gaap:OtherInterestReceivableSimilarIncome contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">1,776</uk-gaap:OtherInterestReceivableSimilarIncome>
+  <uk-gaap:OtherInterestReceivableSimilarIncome contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">4,669</uk-gaap:OtherInterestReceivableSimilarIncome>
+  <uk-gaap:ProfitLossOnOrdinaryActivitiesBeforeTax contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">229,449</uk-gaap:ProfitLossOnOrdinaryActivitiesBeforeTax>
+  <uk-gaap:ProfitLossOnOrdinaryActivitiesBeforeTax contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">74,683</uk-gaap:ProfitLossOnOrdinaryActivitiesBeforeTax>
+  <uk-gaap:TaxOnProfitOrLossOnOrdinaryActivities contextRef="C" decimals="0" scale="0" unitRef="GBP">355</uk-gaap:TaxOnProfitOrLossOnOrdinaryActivities>
+  <uk-gaap:TaxOnProfitOrLossOnOrdinaryActivities contextRef="F" decimals="0" scale="0" unitRef="GBP">934</uk-gaap:TaxOnProfitOrLossOnOrdinaryActivities>
+  <uk-gaap:ProfitLossForPeriod contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">229,094</uk-gaap:ProfitLossForPeriod>
+  <uk-gaap:ProfitLossForPeriod contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">73,749</uk-gaap:ProfitLossForPeriod>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-bus:BalanceSheetDate contextRef="B" format="ixt:datelonguk">31 December 2014</uk-bus:BalanceSheetDate>
+  <uk-gaap:TangibleFixedAssets contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">99,208</uk-gaap:TangibleFixedAssets>
+  <uk-gaap:TangibleFixedAssets contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">103,182</uk-gaap:TangibleFixedAssets>
+  <uk-gaap:StocksInventory contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">195,672</uk-gaap:StocksInventory>
+  <uk-gaap:StocksInventory contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">123,897</uk-gaap:StocksInventory>
+  <uk-gaap:DebtorsDueWithinOneYear contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">920,714</uk-gaap:DebtorsDueWithinOneYear>
+  <uk-gaap:DebtorsDueWithinOneYear contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">597,650</uk-gaap:DebtorsDueWithinOneYear>
+  <uk-gaap:CashBankInHand contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">749,408</uk-gaap:CashBankInHand>
+  <uk-gaap:CashBankInHand contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">706,604</uk-gaap:CashBankInHand>
+  <uk-gaap:CurrentAssets contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">1,865,794</uk-gaap:CurrentAssets>
+  <uk-gaap:CurrentAssets contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">1,428,151</uk-gaap:CurrentAssets>
+  <uk-gaap:CreditorsDueWithinOneYear contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">757,995</uk-gaap:CreditorsDueWithinOneYear>
+  <uk-gaap:CreditorsDueWithinOneYear contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">318,388</uk-gaap:CreditorsDueWithinOneYear>
+  <uk-gaap:NetCurrentAssetsLiabilities contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">1,107,799</uk-gaap:NetCurrentAssetsLiabilities>
+  <uk-gaap:NetCurrentAssetsLiabilities contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">1,109,763</uk-gaap:NetCurrentAssetsLiabilities>
+  <uk-gaap:TotalAssetsLessCurrentLiabilities contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">1,207,007</uk-gaap:TotalAssetsLessCurrentLiabilities>
+  <uk-gaap:TotalAssetsLessCurrentLiabilities contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">1,212,945</uk-gaap:TotalAssetsLessCurrentLiabilities>
+  <uk-gaap:CalledUpShareCapital contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">198,718</uk-gaap:CalledUpShareCapital>
+  <uk-gaap:CalledUpShareCapital contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">225,000</uk-gaap:CalledUpShareCapital>
+  <uk-gaap:OtherReserves contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">56,250</uk-gaap:OtherReserves>
+  <uk-gaap:OtherReserves contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">25,000</uk-gaap:OtherReserves>
+  <uk-gaap:ProfitLossAccountReserve contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">952,039</uk-gaap:ProfitLossAccountReserve>
+  <uk-gaap:ProfitLossAccountReserve contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">962,945</uk-gaap:ProfitLossAccountReserve>
+  <uk-gaap:ShareholderFunds contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">1,207,007</uk-gaap:ShareholderFunds>
+  <uk-gaap:ShareholderFunds contextRef="A" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">1,212,945</uk-gaap:ShareholderFunds>
+  <uk-gaap:DateApprovalAccounts contextRef="B" format="ixt:datelonguk">22 April 2015</uk-gaap:DateApprovalAccounts>
+  <uk-gaap:NameDirectorSigningAccounts contextRef="C_B_K">
+  </uk-gaap:NameDirectorSigningAccounts>
+  <uk-gaap:NameDirectorSigningAccounts contextRef="C_B_L">
+  </uk-gaap:NameDirectorSigningAccounts>
+  <uk-bus:UKCompaniesHouseRegisteredNumber contextRef="C">02450755</uk-bus:UKCompaniesHouseRegisteredNumber>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-gaap:TaxationExpenseCredit contextRef="C" decimals="0" scale="0" unitRef="GBP">934</uk-gaap:TaxationExpenseCredit>
+  <uk-gaap:CashFlowOutflowBeforeManagementLiquidResourcesFinancing contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">102,804</uk-gaap:CashFlowOutflowBeforeManagementLiquidResourcesFinancing>
+  <uk-gaap:CashFlowOutflowBeforeManagementLiquidResourcesFinancing contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">138,068</uk-gaap:CashFlowOutflowBeforeManagementLiquidResourcesFinancing>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-gaap:StatementOnBasisMeasurementPreparationAccounts contextRef="C">The financial statements are prepared under the historical cost convention.</uk-gaap:StatementOnBasisMeasurementPreparationAccounts>
+  <uk-gaap:TurnoverPolicy contextRef="C">Turnover represents amounts receivable for goods and services net of VAT and trade discounts.</uk-gaap:TurnoverPolicy>
+  <uk-gaap:TangibleFixedAssetsPolicy contextRef="C">Tangible fixed assets are stated at cost less depreciation. Depreciation is provided at rates calculated to write off the cost less estimated residual value of each asset over its expected useful life, as follows:</uk-gaap:TangibleFixedAssetsPolicy>
+  <uk-gaap:DescriptionDepreciationMethodRateOrUsefulEconomicLifeForTangibleFixedAssets contextRef="C_Y_AA_Z_AB">20% per annum straight line</uk-gaap:DescriptionDepreciationMethodRateOrUsefulEconomicLifeForTangibleFixedAssets>
+  <uk-gaap:DescriptionDepreciationMethodRateOrUsefulEconomicLifeForTangibleFixedAssets contextRef="C_Y_AC">20% per annum straight line</uk-gaap:DescriptionDepreciationMethodRateOrUsefulEconomicLifeForTangibleFixedAssets>
+  <uk-gaap:DescriptionDepreciationMethodRateOrUsefulEconomicLifeForTangibleFixedAssets contextRef="C_Y_AD">35% per annum reducing balance</uk-gaap:DescriptionDepreciationMethodRateOrUsefulEconomicLifeForTangibleFixedAssets>
+  <uk-gaap:DescriptionDepreciationMethodRateOrUsefulEconomicLifeForTangibleFixedAssets contextRef="C_Y_AE">33% per annum straight line</uk-gaap:DescriptionDepreciationMethodRateOrUsefulEconomicLifeForTangibleFixedAssets>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-gaap:TurnoverGrossOperatingRevenue contextRef="C_7_AH" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">229,449</uk-gaap:TurnoverGrossOperatingRevenue>
+  <uk-gaap:TurnoverGrossOperatingRevenue contextRef="F_7_AH" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">74,683</uk-gaap:TurnoverGrossOperatingRevenue>
+  <uk-gaap:TurnoverGrossOperatingRevenue contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">3,672,463</uk-gaap:TurnoverGrossOperatingRevenue>
+  <uk-gaap:TurnoverGrossOperatingRevenue contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">3,573,416</uk-gaap:TurnoverGrossOperatingRevenue>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-gaap:DepreciationTangibleFixedAssetsExpense contextRef="C_Z_AI" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">47,615</uk-gaap:DepreciationTangibleFixedAssetsExpense>
+  <uk-gaap:DepreciationTangibleFixedAssetsExpense contextRef="F_Z_AI" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">59,522</uk-gaap:DepreciationTangibleFixedAssetsExpense>
+  <uk-gaap:ForeignCurrencyTranslationGainLossRecognisedInProfitLoss contextRef="C" decimals="0" scale="0" unitRef="GBP" sign="-" format="ixt:numcommadot">4,043</uk-gaap:ForeignCurrencyTranslationGainLossRecognisedInProfitLoss>
+  <uk-gaap:ForeignCurrencyTranslationGainLossRecognisedInProfitLoss contextRef="F" decimals="0" scale="0" unitRef="GBP" sign="-" format="ixt:numcommadot">3,687</uk-gaap:ForeignCurrencyTranslationGainLossRecognisedInProfitLoss>
+  <uk-gaap:ResearchDevelopmentCosts contextRef="C" decimals="0" scale="0" unitRef="GBP">444</uk-gaap:ResearchDevelopmentCosts>
+  <uk-gaap:ResearchDevelopmentCosts contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">3,879</uk-gaap:ResearchDevelopmentCosts>
+  <uk-aurep:AuditFeesExpenses contextRef="C_V_X" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">5,700</uk-aurep:AuditFeesExpenses>
+  <uk-aurep:AuditFeesExpenses contextRef="F_V_X" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">6,000</uk-aurep:AuditFeesExpenses>
+  <uk-gaap:InterestReceivableOnShort-termInvestmentsLoansDeposits contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">1,776</uk-gaap:InterestReceivableOnShort-termInvestmentsLoansDeposits>
+  <uk-gaap:InterestReceivableOnShort-termInvestmentsLoansDeposits contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">2,958</uk-gaap:InterestReceivableOnShort-termInvestmentsLoansDeposits>
+  <uk-gaap:OtherInterestReceivable contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">1,711</uk-gaap:OtherInterestReceivable>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-gaap:UKCurrentCorporationTaxOnIncomeForPeriod contextRef="C" decimals="0" scale="0" unitRef="GBP">355</uk-gaap:UKCurrentCorporationTaxOnIncomeForPeriod>
+  <uk-gaap:UKCurrentCorporationTaxOnIncomeForPeriod contextRef="F" decimals="0" scale="0" unitRef="GBP">934</uk-gaap:UKCurrentCorporationTaxOnIncomeForPeriod>
+  <uk-gaap:TotalUKForeignCurrentTaxAfterAdjustmentsRelief contextRef="C" decimals="0" scale="0" unitRef="GBP">355</uk-gaap:TotalUKForeignCurrentTaxAfterAdjustmentsRelief>
+  <uk-gaap:TotalUKForeignCurrentTaxAfterAdjustmentsRelief contextRef="F" decimals="0" scale="0" unitRef="GBP">934</uk-gaap:TotalUKForeignCurrentTaxAfterAdjustmentsRelief>
+  <uk-gaap:ProfitLossOnOrdinaryActivitiesBeforeTax contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">229,449</uk-gaap:ProfitLossOnOrdinaryActivitiesBeforeTax>
+  <uk-gaap:ProfitLossOnOrdinaryActivitiesBeforeTax contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">74,683</uk-gaap:ProfitLossOnOrdinaryActivitiesBeforeTax>
+  <uk-gaap:TaxOnGroupProfitOnOrdinaryActivitiesStandardUKTaxRate contextRef="C" decimals="0" scale="0" unitRef="GBP" sign="-" format="ixt:numcommadot">45,890</uk-gaap:TaxOnGroupProfitOnOrdinaryActivitiesStandardUKTaxRate>
+  <uk-gaap:TaxOnGroupProfitOnOrdinaryActivitiesStandardUKTaxRate contextRef="F" decimals="0" scale="0" unitRef="GBP" sign="-" format="ixt:numcommadot">14,937</uk-gaap:TaxOnGroupProfitOnOrdinaryActivitiesStandardUKTaxRate>
+  <uk-gaap:ExpensesNotDeductibleForTaxPurposes contextRef="C" decimals="0" scale="0" unitRef="GBP">678</uk-gaap:ExpensesNotDeductibleForTaxPurposes>
+  <uk-gaap:ExpensesNotDeductibleForTaxPurposes contextRef="F" decimals="0" scale="0" unitRef="GBP">578</uk-gaap:ExpensesNotDeductibleForTaxPurposes>
+  <uk-gaap:UtilisationTaxLosses contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">44,100</uk-gaap:UtilisationTaxLosses>
+  <uk-gaap:UtilisationTaxLosses contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">12,379</uk-gaap:UtilisationTaxLosses>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-gaap:TangibleFixedAssetsCostOrValuation contextRef="A_Y_AJ_Z_AB" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">324,756</uk-gaap:TangibleFixedAssetsCostOrValuation>
+  <uk-gaap:TangibleFixedAssetsCostOrValuation contextRef="A_Y_AC" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">45,737</uk-gaap:TangibleFixedAssetsCostOrValuation>
+  <uk-gaap:TangibleFixedAssetsCostOrValuation contextRef="A_Y_AD" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">150,633</uk-gaap:TangibleFixedAssetsCostOrValuation>
+  <uk-gaap:TangibleFixedAssetsCostOrValuation contextRef="A_Y_AE" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">154,878</uk-gaap:TangibleFixedAssetsCostOrValuation>
+  <uk-gaap:TangibleFixedAssetsCostOrValuation contextRef="A" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">676,004</uk-gaap:TangibleFixedAssetsCostOrValuation>
+  <uk-gaap:TangibleFixedAssetsAdditions contextRef="C_Y_AJ_Z_AB" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">8,391</uk-gaap:TangibleFixedAssetsAdditions>
+  <uk-gaap:TangibleFixedAssetsAdditions contextRef="C_Y_AC" decimals="0" scale="0" unitRef="GBP">915</uk-gaap:TangibleFixedAssetsAdditions>
+  <uk-gaap:TangibleFixedAssetsAdditions contextRef="C_Y_AD" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">45,658</uk-gaap:TangibleFixedAssetsAdditions>
+  <uk-gaap:TangibleFixedAssetsAdditions contextRef="C_Y_AE" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">2,759</uk-gaap:TangibleFixedAssetsAdditions>
+  <uk-gaap:TangibleFixedAssetsAdditions contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">57,723</uk-gaap:TangibleFixedAssetsAdditions>
+  <uk-gaap:TangibleFixedAssetsDisposals contextRef="C_Y_AJ_Z_AB" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">11,663</uk-gaap:TangibleFixedAssetsDisposals>
+  <uk-gaap:TangibleFixedAssetsDisposals contextRef="C_Y_AC" decimals="0" scale="0" unitRef="GBP">249</uk-gaap:TangibleFixedAssetsDisposals>
+  <uk-gaap:TangibleFixedAssetsDisposals contextRef="C_Y_AD" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">59,382</uk-gaap:TangibleFixedAssetsDisposals>
+  <uk-gaap:TangibleFixedAssetsDisposals contextRef="C_Y_AE" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">2,626</uk-gaap:TangibleFixedAssetsDisposals>
+  <uk-gaap:TangibleFixedAssetsDisposals contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">73,920</uk-gaap:TangibleFixedAssetsDisposals>
+  <uk-gaap:TangibleFixedAssetsCostOrValuation contextRef="B_Y_AJ_Z_AB" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">321,484</uk-gaap:TangibleFixedAssetsCostOrValuation>
+  <uk-gaap:TangibleFixedAssetsCostOrValuation contextRef="B_Y_AC" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">46,403</uk-gaap:TangibleFixedAssetsCostOrValuation>
+  <uk-gaap:TangibleFixedAssetsCostOrValuation contextRef="B_Y_AD" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">136,909</uk-gaap:TangibleFixedAssetsCostOrValuation>
+  <uk-gaap:TangibleFixedAssetsCostOrValuation contextRef="B_Y_AE" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">155,011</uk-gaap:TangibleFixedAssetsCostOrValuation>
+  <uk-gaap:TangibleFixedAssetsCostOrValuation contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">659,807</uk-gaap:TangibleFixedAssetsCostOrValuation>
+  <uk-gaap:TangibleFixedAssetsDepreciation contextRef="A_Y_AJ_Z_AB" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">313,318</uk-gaap:TangibleFixedAssetsDepreciation>
+  <uk-gaap:TangibleFixedAssetsDepreciation contextRef="A_Y_AC" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">41,718</uk-gaap:TangibleFixedAssetsDepreciation>
+  <uk-gaap:TangibleFixedAssetsDepreciation contextRef="A_Y_AD" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">89,492</uk-gaap:TangibleFixedAssetsDepreciation>
+  <uk-gaap:TangibleFixedAssetsDepreciation contextRef="A_Y_AE" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">128,294</uk-gaap:TangibleFixedAssetsDepreciation>
+  <uk-gaap:TangibleFixedAssetsDepreciation contextRef="A" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">572,822</uk-gaap:TangibleFixedAssetsDepreciation>
+  <uk-gaap:TangibleFixedAssetsDepreciationDecreaseIncreaseOnDisposals contextRef="C_Y_AJ_Z_AB" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">11,377</uk-gaap:TangibleFixedAssetsDepreciationDecreaseIncreaseOnDisposals>
+  <uk-gaap:TangibleFixedAssetsDepreciationDecreaseIncreaseOnDisposals contextRef="C_Y_AC" decimals="0" scale="0" unitRef="GBP">249</uk-gaap:TangibleFixedAssetsDepreciationDecreaseIncreaseOnDisposals>
+  <uk-gaap:TangibleFixedAssetsDepreciationDecreaseIncreaseOnDisposals contextRef="C_Y_AD" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">45,586</uk-gaap:TangibleFixedAssetsDepreciationDecreaseIncreaseOnDisposals>
+  <uk-gaap:TangibleFixedAssetsDepreciationDecreaseIncreaseOnDisposals contextRef="C_Y_AE" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">2,626</uk-gaap:TangibleFixedAssetsDepreciationDecreaseIncreaseOnDisposals>
+  <uk-gaap:TangibleFixedAssetsDepreciationDecreaseIncreaseOnDisposals contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">59,838</uk-gaap:TangibleFixedAssetsDepreciationDecreaseIncreaseOnDisposals>
+  <uk-gaap:TangibleFixedAssetsDepreciationChargedInPeriod contextRef="C_Y_AJ_Z_AB" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">5,379</uk-gaap:TangibleFixedAssetsDepreciationChargedInPeriod>
+  <uk-gaap:TangibleFixedAssetsDepreciationChargedInPeriod contextRef="C_Y_AC" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">2,406</uk-gaap:TangibleFixedAssetsDepreciationChargedInPeriod>
+  <uk-gaap:TangibleFixedAssetsDepreciationChargedInPeriod contextRef="C_Y_AD" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">25,005</uk-gaap:TangibleFixedAssetsDepreciationChargedInPeriod>
+  <uk-gaap:TangibleFixedAssetsDepreciationChargedInPeriod contextRef="C_Y_AE" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">14,825</uk-gaap:TangibleFixedAssetsDepreciationChargedInPeriod>
+  <uk-gaap:TangibleFixedAssetsDepreciationChargedInPeriod contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">47,615</uk-gaap:TangibleFixedAssetsDepreciationChargedInPeriod>
+  <uk-gaap:TangibleFixedAssetsDepreciation contextRef="B_Y_AJ_Z_AB" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">307,320</uk-gaap:TangibleFixedAssetsDepreciation>
+  <uk-gaap:TangibleFixedAssetsDepreciation contextRef="B_Y_AC" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">43,875</uk-gaap:TangibleFixedAssetsDepreciation>
+  <uk-gaap:TangibleFixedAssetsDepreciation contextRef="B_Y_AD" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">68,911</uk-gaap:TangibleFixedAssetsDepreciation>
+  <uk-gaap:TangibleFixedAssetsDepreciation contextRef="B_Y_AE" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">140,493</uk-gaap:TangibleFixedAssetsDepreciation>
+  <uk-gaap:TangibleFixedAssetsDepreciation contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">560,599</uk-gaap:TangibleFixedAssetsDepreciation>
+  <uk-gaap:TangibleFixedAssets contextRef="B_Y_AJ_Z_AB" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">14,164</uk-gaap:TangibleFixedAssets>
+  <uk-gaap:TangibleFixedAssets contextRef="B_Y_AC" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">2,528</uk-gaap:TangibleFixedAssets>
+  <uk-gaap:TangibleFixedAssets contextRef="B_Y_AD" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">67,998</uk-gaap:TangibleFixedAssets>
+  <uk-gaap:TangibleFixedAssets contextRef="B_Y_AE" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">14,518</uk-gaap:TangibleFixedAssets>
+  <uk-gaap:TangibleFixedAssets contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">99,208</uk-gaap:TangibleFixedAssets>
+  <uk-gaap:TangibleFixedAssets contextRef="E_Y_AJ_Z_AB" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">11,438</uk-gaap:TangibleFixedAssets>
+  <uk-gaap:TangibleFixedAssets contextRef="E_Y_AC" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">4,019</uk-gaap:TangibleFixedAssets>
+  <uk-gaap:TangibleFixedAssets contextRef="E_Y_AD" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">61,141</uk-gaap:TangibleFixedAssets>
+  <uk-gaap:TangibleFixedAssets contextRef="E_Y_AE" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">26,584</uk-gaap:TangibleFixedAssets>
+  <uk-gaap:TangibleFixedAssets contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">103,182</uk-gaap:TangibleFixedAssets>
+  <uk-gaap:StocksRawMaterialsConsumables contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">175,986</uk-gaap:StocksRawMaterialsConsumables>
+  <uk-gaap:StocksRawMaterialsConsumables contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">121,019</uk-gaap:StocksRawMaterialsConsumables>
+  <uk-gaap:WorkInProgress contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">2,878</uk-gaap:WorkInProgress>
+  <uk-gaap:Long-termContractsNetCostLessForeseeableLosses contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">19,686</uk-gaap:Long-termContractsNetCostLessForeseeableLosses>
+  <uk-gaap:StocksInventory contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">195,672</uk-gaap:StocksInventory>
+  <uk-gaap:StocksInventory contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">123,897</uk-gaap:StocksInventory>
+  <uk-gaap:TradeDebtors contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">859,465</uk-gaap:TradeDebtors>
+  <uk-gaap:TradeDebtors contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">558,449</uk-gaap:TradeDebtors>
+  <uk-gaap:CalledUpShareCapitalNot-paidCurrentAsset contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">3,726</uk-gaap:CalledUpShareCapitalNot-paidCurrentAsset>
+  <uk-gaap:OtherDebtors contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">4,707</uk-gaap:OtherDebtors>
+  <uk-gaap:OtherDebtors contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">2,464</uk-gaap:OtherDebtors>
+  <uk-gaap:PrepaymentsAccruedIncomeCurrentAsset contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">52,816</uk-gaap:PrepaymentsAccruedIncomeCurrentAsset>
+  <uk-gaap:PrepaymentsAccruedIncomeCurrentAsset contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">36,737</uk-gaap:PrepaymentsAccruedIncomeCurrentAsset>
+  <uk-gaap:Debtors contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">920,714</uk-gaap:Debtors>
+  <uk-gaap:Debtors contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">597,650</uk-gaap:Debtors>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-gaap:TradeCreditorsWithinOneYear contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">268,062</uk-gaap:TradeCreditorsWithinOneYear>
+  <uk-gaap:TradeCreditorsWithinOneYear contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">133,886</uk-gaap:TradeCreditorsWithinOneYear>
+  <uk-gaap:CorporationTaxDueWithinOneYear contextRef="B" decimals="0" scale="0" unitRef="GBP">355</uk-gaap:CorporationTaxDueWithinOneYear>
+  <uk-gaap:CorporationTaxDueWithinOneYear contextRef="E" decimals="0" scale="0" unitRef="GBP">934</uk-gaap:CorporationTaxDueWithinOneYear>
+  <uk-gaap:OtherTaxationSocialSecurityWithinOneYear contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">166,374</uk-gaap:OtherTaxationSocialSecurityWithinOneYear>
+  <uk-gaap:OtherTaxationSocialSecurityWithinOneYear contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">135,100</uk-gaap:OtherTaxationSocialSecurityWithinOneYear>
+  <uk-gaap:OtherCreditorsDueWithinOneYear contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">182,840</uk-gaap:OtherCreditorsDueWithinOneYear>
+  <uk-gaap:OtherCreditorsDueWithinOneYear contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">2,880</uk-gaap:OtherCreditorsDueWithinOneYear>
+  <uk-gaap:AccrualsDeferredIncomeWithinOneYear contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">140,364</uk-gaap:AccrualsDeferredIncomeWithinOneYear>
+  <uk-gaap:AccrualsDeferredIncomeWithinOneYear contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">45,588</uk-gaap:AccrualsDeferredIncomeWithinOneYear>
+  <uk-gaap:CreditorsDueWithinOneYear contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">757,995</uk-gaap:CreditorsDueWithinOneYear>
+  <uk-gaap:CreditorsDueWithinOneYear contextRef="E" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">318,388</uk-gaap:CreditorsDueWithinOneYear>
+  <uk-gaap:PensionsCostsDefinedContributionSchemes contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">4,181</uk-gaap:PensionsCostsDefinedContributionSchemes>
+  <uk-gaap:NumberSharesAllotted contextRef="B_AK_AL" decimals="0" scale="0" unitRef="Shares" format="ixt:numcommadot">198,718</uk-gaap:NumberSharesAllotted>
+  <uk-bus:DescriptionShareType contextRef="C_AK_AL">Ordinary Shares</uk-bus:DescriptionShareType>
+  <uk-gaap:ParValueShare contextRef="C_AK_AL" decimals="0" scale="0" unitRef="GBP">1</uk-gaap:ParValueShare>
+  <uk-gaap:ShareCapitalAllottedCalledUpPaid contextRef="B_AK_AL" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">198,718</uk-gaap:ShareCapitalAllottedCalledUpPaid>
+  <uk-gaap:ShareCapitalAllottedCalledUpPaid contextRef="E_AK_AL" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">225,000</uk-gaap:ShareCapitalAllottedCalledUpPaid>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-gaap:OtherReserves contextRef="A" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">25,000</uk-gaap:OtherReserves>
+  <uk-gaap:ProfitLossAccountReserve contextRef="A" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">962,945</uk-gaap:ProfitLossAccountReserve>
+  <uk-gaap:ProfitLossForPeriod contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">229,094</uk-gaap:ProfitLossForPeriod>
+  <uk-gaap:TotalDividendPayment contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">180,000</uk-gaap:TotalDividendPayment>
+  <uk-gaap:OtherReserves contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">56,250</uk-gaap:OtherReserves>
+  <uk-gaap:ProfitLossAccountReserve contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">952,039</uk-gaap:ProfitLossAccountReserve>
+  <uk-gaap:ProfitLossForPeriod contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">229,094</uk-gaap:ProfitLossForPeriod>
+  <uk-gaap:ProfitLossForPeriod contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">73,749</uk-gaap:ProfitLossForPeriod>
+  <uk-gaap:TotalDividendPayment contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">180,000</uk-gaap:TotalDividendPayment>
+  <uk-gaap:NetIncreaseDecreaseInShareholdersFunds contextRef="C" decimals="0" scale="0" unitRef="GBP" sign="-" format="ixt:numcommadot">5,938</uk-gaap:NetIncreaseDecreaseInShareholdersFunds>
+  <uk-gaap:NetIncreaseDecreaseInShareholdersFunds contextRef="F" decimals="0" scale="0" unitRef="GBP" sign="-" format="ixt:numcommadot">41,251</uk-gaap:NetIncreaseDecreaseInShareholdersFunds>
+  <uk-gaap:ShareholderFunds contextRef="A" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">1,212,945</uk-gaap:ShareholderFunds>
+  <uk-gaap:ShareholderFunds contextRef="D" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">1,254,196</uk-gaap:ShareholderFunds>
+  <uk-gaap:ShareholderFunds contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">1,207,007</uk-gaap:ShareholderFunds>
+  <uk-gaap:ShareholderFunds contextRef="A" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">1,212,945</uk-gaap:ShareholderFunds>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-gaap:LandBuildingsOperatingLeasesExpiringWithinOneYear contextRef="B" decimals="0" scale="0" unitRef="GBP" sign="-" format="ixt:numcommadot">93,333</uk-gaap:LandBuildingsOperatingLeasesExpiringWithinOneYear>
+  <uk-gaap:OtherOperatingLeasesExpiringWithinOneYear contextRef="B" decimals="0" scale="0" unitRef="GBP" sign="-" format="ixt:numcommadot">8,216</uk-gaap:OtherOperatingLeasesExpiringWithinOneYear>
+  <uk-gaap:OtherOperatingLeasesExpiringWithinOneYear contextRef="E" decimals="0" scale="0" unitRef="GBP" sign="-" format="ixt:numcommadot">6,724</uk-gaap:OtherOperatingLeasesExpiringWithinOneYear>
+  <uk-gaap:LandBuildingsOperatingLeasesExpiringBetweenTwoFiveYears contextRef="E" decimals="0" scale="0" unitRef="GBP" sign="-" format="ixt:numcommadot">140,000</uk-gaap:LandBuildingsOperatingLeasesExpiringBetweenTwoFiveYears>
+  <uk-gaap:OtherOperatingLeasesExpiringBetweenTwoFiveYears contextRef="B" decimals="0" scale="0" unitRef="GBP" sign="-" format="ixt:numcommadot">21,048</uk-gaap:OtherOperatingLeasesExpiringBetweenTwoFiveYears>
+  <uk-gaap:OtherOperatingLeasesExpiringBetweenTwoFiveYears contextRef="E" decimals="0" scale="0" unitRef="GBP" sign="-" format="ixt:numcommadot">9,859</uk-gaap:OtherOperatingLeasesExpiringBetweenTwoFiveYears>
+  <uk-gaap:CommitmentsUnderNon-cancellableOperatingLeasesLandBuildings contextRef="B" decimals="0" scale="0" unitRef="GBP" sign="-" format="ixt:numcommadot">93,333</uk-gaap:CommitmentsUnderNon-cancellableOperatingLeasesLandBuildings>
+  <uk-gaap:CommitmentsUnderNon-cancellableOperatingLeasesLandBuildings contextRef="E" decimals="0" scale="0" unitRef="GBP" sign="-" format="ixt:numcommadot">140,000</uk-gaap:CommitmentsUnderNon-cancellableOperatingLeasesLandBuildings>
+  <uk-gaap:CommitmentsUnderNon-cancellableOperatingLeasesOtherItems contextRef="B" decimals="0" scale="0" unitRef="GBP" sign="-" format="ixt:numcommadot">29,264</uk-gaap:CommitmentsUnderNon-cancellableOperatingLeasesOtherItems>
+  <uk-gaap:CommitmentsUnderNon-cancellableOperatingLeasesOtherItems contextRef="E" decimals="0" scale="0" unitRef="GBP" sign="-" format="ixt:numcommadot">16,583</uk-gaap:CommitmentsUnderNon-cancellableOperatingLeasesOtherItems>
+  <uk-direp:DirectorRemunerationBenefitsIncludingPaymentsToThirdParties contextRef="C_B_AO" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">122,646</uk-direp:DirectorRemunerationBenefitsIncludingPaymentsToThirdParties>
+  <uk-direp:DirectorRemunerationBenefitsIncludingPaymentsToThirdParties contextRef="F_B_AO" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">146,012</uk-direp:DirectorRemunerationBenefitsIncludingPaymentsToThirdParties>
+  <uk-direp:CompanyContributionsToMoneyPurchaseSchemesDirectors contextRef="F_B_AO" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">4,181</uk-direp:CompanyContributionsToMoneyPurchaseSchemesDirectors>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-gaap:WagesSalaries contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">871,282</uk-gaap:WagesSalaries>
+  <uk-gaap:WagesSalaries contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">837,978</uk-gaap:WagesSalaries>
+  <uk-gaap:SocialSecurityCosts contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">82,469</uk-gaap:SocialSecurityCosts>
+  <uk-gaap:SocialSecurityCosts contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">79,007</uk-gaap:SocialSecurityCosts>
+  <uk-gaap:PensionCosts contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">4,181</uk-gaap:PensionCosts>
+  <uk-gaap:StaffCosts contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">953,751</uk-gaap:StaffCosts>
+  <uk-gaap:StaffCosts contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">921,166</uk-gaap:StaffCosts>
+  <uk-gaap:OperatingProfitLoss contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">227,673</uk-gaap:OperatingProfitLoss>
+  <uk-gaap:OperatingProfitLoss contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">70,014</uk-gaap:OperatingProfitLoss>
+  <uk-gaap:GainLossFromDisposalTangibleFixedAssets contextRef="C" decimals="0" scale="0" unitRef="GBP" sign="-" format="ixt:numcommadot">4,958</uk-gaap:GainLossFromDisposalTangibleFixedAssets>
+  <uk-gaap:GainLossFromDisposalTangibleFixedAssets contextRef="F" decimals="0" scale="0" unitRef="GBP" sign="-" format="ixt:numcommadot">1,187</uk-gaap:GainLossFromDisposalTangibleFixedAssets>
+  <uk-bus:BalanceSheetDate contextRef="A" format="ixt:datelonguk">31 December 2014</uk-bus:BalanceSheetDate>
+  <uk-gaap:CashBankInHand contextRef="A" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">706,604</uk-gaap:CashBankInHand>
+  <uk-gaap:CashBankInHand contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">749,408</uk-gaap:CashBankInHand>
+  <uk-gaap:NetDebtFunds contextRef="A" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">706,604</uk-gaap:NetDebtFunds>
+  <uk-gaap:NetDebtFunds contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">749,408</uk-gaap:NetDebtFunds>
+  <uk-bus:EntityCurrentLegalOrRegisteredName contextRef="C">FORDINGBRIDGE PLC</uk-bus:EntityCurrentLegalOrRegisteredName>
+  <uk-gaap:IncreaseDecreaseInNetCashForPeriod contextRef="C" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">42,804</uk-gaap:IncreaseDecreaseInNetCashForPeriod>
+  <uk-gaap:IncreaseDecreaseInNetCashForPeriod contextRef="F" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">23,068</uk-gaap:IncreaseDecreaseInNetCashForPeriod>
+  <uk-gaap:NetDebtFunds contextRef="A" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">706,604</uk-gaap:NetDebtFunds>
+  <uk-gaap:NetDebtFunds contextRef="B" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">749,408</uk-gaap:NetDebtFunds>
+  <uk-gaap:NetDebtFunds contextRef="A" decimals="0" scale="0" unitRef="GBP" format="ixt:numcommadot">706,604</uk-gaap:NetDebtFunds>
+  <uk-bus:EndDateForPeriodCoveredByReport contextRef="B">2014-12-31</uk-bus:EndDateForPeriodCoveredByReport>
+  <uk-bus:StartDateForPeriodCoveredByReport contextRef="B">2014-01-01</uk-bus:StartDateForPeriodCoveredByReport>
+  <uk-bus:EntityDormant contextRef="C">false</uk-bus:EntityDormant>
+  <uk-bus:EntityTrading contextRef="C">true</uk-bus:EntityTrading>
+  <uk-bus:NameAuthor contextRef="C">
+  </uk-bus:NameAuthor>
+  <uk-bus:DescriptionOrTitleAuthor contextRef="C">
+  </uk-bus:DescriptionOrTitleAuthor>
+  <uk-bus:PrincipleDocumentAuthor contextRef="C">true</uk-bus:PrincipleDocumentAuthor>
+  <uk-gaap:CompanyExemptFromPreparingCashFlowStatementUnderFRS1 contextRef="C">false</uk-gaap:CompanyExemptFromPreparingCashFlowStatementUnderFRS1>
+  <uk-gaap:AccountsPreparedUnderHistoricalCostConventionInAccordanceWithFRSSE contextRef="C">false</uk-gaap:AccountsPreparedUnderHistoricalCostConventionInAccordanceWithFRSSE>
+  <uk-gaap:StatementThatThereWereNoGainsLossesInPeriodOtherThanThoseInProfitLossAccount contextRef="C">true</uk-gaap:StatementThatThereWereNoGainsLossesInPeriodOtherThanThoseInProfitLossAccount>
+  <uk-bus:XBRLDocumentFilename contextRef="C">tmpC440.html</uk-bus:XBRLDocumentFilename>
+  <uk-bus:XBRLDocumentCreationDate contextRef="B">2015-05-07</uk-bus:XBRLDocumentCreationDate>
+</xbrl>

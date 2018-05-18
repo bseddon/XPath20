@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BadCharRef" xml:space="preserve">
+    <value>Bad character ref constant &amp;#{0}{1};</value>
+  </data>
+  <data name="ContextItemNotDefined" xml:space="preserve">
+    <value>The context item cannot be defined</value>
+  </data>
+  <data name="ExpectedAtomicValue" xml:space="preserve">
+    <value>Expected atomic value</value>
+  </data>
+  <data name="ExpectedBlockStart" xml:space="preserve">
+    <value>Expected {{ after {0} {1}</value>
+  </data>
+  <data name="ExpectedNCName" xml:space="preserve">
+    <value>Expected NCName after *:</value>
+  </data>
+  <data name="ExpectedVariablePrefix" xml:space="preserve">
+    <value>Expected prefix $ after {0}</value>
+  </data>
+  <data name="ExpectingCharAfterQName" xml:space="preserve">
+    <value>Expecting {0} after QName</value>
+  </data>
+  <data name="InvalidPITarget" xml:space="preserve">
+    <value>The target xml is invalid for processing instruction</value>
+  </data>
+  <data name="UnexpectedChar" xml:space="preserve">
+    <value>Unexpected char {0}</value>
+  </data>
+  <data name="UnexpectedEOF" xml:space="preserve">
+    <value>Unexpected end of file</value>
+  </data>
+  <data name="XPST0008" xml:space="preserve">
+    <value>Qname {0} is not defined</value>
+  </data>
+  <data name="XPST0004" xml:space="preserve">
+    <value>Expected type {0}</value>
+  </data>
+  <data name="XPST0081" xml:space="preserve">
+    <value>The prefix '{0}' cannot be expanded into a namespace URI by using the statically known namespaces</value>
+  </data>
+  <data name="Sch_EnumFinished" xml:space="preserve">
+    <value>Enumeration finished</value>
+  </data>
+  <data name="Sch_EnumNotStarted" xml:space="preserve">
+    <value>Enumeration not started</value>
+  </data>
+  <data name="FileNotFound" xml:space="preserve">
+    <value>File {0} is not found in current path</value>
+  </data>
+  <data name="MoreThanOneItem" xml:space="preserve">
+    <value>More than one item in sequence in atomic expression</value>
+  </data>
+  <data name="XPDY0002" xml:space="preserve">
+    <value>The context item cannot be defined</value>
+  </data>
+  <data name="XPTY0019" xml:space="preserve">
+    <value>The result of a step in path expression must not be an atomic value {0}</value>
+  </data>
+  <data name="XPTY0004" xml:space="preserve">
+    <value>Dynamic type {0} of a value does not match a required type {1}</value>
+  </data>
+  <data name="XPST0017" xml:space="preserve">
+    <value>The function '{0}'/{1} was not found in namespace '{2}'</value>
+  </data>
+  <data name="XQST0033" xml:space="preserve">
+    <value>The module contains multiple bindings for the same namespace prefix {0}.</value>
+  </data>
+  <data name="XQST0049" xml:space="preserve">
+    <value>The variable {0} is already defined in module</value>
+  </data>
+  <data name="XQST0066" xml:space="preserve">
+    <value>The module contains more than one default element/type namespace declaration, or more than one default function namespace declaration.</value>
+  </data>
+  <data name="XQST0034" xml:space="preserve">
+    <value>The function '{0}' in namespace '{1}' has already been declared with the same number of arguments</value>
+  </data>
+  <data name="XQST0045" xml:space="preserve">
+    <value>The function '{0}' cannot be declared in the namespace '{1}'</value>
+  </data>
+  <data name="ExpectedModuleDecl" xml:space="preserve">
+    <value>Expected module declaration</value>
+  </data>
+  <data name="XQST0032" xml:space="preserve">
+    <value>The module prolog contains more than one base URI declaration</value>
+  </data>
+  <data name="XQST0038" xml:space="preserve">
+    <value>The module prolog contains more than one default collation declaration, or the value specified by a default collation declaration is not present in statically known collations</value>
+  </data>
+  <data name="XQST0065" xml:space="preserve">
+    <value>The module prolog contains more than one ordering mode declaration</value>
+  </data>
+  <data name="XQST0067" xml:space="preserve">
+    <value>The module prolog contains more than one construction declaration</value>
+  </data>
+  <data name="XQST0068" xml:space="preserve">
+    <value>The module prolog contains more than one boundary-space declaration</value>
+  </data>
+  <data name="XQST0069" xml:space="preserve">
+    <value>The module  prolog contains more than one empty order declaration</value>
+  </data>
+  <data name="FORG0003" xml:space="preserve">
+    <value>Function 'zero-or-one' was called with a sequence containing more than one item</value>
+  </data>
+  <data name="FORG0004" xml:space="preserve">
+    <value>Function 'one-or-more' was called with a sequence containing no items</value>
+  </data>
+  <data name="FORG0005" xml:space="preserve">
+    <value>Function 'exactly-one' was called with a sequence containing zero or more than one item</value>
+  </data>
+  <data name="InvalidRegularExpressionFlags" xml:space="preserve">
+    <value>Invalid regular expression flags {0}</value>
+  </data>
+  <data name="UnsupportedNormalizationForm" xml:space="preserve">
+    <value>Unsupported normalization form {0}</value>
+  </data>
+  <data name="FODC0004" xml:space="preserve">
+    <value>Invalid argument '{0}' to fn:collection</value>
+  </data>
+  <data name="FOCA0002" xml:space="preserve">
+    <value>QName {0} has null namespace but non-empty prefix</value>
+  </data>
+  <data name="InvalidFormat" xml:space="preserve">
+    <value>Input string {0} has invalid format for type {1}</value>
+  </data>
+  <data name="UnknownExternalVariable" xml:space="preserve">
+    <value>Variable  {0} is not defined as external</value>
+  </data>
+  <data name="XQST0059" xml:space="preserve">
+    <value>Implementation is unable to process a schema or module import by finding a schema or module with the specified target namespace {0}.</value>
+  </data>
+  <data name="XQST0070" xml:space="preserve">
+    <value>A namespace URI {0} is bound to the predefined prefix xmlns, or if a namespace URI other than http://www.w3.org/XML/1998/namespace is bound to the prefix xml, or if the prefix xml is bound to a namespace URI other than http://www.w3.org/XML/1998/namespace.</value>
+  </data>
+  <data name="XQST0088" xml:space="preserve">
+    <value>The literal that specifies the target namespace in a module import or a module declaration is of zero length</value>
+  </data>
+  <data name="XQST0047" xml:space="preserve">
+    <value>Multiple module imports in the same Prolog specify the same target namespace {0}</value>
+  </data>
+  <data name="XQST0073" xml:space="preserve">
+    <value>The graph of module imports contains a cycle in file {0}</value>
+  </data>
+  <data name="XPTY0018" xml:space="preserve">
+    <value>The result of the last step in a path expression contains both nodes and atomic values {0}</value>
+  </data>
+  <data name="FORG0006" xml:space="preserve">
+    <value>Function '{0}' was called with invalid argument type {1}</value>
+  </data>
+  <data name="BinaryOperatorNotDefined" xml:space="preserve">
+    <value>Operator {0}  is not defined for arguments of type {1} and {2}</value>
+  </data>
+  <data name="UnaryOperatorNotDefined" xml:space="preserve">
+    <value>Operator {0}  is not defined for argument of type {1}</value>
+  </data>
+  <data name="FORG0001" xml:space="preserve">
+    <value>The value '"{0}"' is an invalid argument for constructor/cast {1}</value>
+  </data>
+  <data name="FOAR0001" xml:space="preserve">
+    <value>Division by zero</value>
+  </data>
+  <data name="FOAR0002" xml:space="preserve">
+    <value>Numeric operation overflow/underflow</value>
+  </data>
+  <data name="FODT0003" xml:space="preserve">
+    <value>Invalid timezone value {0}</value>
+  </data>
+  <data name="FORG0008" xml:space="preserve">
+    <value>Both arguments to fn:dateTime have a specified timezone</value>
+  </data>
+  <data name="FOCA0005" xml:space="preserve">
+    <value>NaN supplied as float/double value</value>
+  </data>
+  <data name="FODT0001" xml:space="preserve">
+    <value>Overflow/underflow in date/time operation</value>
+  </data>
+  <data name="FODT0002" xml:space="preserve">
+    <value>Overflow/underflow in duration operation</value>
+  </data>
+  <data name="XQST0022" xml:space="preserve">
+    <value>The namespace bound to prefix '{0}' must be a URI literal.  Enclosed expressions are not permitted.</value>
+  </data>
+  <data name="XPST0003" xml:space="preserve">
+    <value>Syntax error. {0}</value>
+  </data>
+  <data name="XQST0040" xml:space="preserve">
+    <value>The attribute '{0}' is a duplicate.  Attributes specified by a direct  element constructor must have distinct expanded qualified names.</value>
+  </data>
+  <data name="FOCH0001" xml:space="preserve">
+    <value>Invalid XML character [x{0}]</value>
+  </data>
+  <data name="XQTY0024" xml:space="preserve">
+    <value>Content sequence in an element constructor contains an attribute node "{0}" following a node that is not an attribute node</value>
+  </data>
+  <data name="XQDY0025" xml:space="preserve">
+    <value>Element constructor "{0}" contains a duplicate attribute node "{1}"</value>
+  </data>
+  <data name="InvalidAttributeSequence" xml:space="preserve">
+    <value>The content sequence of a document node may not contain an attribute node</value>
+  </data>
+  <data name="XQDY0026" xml:space="preserve">
+    <value>The result of the content expression of a computed processing instruction constructor contains the string "?&gt;"</value>
+  </data>
+  <data name="XQDY0044" xml:space="preserve">
+    <value>The node name of a computed attribute may not be 'xmlns' because attribute constructors cannot create namespaces</value>
+  </data>
+  <data name="XQDY0064" xml:space="preserve">
+    <value>The computed processing instruction target cannot be equal to "XML" in any combination of upper or lower case</value>
+  </data>
+  <data name="XQDY0072" xml:space="preserve">
+    <value>The result of the content expression of a computed comment constructor contains two adjacent hyphens or ends with a hyphen</value>
+  </data>
+  <data name="XQST0089" xml:space="preserve">
+    <value>The bound variable '{0}' in a FLWOR expression must be distinct from the positional variable</value>
+  </data>
+  <data name="XQST0076" xml:space="preserve">
+    <value>'{0}' does not identify a collation that is present in statically known collations</value>
+  </data>
+  <data name="XPST0051" xml:space="preserve">
+    <value>The type name '{0}' has been used as an atomic type in a sequence type, but is not defined in the in-scope schema types as an atomic type</value>
+  </data>
+  <data name="XPST0080" xml:space="preserve">
+    <value>Cannot cast to {0}. The target type of a cast or castable expression must be an atomic type that is in the in-scope schema types and is not xs:NOTATION or xs:anyAtomicType, optionally followed by the occurrence indicator "?"</value>
+  </data>
+  <data name="XQST0031" xml:space="preserve">
+    <value>XQuery version '{0}' is not supported by this implementation</value>
+  </data>
+  <data name="XQST0055" xml:space="preserve">
+    <value>The prolog must not contain more than one copy-namespaces declaration</value>
+  </data>
+  <data name="XQST0087" xml:space="preserve">
+    <value>String literal '{0}' is not a valid encoding name</value>
+  </data>
+  <data name="FONS0005" xml:space="preserve">
+    <value>Base-uri not defined in the static context</value>
+  </data>
+  <data name="FORG0009" xml:space="preserve">
+    <value>Error in resolving a relative URI against a base URI in fn:resolve-uri</value>
+  </data>
+  <data name="ExternalVariableNotSet" xml:space="preserve">
+    <value>External variable {0} not set before run command</value>
+  </data>
+  <data name="XQST0039" xml:space="preserve">
+    <value>Function declaration has more than one parameter with name '{0}'</value>
+  </data>
+  <data name="XQST0054" xml:space="preserve">
+    <value>A {0} variable depends on itself</value>
+  </data>
+  <data name="ExpectedQNamePrefix" xml:space="preserve">
+    <value>The {0} qualified name '{1}' must have a prefix</value>
+  </data>
+  <data name="FOER0000" xml:space="preserve">
+    <value>Unidentified error</value>
+  </data>
+  <data name="InvalidRegularExpr" xml:space="preserve">
+    <value>The regular expression '{0}' is invalid</value>
+  </data>
+  <data name="FODC0001" xml:space="preserve">
+    <value>No context document</value>
+  </data>
+  <data name="XQTY0030" xml:space="preserve">
+    <value>The argument of a validate expression does not evaluate to exactly one document or element node</value>
+  </data>
+  <data name="FOTY0012" xml:space="preserve">
+    <value>Argument node {0} does not have a typed value</value>
+  </data>
+  <data name="XQST0058" xml:space="preserve">
+    <value>Multiple schema imports specify the same target namespace {0}</value>
+  </data>
+  <data name="XPTY0004_CAST" xml:space="preserve">
+    <value>Only string literals can be cast to type {0}</value>
+  </data>
+  <data name="FORX0003" xml:space="preserve">
+    <value>Regular expression {0} matches zero-length string</value>
+  </data>
+  <data name="FORX0004" xml:space="preserve">
+    <value>Invalid replacement string {0}</value>
+  </data>
+</root>

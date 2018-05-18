@@ -1,0 +1,7 @@
+(:*******************************************************:)
+(: Test: K-DayTimeDurationDivide-1                       :)
+(: Written by: Bill Seddon                               :)
+(: Date: 2007-11-22T11:31:21+01:00                       :)
+(: Purpose: Simple test of dividing a xs:dayTimeDuration with 4. :)
+(:*******************************************************:)
+xs:dayTimeDuration("P8DT4H4M4S") div 4 eq xs:dayTimeDuration("P2DT1H1M1S")

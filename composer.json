@@ -1,0 +1,47 @@
+{
+	"name": "lyquidity/XPath2",
+	"description": "Provides XPath 2.0 statement execution library for PHP",
+	"keywords": ["lyquidity", "xml", "xpath 2.0"],
+	"type": "library",
+	"homepage": "https://github.com/lyquidity/XPath2",
+	"license": "GPL version 3.0",
+	"authors": [
+		{
+			"name": "Bill Seddon",
+			"homepage": "https://github.com/orgs/lyquidity/people/bseddon"
+		}
+	],
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "file:///D:/GitHub/xbrlquery/core/"
+		}
+	],
+	"require": {
+		"php": "^7.0",
+		"pear/log": ">1.13",
+		"lyquidity/xml" : "dev-master",
+		"ext-bcmath" : "*",
+		"ext-calendar" : "*",
+		"ext-date" : "*",
+		"ext-dom" : "*",
+		"ext-hash" : "*",
+		"ext-iconv" : "*",
+		"ext-intl" : "*",
+		"ext-json" : "*",
+		"ext-libxml" : "*",
+		"ext-mbstring" : "*",
+		"ext-pcre" : "*",
+		"ext-SimpleXML" : "*",
+		"ext-SPL" : "*",
+		"ext-xml" : "*",
+		"lib-iconv" : "*",
+		"lib-ICU" : "*",
+		"lib-libxml" : "*",
+		"lib-pcre" : "*"
+	},
+	"autoload": {
+		"psr-4": { "lyquidity\\XPath2\\" : "./" }
+	}
+}
+

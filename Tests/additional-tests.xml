@@ -1,0 +1,123 @@
+<test-group xmlns="http://www.w3.org/2005/02/query-test-XQTSCatalog" name="DayTimeDurationAdd" featureOwner="Bill Seddon">
+	<GroupInfo>
+		<title>Allternatives for some duration tests</title>
+		<description>
+			This group of tests stand in for the originals in the conformance suite.  These originals all
+			use fractional components in the duration specification such as P1.5Y and PHP does not support 
+			such fractional components. The tests at least make sure that any other relevant parameters
+			tested by the originals are tested.
+		</description>
+	</GroupInfo>
+	<test-case is-XPath2="true" Creator="Bill Seddon" name="L-DayTimeDurationAdd-1" FilePath="DayTimeDurationAdd/" scenario="standard">
+		<description>Simple test of adding an xs:dayTimeDuration with PT0S.</description>
+		<query name="L-DayTimeDurationAdd-1" date="2007-11-26+01:00"/>
+		<input-file role="principal-data" variable="input-context">emptydoc</input-file>
+		<output-file role="principal" compare="Text">L-DayTimeDurationAdd-1.txt</output-file>
+	</test-case>
+	<test-case is-XPath2="true" Creator="Bill Seddon" name="L-DayTimeDurationAdd-2" FilePath="DayTimeDurationAdd/" scenario="standard">
+		<description>Simple test of substraction PT0S with an xs:dayTimeDuration.</description>
+		<query name="L-DayTimeDurationAdd-2" date="2007-11-26+01:00"/>
+		<input-file role="principal-data" variable="input-context">emptydoc</input-file>
+		<output-file role="principal" compare="Text">L-DayTimeDurationAdd-2.txt</output-file>
+	</test-case>
+	<test-case is-XPath2="true" Creator="Bill Seddon" name="L-DayTimeDurationAdd-3" FilePath="DayTimeDurationAdd/" scenario="standard">
+		<description>Simple test of adding two arbitrary xs:yearMonthDurations.</description>
+		<query name="L-DayTimeDurationAdd-3" date="2007-11-26+01:00"/>
+		<input-file role="principal-data" variable="input-context">emptydoc</input-file>
+		<output-file role="principal" compare="Text">L-DayTimeDurationAdd-3.txt</output-file>
+	</test-case>
+
+	<test-case is-XPath2="true" Creator="Bill Seddon" name="L-DayTimeDurationSubtract-1" FilePath="DayTimeDurationSubtract/" scenario="standard">
+		<description>Simple test of substraction an xs:dayTimeDuration with PT0S.</description>
+		<query name="L-DayTimeDurationSubtract-1" date="2007-11-26+01:00"/>
+		<input-file role="principal-data" variable="input-context">emptydoc</input-file>
+		<output-file role="principal" compare="Text">L-DayTimeDurationSubtract-1.txt</output-file>
+	</test-case>
+	<test-case is-XPath2="true" Creator="Bill Seddon" name="L-DayTimeDurationSubtract-2" FilePath="DayTimeDurationSubtract/" scenario="standard">
+		<description>Simple test of substraction PT0S with an xs:dayTimeDuration.</description>
+		<query name="L-DayTimeDurationSubtract-2" date="2007-11-26+01:00"/>
+		<input-file role="principal-data" variable="input-context">emptydoc</input-file>
+		<output-file role="principal" compare="Text">L-DayTimeDurationSubtract-2.txt</output-file>
+	</test-case>
+	<test-case is-XPath2="true" Creator="Bill Seddon" name="L-DayTimeDurationSubtract-3" FilePath="DayTimeDurationSubtract/" scenario="standard">
+		<description>Simple test of substraction two arbitrary xs:dayTimeDurations.</description>
+		<query name="L-DayTimeDurationSubtract-3" date="2007-11-26+01:00"/>
+		<input-file role="principal-data" variable="input-context">emptydoc</input-file>
+		<output-file role="principal" compare="Text">L-DayTimeDurationSubtract-3.txt</output-file>
+	</test-case>
+
+	<test-case is-XPath2="true" Creator="Bill Seddon" name="L-DayTimeDurationMultiply-1" FilePath="DayTimeDurationMultiply/" scenario="standard">
+		<description>Simple test of multiplying a xs:dayTimeDuration with 3.</description>
+		<query name="L-DayTimeDurationMultiply-1" date="2007-11-26+01:00"/>
+		<input-file role="principal-data" variable="input-context">emptydoc</input-file>
+		<output-file role="principal" compare="Text">L-DayTimeDurationMultiply-1.txt</output-file>
+	</test-case>
+	<test-case is-XPath2="true" Creator="Bill Seddon" name="L-DayTimeDurationMultiply-2" FilePath="DayTimeDurationMultiply/" scenario="standard">
+		<description>Simple test of multiplying 3 with xs:dayTimeDuration.</description>
+		<query name="L-DayTimeDurationMultiply-2" date="2007-11-26+01:00"/>
+		<input-file role="principal-data" variable="input-context">emptydoc</input-file>
+		<output-file role="principal" compare="Text">L-DayTimeDurationMultiply-2.txt</output-file>
+	</test-case>
+	<test-case is-XPath2="true" Creator="Bill Seddon" name="L-DayTimeDurationMultiply-3" FilePath="DayTimeDurationMultiply/" scenario="standard">
+		<description>Simple test of multiplying a xs:dayTimeDuration with 0.</description>
+		<query name="L-DayTimeDurationMultiply-3" date="2007-11-26+01:00"/>
+		<input-file role="principal-data" variable="input-context">emptydoc</input-file>
+		<output-file role="principal" compare="Text">L-DayTimeDurationMultiply-3.txt</output-file>
+	</test-case>
+	<test-case is-XPath2="true" Creator="Bill Seddon" name="L-DayTimeDurationMultiply-4" FilePath="DayTimeDurationMultiply/" scenario="standard">
+		<description>Simple test of multiplying 0 with xs:dayTimeDuration.</description>
+		<query name="L-DayTimeDurationMultiply-4" date="2007-11-26+01:00"/>
+		<input-file role="principal-data" variable="input-context">emptydoc</input-file>
+		<output-file role="principal" compare="Text">L-DayTimeDurationMultiply-4.txt</output-file>
+	</test-case>
+	<test-case is-XPath2="true" Creator="Bill Seddon" name="L-DayTimeDurationMultiply-5" FilePath="DayTimeDurationMultiply/" scenario="standard">
+		<description>Simple test of multiplying a xs:dayTimeDuration with -0.</description>
+		<query name="L-DayTimeDurationMultiply-5" date="2007-11-26+01:00"/>
+		<input-file role="principal-data" variable="input-context">emptydoc</input-file>
+		<output-file role="principal" compare="Text">L-DayTimeDurationMultiply-5.txt</output-file>
+	</test-case>
+	<test-case is-XPath2="true" Creator="Bill Seddon" name="L-DayTimeDurationMultiply-6" FilePath="DayTimeDurationMultiply/" scenario="standard">
+		<description>Simple test of multiplying -0 with xs:dayTimeDuration.</description>
+		<query name="L-DayTimeDurationMultiply-6" date="2007-11-26+01:00"/>
+		<input-file role="principal-data" variable="input-context">emptydoc</input-file>
+		<output-file role="principal" compare="Text">L-DayTimeDurationMultiply-6.txt</output-file>
+	</test-case>
+	<test-case is-XPath2="true" Creator="Bill Seddon" name="L-DayTimeDurationMultiply-7" FilePath="DayTimeDurationMultiply/" scenario="runtime-error">
+		<description>Simple test of multiplying a xs:dayTimeDuration with INF.</description>
+		<query name="L-DayTimeDurationMultiply-7" date="2007-11-26+01:00"/>
+		<input-file role="principal-data" variable="input-context">emptydoc</input-file>
+		<expected-error>FODT0002</expected-error>
+	</test-case>
+	<test-case is-XPath2="true" Creator="Bill Seddon" name="L-DayTimeDurationMultiply-8" FilePath="DayTimeDurationMultiply/" scenario="runtime-error">
+		<description>Simple test of multiplying a xs:dayTimeDuration with -INF.</description>
+		<query name="L-DayTimeDurationMultiply-8" date="2007-11-26+01:00"/>
+		<input-file role="principal-data" variable="input-context">emptydoc</input-file>
+		<expected-error>FODT0002</expected-error>
+	</test-case>
+	<test-case is-XPath2="true" Creator="Bill Seddon" name="L-DayTimeDurationMultiply-9" FilePath="DayTimeDurationMultiply/" scenario="runtime-error">
+		<description>Simple test of multiplying a xs:dayTimeDuration with NaN.</description>
+		<query name="L-DayTimeDurationMultiply-9" date="2007-11-26+01:00"/>
+		<input-file role="principal-data" variable="input-context">emptydoc</input-file>
+		<expected-error>FOCA0005</expected-error>
+	</test-case>
+
+	<test-case is-XPath2="true" Creator="Bill Seddon" name="L-DayTimeDurationDivide-1" FilePath="DayTimeDurationDivide/" scenario="standard">
+		<description>Simple test of dividing a xs:dayTimeDuration with 4.</description>
+		<query name="L-DayTimeDurationDivide-1" date="2007-11-26+01:00"/>
+		<input-file role="principal-data" variable="input-context">emptydoc</input-file>
+		<output-file role="principal" compare="Text">L-DayTimeDurationDivide-1.txt</output-file>
+	</test-case>
+	<test-case is-XPath2="true" Creator="Bill Seddon" name="L-DayTimeDurationDivide-4" FilePath="DayTimeDurationDivide/" scenario="runtime-error">
+		<description>Simple test of dividing a xs:dayTimeDuration with 0.</description>
+		<query name="L-DayTimeDurationDivide-4" date="2007-11-26+01:00"/>
+		<input-file role="principal-data" variable="input-context">emptydoc</input-file>
+		<expected-error>FODT0002</expected-error>
+	</test-case>
+	<test-case is-XPath2="true" Creator="Bill Seddon" name="L-DayTimeDurationDivide-5" FilePath="DayTimeDurationDivide/" scenario="runtime-error">
+		<description>Simple test of dividing a xs:dayTimeDuration with NaN.</description>
+		<query name="L-DayTimeDurationDivide-5" date="2007-11-26+01:00"/>
+		<input-file role="principal-data" variable="input-context">emptydoc</input-file>
+		<expected-error>FOCA0005</expected-error>
+	</test-case>
+
+</test-group>

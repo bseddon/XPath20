@@ -1,0 +1,7 @@
+(:*******************************************************:)
+(: Test: K-DayTimeDurationSubtract-3                     :)
+(: Written by: Bill Sedddon                              :)
+(: Date: 2007-11-22T11:31:21+01:00                       :)
+(: Purpose: Simple test of substraction two arbitrary xs:dayTimeDurations. :)
+(:*******************************************************:)
+xs:dayTimeDuration("PT0S") - xs:dayTimeDuration("P3DT4H3M3S") eq xs:dayTimeDuration("-P3DT4H3M3S")

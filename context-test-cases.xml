@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="XQTSCatalog.xsl" ?>
+<!DOCTYPE test-suite [
+<!ELEMENT GroupInfo ( title, description ) >
+]>
+<!-- Some comment -->
+	    
+<testcase xmlns="http://xbrl.org/2008/conformance" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="context-tests.xsd" >
+  <x:xx xmlns:x="xxx" x:attr1="abc" x:attr2="xyz">
+  </x:xx>
+  <owners>
+    <owner id="lyquidity" xmlns="http://xbrl.org/2008/registry">
+      <name id="bms">Bill Seddon</name>
+      <affiliation id="lyquidity-uri">lyquidity.com</affiliation>
+      <email id="email">bill.seddon@lyquidity.com</email>
+      <assumedOwnership moment="2015-04-29T00:00:00+00:00"></assumedOwnership>
+    </owner>
+  </owners>
+  <number>1</number>
+  <name>Context function</name>
+  <documentation>
+	<p xmlns="http://www.w3.org/1999/xhtml">Returns the context for an item in an XBRL instance.</p>
+	<url xlink:type="simple" 
+		 xlink:href="context-tests.xsd" 
+		 xmlns:xlink="http://www.w3.org/1999/xlink" 
+		 xmlns="http://xbrl.org/2008/registry">
+	</url>
+  </documentation>
+  <variation id="V-01">
+    <number>V-01</number>
+    <name>Returns correct context for earth context</name>
+    <documentation>
+	  Tests that element returned is context for specified item.
+    </documentation>
+    <inputs>
+	  <call xmlns="http://xbrl.org/2008/conformance/function" file="hello-worlds-instance.xml">xfi:context( /xbrli:xbrl/concept:c1[1] )</call>
+    </inputs>
+    <outputs>
+      <test xmlns="http://xbrl.org/2008/conformance/function">$result instance of element(xbrli:context) and count( $result ) eq 1 and $result/@id eq "context-earth"</test>
+    </outputs>
+  </variation>
+  <variation id="V-02">
+    <number>V-02</number>
+    <name>Returns correct context for romulus context</name>
+    <documentation>
+	  Tests that element returned is context for specified item.
+    </documentation>
+    <inputs>
+	  <call xmlns="http://xbrl.org/2008/conformance/function" file="hello-worlds-instance.xml">xfi:context(/xbrli:xbrl/concept:c1[2] )</call>
+    </inputs>
+    <outputs>
+      <test xmlns="http://xbrl.org/2008/conformance/function">$result instance of element(xbrli:context) and count( $result ) eq 1 and $result/@id eq "context-romulus"</test>
+    </outputs>
+  </variation>
+  <variation id="V-03">
+    <number>V-03</number>
+    <name>Returns correct context for vulcan context</name>
+    <documentation>
+	  Tests that element returned is context for specified item.
+    </documentation>
+    <inputs>
+	  <call xmlns="http://xbrl.org/2008/conformance/function" file="hello-worlds-instance.xml">xfi:context(/xbrli:xbrl/concept:c1[3] )</call>
+    </inputs>
+    <outputs>
+      <error>qname1</error>
+      <test xmlns="http://xbrl.org/2008/conformance/function">$result instance of element(xbrli:context) and count( $result ) eq 1 and $result/xbrli:entity/xbrli:identifier/text() eq 'planet-vulcan'</test>
+    </outputs>
+  </variation>
+  <variation id="V-04">
+    <number>V-04</number>
+    <name>Returns error for a tuple Documentation</name>
+    <documentation>
+	  Tests that no context (empty sequence) is returned for a specified tuple.
+    </documentation>
+    <inputs>
+	  <call xmlns="http://xbrl.org/2008/conformance/function" file="tuple-instance.xml">xfi:context(/xbrli:xbrl/concept:t[1])</call>
+    </inputs>
+    <outputs>
+      <error>xqt-err:XPTY0004</error>
+    </outputs>
+  </variation>
+  <variation id="V-05">
+    <number>V-05</number>
+    <name>Wrong node to function Documentation</name>
+    <documentation>
+	  XPath-defined error for node type incorrect.
+    </documentation>
+    <inputs>
+	  <call xmlns="http://xbrl.org/2008/conformance/function" file="hello-worlds-instance.xml">xfi:context(/xbrli:xbrl)</call>
+    </inputs>
+    <outputs>
+      <error>xqt-err:XPTY0004</error>
+    </outputs>
+  </variation>
+  <variation id="V-06">
+    <number>V-06</number>
+    <name>A sequence of items as argument Documentation</name>
+    <documentation>
+	  XPath-defined error for node type incorrect arity of arguments.
+    </documentation>
+    <inputs>
+	  <call xmlns="http://xbrl.org/2008/conformance/function" file="hello-worlds-instance.xml">xfi:context( /xbrli:xbrl/concept:c1[@contextRef ne 'context-earth'] )</call>
+    </inputs>
+    <outputs>
+      <error>xqt-err:XPST0017</error>
+    </outputs>
+  </variation>
+  <variation id="V-07">
+    <number>V-07</number>
+    <name>A wrong number of arguments Documentation</name>
+    <documentation>
+	  XPath-defined error for node type incorrect number of arguments.
+    </documentation>
+    <inputs>
+	  <call xmlns="http://xbrl.org/2008/conformance/function" file="hello-worlds-instance.xml">xfi:context( /xbrli:xbrl/concept:c1[@contextRef ne 'context-earth'] )</call>
+    </inputs>
+    <outputs>
+      <error>xqt-err:XPST0017</error>
+    </outputs>
+  </variation>
+</testcase>

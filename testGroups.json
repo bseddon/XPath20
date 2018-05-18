@@ -1,0 +1,798 @@
+{
+    "xpath2": {
+        "\/AdditionalErrorTests": {
+            "title": "Additional Error Tests",
+            "description": "",
+            "files": {
+                "AdditionalErrorTests": "d:\/GitHub\/xbrlquery\/core\/XPath2\/Tests\/additional-tests.xml"
+            }
+        },
+        "\/MinimalConformance\/OptionalFeatureErrors": {
+            "title": "Optional Feature Errors",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[2]",
+            "files": {
+                "CombinedErrorCodes": "cat\/CombinedErrorCodes.xml"
+            }
+        },
+        "\/MinimalConformance\/Basics": {
+            "title": "XQuery Basics",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[3]",
+            "files": {
+                "StaticContext": "cat\/StaticContext.xml"
+            }
+        },
+        "\/MinimalConformance\/Basics\/Types": {
+            "title": "Query Types",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[3]\/*[2]",
+            "files": {
+                "SequenceTypeSyntax": "cat\/SequenceTypeSyntax.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions": {
+            "title": "XQuery Expressions",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]",
+            "files": {
+                "LogicExpr": "cat\/LogicExpr.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/PrimaryExpr": {
+            "title": "Primary Expressions",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[2]",
+            "files": {
+                "Literals": "cat\/Literals.xml",
+                "ParenExpr": "cat\/ParenExpr.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/PrimaryExpr\/ContextExpr": {
+            "title": "Context Item Expressions",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[2]\/*[2]",
+            "files": {
+                "ExternalContextExpr": "cat\/ExternalContextExpr.xml",
+                "InternalContextExpr": "cat\/InternalContextExpr.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/PathExpr": {
+            "title": "Path Expressions",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[3]",
+            "files": {
+                "PathExpressions": "cat\/PathExpressions.xml",
+                "Steps": "cat\/Steps.xml",
+                "Axes": "cat\/Axes.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/PathExpr\/NodeTestSection": {
+            "title": "Node Tests",
+            "description": "Tests in this group take the axes as a given and focus on the NodeTest syntax in XQuery 3.2.1.2. Includes explicit names, *, and the various kind tests that look like functions.",
+            "xpath": "\/*\/*[10]\/*[4]\/*[3]\/*[2]",
+            "files": {
+                "NodeTest": "cat\/NodeTest.xml",
+                "NameTest": "cat\/NameTest.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/SeqExpr": {
+            "title": "Sequence Expressions",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[4]",
+            "files": {
+                "FilterExpr": "cat\/FilterExpr.xml",
+                "CombNodeSeq": "cat\/CombNodeSeq.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/SeqExpr\/ConstructSeq": {
+            "title": "Constructing Sequences",
+            "description": "Tests that construct sequences",
+            "xpath": "\/*\/*[10]\/*[4]\/*[4]\/*[2]",
+            "files": {
+                "commaOp": "cat\/commaOp.xml",
+                "RangeExpr": "cat\/RangeExpr.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/Operators\/ArithExpr\/NumericOpr": {
+            "title": "Arithmetic Operators on Numeric Values",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[5]\/*[2]\/*[2]",
+            "files": {
+                "NumericAdd": "cat\/NumericAdd.xml",
+                "NumericSubtract": "cat\/NumericSubtract.xml",
+                "NumericMultiply": "cat\/NumericMultiply.xml",
+                "NumericDivide": "cat\/NumericDivide.xml",
+                "NumericIntegerDivide": "cat\/NumericIntegerDivide.xml",
+                "NumericMod": "cat\/NumericMod.xml",
+                "NumericUnaryPlus": "cat\/NumericUnaryPlus.xml",
+                "NumericUnaryMinus": "cat\/NumericUnaryMinus.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/Operators\/ArithExpr\/DurationArith": {
+            "title": "Arithmetic Operators on Duration Values",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[5]\/*[2]\/*[3]",
+            "files": {
+                "YearMonthDurationAdd": "cat\/YearMonthDurationAdd.xml",
+                "YearMonthDurationSubtract": "cat\/YearMonthDurationSubtract.xml",
+                "YearMonthDurationMultiply": "cat\/YearMonthDurationMultiply.xml",
+                "YearMonthDurationDivide": "cat\/YearMonthDurationDivide.xml",
+                "YearMonthDurationDivideYMD": "cat\/YearMonthDurationDivideYMD.xml",
+                "DayTimeDurationAdd": "cat\/DayTimeDurationAdd.xml",
+                "DayTimeDurationSubtract": "cat\/DayTimeDurationSubtract.xml",
+                "DayTimeDurationMultiply": "cat\/DayTimeDurationMultiply.xml",
+                "DayTimeDurationDivide": "cat\/DayTimeDurationDivide.xml",
+                "DayTimeDurationDivideDTD": "cat\/DayTimeDurationDivideDTD.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/Operators\/ArithExpr\/DurationDateTimeArith": {
+            "title": "Arithmetic Operators on Duration and Date Time Values",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[5]\/*[2]\/*[4]",
+            "files": {
+                "dateTimesSubtract": "cat\/dateTimesSubtract.xml",
+                "DatesSubtract": "cat\/DatesSubtract.xml",
+                "TimeSubtract": "cat\/TimeSubtract.xml",
+                "YearMonthDurationAddDT": "cat\/YearMonthDurationAddDT.xml",
+                "DateTimeAddDTD": "cat\/DateTimeAddDTD.xml",
+                "DateTimeSubtractYMD": "cat\/DateTimeSubtractYMD.xml",
+                "DateTimeSubtractDTD": "cat\/DateTimeSubtractDTD.xml",
+                "DateAddYMD": "cat\/DateAddYMD.xml",
+                "DateAddDTD": "cat\/DateAddDTD.xml",
+                "DateSubtractYMD": "cat\/DateSubtractYMD.xml",
+                "DateSubtractDTD": "cat\/DateSubtractDTD.xml",
+                "TimeAddDTD": "cat\/TimeAddDTD.xml",
+                "TimeSubtractDTD": "cat\/TimeSubtractDTD.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/Operators\/CompExpr\/ValComp": {
+            "title": "Value Comparison",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[5]\/*[3]\/*[2]",
+            "files": {
+                "ValCompTypeChecking": "cat\/ValCompTypeChecking.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/Operators\/CompExpr\/ValComp\/NumericComp": {
+            "title": "Comparison of Numeric Values",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[5]\/*[3]\/*[2]\/*[2]",
+            "files": {
+                "NumericEqual": "cat\/NumericEqual.xml",
+                "NumericLT": "cat\/NumericLT.xml",
+                "NumericGT": "cat\/NumericGT.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/Operators\/CompExpr\/ValComp\/BooleanOp": {
+            "title": "Comparison Operators on Boolean Values",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[5]\/*[3]\/*[2]\/*[3]",
+            "files": {
+                "BooleanEqual": "cat\/BooleanEqual.xml",
+                "BooleanLT": "cat\/BooleanLT.xml",
+                "BooleanGT": "cat\/BooleanGT.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/Operators\/CompExpr\/ValComp\/DurationDateTimeOp": {
+            "title": "Comparisons of Duration, Date Time Values",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[5]\/*[3]\/*[2]\/*[4]",
+            "files": {
+                "YearMonthDurationLT": "cat\/YearMonthDurationLT.xml",
+                "YearMonthDurationGT": "cat\/YearMonthDurationGT.xml",
+                "DayTimeDurationLT": "cat\/DayTimeDurationLT.xml",
+                "DayTimeDurationGT": "cat\/DayTimeDurationGT.xml",
+                "DurationEQ": "cat\/DurationEQ.xml",
+                "DateTimeEQ": "cat\/DateTimeEQ.xml",
+                "DateTimeLT": "cat\/DateTimeLT.xml",
+                "DateTimeGT": "cat\/DateTimeGT.xml",
+                "DateEQ": "cat\/DateEQ.xml",
+                "DateLT": "cat\/DateLT.xml",
+                "DateGT": "cat\/DateGT.xml",
+                "TimeEQ": "cat\/TimeEQ.xml",
+                "TimeLT": "cat\/TimeLT.xml",
+                "TimeGT": "cat\/TimeGT.xml",
+                "gYearMonthEQ": "cat\/gYearMonthEQ.xml",
+                "gYearEQ": "cat\/gYearEQ.xml",
+                "gMonthDayEQ": "cat\/gMonthDayEQ.xml",
+                "gMonthEQ": "cat\/gMonthEQ.xml",
+                "gDayEQ": "cat\/gDayEQ.xml",
+                "YearMonthDurationEQ": "cat\/YearMonthDurationEQ.xml",
+                "DayTimeDurationEQ": "cat\/DayTimeDurationEQ.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/Operators\/CompExpr\/ValComp\/QNameOp": {
+            "title": "Comparison Operators on QName Values",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[5]\/*[3]\/*[2]\/*[5]",
+            "files": {
+                "QNameEQ": "cat\/QNameEQ.xml",
+                "PrefixFromQName": "cat\/PrefixFromQName.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/Operators\/CompExpr\/ValComp\/BinaryOp": {
+            "title": "Comparison Operators on base64Binary and hexBinary Types",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[5]\/*[3]\/*[2]\/*[6]",
+            "files": {
+                "HexBinaryEQ": "cat\/HexBinaryEQ.xml",
+                "Base64BinaryEQ": "cat\/Base64BinaryEQ.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/Operators\/CompExpr\/ValComp\/StringComp": {
+            "title": "Comparison of String Values",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[5]\/*[3]\/*[2]\/*[8]",
+            "files": {
+                "StringEqual": "cat\/StringEqual.xml",
+                "StringGT": "cat\/StringGT.xml",
+                "StringLT": "cat\/StringLT.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/Operators\/CompExpr\/ValComp\/AnyURIComp": {
+            "title": "Comparison of AnyURI Values",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[5]\/*[3]\/*[2]\/*[9]",
+            "files": {
+                "AnyURIEqual": "cat\/AnyURIEqual.xml",
+                "AnyURILtGt": "cat\/AnyURILtGt.xml",
+                "AnyURILeGe": "cat\/AnyURILeGe.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/Operators\/CompExpr\/GenComprsn": {
+            "title": "General Comparisons",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[5]\/*[3]\/*[3]",
+            "files": {
+                "GenCompEq": "cat\/GenCompEq.xml",
+                "GenCompNE": "cat\/GenCompNE.xml",
+                "GenCompLT": "cat\/GenCompLT.xml",
+                "GenCompLTEQ": "cat\/GenCompLTEQ.xml",
+                "GenCompGT": "cat\/GenCompGT.xml",
+                "GenCompGTEQ": "cat\/GenCompGTEQ.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/Operators\/CompExpr\/NodeComp": {
+            "title": "Node Comparisons",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[5]\/*[3]\/*[4]",
+            "files": {
+                "NodeSame": "cat\/NodeSame.xml",
+                "NodeBefore": "cat\/NodeBefore.xml",
+                "NodeAfter": "cat\/NodeAfter.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/Operators\/SeqOp": {
+            "title": "Operators on Sequences",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[5]\/*[4]",
+            "files": {
+                "SeqUnion": "cat\/SeqUnion.xml",
+                "SeqIntersect": "cat\/SeqIntersect.xml",
+                "SeqExcept": "cat\/SeqExcept.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/FLWORExpr": {
+            "title": "Tests of For-Let-Where-OrderBy-Return Expressions",
+            "description": "Tests in this group focus on the FLWOR expressions in XQuery 3.8.",
+            "xpath": "\/*\/*[10]\/*[4]\/*[7]",
+            "files": {
+                "WhereExpr": "cat\/WhereExpr.xml",
+                "ReturnExpr": "cat\/ReturnExpr.xml",
+                "CondExpr": "cat\/CondExpr.xml",
+                "OrderExpr": "cat\/OrderExpr.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/FLWORExpr\/ForExpr": {
+            "title": "FOR Clause",
+            "description": "Tests for the FOR part of the FLWOR expression syntax",
+            "xpath": "\/*\/*[10]\/*[4]\/*[7]\/*[2]",
+            "files": {
+                "ForExprWithout": "cat\/ForExprWithout.xml",
+                "ForExprWith": "cat\/ForExprWith.xml",
+                "ForExprPositionalVar": "cat\/ForExprPositionalVar.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/QuantExpr": {
+            "title": "Quantified Expressions",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[8]",
+            "files": {
+                "QuantExprWithout": "cat\/QuantExprWithout.xml",
+                "QuantExprWith": "cat\/QuantExprWith.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/exprSeqTypes": {
+            "title": "Expressions on Sequence Types",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[9]",
+            "files": {
+                "SeqExprInstanceOf": "cat\/SeqExprInstanceOf.xml",
+                "sequenceExprTypeswitch": "cat\/sequenceExprTypeswitch.xml",
+                "SeqExprCastToDerived": "cat\/SeqExprCastToDerived.xml",
+                "SeqExprCastToDerivedParents": "cat\/SeqExprCastToDerivedParents.xml",
+                "SeqExprCastWithinBranch": "cat\/SeqExprCastWithinBranch.xml",
+                "SeqExprCast": "cat\/SeqExprCast.xml",
+                "SeqExprCastable": "cat\/SeqExprCastable.xml",
+                "SeqExprTreat": "cat\/SeqExprTreat.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions": {
+            "title": "Functions",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]",
+            "files": {
+                "ErrorFunc": "cat\/ErrorFunc.xml",
+                "ErrorsAndOptimization": "cat\/ErrorsAndOptimization.xml",
+                "TraceFunc": "cat\/TraceFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/AccessorFunc": {
+            "title": "Accessor Functions",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[2]",
+            "files": {
+                "NodeNameFunc": "cat\/NodeNameFunc.xml",
+                "NilledFunc": "cat\/NilledFunc.xml",
+                "StringFunc": "cat\/StringFunc.xml",
+                "DataFunc": "cat\/DataFunc.xml",
+                "BaseURIFunc": "cat\/BaseURIFunc.xml",
+                "StaticBaseURIFunc": "cat\/StaticBaseURIFunc.xml",
+                "DocumentURIFunc": "cat\/DocumentURIFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/ConstructFunc": {
+            "title": "Constructor Functions",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[3]",
+            "files": {
+                "DateTimeFunc": "cat\/DateTimeFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/NumericFunc": {
+            "title": "Functions on Numeric Values",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[4]",
+            "files": {
+                "ABSFunc": "cat\/ABSFunc.xml",
+                "CeilingFunc": "cat\/CeilingFunc.xml",
+                "FloorFunc": "cat\/FloorFunc.xml",
+                "RoundFunc": "cat\/RoundFunc.xml",
+                "RoundEvenFunc": "cat\/RoundEvenFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/AllStringFunc\/AssDisassStringFunc": {
+            "title": "Functions to Assemble and Disassemble Strings",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[5]\/*[2]",
+            "files": {
+                "CodepointToStringFunc": "cat\/CodepointToStringFunc.xml",
+                "StringToCodepointFunc": "cat\/StringToCodepointFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/AllStringFunc\/CompStringFunc": {
+            "title": "Equality and Comparison of Strings",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[5]\/*[3]",
+            "files": {
+                "CompareFunction": "cat\/CompareFunction.xml",
+                "CodepointEqual": "cat\/CodepointEqual.xml",
+                "CompareFunc": "cat\/compareFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/AllStringFunc\/GeneralStringFunc": {
+            "title": "Functions on String Values",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[5]\/*[4]",
+            "files": {
+                "ConcatFunc": "cat\/ConcatFunc.xml",
+                "StringJoinFunc": "cat\/StringJoinFunc.xml",
+                "SubstringFunc": "cat\/SubstringFunc.xml",
+                "StringLengthFunc": "cat\/StringLengthFunc.xml",
+                "NormalizeSpaceFunc": "cat\/NormalizeSpaceFunc.xml",
+                "NormalizeUnicodeFunc": "cat\/NormalizeUnicodeFunc.xml",
+                "UpperCaseFunc": "cat\/UpperCaseFunc.xml",
+                "LowerCaseFunc": "cat\/LowerCaseFunc.xml",
+                "TranslateFunc": "cat\/TranslateFunc.xml",
+                "Surrogates": "cat\/Surrogates.xml",
+                "EncodeURIfunc": "cat\/EncodeURIfunc.xml",
+                "IRIToURIfunc": "cat\/IRIToURIfunc.xml",
+                "EscapeHTMLURIFunc": "cat\/EscapeHTMLURIFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/AllStringFunc\/SubstringStringFunc": {
+            "title": "Functions Based on Substring Matching",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[5]\/*[5]",
+            "files": {
+                "ContainsFunc": "cat\/ContainsFunc.xml",
+                "StartsWithFunc": "cat\/StartsWithFunc.xml",
+                "EndsWithFunc": "cat\/EndsWithFunc.xml",
+                "SubstringBeforeFunc": "cat\/SubstringBeforeFunc.xml",
+                "SubstringAfterFunc": "cat\/SubstringAfterFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/AllStringFunc\/MatchStringFunc": {
+            "title": "String Functions that Use Pattern Matching",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[5]\/*[6]",
+            "files": {
+                "MatchesFunc": "cat\/MatchesFunc.xml",
+                "ReplaceFunc": "cat\/ReplaceFunc.xml",
+                "TokenizeFunc": "cat\/TokenizeFunc.xml",
+                "AnalyzeString": "cat\/AnalyzeString.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/URIFunc": {
+            "title": "Functions for anyURI",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[6]",
+            "files": {
+                "ResolveURIFunc": "cat\/ResolveURIFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/BooleanFunc": {
+            "title": "Functions on Boolean Values",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[7]",
+            "files": {
+                "TrueFunc": "cat\/TrueFunc.xml",
+                "FalseFunc": "cat\/FalseFunc.xml",
+                "NotFunc": "cat\/NotFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/DurationDateTimeFunc\/ComponentExtractionDDT": {
+            "title": "Component Extraction Functions on Durations, Dates and Times",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[8]\/*[2]",
+            "files": {
+                "YearsFromDurationFunc": "cat\/YearsFromDurationFunc.xml",
+                "MonthsFromDurationFunc": "cat\/MonthsFromDurationFunc.xml",
+                "DaysFromDurationFunc": "cat\/DaysFromDurationFunc.xml",
+                "HoursFromDurationFunc": "cat\/HoursFromDurationFunc.xml",
+                "MinutesFromDurationFunc": "cat\/MinutesFromDurationFunc.xml",
+                "SecondsFromDurationFunc": "cat\/SecondsFromDurationFunc.xml",
+                "YearFromDateTimeFunc": "cat\/YearFromDateTimeFunc.xml",
+                "MonthFromDateTimeFunc": "cat\/MonthFromDateTimeFunc.xml",
+                "DayFromDateTimeFunc": "cat\/DayFromDateTimeFunc.xml",
+                "HoursFromDateTimeFunc": "cat\/HoursFromDateTimeFunc.xml",
+                "MinutesFromDateTimeFunc": "cat\/MinutesFromDateTimeFunc.xml",
+                "SecondsFromDateTimeFunc": "cat\/SecondsFromDateTimeFunc.xml",
+                "TimezoneFromDateTimeFunc": "cat\/TimezoneFromDateTimeFunc.xml",
+                "YearFromDateFunc": "cat\/YearFromDateFunc.xml",
+                "MonthFromDateFunc": "cat\/MonthFromDateFunc.xml",
+                "DayFromDateFunc": "cat\/DayFromDateFunc.xml",
+                "TimezoneFromDateFunc": "cat\/TimezoneFromDateFunc.xml",
+                "HoursFromTimeFunc": "cat\/HoursFromTimeFunc.xml",
+                "MinutesFromTimeFunc": "cat\/MinutesFromTimeFunc.xml",
+                "SecondsFromTimeFunc": "cat\/SecondsFromTimeFunc.xml",
+                "TimezoneFromTimeFunc": "cat\/TimezoneFromTimeFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/DurationDateTimeFunc\/TimezoneFunction": {
+            "title": "Timezone Adjustment on Dates and Time Values",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[8]\/*[3]",
+            "files": {
+                "AdjDateTimeToTimezoneFunc": "cat\/AdjDateTimeToTimezoneFunc.xml",
+                "AdjDateToTimezoneFunc": "cat\/AdjDateToTimezoneFunc.xml",
+                "AdjTimeToTimezoneFunc": "cat\/AdjTimeToTimezoneFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/QNameFunc": {
+            "title": "Functions Related to QNames",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[9]",
+            "files": {
+                "LocalNameFromQNameFunc": "cat\/LocalNameFromQNameFunc.xml",
+                "NamespaceURIFromQNameFunc": "cat\/NamespaceURIFromQNameFunc.xml",
+                "NamespaceURIForPrefixFunc": "cat\/NamespaceURIForPrefixFunc.xml",
+                "InScopePrefixesFunc": "cat\/InScopePrefixesFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/QNameFunc\/QNameConstructFunc": {
+            "title": "Additional Constructor Functions for QNames",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[9]\/*[2]",
+            "files": {
+                "ResolveQNameConstructFunc": "cat\/ResolveQNameConstructFunc.xml",
+                "ExpandedQNameConstructFunc": "cat\/ExpandedQNameConstructFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/NodeFunc": {
+            "title": "Functions on Nodes",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[10]",
+            "files": {
+                "NameFunc": "cat\/NameFunc.xml",
+                "NodeLocalNameFunc": "cat\/NodeLocalNameFunc.xml",
+                "NodeNamespaceURIFunc": "cat\/NodeNamespaceURIFunc.xml",
+                "NodeNumberFunc": "cat\/NodeNumberFunc.xml",
+                "NodeLangFunc": "cat\/NodeLangFunc.xml",
+                "NodeRootFunc": "cat\/NodeRootFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/SeqFunc": {
+            "title": "Functions on Sequences",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[11]",
+            "files": {
+                "SeqDeepEqualFunc": "cat\/SeqDeepEqualFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/SeqFunc\/GeneralSeqFunc": {
+            "title": "General Functions and Operators on Sequences",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[11]\/*[2]",
+            "files": {
+                "SeqBooleanFunc": "cat\/SeqBooleanFunc.xml",
+                "SeqIndexOfFunc": "cat\/SeqIndexOfFunc.xml",
+                "SeqEmptyFunc": "cat\/SeqEmptyFunc.xml",
+                "SeqExistsFunc": "cat\/SeqExistsFunc.xml",
+                "SeqDistinctValuesFunc": "cat\/SeqDistinctValuesFunc.xml",
+                "SeqInsertBeforeFunc": "cat\/SeqInsertBeforeFunc.xml",
+                "SeqRemoveFunc": "cat\/SeqRemoveFunc.xml",
+                "SeqReverseFunc": "cat\/SeqReverseFunc.xml",
+                "SeqSubsequenceFunc": "cat\/SeqSubsequenceFunc.xml",
+                "SeqUnorderedFunc": "cat\/SeqUnorderedFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/SeqFunc\/CardinalitySeqFunc": {
+            "title": "Functions That Test the Cardinality of Sequences",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[11]\/*[3]",
+            "files": {
+                "SeqZeroOrOneFunc": "cat\/SeqZeroOrOneFunc.xml",
+                "SeqOneOrMoreFunc": "cat\/SeqOneOrMoreFunc.xml",
+                "SeqExactlyOneFunc": "cat\/SeqExactlyOneFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/SeqFunc\/AggregateSeqFunc": {
+            "title": "Aggregate Functions",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[11]\/*[4]",
+            "files": {
+                "SeqCountFunc": "cat\/SeqCountFunc.xml",
+                "SeqAVGFunc": "cat\/SeqAVGFunc.xml",
+                "SeqMAXFunc": "cat\/SeqMAXFunc.xml",
+                "SeqMINFunc": "cat\/SeqMINFunc.xml",
+                "SeqSUMFunc": "cat\/SeqSUMFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/SeqFunc\/NodeSeqFunc": {
+            "title": "Functions that Generate Sequences",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[11]\/*[5]",
+            "files": {
+                "SeqIDFunc": "cat\/SeqIDFunc.xml",
+                "SeqIDREFFunc": "cat\/SeqIDREFFunc.xml",
+                "SeqDocAvailableFunc": "cat\/SeqDocAvailableFunc.xml",
+                "SeqDocFunc": "cat\/SeqDocFunc.xml",
+                "SeqCollectionFunc": "cat\/SeqCollectionFunc.xml"
+            }
+        },
+        "\/MinimalConformance\/Functions\/ContextFunc": {
+            "title": "Context Functions",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[5]\/*[12]",
+            "files": {
+                "ContextPositionFunc": "cat\/ContextPositionFunc.xml",
+                "ContextLastFunc": "cat\/ContextLastFunc.xml",
+                "ContextCurrentDatetimeFunc": "cat\/ContextCurrentDatetimeFunc.xml",
+                "ContextCurrentDateFunc": "cat\/ContextCurrentDateFunc.xml",
+                "ContextCurrentTimeFunc": "cat\/ContextCurrentTimeFunc.xml",
+                "ContextDefaultCollationFunc": "cat\/ContextDefaultCollationFunc.xml",
+                "ContextImplicitTimezoneFunc": "cat\/ContextImplicitTimezoneFunc.xml"
+            }
+        },
+        "\/Optional": {
+            "title": "Optional Features",
+            "description": "",
+            "xpath": "\/*\/*[11]",
+            "files": {
+                "Serialization": "cat\/Serialization.xml"
+            }
+        },
+        "\/Optional\/StaticTyping": {
+            "title": "Static Typing Feature",
+            "description": "",
+            "xpath": "\/*\/*[11]\/*[4]",
+            "files": {
+                "STFunctions": "cat\/STFunctions.xml",
+                "STFLWORExpr": "cat\/STFLWORExpr.xml"
+            }
+        },
+        "\/Optional\/StaticTyping\/STPathExpr\/STSteps": {
+            "title": "Static Typing of Steps Expressions",
+            "description": "",
+            "xpath": "\/*\/*[11]\/*[4]\/*[2]\/*[2]",
+            "files": {
+                "STAxes": "cat\/STAxes.xml"
+            }
+        },
+        "\/Optional\/FullAxis": {
+            "title": "Full Axis Feature",
+            "description": "",
+            "xpath": "\/*\/*[11]\/*[5]",
+            "files": {
+                "ancestorAxis": "cat\/ancestorAxis.xml",
+                "ancestor-or-selfAxis": "cat\/ancestor-or-selfAxis.xml",
+                "followingAxis": "cat\/followingAxis.xml",
+                "following-siblingAxis": "cat\/following-siblingAxis.xml",
+                "precedingAxis": "cat\/precedingAxis.xml",
+                "preceding-siblingAxis": "cat\/preceding-siblingAxis.xml"
+            }
+        },
+        "\/UseCase": {
+            "title": "Use Cases",
+            "description": "",
+            "xpath": "\/*\/*[13]",
+            "files": {
+                "UseCaseXMP": "cat\/UseCaseXMP.xml",
+                "UseCaseTREE": "cat\/UseCaseTREE.xml",
+                "UseCaseSEQ": "cat\/UseCaseSEQ.xml",
+                "UseCaseR": "cat\/UseCaseR.xml",
+                "UseCaseSGML": "cat\/UseCaseSGML.xml",
+                "UseCaseSTRING": "cat\/UseCaseSTRING.xml",
+                "UseCaseNS": "cat\/UseCaseNS.xml",
+                "UseCasePARTS": "cat\/UseCasePARTS.xml"
+            }
+        },
+        "\/FunctX": {
+            "title": "FunctX -- A Collection Of Functions",
+            "description": "This test suite group contains FunctX, a collection of\n                XQuery functions. They were written by Priscilla Walmsley, but\n                is maintained by Frans Englich within the XQTS.",
+            "xpath": "\/*\/*[14]",
+            "files": {
+                "functx-fn-abs": "cat\/functx-fn-abs.xml",
+                "functx-fn-adjust-dateTime-to-timezone": "cat\/functx-fn-adjust-dateTime-to-timezone.xml",
+                "functx-fn-adjust-date-to-timezone": "cat\/functx-fn-adjust-date-to-timezone.xml",
+                "functx-fn-adjust-time-to-timezone": "cat\/functx-fn-adjust-time-to-timezone.xml",
+                "functx-fn-avg": "cat\/functx-fn-avg.xml",
+                "functx-fn-base-uri": "cat\/functx-fn-base-uri.xml",
+                "functx-fn-boolean": "cat\/functx-fn-boolean.xml",
+                "functx-fn-ceiling": "cat\/functx-fn-ceiling.xml",
+                "functx-fn-codepoint-equal": "cat\/functx-fn-codepoint-equal.xml",
+                "functx-fn-codepoints-to-string": "cat\/functx-fn-codepoints-to-string.xml"
+            }
+        },
+        "\/XQuery11": {
+            "title": "XQuery 1.1 test cases",
+            "description": "",
+            "xpath": "\/*\/*[15]",
+            "files": {
+                "EQName": "cat\/EQName.xml",
+                "HigherOrderFunctions": "cat\/HigherOrderFunctions.xml",
+                "HeadTailFunc": "cat\/HeadTailFunc.xml",
+                "SwitchExpr": "cat\/SwitchExpr.xml"
+            }
+        }
+    },
+    "other": {
+        "\/MinimalConformance\/Expressions\/Construct": {
+            "title": "Constructors",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[6]",
+            "files": {
+                "DirectConElem": "cat\/DirectConElem.xml",
+                "DirectConElemAttr": "cat\/DirectConElemAttr.xml",
+                "DirectConElemNamespace": "cat\/DirectConElemNamespace.xml",
+                "DirectConElemContent": "cat\/DirectConElemContent.xml",
+                "DirectConElemWhitespace": "cat\/DirectConElemWhitespace.xml",
+                "DirectConOther": "cat\/DirectConOther.xml",
+                "DirectConElemXML": "cat\/XMLEdition.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/Construct\/ComputeCon": {
+            "title": "Computed Constructors",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[6]\/*[2]",
+            "files": {
+                "ComputeConElem": "cat\/ComputeConElem.xml",
+                "ComputeConAttr": "cat\/ComputeConAttr.xml",
+                "ConDocNode": "cat\/ConDocNode.xml",
+                "ConText": "cat\/ConText.xml",
+                "ComputeConPI": "cat\/ComputeConPI.xml",
+                "ComputeConComment": "cat\/ComputeConComment.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/FLWORExpr\/LetExpr": {
+            "title": "LET Clause",
+            "description": "Tests for the LET part of the FLWOR expression syntax",
+            "xpath": "\/*\/*[10]\/*[4]\/*[7]\/*[3]",
+            "files": {
+                "LetExprWithout": "cat\/LetExprWithout.xml",
+                "LetExprWith": "cat\/LetExprWith.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/FLWORExpr\/OrderbyExpr": {
+            "title": "ORDER BY Clause",
+            "description": "Tests for the ORDER BY part of the FLWOR expression syntax",
+            "xpath": "\/*\/*[10]\/*[4]\/*[7]\/*[4]",
+            "files": {
+                "OrderbyExprWith": "cat\/OrderbyExprWith.xml",
+                "OrderbyExprWithout": "cat\/OrderbyExprWithout.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/PrologExpr": {
+            "title": "Modules and Prologs",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[10]",
+            "files": {
+                "VersionProlog": "cat\/VersionProlog.xml",
+                "BoundarySpaceProlog": "cat\/BoundarySpaceProlog.xml",
+                "CollationProlog": "cat\/CollationProlog.xml",
+                "CopyNamespacesProlog": "cat\/CopyNamespacesProlog.xml",
+                "BaseURIProlog": "cat\/BaseURIProlog.xml",
+                "ConstructionProlog": "cat\/ConstructionProlog.xml",
+                "DefaultNamespaceProlog": "cat\/DefaultNamespaceProlog.xml",
+                "DefaultOrderingProlog": "cat\/DefaultOrderingProlog.xml",
+                "EmptyOrderProlog": "cat\/EmptyOrderProlog.xml",
+                "NamespaceProlog": "cat\/NamespaceProlog.xml"
+            }
+        },
+        "\/MinimalConformance\/Expressions\/PrologExpr\/VariableProlog": {
+            "title": "Variable Declaration",
+            "description": "",
+            "xpath": "\/*\/*[10]\/*[4]\/*[10]\/*[2]",
+            "files": {
+                "ExternalVariablesWithout": "cat\/ExternalVariablesWithout.xml",
+                "ExternalVariablesWith": "cat\/ExternalVariablesWith.xml",
+                "InternalVariablesWithout": "cat\/InternalVariablesWithout.xml",
+                "InternalVariablesWith": "cat\/InternalVariablesWith.xml"
+            }
+        },
+        "\/Optional\/SchemaImport": {
+            "title": "Schema Import Feature",
+            "description": "",
+            "xpath": "\/*\/*[11]\/*[2]",
+            "files": {
+                "FLWORExprSI": "cat\/FLWORExprSI.xml",
+                "ConstructSI": "cat\/ConstructSI.xml",
+                "versionPrologSI": "cat\/versionPrologSI.xml",
+                "MiscFunctions": "cat\/MiscFunctions.xml",
+                "SeqExprCastSI": "cat\/SeqExprCastSI.xml",
+                "NumericEqualSI": "cat\/NumericEqualSI.xml",
+                "NotationEQSI": "cat\/NotationEQSI.xml",
+                "UserDefinedSI": "cat\/UserDefinedSI.xml",
+                "SchemaImportProlog": "cat\/SchemaImportProlog.xml",
+                "ForExprTypeSI": "cat\/ForExprTypeSI.xml",
+                "PathExprSI": "cat\/PathExprSI.xml"
+            }
+        },
+        "\/Optional\/SchemaValidation": {
+            "title": "Schema Validation Feature",
+            "description": "",
+            "xpath": "\/*\/*[11]\/*[3]",
+            "files": {
+                "ValidateExpression": "cat\/ValidateExpression.xml"
+            }
+        },
+        "\/Optional\/Modules": {
+            "title": "Module Feature",
+            "description": "",
+            "xpath": "\/*\/*[11]\/*[6]",
+            "files": {
+                "ModuleImport": "cat\/ModuleImport.xml",
+                "ModuleProlog": "cat\/ModuleProlog.xml"
+            }
+        },
+        "\/Optional\/ElementWithId": {
+            "title": "fn:element-with-id function",
+            "description": "Tests for fn:element-with-id function (introduced by erratum; implementation is optional for XQuery 1.0)",
+            "xpath": "\/*\/*[11]\/*[7]",
+            "files": {
+                "ElementWithId": "cat\/ElementWithId.xml"
+            }
+        },
+        "\/Appendices": {
+            "title": "Tests for the appendices.",
+            "description": "",
+            "xpath": "\/*\/*[12]",
+            "files": {
+                "Appendix-A4": "cat\/Appendix-A4.xml",
+                "Annex-E": "cat\/Annex-E.xml"
+            }
+        }
+    }
+}
