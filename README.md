@@ -59,3 +59,11 @@ Or fork or download the repository.  The source can be found in the 'source' sub
 ## Getting started
 
 The examples folder includes illustrations of using the library to execute XPath 2.0 queries against XML documents.
+
+Assuming you have installed the library using composer then this PHP application will run the test:
+
+```
+&lt;?php
+require_once __DIR__ . '/vendor/autoload.php';
+include __DIR__ . "/vendor/lyquidity/XPath2/examples/examples.php";
+```
