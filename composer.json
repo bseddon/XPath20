@@ -1,7 +1,7 @@
 {
-	"name": "lyquidity/XPath2",
+	"name": "lyquidity/xpath2",
 	"description": "Provides XPath 2.0 statement execution library for PHP",
-	"keywords": ["lyquidity", "xml", "xpath 2.0"],
+	"keywords": ["lyquidity", "xml", "XPath 2.0"],
 	"type": "library",
 	"homepage": "https://github.com/bseddon/XPath20",
 	"license": "GPL-3.0-only",
