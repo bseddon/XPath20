@@ -52,9 +52,27 @@ liabilities.  You are also urged to review our [code of conduct](CODE_OF_CONDUCT
 
 ## Install
 
-The project includes a composer.json that can be used by [composer](https://getcomposer.org/) to install the library.
+The project can be installed by [composer](https://getcomposer.org/).  Save the following JSON into a file called 'composer.json' in your application folder and run
+the command:
 
-Or fork or download the repository.  The source can be found in the 'source' sub-folder.
+```
+composer install --prefer-dist
+```
+
+composer.json
+
+```
+{
+    "require": {
+        "lyquidity/xpath2": "dev-master"
+    },
+	"minimum-stability": "dev",
+	"prefer-stable": false
+}
+```
+
+Or fork or download the repository.  It will also be necessary to download and install the [XML](https://github.com/bseddon/xml), 
+[utilities](https://github.com/bseddon/) and [pear/Log](https://github.com/pear/Log) projects.
 
 ## Getting started
 
@@ -63,7 +81,7 @@ The examples folder includes illustrations of using the library to execute XPath
 Assuming you have installed the library using composer then this PHP application will run the test:
 
 ```
-&lt;?php
+<php
 require_once __DIR__ . '/vendor/autoload.php';
 include __DIR__ . "/vendor/lyquidity/XPath2/examples/examples.php";
 ```
