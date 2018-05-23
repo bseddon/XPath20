@@ -1,15 +1,15 @@
 <?php
 /**
  * XPath 2.0 for PHP
- *  _					  _	 _ _ _
+ *  _					   _	 _ _ _
  * | |   _   _  __ _ _   _(_) __| (_) |_ _   _
  * | |  | | | |/ _` | | | | |/ _` | | __| | | |
  * | |__| |_| | (_| | |_| | | (_| | | |_| |_| |
  * |_____\__, |\__, |\__,_|_|\__,_|_|\__|\__, |
- *	   |___/	|_|					|___/
+ *	     |___/	  |_|					  |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -37,11 +37,13 @@ namespace lyquidity\XPath2\Value;
 class StringTokenizer
 {
 	/**
+	 * _text
 	 * @var string $_text
 	 */
 	private $_text;
 
 	/**
+	 * _offset
 	 * @var int $_offset
 	 */
 	private $_offset;
@@ -56,22 +58,26 @@ class StringTokenizer
 	}
 
 	/**
+	 * Token
 	 * @var int $Token
 	 */
 	public $Token;
 
 	/**
+	 * Value
 	 * @var string $Value
 	 */
 	public $Value;
 
 	/**
+	 * LineCount
 	 * @var int $LineCount
 	 */
 	public $LineCount;
 
 	/**
-	 * @var int $Offset
+	 * Return the offset value
+	 * @return int
 	 */
 	public function getOffset()
 	{
@@ -79,6 +85,7 @@ class StringTokenizer
 	}
 
 	/**
+	 * TokenInt
 	 * @var int $TokenInt = 1
 	 */
 	public static $TokenInt = 1;
@@ -237,7 +244,5 @@ class StringTokenizer
 	}
 
 }
-
-
 
 ?>

@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -39,6 +39,7 @@ use lyquidity\XPath2\XPath2NodeIterator;
 class SpecialChildNodeIterator extends SequentialAxisNodeIterator implements \Iterator
 {
 	/**
+	 * The kind from the node test
 	 * @var XPathNodeType $kind
 	 */
 	private $kind;
@@ -62,6 +63,9 @@ class SpecialChildNodeIterator extends SequentialAxisNodeIterator implements \It
 		return $result;
 	}
 
+	/**
+	 * Constructor
+	 */
 	protected function fromSequentialAxisNodeIteratorParts()
 	{
 		if ( is_null( $this->typeTest ) )
@@ -108,7 +112,5 @@ class SpecialChildNodeIterator extends SequentialAxisNodeIterator implements \It
 	}
 
 }
-
-
 
 ?>

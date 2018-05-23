@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -47,8 +47,8 @@ use lyquidity\xml\MS\XmlReservedNs;
 class TreeComparer
 {
 	/**
-	 *
-	 * @var unknown
+	 * context
+	 * @var XPath2Context $context
 	 */
 	protected $context;
 
@@ -60,6 +60,7 @@ class TreeComparer
 
 	/**
 	 * Constructor
+	 * @param XPath2Context $context
 	 * @param string $collation
 	 */
 	public function __construct( $context, $collation = null )
@@ -80,11 +81,13 @@ class TreeComparer
 	}
 
 	/**
+	 * excludeComments
 	 * @var bool $excludeComments
 	 */
 	public $excludeComments = false;
 
 	/**
+	 * excludeWhitespace
 	 * @var bool $excludeWhitespace
 	 */
 	public $excludeWhitespace = false;
@@ -128,7 +131,7 @@ class TreeComparer
 	}
 
 	/**
-	 * ItemEqual
+	 * Test if two items are equal
 	 * @param XPathItem $item1
 	 * @param XPathItem $item2
 	 * @return bool

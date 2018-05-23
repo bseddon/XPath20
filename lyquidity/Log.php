@@ -4,8 +4,8 @@
  * Implements the a logging class.
  *
  * @author Bill Seddon
- * @version 0.1.1
- * @Copyright (C) 2016 Lyquidity Solutions Limited
+ * @version 0.9
+ * @Copyright (C) 2018 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -87,7 +87,7 @@ class Log
 	 *							runtime using the ``setIdent()`` method.
 	 * @param array $conf		Associative array of key-value pairs that are
 	 *							used to specify any handler-specific settings.
-	 * @param int $max			Log messages up to and including this level.
+	 * @param int $level		Log messages up to and including this level.
 	 *							This value defaults to ``PEAR_LOG_DEBUG``.
 	 *							See `Log Levels`_ and `Log Level Masks`_.
 	 * @return void

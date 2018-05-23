@@ -9,7 +9,7 @@
  *	    |___/	 |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -40,16 +40,19 @@ use lyquidity\xml\exceptions\InvalidOperationException;
 class NodeList implements \IteratorAggregate
 {
 	/**
-	 * @var array $_list List<XmlNode>
+	 * List of nodes
+	 * @var array $_list
 	 */
 	private $_list;
 
 	/**
+	 * Holds the iter from the constructor
 	 * @var XPath2NodeIterator $_iter
 	 */
 	private $_iter;
 
 	/**
+	 * True when done
 	 * @var bool $_done
 	 */
 	private $_done;
@@ -66,12 +69,14 @@ class NodeList implements \IteratorAggregate
 	}
 
 	/**
+	 * Get the size of the list
 	 * @var int $Count
 	 */
 	public function getCount()
 	{
 		return count( $this->_list );
 	}
+
 	/**
 	 * GetNode
 	 * @param XPathItem $item

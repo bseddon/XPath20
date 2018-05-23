@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -43,9 +43,10 @@ use lyquidity\xml\interfaces\IXmlSchemaType;
  */
 class DecimalProxy extends ValueProxy implements IXmlSchemaType
 {
-	public static $CLASSNAME = "lyquidity\XPath2\Proxy\DecimalProxy";
+
 
 	/**
+	 * Value
 	 * @var DecimalValue $_value
 	 */
 	private $_value;
@@ -85,7 +86,8 @@ class DecimalProxy extends ValueProxy implements IXmlSchemaType
 	}
 
 	/**
-	 * @var DecimalValue $Value
+	 * Get the value
+	 * @return DecimalValue 
 	 */
 	public function getValue()
 	{
@@ -276,7 +278,7 @@ class DecimalProxy extends ValueProxy implements IXmlSchemaType
 	 */
 	public function ToInt16( $provider )
 	{
-	    return $this->_value->Toint( $provider );
+	    return $this->_value->ToInt( $provider );
 	}
 
 	/**
@@ -380,6 +382,9 @@ class DecimalProxy extends ValueProxy implements IXmlSchemaType
 	    return $this->_value->ToUInt64( $provider );
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		$execute = function( $callback )

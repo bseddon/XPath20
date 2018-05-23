@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -40,6 +40,7 @@ use \lyquidity\XPath2\lyquidity\Convert;
 class BoolProxyFactory extends ValueProxyFactory
 {
 	/**
+	 * Proxy code
 	 * @var int $Code = 21
 	 */
 	const Code = 21;
@@ -81,6 +82,7 @@ class BoolProxyFactory extends ValueProxyFactory
     }
 
 	/**
+	 * Returns true if the value is numeric
 	 * @return bool getIsNumeric
 	 */
 	public function getIsNumeric()
@@ -100,11 +102,12 @@ class BoolProxyFactory extends ValueProxyFactory
 		return -2;
     }
 
+    /**
+     * Unit tests
+     */
     public static function tests()
     {}
 
 }
-
-
 
 ?>

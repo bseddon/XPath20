@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -54,28 +54,34 @@ use lyquidity\xml\exceptions\NotSupportedException;
  */
 class PathStep
 {
-	public static $CLASSNAME = "lyquidity\XPath2\AST\PathStep";
-
 	/**
+	 * The query test expression to evaluate
 	 * @var object $nodeTest
 	 */
 	public $nodeTest;
 
 	/**
+	 * The type of expression (child, descendant, parent, etc.)
 	 * @var XPath2ExprType $type
 	 */
 	public $type;
 
 	/**
+	 * The current node or null
 	 * @var AbstractNode $node
 	 */
 	public $node;
 
 	/**
+	 * The next expression to evaluate
 	 * @var PathStep $next
 	 */
 	public $next;
 
+	/**
+	 * Gets the next path step
+	 * @return \lyquidity\XPath2\AST\PathStep
+	 */
 	public function getNext()
 	{
 		return $this->next;
@@ -83,6 +89,7 @@ class PathStep
 
 	/**
 	 * Get function as property
+	 * @param string $name The name of the property value to retrieve
 	 */
 	public function __get( $name )
 	{

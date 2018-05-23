@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -40,19 +40,20 @@ use lyquidity\xml\exceptions\ArgumentException;
  */
 class AbstractNode implements \IteratorAggregate
 {
-	public static $CLASSNAME = "lyquidity\XPath2\AST\AbstractNode";
-
 	/**
+	 * _parent = null
 	 * @var AbstractNode $_parent = null
 	 */
 	private $_parent = null;
 
 	/**
+	 * _childs = List<AbstractNode>
 	 * @var array $_childs = List<AbstractNode>
 	 */
 	private $_childs = array();
 
 	/**
+	 * _context = null
 	 * @var XPath2Context $_context = null
 	 */
 	private $_context = null;
@@ -89,7 +90,8 @@ class AbstractNode implements \IteratorAggregate
 
 	/**
 	 * setParent
-	 * @return AbstractNode
+	 * @param AbstractNode $parent
+	 * @return void
 	 */
 	public function setParent( $parent )
 	{

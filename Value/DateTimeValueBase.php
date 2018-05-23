@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -41,8 +41,15 @@ use lyquidity\xml\exceptions\ArgumentException;
  */
 class DateTimeValueBase implements IComparable, IConvertable
 {
+	/**
+	 * CLASSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "lyquidity\XPath2\Value\DateTimeValueBase";
 
+	/**
+	 * Default constructor
+	 */
 	public  function __construct()
 	{}
 
@@ -50,6 +57,7 @@ class DateTimeValueBase implements IComparable, IConvertable
 	 * Constructor
 	 * @param bool $sign
 	 * @param \DateTime $value
+	 * @param bool $notLocal
 	 */
 	public function fromDateBase( $sign, $value, $notLocal = false )
 	{
@@ -95,20 +103,27 @@ class DateTimeValueBase implements IComparable, IConvertable
 	}
 
 	/**
+	 * S
 	 * @var bool $S
 	 */
 	public $S;
 
 	/**
+	 * Value
 	 * @var \DateTime $Value
 	 */
 	public $Value;
 
 	/**
+	 * IsLocal
 	 * @var bool $IsLocal
 	 */
 	public $IsLocal;
 
+	/**
+	 * IsPeriodEnd
+	 * @var bool
+	 */
 	public $isPeriodEnd = false;
 
 	// /**
@@ -428,6 +443,5 @@ class DateTimeValueBase implements IComparable, IConvertable
 	}
 
 }
-
 
 ?>

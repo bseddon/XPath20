@@ -9,7 +9,7 @@
  *		 |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -37,6 +37,7 @@ use lyquidity\XPath2\Properties\Resources;
 use lyquidity\xml\xpath\XPathNavigator;
 use lyquidity\XPath2\XPathComparer;
 use lyquidity\XPath2\XPath2Exception;
+use lyquidity\XPath2\XPath2Context;
 
 /**
  * DocumentOrderNodeIterator (final)
@@ -48,14 +49,14 @@ use lyquidity\XPath2\XPath2Exception;
  */
 class ElementOrderNodeIterator extends XPath2NodeIterator implements \Iterator
 {
-	public static $CLASSNAME ="lyquidity\XPath2\Iterator\ElementOrderNodeIterator";
-
 	/**
+	 * itemSet
 	 * @var array $itemSet was ItemSet
 	 */
 	private $itemSet;
 
 	/**
+	 * lastNode
 	 * @var XPathNavigator $lastNode
 	 */
 	private $lastNode;
@@ -79,8 +80,10 @@ class ElementOrderNodeIterator extends XPath2NodeIterator implements \Iterator
 	{}
 
 	/**
-	 * fromBaseIter
-	 * @param XPath2NodeIterator $baseIter
+	 * fromNavigator
+	 * @param XPath2Context $context
+	 * @param XPathNavigator $nav
+	 * @retun ElementOrderNodeIterator
 	 */
 	public static function fromNavigator( $context, $nav )
 	{
@@ -95,6 +98,7 @@ class ElementOrderNodeIterator extends XPath2NodeIterator implements \Iterator
 	/**
 	 * fromDocumentOrderNodeIteratorParts
 	 * @param XPath2NodeIterator $baseIter
+	 * @retun ElementOrderNodeIterator
 	 */
 	protected function fromElementOrderNodeIteratorParts( $baseIter )
 	{

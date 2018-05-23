@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright ( C ) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -56,6 +56,7 @@ use lyquidity\xml\schema\SchemaTypes;
 class FunctionTable
 {
 	/**
+	 * _funcTable
 	 * @var Dictionary<FunctionDesc, XPathFunctionDef> $_funcTable
 	 */
 	private $_funcTable;
@@ -89,15 +90,16 @@ class FunctionTable
 		$this->AddWithArity( XmlReservedNs::xQueryFunc, "doc-available", 1, XPath2ResultType::Boolean,
 			function( $context, $provider, $args )
 			{
-				$isString = is_string( $args[0] ) ||
-					// $args[0] instanceof AnyUriValue ||
-					( $args[0] instanceof IXmlSchemaType &&
-					  SchemaTypes::getInstance()->resolvesToBaseType( ($args[0])->getSchemaType()->QualifiedName, array( "xs:anyURI", "xsd:anyURI" ) )
+				$arg = $args[0];
+
+				$isString = is_string( $arg ) ||
+					( $arg instanceof IXmlSchemaType &&
+					  SchemaTypes::getInstance()->resolvesToBaseType( $arg->getSchemaType()->QualifiedName, array( "xs:anyURI", "xsd:anyURI" ) )
 					);
 
-				if ( $args[0] instanceof XPath2Item )
+				if ( $arg instanceof XPath2Item )
 				{
-					$schemaType = ($args[0])->getSchemaType();
+					$schemaType = $arg->getSchemaType();
 					if ( $schemaType->TypeCode == XmlTypeCode::AnyUri ||
 						 $schemaType->TypeCode == XmlTypeCode::String ||
 						SchemaTypes::getInstance()->resolvesToBaseType( $schemaType->QualifiedName, array( "xs:string", "xsd:string" ) )
@@ -107,9 +109,9 @@ class FunctionTable
 					}
 				}
 
-				$value = is_object( $args[0] )
-					? $args[0]->getValue()
-					: $args[0];
+				$value = is_object( $arg )
+					? $arg->getValue()
+					: $arg;
 
 				if ( $value instanceof Undefined )
 				{
@@ -1762,6 +1764,10 @@ class FunctionTable
 		return self::$_inst;
 	}
 
+	/**
+	 * Unit tests
+	 * @param object $instance
+	 */
 	public static function tests( $instance )
 	{
 		$table = FunctionTable::getInstance();

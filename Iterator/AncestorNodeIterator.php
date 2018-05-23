@@ -9,7 +9,7 @@
  *		 |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -44,18 +44,6 @@ class AncestorNodeIterator extends SequentialAxisNodeIterator implements \Iterat
 	public  function __construct()
 	{}
 
-	// /**
-	//  * Constructor
-	//  * @param XPath2Context $context
-	//  * @param object $nodeTest
-	//  * @param bool $matchSelf
-	//  * @param XPath2NodeIterator $iter
-	//  */
-	// public  function __construct( $context, $nodeTest, $matchSelf, $iter )
-	// {
-	// 	parent::__construct($context, $nodeTest, $matchSelf, $iter);
-	// }
-
 	/**
 	 * Constructor
 	 * @param XPath2Context $context
@@ -82,10 +70,10 @@ class AncestorNodeIterator extends SequentialAxisNodeIterator implements \Iterat
 	}
 
 	/**
-	 * Clone
+	 * CloneInstance
 	 * @return XPath2NodeIterator
 	 */
-	public function Clone()
+	public function CloneInstance()
 	{
 		return AncestorNodeIterator::fromSource( $this );
 	}

@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -33,6 +33,10 @@ namespace lyquidity\XPath2\parser;
 /** thrown for irrecoverable syntax errors and stack overflow. */
 class yyException extends \Exception
 {
+	/**
+	 * constructor
+	 * @param string $message
+	 */
 	public function __construct( $message)
 	{
 		parent::__construct( $message );

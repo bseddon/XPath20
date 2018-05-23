@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -40,14 +40,14 @@ use lyquidity\xml\MS\XmlNamespaceManager;
  */
 class BinaryOperatorNode extends AbstractNode
 {
-	public static $CLASSNAME = "lyquidity\XPath2\AST\BinaryOperatorNode";
-
 	/**
+	 * Holds the action defined in the constructor
 	 * @var BinaryOperator $_binaryOper
 	 */
 	protected $_binaryOper = null;
 
 	/**
+	 * Holds the result type defined in the constructor
 	 * @var XPath2ResultType $_resultType
 	 */
 	private $_resultType;
@@ -99,6 +99,9 @@ class BinaryOperatorNode extends AbstractNode
 
 }
 
+/**
+ * Unit test function for the class
+ */
 function TestBinaryOperatorNode()
 {
 	$nsManager = new XmlNamespaceManager();

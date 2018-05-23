@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -45,9 +45,10 @@ use lyquidity\XPath2\XPath2Exception;
  */
 class TimeProxy extends ValueProxy implements IXmlSchemaType
 {
-	public static $CLASSNAME = "lyquidity\XPath2\Proxy\TimeProxy";
+
 
 	/**
+	 * Value
 	 * @var TimeValue $_value
 	 */
 	private $_value;
@@ -71,7 +72,8 @@ class TimeProxy extends ValueProxy implements IXmlSchemaType
 	}
 
 	/**
-	 * @var object $Value
+	 * Get the value
+	 * @return object 
 	 */
 	public function getValue()
 	{
@@ -273,6 +275,9 @@ class TimeProxy extends ValueProxy implements IXmlSchemaType
 		);
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		$execute = function( $callback )

@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -41,6 +41,10 @@ use lyquidity\xml\exceptions\InvalidCastException;
  */
 class NotationValue implements IXmlConvertable, IXmlSchemaType
 {
+	/**
+	 * CLASSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "lyquidity\XPath2\Value\NotationValue";
 
 	/**
@@ -55,19 +59,22 @@ class NotationValue implements IXmlConvertable, IXmlSchemaType
 	}
 
 	/**
+	 * Prefix
 	 * @var String $Prefix
 	 */
-	public  $Prefix;
+	public $Prefix;
 
 	/**
+	 * LocalName
 	 * @var String $LocalName
 	 */
-	public  $LocalName;
+	public $LocalName;
 
 	/**
+	 * NamespaceUri
 	 * @var String $NamespaceUri
 	 */
-	public  $NamespaceUri;
+	public $NamespaceUri;
 
 	/**
 	 * Returns a schema type for the proxy value
@@ -171,6 +178,9 @@ class NotationValue implements IXmlConvertable, IXmlSchemaType
 		return new NotationValue( QNameValue::fromNCName( $name, $resolver ) );
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		$resolver = new XmlNamespaceManager();
@@ -190,7 +200,5 @@ class NotationValue implements IXmlConvertable, IXmlSchemaType
 	}
 
 }
-
-
 
 ?>

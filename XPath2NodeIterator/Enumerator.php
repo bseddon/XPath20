@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -38,16 +38,19 @@ use lyquidity\xml\exceptions\InvalidOperationException;
 class Enumerator implements IEnumerator
 {
 	/**
+	 * current
 	 * @var XPath2NodeIterator $current
 	 */
 	private $current;
 
 	/**
+	 * iterationStarted
 	 * @var bool $iterationStarted
 	 */
 	private $iterationStarted;
 
 	/**
+	 * original
 	 * @var XPath2NodeIterator $original
 	 */
 	private $original;
@@ -62,7 +65,8 @@ class Enumerator implements IEnumerator
 	}
 
 	/**
-	 * @var object $Current
+	 * Get the current value of the iterator
+	 * @return object
 	 */
 	public function getCurrent()
 	{

@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -29,6 +29,9 @@
 
 namespace lyquidity\XPath2;
 
+/**
+ * A list of standard result types
+ */
 class XPath2ResultType
 {
 	const Number = 0;
@@ -46,7 +49,7 @@ class XPath2ResultType
 
 	/**
 	 * Return the constant name corresponding to the $tokenValue
-	 * @param int $typeCode
+	 * @param int $resultType
 	 * @return string
 	 */
 	public static function getResultTypeName( $resultType )

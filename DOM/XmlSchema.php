@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -40,8 +40,10 @@ use \lyquidity\xml\QName;
  */
 class XmlSchema
 {
-	public static $CLASSNAME = "lyquidity\XPath2\DOM\XmlSchema";
-
+	/**
+	 * The target namespace passed to the constructor
+	 * @var string
+	 */
 	private $targetNamespace = "";
 
 	/**
@@ -66,146 +68,175 @@ class XmlSchema
 	}
 
 	/**
+	 * AnySimpleType
 	 * @var XmlSchemaType $AnySimpleType = XmlSchemaType::GetBuiltInSimpleType( new \lyquidity\xml\qname( "xs", XmlReservedNs::xs, "anySimpleType" ) )
 	 */
 	public static $AnySimpleType;
 
 	/**
+	 * AnyType
 	 * @var XmlSchemaType $AnyType = XmlSchemaType::GetBuiltInComplexType( new \lyquidity\xml\qname( "xs", XmlReservedNs::xs, "anyType" ) )
 	 */
 	public static $AnyType;
 
 	/**
+	 * AnyUri
 	 * @var XmlSchemaType $AnyUri = XmlSchemaType::GetBuiltInComplexType( new \lyquidity\xml\qname( "xs", XmlReservedNs::xs, "anyUri" ) )
 	 */
 	public static $AnyUri;
 
 	/**
+	 * AnyAtomicType
 	 * @var XmlSchemaType $AnyAtomicType = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::AnyAtomicType )
 	 */
 	public static $AnyAtomicType;
 
 	/**
+	 * UntypedAtomic
 	 * @var XmlSchemaType $UntypedAtomic = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::UntypedAtomic )
 	 */
 	public static $UntypedAtomic;
 
 	/**
+	 * Boolean
 	 * @var XmlSchemaType $Boolean = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::Boolean )
 	 */
 	public static $Boolean;
 
 	/**
+	 * Byte
 	 * @var XmlSchemaType $Byte = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::Boolean )
 	 */
 	public static $Byte;
 
 	/**
+	 * Decimal
 	 * @var XmlSchemaType $Decimal = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::Decimal )
 	 */
 	public static $Decimal;
 
 	/**
+	 * Double
 	 * @var XmlSchemaType $Double = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::Double )
 	 */
 	public static $Double;
 
 	/**
+	 * Float
 	 * @var XmlSchemaType $Float = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::Float )
 	 */
 	public static $Float;
 
 	/**
+	 * Integer
 	 * @var XmlSchemaType $Integer = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::Integer )
 	 */
 	public static $Integer;
 
 	/**
+	 * Long
 	 * @var XmlSchemaType $Long = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::Long )
 	 */
 	public static $Long;
 
 	/**
+	 * Short
 	 * @var XmlSchemaType $Short = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::Short )
 	 */
 	public static $Short;
 
 	/**
+	 * UnsignedInt
 	 * @var XmlSchemaType $UnsignedInt = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::UnsignedInt )
 	 */
 	public static $UnsignedInt;
 
 	/**
+	 * UnsignedLong
 	 * @var XmlSchemaType $UnsignedLong = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::UnsignedLong )
 	 */
 	public static $UnsignedLong;
 
 	/**
+	 * UnsignedShort
 	 * @var XmlSchemaType $UnsignedShort = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::UnsignedShort )
 	 */
 	public static $UnsignedShort;
 
 	/**
+	 * DateTime
 	 * @var XmlSchemaType $DateTime = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::DateTime )
 	 */
 	public static $DateTime;
 
 	/**
+	 * Date
 	 * @var XmlSchemaType $Date = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::Date )
 	 */
 	public static $Date;
 
 	/**
+	 * Time
 	 * @var XmlSchemaType $Time = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::Time )
 	 */
 	public static $Time;
 
 	/**
+	 * Duration
 	 * @var XmlSchemaType $Duration = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::Duration )
 	 */
 	public static $Duration;
 
 	/**
+	 * YearMonthDuration
 	 * @var XmlSchemaType $YearMonthDuration = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::YearMonthDuration )
 	 */
 	public static $YearMonthDuration;
 
 	/**
+	 * DayTimeDuration
 	 * @var XmlSchemaType $DayTimeDuration = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::DayTimeDuration )
 	 */
 	public static $DayTimeDuration;
 
 	/**
+	 * GYearMonth
 	 * @var XmlSchemaType $GYearMonth = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::GYearMonth )
 	 */
 	public static $GYearMonth;
 
 	/**
+	 * GYear
 	 * @var XmlSchemaType $GYear = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::GYear )
 	 */
 	public static $GYear;
 
 	/**
+	 * GDay
 	 * @var XmlSchemaType $GDay = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::GDay )
 	 */
 	public static $GDay;
 
 	/**
+	 * GMonth
 	 * @var XmlSchemaType $GMonth = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::GMonth )
 	 */
 	public static $GMonth;
 
 	/**
+	 * GMonthDay
 	 * @var XmlSchemaType $GMonthDay = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::GMonthDay )
 	 */
 	public static $GMonthDay;
 
 	/**
+	 * QName
 	 * @var XmlSchemaType $QName = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::QName )
 	 */
 	public static $QName;
 
 	/**
+	 * HexBinary
 	 * @var XmlSchemaType $HexBinary = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::HexBinary )
 	 */
 	public static $HexBinary;
@@ -216,77 +247,91 @@ class XmlSchema
 	public static $Base64Binary;
 
 	/**
+	 * token
 	 * @var XmlSchemaType $token = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::token )
 	 */
 	public static $Token;
 
 	/**
+	 * NMTOKEN
 	 * @var XmlSchemaType $NMTOKEN = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::NmToken )
 	 */
 	public static $NMTOKEN;
 
 	/**
+	 * ID
 	 * @var XmlSchemaType $ID = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::Id)
 	 */
 	public static $ID;
 
 	/**
+	 * IDREF
 	 * @var XmlSchemaType $IDREF = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::IdRef )
 	 */
 	public static $IDREF;
 
 	/**
+	 * IDREFS
 	 * @var XmlSchemaType $IDREFS = XmlSchemaType::GetBuiltInSimpleType( new \lyquidity\xml\qname( "xs", XmlReservedNs::xs, "IDREFS" ) )
 	 */
 	public static $IDREFS;
 
 	/**
+	 * NMTOKENS
 	 * @var XmlSchemaType $NMTOKENS = XmlSchemaType::GetBuiltInSimpleType( "xs", new \lyquidity\xml\qname( "xs", XmlReservedNs::xs, "NMTOKENS" ) )
 	 */
 	public static $NMTOKENS;
 
 	/**
+	 * ENTITIES
 	 * @var XmlSchemaType $ENTITIES = XmlSchemaType::GetBuiltInSimpleType( "xs", new \lyquidity\xml\qname( "xs", XmlReservedNs::xs, "ENTITIES" ) )
 	 */
 	public static $ENTITIES;
 
 	/**
+	 * ENTITY
 	 * @var XmlSchemaType $ENTITY = XmlSchemaType::GetBuiltInSimpleType( "xs", new \lyquidity\xml\qname( "xs", XmlReservedNs::xs, "ENTITY" ) )
 	 */
 	public static $ENTITY;
 
 	/**
+	 * Name
 	 * @var XmlSchemaType $Name = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::Name )
 	 */
 	public static $Name;
 
 	/**
+	 * NCName
 	 * @var XmlSchemaType $NCName = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::NCName )
 	 */
 	public static $NCName;
 
 	/**
+	 * String
 	 * @var XmlSchemaType $String = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::String )
 	 */
 	public static $String;
 
 	/**
+	 * Notation
 	 * @var XmlSchemaType $Notation = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::Notation )
 	 */
 	public static $Notation;
 
 	/**
+	 * Language
 	 * @var XmlSchemaType $Language = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::Language )
 	 */
 	public static $Language;
 
 	/**
+	 * NormalizedString
 	 * @var XmlSchemaType $NormalizedString = XmlSchemaType::GetBuiltInSimpleType( XmlTypeCode::NormalizedString )
 	 */
 	public static $NormalizedString;
 
 	/**
-	 *
+	 * Static constructor
 	 */
 	public static function __static()
 	{
@@ -337,6 +382,9 @@ class XmlSchema
 		XmlSchema::$NormalizedString = DOMSchemaType::GetBuiltInSimpleTypeByTypecode( XmlTypeCode::NormalizedString );
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function Test()
 	{
 		$AnySimpleType = XmlSchema::$AnySimpleType;

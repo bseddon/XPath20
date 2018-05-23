@@ -9,7 +9,7 @@
  *	   |___/	|_|					|___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -42,12 +42,17 @@ use lyquidity\xml\interfaces\IXmlSchemaType;
 use lyquidity\xml\exceptions\NotImplementedException;
 use lyquidity\xml\exceptions\FormatException;
 use lyquidity\XPath2\XPath2Exception;
+use lyquidity\xml\interfaces\IFormatProvider;
 
 /**
  * UntypedAtomic (public)
  */
 class UntypedAtomic implements ICloneable, IComparable, IConvertable, IEquatable, IXmlSchemaType
 {
+	/**
+	 * CLASSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "lyquidity\XPath2\Value\UntypedAtomic";
 
 	/**
@@ -61,13 +66,16 @@ class UntypedAtomic implements ICloneable, IComparable, IConvertable, IEquatable
 	}
 
 	/**
+	 * Value
 	 * @var String $Value
 	 */
 	public  $Value;
+
 	/**
+	 * _doubleValue
 	 * @var object $_doubleValue
 	 */
-	private  $_doubleValue;
+	private $_doubleValue;
 
 	/**
 	 * Returns a schema type for the proxy value
@@ -202,7 +210,7 @@ class UntypedAtomic implements ICloneable, IComparable, IConvertable, IEquatable
 	}
 
 	/**
-	 *
+	 * Return true if the item is a node.  Always returns false.
 	 * @return boolean
 	 */
 	public function getIsNode()
@@ -324,11 +332,11 @@ class UntypedAtomic implements ICloneable, IComparable, IConvertable, IEquatable
 	}
 
 	/**
-	 *
-	 * {@inheritDoc}
-	 * @see \\lyquidity\xml\interfaces\IConvertable::Toint()
+	 * ToInt
+	 * @param IFormatProvider $provider
+	 * @return int
 	 */
-	public function Toint( $provider )
+	public function ToInt( $provider )
 	{
 		return $this->ToInt32( $provider );
 	}
@@ -482,6 +490,9 @@ class UntypedAtomic implements ICloneable, IComparable, IConvertable, IEquatable
 		}
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		$www = new UntypedAtomic( "100" );
@@ -531,7 +542,7 @@ class UntypedAtomic implements ICloneable, IComparable, IConvertable, IEquatable
 			$result = $execute( function() use( $item, $provider ) { return $item->ToDecimal( $provider ); } );
 			$result = $execute( function() use( $item, $provider ) { return $item->ToSingle( $provider ); } );
 			$result = $execute( function() use( $item, $provider ) { return $item->ToDouble( $provider ); } );
-			$result = $execute( function() use( $item, $provider ) { return $item->Toint( $provider ); } );
+			$result = $execute( function() use( $item, $provider ) { return $item->ToInt( $provider ); } );
 			$result = $execute( function() use( $item, $provider ) { return $item->ToInt16( $provider ); } );
 			$result = $execute( function() use( $item, $provider ) { return $item->ToInt32( $provider ); } );
 			$result = $execute( function() use( $item, $provider ) { return $item->ToInt64( $provider ); } );

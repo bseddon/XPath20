@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -70,7 +70,8 @@ class DateTimeProxyFactory extends ValueProxyFactory
 	}
 
 	/**
-	 * @var bool $IsNumeric
+	 * Returns true if the value is numeric
+	 * @return bool 
 	 */
 	public function getIsNumeric()
 	{
@@ -87,6 +88,9 @@ class DateTimeProxyFactory extends ValueProxyFactory
 		return 0;
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{}
 

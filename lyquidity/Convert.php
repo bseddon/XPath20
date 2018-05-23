@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -107,8 +107,9 @@ class Convert
 
 	/**
 	 * ChangeType an alias for ToType
+	 * @param object $value
 	 * @param Type $conversionType
-	 * @param IFormatProvider $provider
+	 * @param NodeProvider $provider (optional)
 	 * @return object
 	 */
 	public static function ChangeType( $value, $conversionType, $provider = null )
@@ -143,7 +144,7 @@ class Convert
 			return $dt;
 		}
 
-		$value = Convert::Toint( $value, $provider );
+		$value = Convert::ToInt( $value, $provider );
 		if ( is_null( $value ) ) return null;
 
 		$dt = new \DateTime();
@@ -157,7 +158,7 @@ class Convert
 	 * the specified culture-specific formatting information.
 	 *
 	 * @param object $value The value to convert
-	 * @param IFormatProvider $provide An implementation that supplies culture-specific formatting information.
+	 * @param IFormatProvider $provider An implementation that supplies culture-specific formatting information.
 	 * @return DecimalValue A Decimal number equivalent to the value of this instance.
 	 */
 	public static function ToDecimal( $value, $provider = null )
@@ -324,7 +325,7 @@ class Convert
 	 */
 	public static function ToInt16( $value, $provider = null )
 	{
-		return Convert::Toint( $value, $provider );
+		return Convert::ToInt( $value, $provider );
 	}
 
 	/**
@@ -335,7 +336,7 @@ class Convert
 	 */
 	public static function ToInt32( $value, $provider = null )
 	{
-		return Convert::Toint( $value, $provider );
+		return Convert::ToInt( $value, $provider );
 	}
 
 	/**
@@ -346,7 +347,7 @@ class Convert
 	 */
 	public static function ToInt64( $value, $provider = null )
 	{
-		return Convert::Toint( $value, $provider );
+		return Convert::ToInt( $value, $provider );
 	}
 
 	/**
@@ -428,7 +429,7 @@ class Convert
 	 */
 	public static function ToUInt16( $value, $provider = null )
 	{
-		$result = Convert::Toint( $value, $provider );
+		$result = Convert::ToInt( $value, $provider );
 		if ( ! $result ) return null;
 		return abs( $result );
 	}
@@ -441,7 +442,7 @@ class Convert
 	 */
 	public static function ToUInt32( $value, $provider = null )
 	{
-		$result = Convert::Toint( $value, $provider );
+		$result = Convert::ToInt( $value, $provider );
 		if ( ! $result ) return null;
 		return abs( $result );
 	}
@@ -454,11 +455,14 @@ class Convert
 	 */
 	public static function ToUInt64( $value, $provider = null )
 	{
-		$result = Convert::Toint( $value, $provider );
+		$result = Convert::ToInt( $value, $provider );
 		if ( ! $result ) return null;
 		return abs( $result );
 	}
 
+	/**
+	 * Unit test
+	 */
 	public static function tests()
 	{
 		$result = Convert::ToDecimal( "1", null ); // 1

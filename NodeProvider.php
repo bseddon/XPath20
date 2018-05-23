@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -38,6 +38,7 @@ use lyquidity\XPath2\Properties\Resources;
 class NodeProvider implements IContextProvider
 {
 	/**
+	 * Holds the item from the constructor
 	 * @var XPathNavigator $item
 	 */
 	private $item;
@@ -56,7 +57,8 @@ class NodeProvider implements IContextProvider
 	}
 
 	/**
-	 * @var XPathNavigator $Context
+	 * Get the current item
+	 * @return XPathNavigator
 	 */
 	public function getContext()
 	{
@@ -82,7 +84,7 @@ class NodeProvider implements IContextProvider
 	}
 
 	/**
-	 *
+	 * Unit tests
 	 * @param \XBRL_Instance $instance
 	 */
 	public static function tests( $instance )

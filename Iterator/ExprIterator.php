@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -41,26 +41,31 @@ use lyquidity\XPath2\AST\AbstractNode;
 class ExprIterator extends XPath2NodeIterator implements \Iterator
 {
 	/**
+	 * Provider pased to fromNodes or fromOwner
 	 * @var IContextProvider $provider
 	 */
 	private $provider;
 
 	/**
+	 * Copy of the datapool passed to fromNodes or fromOwner
 	 * @var object[] $dataPool
 	 */
 	private $dataPool;
 
 	/**
+	 * Copy of the nodes passed to fromNodes or taken from owner
 	 * @var array $nodes An array of AbstractNode instances
 	 */
 	private $nodes;
 
 	/**
+	 * childIter
 	 * @var XPath2NodeIterator $childIter
 	 */
 	private $childIter;
 
 	/**
+	 * index
 	 * @var int $index = 0
 	 */
 	private $index = 0;

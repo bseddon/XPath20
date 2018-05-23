@@ -9,7 +9,7 @@
  *		 |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -44,44 +44,50 @@ use lyquidity\XPath2\XPath2Exception;
  */
 class AxisNodeIterator extends XPath2NodeIterator implements \Iterator
 {
-	public static $CLASSNAME = "lyquidity\XPath2\Iterator\AxisNodeIterator";
-
 	/**
+	 * Holds the current context
 	 * @var XPath2Context $context
 	 */
 	protected $context;
 
 	/**
+	 * Holds the QName test
 	 * @var XmlQualifiedNameTest $nameTest
 	 */
 	protected $nameTest;
 
 	/**
+	 * Holds the sequence type test
 	 * @var SequenceType $typeTest
 	 */
 	protected $typeTest;
 
 	/**
+	 * True if the test should match self
 	 * @var bool $matchSelf
 	 */
 	protected $matchSelf;
 
 	/**
+	 * The source iterator (set by fromAxisNodeIteratorParts)
 	 * @var XPath2NodeIterator $iter
 	 */
 	protected $iter;
 
 	/**
+	 * The current item
 	 * @var XPathNavigator $curr
 	 */
 	protected $curr;
 
 	/**
+	 * The current sequential position of $curr
 	 * @var int $sequentialPosition
 	 */
 	protected $sequentialPosition;
 
 	/**
+	 * Flag used to determine if the test should be accepted
 	 * @var bool $accept
 	 */
 	protected $accept;
@@ -92,20 +98,6 @@ class AxisNodeIterator extends XPath2NodeIterator implements \Iterator
 	 * a child to have a protected modifier if the parent is public
 	 */
 	public function __construct() {}
-
-	// /**
-	//  * Constructor
-	//  * @param XPath2Context $context
-	//  * @param object $nodeTest
-	//  * @param bool $matchSelf
-	//  * @param XPath2NodeIterator $iter
-	//  */
-	// public static function fromParts( $context, $nodeTest, $matchSelf, $iter )
-	// {
-	// 	$result = new AxisNodeIterator();
-	// 	$result->fromAxisNodeIteratorParts( $context, $nodeTest, $matchSelf, $iter );
-	// 	return $result;
-	// }
 
 	/**
 	 * fromAxisNodeIteratorParts
@@ -214,6 +206,7 @@ class AxisNodeIterator extends XPath2NodeIterator implements \Iterator
 	}
 
 	/**
+	 * Returns the current sequential position
 	 * @var int $SequentialPosition
 	 */
 	public function getSequentialPosition()

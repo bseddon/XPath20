@@ -9,7 +9,7 @@
  *		 |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -40,6 +40,7 @@ use lyquidity\XPath2\XPath2NodeIterator;
 class SpecialDescendantNodeIterator extends AxisNodeIterator implements \Iterator
 {
 	/**
+	 * The kind from the node test
 	 * @var XPathNodeType $kind
 	 */
 	private  $kind;
@@ -79,6 +80,7 @@ class SpecialDescendantNodeIterator extends AxisNodeIterator implements \Iterato
 	}
 
 	/**
+	 * Current node depth
 	 * @var int $depth
 	 */
 	private  $depth;
@@ -130,7 +132,5 @@ class SpecialDescendantNodeIterator extends AxisNodeIterator implements \Iterato
 	}
 
 }
-
-
 
 ?>

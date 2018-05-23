@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -64,55 +64,79 @@ class XQSTests
 	const TestGroupsFilename = "/testGroups.json";
 
 	/**
+	 * sourceOffsetPath
 	 * @var string
 	 */
 	public static $sourceOffsetPath;
+
 	/**
+	 * queryOffsetPath
 	 * @var string
 	 */
 	public static $queryOffsetPath;
+
 	/**
+	 * resultOffsetPath
 	 * @var string
 	 */
 	public static $resultOffsetPath;
+
 	/**
+	 * queryFileExtension
 	 * @var string
 	 */
 	public static $queryFileExtension;
+
 	/**
+	 * conformanceBase
 	 * @var string
 	 */
 	public static $conformanceBase;
+
 	/**
+	 * entities
 	 * @var array
 	 */
 	public static $entities;
+
 	/**
+	 * convmap
 	 * @var array
 	 */
 	public static $convmap;
+
 	/**
+	 * sources
 	 * @var array
 	 */
 	public static $sources;
+
 	/**
+	 * module
 	 * @var array
 	 */
 	public static $module;
+
 	/**
+	 * collection
 	 * @var array
 	 */
 	public static $collection;
+
 	/**
+	 * schemas
 	 * @var array
 	 */
 	public static $schemas;
+
 	/**
+	 * nsMgr
 	 * @var XmlNamespaceManager
 	 */
 	public static $nsMgr;
 
 	/**
+	 * log
 	 * @var lyquidity\Log
 	 */
 	public static $log;
@@ -358,7 +382,8 @@ class XQSTests
 
 	/**
 	 * Run the tests
-	 * @param unknown $testName The name of a specific test to run or all will be run
+	 * @param bool $testGroupNameOnly
+	 * @param bool $testCaseNameOnly The name of a specific test to run or all will be run
 	 */
 	public static function runTestGroups( $testGroupNameOnly = null, $testCaseNameOnly = null )
 	{
@@ -398,7 +423,9 @@ class XQSTests
 
 	/**
 	 * Runs the tests in a test group
-	 * @param unknown $testGroupFiles a set of files used by the test group
+	 * @param string $name
+	 * @param bool $testGroupFiles a set of files used by the test group
+	 * @param bool $testCaseNameOnly
 	 */
 	private static function runTestGroup( $name, $testGroupFiles, $testCaseNameOnly = null )
 	{
@@ -666,7 +693,7 @@ class XQSTests
 
 	/**
 	 * Create a comment path for the test group node
-	 * @param unknown $node
+	 * @param \SimpleXMLElement $node
 	 * @return string
 	 */
 	private static function createPath( /** @var \DOMElement $node */ $node )
@@ -781,8 +808,8 @@ class XQSTests
 	 * @param string $queryFile
 	 * @param string $variableName
 	 * @param \stdClass $input
-	 * @param string $expectedResultsFile
-	 * @param string $expectedError
+	 * @param array $expectedResultsFiles
+	 * @param array $expectedErrors
 	 * @param string $scenario
 	 * @param string $compare
 	 */
@@ -1071,6 +1098,9 @@ class XQSTests
 	 * So this function takes each number rounded appropriately then
 	 * compares them. In the example above the two numbers will be
 	 * rounded to zero decimal places.
+	 * @param string $expectedResult
+	 * @param string $actualResult
+	 * @return bool
 	 */
 	private static function CompareNumbers( $expectedResult, $actualResult )
 	{

@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -43,9 +43,8 @@ use lyquidity\XPath2\XPath2Exception;
  */
 class BoolProxy extends ValueProxy implements IXmlSchemaType
 {
-	public static $CLASSNAME = "lyquidity\XPath2\Proxy\BoolProxy";
-
 	/**
+	 * Value
 	 * @var bool $_value
 	 */
 	private $_value;
@@ -78,7 +77,8 @@ class BoolProxy extends ValueProxy implements IXmlSchemaType
 	}
 
 	/**
-	 * @var object $Value
+	 * Gets the value
+	 * @return object 
 	 */
 	public function getValue()
 	{
@@ -256,6 +256,9 @@ class BoolProxy extends ValueProxy implements IXmlSchemaType
     	return $this->_value ? "true" : "false";
     }
 
+    /**
+     * Unit tests
+     */
     public static function tests()
     {
     	$execute = function( $callback )

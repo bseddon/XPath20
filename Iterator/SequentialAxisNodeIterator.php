@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -59,6 +59,7 @@ abstract class SequentialAxisNodeIterator extends AxisNodeIterator
 	// }
 
 	/**
+	 * first
 	 * @var bool $first = false
 	 */
 	private $first = false;

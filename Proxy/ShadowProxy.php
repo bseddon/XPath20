@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -44,16 +44,19 @@ use lyquidity\XPath2\XPath2Exception;
 class ShadowProxy extends ValueProxy
 {
 	/**
+	 * Value
 	 * @var object $_value
 	 */
 	private  $_value;
 
 	/**
+	 * ValueCode
 	 * @var int $_valueCode
 	 */
 	private  $_valueCode;
 
 	/**
+	 * Is numeric
 	 * @var bool $_isNumeric
 	 */
 	private  $_isNumeric;
@@ -88,7 +91,8 @@ class ShadowProxy extends ValueProxy
 	}
 
 	/**
-	 * @var object $Value
+	 * Get the value
+	 * @return object
 	 */
 	public function getValue()
 	{
@@ -259,6 +263,9 @@ class ShadowProxy extends ValueProxy
 		);
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{}
 

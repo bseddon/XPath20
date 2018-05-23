@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -38,6 +38,7 @@ use lyquidity\xml\xpath\XPathItem;
 class EmptyIterator extends XPath2NodeIterator implements \Iterator
 {
 	/**
+	 * Shared
 	 * @var EmptyIterator $Shared = new EmptyIterator()
 	 */
 	public static $Shared;
@@ -47,6 +48,9 @@ class EmptyIterator extends XPath2NodeIterator implements \Iterator
 	 */
 	public  function __construct() {}
 
+	/**
+	 * Static constructor
+	 */
 	public static function __static()
 	{
 		EmptyIterator::$Shared = new EmptyIterator();

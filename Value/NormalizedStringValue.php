@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -47,6 +47,7 @@ class NormalizedStringValue implements IXmlSchemaType
 	}
 
 	/**
+	 * Value
 	 * @var array $Value
 	 */
 	public $Value;
@@ -106,6 +107,9 @@ class NormalizedStringValue implements IXmlSchemaType
 		return $this->ToString();
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 	}

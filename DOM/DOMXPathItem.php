@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -30,8 +30,9 @@
 
 namespace lyquidity\XPath2\DOM;
 
-// use lyquidity\xml\xpath\XPathItem;
-
+/**
+ * Extends DOMXPathNavigator
+ */
 class DOMXPathItem extends DOMXPathNavigator
 {
 	/**

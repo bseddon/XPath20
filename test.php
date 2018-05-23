@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * This fie implements code to execute the XPath 2.0 conformance tests XQS 1.0.3
+ * The test executed are only those from the minimal conformance set that are related
+ * to XPath 2.0.  This means that XQuery and XSLT tests are ignored.
+ */
+
 namespace lyquidity\XPath2;
 
 use lyquidity\xml\schema\SchemaTypes;
@@ -40,6 +46,10 @@ $issues = array();
 
 $terminate = false;
 
+/**
+ * Utility function to control what happens at the end of a test
+ * @param bool $terminate
+ */
 function terminate( $terminate )
 {
 	if ( $terminate ) exit;

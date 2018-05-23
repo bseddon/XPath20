@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -73,7 +73,8 @@ use lyquidity\xml\QName;
 class XPath2Parser
 {
 	/**
-	 * @param XPath2Context $context
+	 * Context
+	 * @var XPath2Context $context
 	 */
 	private $context;
 
@@ -90,6 +91,7 @@ class XPath2Parser
 	private $log;
 
 	/**
+	 * Constructor
 	 * @param XPath2Context $context
 	 */
 	public function __construct( $context )
@@ -99,6 +101,7 @@ class XPath2Parser
 	}
 
 	/**
+	 * Parse the query
 	 * @param Tokenizer::$tok
 	 * @return object
 	 */
@@ -120,6 +123,7 @@ class XPath2Parser
 	}
 
 	/**
+	 * Parse the query
 	 * @param Tokenizer::$tok
 	 * @param object $yyDebug
 	 * @return object
@@ -142,6 +146,7 @@ class XPath2Parser
 	}
 
 	/**
+	 * Parse the query
 	 * @param Tokenizer::$tok
 	 * @return object
 	 */
@@ -188,6 +193,7 @@ class XPath2Parser
 	}
 
 	/**
+	 * errorText
 	 * @var array $errorText = null
 	 */
 	public $errorText = array();

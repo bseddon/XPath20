@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright ( C ) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -37,16 +37,19 @@ class FunctionDesc
 	const CLASSNAME = "lyquidity\XPath2\FunctionDesc";
 
 	/**
+	 * Name of the function
 	 * @var String $name
 	 */
 	public $name;
 
 	/**
+	 * The namespae of the function
 	 * @var String $ns
 	 */
 	public $ns;
 
 	/**
+	 * The number of arguments
 	 * @var int $arity
 	 */
 	public $arity;

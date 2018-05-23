@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -36,14 +36,14 @@ use lyquidity\XPath2\XPath2NodeIterator;
  */
 class NodeIterator extends XPath2NodeIterator implements \Iterator // \IteratorAggregate
 {
-	const CLASSNAME = "lyquidity\XPath2\NodeIterator";
-
 	/**
+	 * Result of the callable
 	 * @var \Iterator $iterator
 	 */
 	private $iterator;
 
 	/**
+	 * Holds the enumerable from the constructor
 	 * @var callable $callable
 	 */
 	private $callable;
@@ -56,13 +56,12 @@ class NodeIterator extends XPath2NodeIterator implements \Iterator // \IteratorA
 
 	/**
 	 * Constructor
-	 * @param $callable $enumerable
+	 * @param Function $enumerable
 	 */
 	public function __construct( $enumerable )
 	{
 		parent::__construct();
 		$this->callable = $enumerable;
-		// $this->iterator = call_user_func( $this->callable );
 	}
 
 	/**
@@ -72,7 +71,6 @@ class NodeIterator extends XPath2NodeIterator implements \Iterator // \IteratorA
 	public function CloneInstance()
 	{
 		$result = new NodeIterator( $this->callable );
-		// $result->used = $this->used;
 		return $result;
 	}
 
@@ -85,6 +83,9 @@ class NodeIterator extends XPath2NodeIterator implements \Iterator // \IteratorA
 		return BufferedNodeIterator::fromSource( $this );
 	}
 
+	/**
+	 * Initializer called by the moveNext
+	 */
 	public function Init()
 	{
 		$this->iterator = call_user_func( $this->callable );

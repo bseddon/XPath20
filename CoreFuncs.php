@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C ) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -72,23 +72,45 @@ use lyquidity\xml\QName;
 use lyquidity\xml\exceptions\InvalidCastException;
 use lyquidity\xml\exceptions\FormatException;
 
+/**
+ * Base class for reference types
+ */
 class ReferenceType
 {
+	/**
+	 * Function to return a string representation
+	 * @return string
+	 */
 	public function ToString()
 	{
 		return $this->__toString();
 	}
 }
 
+/**
+ * Class to represent a False value result
+ */
 class FalseValue extends ReferenceType
 {
+	/**
+	 * Magic function to return a string representation
+	 * @return string
+	 */
 	public function __toString()
 	{
 		return "false";
 	}
 }
+
+/**
+ * Class to represent a True value result
+ */
 class TrueValue extends ReferenceType
 {
+	/**
+	 * Magic function to return a string representation
+	 * @return string
+	 */
 	public function __toString()
 	{
 		return "true";
@@ -101,14 +123,16 @@ class TrueValue extends ReferenceType
 class CoreFuncs
 {
 	/**
+	 * True
 	 * @var object $True = true
 	 */
 	public static $True = true;
 
 	/**
+	 * False
 	 * @var object $False = false
 	 */
-	public static  $False = false;
+	public static $False = false;
 
 	/**
 	 * When true years before 1532 will cause an error
@@ -155,6 +179,7 @@ class CoreFuncs
 	 * OperatorEq
 	 * @param object $arg1
 	 * @param object $arg2
+	 * @param bool $raiseExceptionOnMismatch
 	 * @return object
 	 */
 	public static function OperatorEq( $arg1, $arg2, $raiseExceptionOnMismatch = true )
@@ -2438,7 +2463,7 @@ class CoreFuncs
 	/**
 	 * Number
 	 * @param XPath2Context $context
-	 * @param object $value
+	 * @param object $provider
 	 * @return double
 	 */
 	public static function NumberWithProvider( $context, $provider )

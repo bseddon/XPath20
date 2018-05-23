@@ -2,15 +2,15 @@
 
 /**
  * XPath 2.0 for PHP
- *  _                      _     _ _ _         
- * | |   _   _  __ _ _   _(_) __| (_) |_ _   _ 
+ *  _                      _     _ _ _
+ * | |   _   _  __ _ _   _(_) __| (_) |_ _   _
  * | |  | | | |/ _` | | | | |/ _` | | __| | | |
  * | |__| |_| | (_| | |_| | | (_| | | |_| |_| |
  * |_____\__, |\__, |\__,_|_|\__,_|_|\__|\__, |
- *       |___/    |_|                    |___/ 
- * 
+ *       |___/    |_|                    |___/
+ *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -30,14 +30,18 @@
 
 namespace lyquidity\XPath2\parser;
 
+/**
+ * Provides debug optoins
+ */
 class yyDebugSimple implements yyDebug
 {
 	/**
+	 * println
 	 * @param string $message
 	 */
-	private function println ( $s )
+	private function println ( $message )
 	{
-		echo( $s );
+		echo( $message );
 	}
 
 	/**
@@ -51,6 +55,7 @@ class yyDebugSimple implements yyDebug
 	}
 
 	/**
+	 * lex
 	 * @param int $state
 	 * @param int $token
 	 * @param string $name

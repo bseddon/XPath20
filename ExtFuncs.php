@@ -9,7 +9,7 @@
  *	     |___/    |_|				     |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright ( C ) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -124,6 +124,8 @@ class ExtFuncs
 
 	/**
 	 * GetID
+	 * @param XPath2Context $context
+	 * @param IContextProvider $provider
 	 * @param string $arg
 	 * @param XPathNavigator $node
 	 * @param bool $type False = ID, True - IDREF
@@ -187,6 +189,7 @@ class ExtFuncs
 
 	/**
 	 * CollectionsZeroParam
+	 * @param XPath2Context $context
 	 * @param IContextProvider $provider
 	 * @return string
 	 */
@@ -202,8 +205,10 @@ class ExtFuncs
 	}
 
 	/**
-	 * GetLocalName
-	 * @param XPathNavigator $nav
+	 * Collections
+	 * @param XPath2Context $context
+	 * @param IContextProvider $provider
+	 * @param string $collection A uri representing an existing collection
 	 * @return string
 	 */
 	public static function Collections( $context, $provider, $collection )
@@ -2594,6 +2599,7 @@ class ExtFuncs
 
 	/**
 	 * Compare
+	 * @param XPath2Context $context
 	 * @param object $a
 	 * @param object $b
 	 * @return object
@@ -3976,7 +3982,7 @@ class ExtFuncs
 	}
 
 	/**
-	 *
+	 * InternetCombineUrl
 	 * @param string $absolute
 	 * @param string $relative
 	 * @return string
@@ -4047,7 +4053,7 @@ class ExtFuncs
 
 	/**
 	 * Validate URL
-	 * @param string $url
+	 * @param string $uri
 	 * @param bool $requireSheme (default: false)
 	 * @return boolean
 	 */
@@ -4061,6 +4067,11 @@ class ExtFuncs
 		return true;
 	}
 
+	/**
+	 * isAbsoluteUrl
+	 * @param string $url
+	 * @return boolean
+	 */
 	public static function isAbsoluteUrl( $url )
 	{
 		$pattern =	"/^(?:ftp|https?|feed|file)?:?\/{2,3}/xi";
@@ -4230,6 +4241,10 @@ class ExtFuncs
 		return $provider->getLastPosition();
 	}
 
+	/**
+	 * Unit tests
+	 * @param object $instance
+	 */
 	public static function tests( $instance )
 	{
 

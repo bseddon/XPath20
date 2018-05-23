@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -46,6 +46,10 @@ if ( ! defined( 'XPATH20_DURATION_TYPE_YEARMONTH' ) ) define( 'XPATH20_DURATION_
  */
 class DurationValue implements IXmlConvertable, IXmlSchemaType
 {
+	/**
+	 * CLASSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "lyquidity\XPath2\Value\DurationValue";
 
 	/**
@@ -68,6 +72,7 @@ class DurationValue implements IXmlConvertable, IXmlSchemaType
 	}
 
 	/**
+	 * Value
 	 * @var \DateInterval $Value
 	 */
 	public $Value;
@@ -312,6 +317,7 @@ class DurationValue implements IXmlConvertable, IXmlSchemaType
 	}
 
 	/**
+	 * Return the total days of the duration
 	 * @return int
 	 */
 	public function getTotalDays()
@@ -322,6 +328,7 @@ class DurationValue implements IXmlConvertable, IXmlSchemaType
 	}
 
 	/**
+	 * Return the total months of the duration
 	 * @return int
 	 */
 	public function getTotalMonths()
@@ -398,8 +405,8 @@ class DurationValue implements IXmlConvertable, IXmlSchemaType
 	}
 
 	/**
-	 * Parse
-	 * @param string $text
+	 * Parse a formatted string P1D
+	 * @param string $text The duration value string to parse
 	 * @return DurationValue
 	 */
 	public static function Parse( $text )
@@ -426,7 +433,8 @@ class DurationValue implements IXmlConvertable, IXmlSchemaType
 
 	/**
 	 * Parse
-	 * @param string $text
+	 * @param string $text The duration value string to parse
+	 * @param string $class (optional) The name of the class to create
 	 * @return DurationValue
 	 */
 	protected static function _parse( $text, $class = null )
@@ -545,6 +553,9 @@ class DurationValue implements IXmlConvertable, IXmlSchemaType
 	    }
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		$duration1Hour = DurationValue::Parse("-PT1H1.1S");
@@ -577,6 +588,5 @@ class DurationValue implements IXmlConvertable, IXmlSchemaType
 	}
 
 }
-
 
 ?>

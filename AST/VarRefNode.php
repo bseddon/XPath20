@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -44,11 +44,13 @@ use lyquidity\XPath2\XPath2Exception;
 class VarRefNode extends AbstractNode
 {
 	/**
+	 * The qname of the variable
 	 * @var VarName $_varName
 	 */
 	private $_varName;
 
 	/**
+	 * ReferenceLink instance for the data pool
 	 * @var ReferenceLink $_varRef
 	 */
 	private $_varRef;

@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -46,31 +46,37 @@ use lyquidity\XPath2\XPath2Exception;
 class ChildOverDescendantsNodeIterator extends XPath2NodeIterator implements \Iterator
 {
 	/**
+	 * The type of node (element, comment, text, etc)
 	 * @var XPathNodeType $kind
 	 */
 	private  $kind;
 
 	/**
+	 * The context passed to fromParts or fromChildOverDescendantsNodeIteratorParts
 	 * @var XPath2Context $context
 	 */
 	private  $context;
 
 	/**
+	 * A set of node tests to apply
 	 * @var array $nodeTest NodeTest[]
 	 */
 	private  $nodeTest;
 
 	/**
+	 * The last test in $nodeTest
 	 * @var NodeTest $lastTest
 	 */
 	private  $lastTest;
 
 	/**
+	 * The base terator passed to fromParts or fromChildOverDescendantsNodeIteratorParts
 	 * @var XPath2NodeIterator $iter
 	 */
 	private  $iter;
 
 	/**
+	 * The current item
 	 * @var XPathNavigator $curr
 	 */
 	private  $curr;
@@ -180,21 +186,25 @@ class ChildOverDescendantsNodeIterator extends XPath2NodeIterator implements \It
 	}
 
 	/**
+	 * The current depth
 	 * @var int $depth
 	 */
 	private  $depth;
 
 	/**
+	 * Flag indicating whether the current node should be accepted
 	 * @var bool $accept
 	 */
 	private  $accept;
 
 	/**
+	 * Current navigator
 	 * @var XPathNavigator $nav
 	 */
 	private  $nav;
 
 	/**
+	 * The current position
 	 * @var int $sequentialPosition
 	 */
 	private  $sequentialPosition;
@@ -275,6 +285,7 @@ class ChildOverDescendantsNodeIterator extends XPath2NodeIterator implements \It
 	}
 
 	/**
+	 * Get the current position
 	 * @var int $SequentialPosition
 	 */
 	public function getSequentialPosition()

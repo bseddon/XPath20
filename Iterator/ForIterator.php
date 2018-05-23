@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -41,31 +41,37 @@ use lyquidity\XPath2\XPath2Item;
 class ForIterator extends XPath2NodeIterator implements \Iterator
 {
 	/**
+	 * Holds the owner from the constructor
 	 * @var ForNode $owner
 	 */
 	private $owner;
 
 	/**
+	 * Holds the provider from the constructor
 	 * @var IContextProvider $provider
 	 */
 	private $provider;
 
 	/**
+	 * Holds the datapool from the constructor
 	 * @var array $dataPool
 	 */
 	private $dataPool;
 
 	/**
+	 * Holds the base iter from the constructor
 	 * @var XPath2NodeIterator $baseIter
 	 */
 	private $baseIter;
 
 	/**
+	 * Clone of the base iter initialized in init()
 	 * @var XPath2NodeIterator $iter
 	 */
 	private  $iter;
 
 	/**
+	 * Current child iterator
 	 * @var XPath2NodeIterator $childIter
 	 */
 	private  $childIter;
@@ -156,6 +162,10 @@ class ForIterator extends XPath2NodeIterator implements \Iterator
 		}
 	}
 
+	/**
+	 * Return this iterator
+	 * @return \lyquidity\XPath2\Iterator\ForIterator
+	 */
 	public function getIterator()
 	{
 		return $this;

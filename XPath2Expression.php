@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -49,24 +49,28 @@ use lyquidity\xml\exceptions\ArgumentException;
 class XPath2Expression
 {
 	/**
+	 * expr
 	 * @var string $expr
 	 */
-	private  $expr;
+	private $expr;
 
 	/**
+	 * exprTree
 	 * @var AbstractNode $exprTree
 	 */
-	private  $exprTree;
+	private $exprTree;
 
 	/**
+	 * context
 	 * @var XPath2Context $context
 	 */
-	private  $context;
+	private $context;
 
 	/**
+	 * resultType
 	 * @var XPath2ResultType|null $resultType
 	 */
-	private  $resultType;
+	private $resultType;
 
 	/**
 	 * Constructor
@@ -82,7 +86,7 @@ class XPath2Expression
 	}
 
 	/**
-	 * Clone
+	 * CloneInstance
 	 * @return XPath2Expression
 	 */
 	public function CloneInstance()
@@ -366,7 +370,7 @@ class XPath2Expression
 	}
 
 	/**
-	 *
+	 * Navigate the hierarchy of nodes from $node and call $callback for each one
 	 * @param AbstractNode $node
 	 * @param Function $callback
 	 * @return boolean
@@ -506,7 +510,7 @@ class XPath2Expression
 		return $res instanceof Long
 			? $res->getValue()
 			: ( $res instanceof Integer
-				? $res->Toint( $provider )
+				? $res->ToInt( $provider )
 				: $res );
 
 		// if ( $res instanceof ValueProxy )
@@ -560,6 +564,7 @@ class XPath2Expression
 	}
 
 	/**
+	 * Get the query expression
 	 * @var String $Expression
 	 */
 	public function getExpression()

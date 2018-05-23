@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -47,6 +47,10 @@ use lyquidity\XPath2\XPath2Exception;
  */
 class QNameValue implements IXmlConvertable, IXmlSchemaType
 {
+	/**
+	 * CLASSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "lyquidity\XPath2\Value\QNameValue";
 
 	/**
@@ -228,7 +232,7 @@ class QNameValue implements IXmlConvertable, IXmlSchemaType
 	}
 
 	/**
-	 *
+	 * Create a QNameValue instance fron an XPathNavigator instance
 	 * @param XPathNavigator $node
 	 * @return QNameValue
 	 */
@@ -238,19 +242,22 @@ class QNameValue implements IXmlConvertable, IXmlSchemaType
 	}
 
 	/**
+	 * Prefix
 	 * @var String $Prefix
 	 */
-	public  $Prefix;
+	public $Prefix;
 
 	/**
+	 * LocalName
 	 * @var String $LocalName
 	 */
-	public  $LocalName;
+	public $LocalName;
 
 	/**
+	 * NamespaceUri
 	 * @var String $NamespaceUri
 	 */
-	public  $NamespaceUri;
+	public $NamespaceUri;
 
 	/**
 	 * Returns a schema type for the proxy value
@@ -271,7 +278,8 @@ class QNameValue implements IXmlConvertable, IXmlSchemaType
 	}
 
 	/**
-	 * @var bool $IsEmpty
+	 * Return true is the local name is empty
+	 * @return bool
 	 */
 	public function getIsEmpty()
 	{
@@ -376,6 +384,9 @@ class QNameValue implements IXmlConvertable, IXmlSchemaType
 		}
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		$resolver = new XmlNamespaceManager();
@@ -399,7 +410,5 @@ class QNameValue implements IXmlConvertable, IXmlSchemaType
 	}
 
 }
-
-
 
 ?>

@@ -9,7 +9,7 @@
  *		 |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -40,7 +40,7 @@ use lyquidity\XPath2\XPath2Exception;
  */
 class ChildNodeIterator extends SequentialAxisNodeIterator implements \Iterator
 {
-	public static $CLASSNAME = "lyquidity\XPath2\Iterator\ChildNodeIterator";
+
 
 	/**
 	 * When true comments will not be included in the output (default: false)
@@ -54,7 +54,11 @@ class ChildNodeIterator extends SequentialAxisNodeIterator implements \Iterator
 	 */
 	public $excludeWhitespace = false;
 
-	public $commentsSkipped = 0;
+	/**
+	 * Flag to indecate whether child comment nodes should be incuded (false) or included (true)
+	 * @var bool
+	 */
+	public $commentsSkipped = false;
 
 	/**
 	 * Constructor
@@ -155,6 +159,10 @@ class ChildNodeIterator extends SequentialAxisNodeIterator implements \Iterator
 		return $result;
 	}
 
+	/**
+	 * Gets the iterator for the Iterator interface
+	 * @return \lyquidity\XPath2\Iterator\ChildNodeIterator
+	 */
 	public function getIterator()
 	{
 		return $this;

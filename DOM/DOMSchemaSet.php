@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -34,6 +34,9 @@ use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\QName;
 use lyquidity\xml\schema\SchemaTypes;
 
+/**
+ * Implements XmlSchemaSet for DOM instances
+ */
 class DOMSchemaSet extends XmlSchemaSet
 {
 	/**
@@ -54,8 +57,22 @@ class DOMSchemaSet extends XmlSchemaSet
 		}
 	}
 
+	/**
+	 * Holds the schema cache
+	 * @var array $schemaElementCache
+	 */
 	private $schemaElementCache = array();
+
+	/**
+	 * Holds the schema cache
+	 * @var array $schemaTypeCache
+	 */
 	private $schemaTypeCache = array();
+
+	/**
+	 * Holds the schema cache
+	 * @var array $schemaAttributeCache
+	 */
 	private $schemaAttributeCache = array();
 
 	/**
@@ -87,31 +104,8 @@ class DOMSchemaSet extends XmlSchemaSet
 			return $this->schemaTypeCache[ $qualifiedName->__toString() ];
 		}
 
-		// // Look to see if the type is one of the standard ones
-		// $reflection = new \ReflectionClass( XmlSchema::$CLASSNAME );
-		// $props = $reflection->getStaticProperties();
-		// foreach ( $props as $name => $value )
-		// {
-		// 	if ( ! $value instanceof XmlSchemaType ) continue;
-		// 	/**
-		// 	 *
-		// 	 * @var DOMSchemaType $schemaType
-		// 	 */
-		// 	$schemaType = $value;
-		// 	if ( ! $schemaType->QualifiedName->equals( $qualifiedName ) ) continue;
-        //
-		// 	$this->schemaTypeCache[ $qualifiedName->__toString() ] = $schemaType;
-		// 	return $schemaType;
-		// }
-
 		$schemaType = DOMSchemaType::fromSchemaType( $qualifiedName );
 		return $schemaType;
-
-		// $Datatype = new DOMSchemaDatatype( "{$qualifiedName->prefix}:{$qualifiedName->localName}" );
-		// $schemaType = new DOMSchemaSimpleType( $qualifiedName, $Datatype );
-
-		// $this->schemaTypeCache[ $qualifiedName->__toString() ] = $schemaType;
-		// return $schemaType;
 	}
 
 	/**

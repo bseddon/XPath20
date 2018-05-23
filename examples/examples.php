@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -135,6 +135,7 @@ function staticExamples()
 
 /**
  * These examples show how to evaluate an expression against an XML document
+ * @param string $query
  */
 function documentExamples( $query )
 {

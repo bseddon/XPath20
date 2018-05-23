@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -77,42 +77,49 @@ use lyquidity\xml\exceptions\ArgumentException;
  */
 class SequenceType
 {
-	public static $CLASSNAME = "lyquidity\XPath2\SequenceType";
-
 	/**
+	 * TypeCode
 	 * @var XmlTypeCode $TypeCode
 	 */
 	public  $TypeCode;
 	/**
+	 * NameTest
 	 * @var XmlQualifiedNameTest $NameTest
 	 */
 	public  $NameTest;
 	/**
+	 * Cardinality
 	 * @var XmlTypeCardinality $Cardinality
 	 */
 	public  $Cardinality;
 	/**
+	 * SchemaType
 	 * @var XmlSchemaType $SchemaType
 	 */
 	public  $SchemaType;
 	/**
+	 * SchemaElement
 	 * @var XmlSchemaElement $SchemaElement
 	 */
 	public  $SchemaElement;
 	/**
+	 * SchemaAttribute
 	 * @var XmlSchemaAttribute $SchemaAttribute
 	 */
 	public  $SchemaAttribute;
 	/**
+	 * Nillable
 	 * @var bool $Nillable
 	 */
 	public  $Nillable;
 	// public Type ParameterType { get; set; }
 	/**
+	 * ItemType
 	 * @var Type $ItemType
 	 */
 	public  $ItemType;
 	/**
+	 * IsNode
 	 * @var bool $IsNode
 	 */
 	public  $IsNode;
@@ -278,6 +285,7 @@ class SequenceType
 	}
 
 	/**
+	 * Get the type of the value
 	 * @var Type $ValueType
 	 */
 	public function getValueType()
@@ -296,7 +304,8 @@ class SequenceType
 	}
 
 	/**
-	 * @var Type $AtomizedValueType
+	 * Get the type of the atomized value
+	 * @return Type
 	 */
 	public function getAtomizedValueType()
 	{
@@ -332,7 +341,8 @@ class SequenceType
 	}
 
 	/**
-	 * @var bool $IsNumeric
+	 * Returns true if the value is numeric
+	 * @return bool
 	 */
 	public function getIsNumeric()
 	{
@@ -360,7 +370,8 @@ class SequenceType
 	}
 
 	/**
-	 * @var bool $IsUntypedAtomic
+	 * Returns true if the atomic value is untyped
+	 * @return bool
 	 */
 	public function getIsUntypedAtomic()
 	{
@@ -790,6 +801,10 @@ class SequenceType
 		return false;
 	}
 
+	/**
+	 * Magic function returns a string representation of this
+	 * @return string
+	 */
 	public function __toString()
 	{
 		return $this->ToString();
@@ -1564,6 +1579,9 @@ class SequenceType
 		}
 	}
 
+	/**
+	 * Unit test
+	 */
 	public static function test()
 	{
 	}

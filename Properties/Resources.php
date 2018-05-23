@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -30,31 +30,9 @@
 
 namespace lyquidity\XPath2\Properties;
 
-/*
-
-	$doc = simplexml_load_file( __DIR__ . "/Properties/Resources.resx" );
-	if ( $doc === false ) return;
-
-	$text = "<?php\n";
-	$text .= "\n";
-	$text .= "class Resources\n";
-	$text .= "{\n";
-
-	echo count( $doc->children()->data );
-	foreach ( $doc->children()->data as $key => $data )
-	{
-		$name = (string)$data->attributes()->name;
-		$value = (string)$data->value;
-		$text .= "\tconst $name = \"$value\";\n";
-	}
-
-	$text .= "}\n";
-	$text .= "?>";
-
-	file_put_contents( __DIR__ . "/Resources.php" , $text );
-
-*/
-
+/**
+ * Defines string resources
+ */
 class Resources
 {
 	const BadCharRef = "Bad character ref constant &#{0}{1};";

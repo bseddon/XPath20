@@ -9,7 +9,7 @@
  *		 |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -40,6 +40,7 @@ use lyquidity\xml\xpath\XPathItem;
 class FollowingNodeIterator extends AxisNodeIterator implements \Iterator
 {
 	/**
+	 * Kind of the type test
 	 * @var XPathNodeType $kind
 	 */
 	private $kind;
@@ -117,7 +118,5 @@ class FollowingNodeIterator extends AxisNodeIterator implements \Iterator
 	}
 
 }
-
-
 
 ?>

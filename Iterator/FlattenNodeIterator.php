@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -40,16 +40,19 @@ use lyquidity\XPath2\XPath2Item;
 class FlattenNodeIterator extends XPath2NodeIterator implements \Iterator
 {
 	/**
+	 * Holds the iterator passed to the constructor
 	 * @var XPath2NodeIterator $baseIter
 	 */
 	private $baseIter;
 
 	/**
+	 * Cloned instance of the base iter
 	 * @var XPath2NodeIterator $iter
 	 */
 	private  $iter;
 
 	/**
+	 * Current child
 	 * @var XPath2NodeIterator $childIter
 	 */
 	private  $childIter;

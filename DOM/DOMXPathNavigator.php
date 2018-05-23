@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -51,6 +51,10 @@ use lyquidity\xml\exceptions\NotSupportedException;
  */
 class DOMXPathNavigator extends XPathNavigator implements XPathItem, ICloneable, IXmlNamespaceResolver
 {
+	/**
+	 * CLASSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "lyquidity\XPath2\DOM\DOMXPathNavigator";
 
 	/**
@@ -65,18 +69,19 @@ class DOMXPathNavigator extends XPathNavigator implements XPathItem, ICloneable,
 	protected $types;
 
 	/**
+	 * The internal DOMNode around which this class operates
 	 * @var \DOMNode $domNode
 	 */
 	protected $domNode;
 
 	/**
-	 *
+	 * The namespace manager containing namespaces from the document owning $domNode
 	 * @var IXmlNamespaceResolver
 	 */
 	protected $nsManager;
 
 	/**
-	 *
+	 * Namepace table
 	 * @var object $nsTable
 	 */
 	protected $nsTable;
@@ -1072,10 +1077,8 @@ class DOMXPathNavigator extends XPathNavigator implements XPathItem, ICloneable,
 	 * Selects all the child nodes of the current node that have the local name and
 	 * namespace URI specified.
 	 *
-	 * @param XPathNodeType $name : The type of the child nodes to return.
-	 *
+	 * @param XPathNodeType $type : The type of the child nodes to return.
 	 * @return XPathNodeIterator An XPathNodeIterator that contains the selected nodes.
-	 *
 	 * @throws  \lyquidity\xml\exceptions\ArgumentNullException: null cannot be passed as a parameter.
 	 */
 	public function SelectChildrenByType( $type )
@@ -1159,6 +1162,9 @@ class DOMXPathNavigator extends XPathNavigator implements XPathItem, ICloneable,
 		}
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function TestNavigation()
 	{
 		$doc = new \DOMDocument();

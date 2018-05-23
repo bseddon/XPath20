@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -53,26 +53,31 @@ class XPath2NodeIterator implements ICloneable, IEnumerable //, \Iterator
 	public $name;
 
 	/**
+	 * count
 	 * @var int $count = -1
 	 */
 	protected $count = -1;
 
 	/**
+	 * curr
 	 * @var XPathItem $curr
 	 */
 	private $curr;
 
 	/**
+	 * pos
 	 * @var int $pos
 	 */
 	private $pos;
 
 	/**
+	 * iteratorStarted
 	 * @var bool $iteratorStarted
 	 */
 	private $iteratorStarted;
 
 	/**
+	 * iteratorFinished
 	 * @var bool $iteratorFinished
 	 */
 	private $iteratorFinished;
@@ -136,7 +141,8 @@ class XPath2NodeIterator implements ICloneable, IEnumerable //, \Iterator
 	}
 
 	/**
-	 * @var bool $IsEmpty
+	 * Check to see if the iterator is empty
+	 * @returns bool
 	 */
 	public function getIsEmpty()
 	{
@@ -148,7 +154,8 @@ class XPath2NodeIterator implements ICloneable, IEnumerable //, \Iterator
 	}
 
 	/**
-	 * @var bool $IsSingleIterator
+	 * Check to see if the iterator has just one item
+	 * @return bool
 	 */
 	public function getIsSingleIterator()
 	{
@@ -168,7 +175,8 @@ class XPath2NodeIterator implements ICloneable, IEnumerable //, \Iterator
 	}
 
 	/**
-	 * @var bool $IsRange
+	 * check to see if the iterator is a range (always false)
+	 * @return bool
 	 */
 	public function getIsRange()
 	{
@@ -176,6 +184,7 @@ class XPath2NodeIterator implements ICloneable, IEnumerable //, \Iterator
 	}
 
 	/**
+	 * Get the current item
 	 * @return XPathNavigator
 	 */
 	public function getCurrent()
@@ -188,7 +197,8 @@ class XPath2NodeIterator implements ICloneable, IEnumerable //, \Iterator
 	}
 
 	/**
-	 * @var int $CurrentPosition
+	 * Get the current position
+	 * @return int
 	 */
 	public function getCurrentPosition()
 	{
@@ -198,7 +208,8 @@ class XPath2NodeIterator implements ICloneable, IEnumerable //, \Iterator
 	}
 
 	/**
-	 * @var int $SequentialPosition
+	 * Get the sequential position
+	 * @return int
 	 */
 	public function getSequentialPosition()
 	{
@@ -215,7 +226,8 @@ class XPath2NodeIterator implements ICloneable, IEnumerable //, \Iterator
 	}
 
 	/**
-	 * @var bool $IsStarted
+	 * Has the iterator started
+	 * @return bool
 	 */
 	public function getIsStarted()
 	{
@@ -223,7 +235,8 @@ class XPath2NodeIterator implements ICloneable, IEnumerable //, \Iterator
 	}
 
 	/**
-	 * @var bool $IsFinished
+	 * Find out if the iterator has finished (reached the end)
+	 * @return bool
 	 */
 	public function getIsFinished()
 	{
@@ -380,7 +393,7 @@ class XPath2NodeIterator implements ICloneable, IEnumerable //, \Iterator
 	}
 
 	/**
-	 * tests
+	 * unit tests
 	 * @param \XBRL_Instance $instance
 	 */
 	public static function tests( $instance )
@@ -393,6 +406,12 @@ class XPath2NodeIterator implements ICloneable, IEnumerable //, \Iterator
 		$result = $iter->getIsSingleIterator();
 	}
 
+	// These functions implement iterator
+
+	/**
+	 * Rewind the iterator
+	 * @return boolean
+	 */
 	public function rewind()
 	{
 		// BMS 2017-07-07 This was originally in the commented.
@@ -405,26 +424,40 @@ class XPath2NodeIterator implements ICloneable, IEnumerable //, \Iterator
 		return $this->MoveNext();
 	}
 
+	/**
+	 * Get the current value
+	 * @return \lyquidity\xml\xpath\XPathNavigator
+	 */
 	public function current()
 	{
 		return $this->getCurrent();
 	}
 
+	/**
+	 * Get the current key
+	 * @return number
+	 */
 	public function key()
 	{
 		return $this->pos;
 	}
 
+	/**
+	 * Move to the next iterator. Return true if the iterator has moved or false.
+	 * @return boolean
+	 */
 	public function next()
 	{
 		$result = $this->MoveNext();
 		return $result;
 	}
 
+	/**
+	 * Find out if the iterator is valid (started and not finished)s
+	 * @return boolean
+	 */
 	public function valid()
 	{
-		// return $this->pos >= 0 && $this->pos < $this->count;
-		// return $this->iteratorStarted && ! $this->iteratorFinished;
 		return ! is_null( $this->iteratorFinished ) && ! $this->iteratorFinished; // $this->pos >= 0 && $this->pos < $this->count;
 	}
 

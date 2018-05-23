@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -44,6 +44,10 @@ use lyquidity\XPath2\XPath2Exception;
  */
 class DateValue extends DateTimeValueBase implements IXmlConvertable, IXmlSchemaType
 {
+	/**
+	 * CLASSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "lyquidity\XPath2\Value\DateValue";
 
 	/**
@@ -55,6 +59,7 @@ class DateValue extends DateTimeValueBase implements IXmlConvertable, IXmlSchema
 	 * Constructor
 	 * @param bool $sign
 	 * @param DateTime $value
+	 * @param bool $notLocal
 	 */
 	public function __construct( $sign, $value, $notLocal = false )
 	{
@@ -66,8 +71,10 @@ class DateValue extends DateTimeValueBase implements IXmlConvertable, IXmlSchema
 	}
 
 	/**
+	 * Create an instance from a date time
 	 * @param bool $sign
 	 * @param \DateTime $value
+	 * @param bool $notLocal
 	 * @return DateTimeValue
 	 */
 	public static function fromDate( $sign, $value, $notLocal = false )
@@ -119,6 +126,7 @@ class DateValue extends DateTimeValueBase implements IXmlConvertable, IXmlSchema
 
 	/**
 	 * ToString
+	 * @param IFormatProvider $provider
 	 * @return string
 	 */
 	public function ToString( $provider = null )
@@ -403,6 +411,9 @@ class DateValue extends DateTimeValueBase implements IXmlConvertable, IXmlSchema
 		}
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		$dateTime1 = DateValue::fromDate( false, new \DateTime( "2018-07-05T17:01:20-02:00" ) );

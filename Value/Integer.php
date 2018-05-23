@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -44,12 +44,17 @@ use lyquidity\xml\exceptions\InvalidCastException;
 use lyquidity\xml\exceptions\ArgumentException;
 use lyquidity\xml\exceptions\NotSupportedException;
 use lyquidity\XPath2\XPath2Exception;
+use lyquidity\xml\interfaces\IFormatProvider;
 
 /**
  * Integer
  */
 class /* struct */ Integer implements IComparable, IConvertable, IEquatable, IXmlSchemaType
 {
+	/**
+	 * CLASSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "lyquidity\\XPath2\\Value\\Integer";
 
 	/**
@@ -58,9 +63,10 @@ class /* struct */ Integer implements IComparable, IConvertable, IEquatable, IXm
 	const ProxyValueCode = 4;
 
 	/**
+	 * _value
 	 * @var int $_value
 	 */
-	protected   $_value;
+	protected $_value;
 
 	/**
 	 * Constructor
@@ -194,6 +200,7 @@ class /* struct */ Integer implements IComparable, IConvertable, IEquatable, IXm
 	/**
 	 * ToInteger
 	 * @param object $value
+	 * @param IFormatProvider $provider
 	 * @return Integer
 	 */
 	public static function ToInteger( $value, $provider = null )
@@ -420,6 +427,9 @@ class /* struct */ Integer implements IComparable, IConvertable, IEquatable, IXm
 		return ( $this->_value < $obj->getValue() ) ? -1 : (( $this->_value > $obj->getValue() ) ? 1 : 0);
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		$integer1 = Integer::FromValue( 11.1 );
@@ -458,7 +468,5 @@ class /* struct */ Integer implements IComparable, IConvertable, IEquatable, IXm
 	}
 
 }
-
-
 
 ?>

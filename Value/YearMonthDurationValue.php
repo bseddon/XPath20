@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -43,6 +43,10 @@ use lyquidity\XPath2\XPath2Exception;
  */
 class YearMonthDurationValue extends DurationValue implements IComparable, IXmlSchemaType
 {
+	/**
+	 * CLASSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "lyquidity\XPath2\Value\YearMonthDurationValue";
 
 	/**
@@ -150,7 +154,8 @@ class YearMonthDurationValue extends DurationValue implements IComparable, IXmlS
 
 	/**
 	 * Parse
-	 * @param string $text
+	 * @param string $text The duration text to Parse
+	 * @param string $class (optional) The name of the class type to create
 	 * @return YearMonthDurationValue
 	 */
 	public static function Parse( $text, $class = NULL )
@@ -376,6 +381,9 @@ class YearMonthDurationValue extends DurationValue implements IComparable, IXmlS
 		return $numerator->Div( $denominator ); //->Add( new DecimalProxy( 0.5 ) )->getFloor();
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		$duration = DurationValue::Parse( "P1Y1M" );
@@ -396,7 +404,5 @@ class YearMonthDurationValue extends DurationValue implements IComparable, IXmlS
 	}
 
 }
-
-
 
 ?>

@@ -9,7 +9,7 @@
  *	 |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -40,10 +40,34 @@ use lyquidity\xml\exceptions\NotSupportedException;
  */
 class XmlSchemaSet
 {
+	/**
+	 * Holds the nametable passed to the constructor
+	 * @var XmlNameTable
+	 */
 	private $nameTable = null;
+
+	/**
+	 * A list of schemas added to this set
+	 * @var array
+	 */
 	private $schemas = array();
+
+	/**
+	 * A list of global attributes.  Not used.  In practice the global attributes can be found in lyquidity\xml\SchemaTypes
+	 * @var array
+	 */
 	private $globalAttributes = array();
+
+	/**
+	 * A list of global elements.  Not used.  In practice the global elements can be found in lyquidity\xml\SchemaTypes
+	 * @var array
+	 */
 	private $globalElements = array();
+
+	/**
+	 * A list of global types.  Not used.  In practice the global types can be found in lyquidity\xml\SchemaTypes
+	 * @var array
+	 */
 	private $globalTypes = array();
 
 	/**

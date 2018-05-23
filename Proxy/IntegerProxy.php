@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -37,15 +37,17 @@ use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\XPath2\Value\DecimalValue;
 use lyquidity\XPath2\DOM\XmlSchema;
 use lyquidity\xml\interfaces\IXmlSchemaType;
+use lyquidity\xml\interfaces\IFormatProvider;
 
 /**
  * IntegerProxy (internal final)
  */
 class IntegerProxy extends ValueProxy implements IXmlSchemaType
 {
-	public static $CLASSNAME = "lyquidity\XPath2\Proxy\IntegerProxy";
+
 
 	/**
+	 * Value
 	 * @var Integer $_value
 	 */
 	private $_value;
@@ -79,7 +81,8 @@ class IntegerProxy extends ValueProxy implements IXmlSchemaType
 	}
 
 	/**
-	 * @var Integer $Value
+	 * Get the value
+	 * @return Integer
 	 */
 	public function getValue()
 	{
@@ -163,7 +166,7 @@ class IntegerProxy extends ValueProxy implements IXmlSchemaType
 		return new IntegerProxy( $integer->getValue() - $value2 );
 	}
 
-	/**\
+	/**
 	 * Mul
 	 * @param ValueProxy $val
 	 * @return ValueProxy
@@ -301,8 +304,8 @@ class IntegerProxy extends ValueProxy implements IXmlSchemaType
 
 	/**
 	 * Calls ToInt32
-	 * {@inheritDoc}
-	 * @see \lyquidity\XPath2\Proxy\ValueProxy::ToInt()
+	 * @param IFormatProvider $provider
+	 * @return int
 	 */
 	public function ToInt( $provider )
 	{
@@ -403,6 +406,9 @@ class IntegerProxy extends ValueProxy implements IXmlSchemaType
 	    return Convert::ToUInt64( $this->_value, $provider );
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		$execute = function( $callback )

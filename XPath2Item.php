@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -71,16 +71,13 @@ use lyquidity\xml\exceptions\ArgumentException;
 class XPath2Item implements XPathItem, IConvertable
 {
 	/**
-	 *
-	 */
-	public static $CLASSNAME = "lyquidity\XPath2\XPath2Item";
-
-	/**
+	 * _value
 	 * @var object $_value
 	 */
 	private $_value;
 
 	/**
+	 * _xmlType
 	 * @var XmlSchemaType $_xmlType
 	 */
 	private $_xmlType;
@@ -123,6 +120,10 @@ class XPath2Item implements XPathItem, IConvertable
 		return $result;
 	}
 
+	/**
+	 * Magic function to return a string representation
+	 * @return string
+	 */
 	public function __toString()
 	{
 		// return "XPath2Item: " . $this->_value;
@@ -192,11 +193,11 @@ class XPath2Item implements XPathItem, IConvertable
 			$this->_xmlType = DOMSchemaType::GetBuiltInSimpleTypeByTypeCode( XmlTypeCode::Boolean );
 		else if ( $this->_value instanceof DecimalValue )
 			$this->_xmlType = DOMSchemaType::GetBuiltInSimpleTypeByTypeCode( XmlTypeCode::Decimal );
-		else if ( $this->_value instanceof UntypedAtomic::$CLASSNAME )
+		else if ( $this->_value instanceof UntypedAtomic )
 			$this->_xmlType = XmlSchema::$UntypedAtomic;
-		else if ( $this->_value instanceof Integer::$CLASSNAME )
+		else if ( $this->_value instanceof Integer )
 			$this->_xmlType = DOMSchemaType::GetBuiltInSimpleTypeByTypeCode( XmlTypeCode::Integer );
-		else if ( $this->_value instanceof DateTimeValue::$CLASSNAME )
+		else if ( $this->_value instanceof DateTimeValue )
 			$this->_xmlType = DOMSchemaType::GetBuiltInSimpleTypeByTypeCode( XmlTypeCode::DateTime );
 		else if ( $this->_value instanceof DateValue )
 			$this->_xmlType = DOMSchemaType::GetBuiltInSimpleTypeByTypeCode( XmlTypeCode::Date );
@@ -815,6 +816,9 @@ class XPath2Item implements XPathItem, IConvertable
 		return Convert::ToUInt64( $this->getTypedValue(), $provider );
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		$item = XPath2Item::fromValue( TimeValue::Parse( "17:10:11" ) );

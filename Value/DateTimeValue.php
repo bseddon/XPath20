@@ -10,7 +10,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -44,6 +44,10 @@ use lyquidity\XPath2\XPath2Exception;
  */
 class DateTimeValue extends DateTimeValueBase implements IXmlConvertable, IXmlSchemaType
 {
+	/**
+	 * CLASSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "lyquidity\XPath2\Value\DateTimeValue";
 
 	/**
@@ -58,10 +62,11 @@ class DateTimeValue extends DateTimeValueBase implements IXmlConvertable, IXmlSc
 	{}
 
 	/**
+	 * Create an instance from a datetime
 	 * @param bool $sign
 	 * @param \DateTime $value
-	 * @return DateTimeValue
 	 * @param bool $notLocal
+	 * @return DateTimeValue
 	 */
 	public static function fromDate( $sign, $value, $notLocal = false )
 	{
@@ -76,10 +81,12 @@ class DateTimeValue extends DateTimeValueBase implements IXmlConvertable, IXmlSc
 	}
 
 	/**
+	 * Create an instance from a datetime
 	 * @param bool $sign
-	 * @param \DateTime $value
-	 * @return DateTimeValue
+	 * @param \DateTime $date
+	 * @param \DateTime $time
 	 * @param bool $notLocal
+	 * @return DateTimeValue
 	 */
 	public static function fromDateTime( $sign, $date, $time, $notLocal = false  )
 	{
@@ -128,6 +135,7 @@ class DateTimeValue extends DateTimeValueBase implements IXmlConvertable, IXmlSc
 
 	/**
 	 * ToString
+	 * @param IFormatProvider $provider
 	 * @return string
 	 */
 	public function ToString( $provider = null )
@@ -451,6 +459,9 @@ class DateTimeValue extends DateTimeValueBase implements IXmlConvertable, IXmlSc
 		}
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		$dateTime3 = DateTimeValue::Parse("true");

@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -40,16 +40,19 @@ use lyquidity\XPath2\Value\Integer;
 class RangeIterator extends XPath2NodeIterator implements \Iterator
 {
 	/**
+	 * The minimum value from the constructor
 	 * @var int $_min
 	 */
 	private $_min;
 
 	/**
+	 * The maximum value from the constructor
 	 * @var int $_max
 	 */
 	private $_max;
 
 	/**
+	 * The current index
 	 * @var int $_index
 	 */
 	private $_index;
@@ -77,6 +80,7 @@ class RangeIterator extends XPath2NodeIterator implements \Iterator
 	}
 
 	/**
+	 * Count
 	 * @var int $Count
 	 */
 	public function getCount()
@@ -123,7 +127,5 @@ class RangeIterator extends XPath2NodeIterator implements \Iterator
 		return true;
 	}
 }
-
-
 
 ?>

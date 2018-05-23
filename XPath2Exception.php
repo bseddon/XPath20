@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -36,9 +36,10 @@ namespace lyquidity\XPath2;
 class XPath2Exception extends \Exception
 {
 	/**
+	 * ErrorCode
 	 * @var string $ErrorCode
 	 */
-	public  $ErrorCode;
+	public $ErrorCode;
 
 	/**
 	 * Constructor

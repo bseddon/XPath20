@@ -1,1 +1,0 @@
-kmyacc -l -m parser.template XPath.php.y

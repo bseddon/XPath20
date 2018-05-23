@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -32,8 +32,6 @@ namespace lyquidity\XPath2\AST;
 use \lyquidity\XPath2\CoreFuncs;
 use \lyquidity\XPath2\XPath2ResultType;
 use \lyquidity\XPath2\Undefined;
-use \lyquidity\XPath2\Proxy\ValueProxy;
-use lyquidity\xml\MS\XmlNamespaceManager;
 use lyquidity\XPath2\XPath2Context;
 use lyquidity\xml\exceptions\DivideByZeroException;
 use lyquidity\XPath2\XPath2Exception;
@@ -45,9 +43,14 @@ use lyquidity\XPath2\XPath2Exception;
  */
 class ArithmeticBinaryOperatorNode extends AtomizedBinaryOperatorNode
 {
+	/**
+	 * claSSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "\lyquidity\XPath2\AST\ArithmeticBinaryOperatorNode";
 
 	/**
+	 * Holds a callback defined by the constructor
 	 * @var GetReturnTypeDelegate $_returnTypeDelegate
 	 */
 	private  $_returnTypeDelegate;
@@ -127,6 +130,10 @@ class ArithmeticBinaryOperatorNode extends AtomizedBinaryOperatorNode
 		return parent::GetReturnType( $dataPool );
 	}
 
+	/**
+	 * Manufactures an array that defines a call to AdditionResult
+	 * @return string[]
+	 */
 	public static function AdditionResultCall()
 	{
 		return array( __NAMESPACE__ . "\ArithmeticBinaryOperatorNode", "AdditionResult" );
@@ -220,22 +227,6 @@ class ArithmeticBinaryOperatorNode extends AtomizedBinaryOperatorNode
 			return XPath2ResultType::Number;
 
 		return XPath2ResultType::Any;
-	}
-
-	public static function tests()
-	{
-		$nsManager = new XmlNamespaceManager();
-		$context = new XPath2Context( $nsManager );
-
-		$callback = function( $provider, $arg1, $arg2 )
-		{
-			ValueProxy::Create( $arg1 ) + ValueProxy::Create( $arg2 );
-		};
-		$node = new ArithmeticBinaryOperatorNode( $context, $callback, 1, 2, array( ArithmeticBinaryOperatorNode::$CLASSNAME, "AdditionResult" ) );
-
-		$result = $node->Execute( null, array() );
-		$result = $node->GetReturnType( array() );
-
 	}
 
 }

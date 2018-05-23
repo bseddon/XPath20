@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -32,8 +32,14 @@ namespace lyquidity\XPath2;
 use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\xml\MS\XmlTypeCardinality;
 
+/**
+ * Defines a collection of sequence types
+ */
 class SequenceTypes
 {
+	/**
+	 * Static constructor
+	 */
 	public static function __static()
 	{
 		SequenceTypes::$Void = SequenceType::WithTypeCode( XmlTypeCode::None );
@@ -60,106 +66,127 @@ class SequenceTypes
 	}
 
 	/**
+	 * Void
 	 * @var SequenceType $Void
 	 */
 	public static $Void;
 
 	/**
+	 * Item
 	 * @var SequenceType $Item
 	 */
 	public static $Item;
 
 	/**
+	 * ItemS
 	 * @var SequenceType $ItemS
 	 */
 	public static $ItemS;
 
 	/**
+	 * Node
 	 * @var SequenceType $Node
 	 */
 	public static $Node;
 
 	/**
+	 * ProcessingInstruction
 	 * @var SequenceType $ProcessingInstruction
 	 */
 	public static $ProcessingInstruction;
 
 	/**
+	 * Text
 	 * @var SequenceType $Text
 	 */
 	public static $Text;
 
 	/**
+	 * Comment
 	 * @var SequenceType $Comment
 	 */
 	public static $Comment;
 
 	/**
+	 * Element
 	 * @var SequenceType $Element
 	 */
 	public static $Element;
 
 	/**
+	 * Attribute
 	 * @var SequenceType $Attribute
 	 */
 	public static $Attribute;
 
 	/**
+	 * Document
 	 * @var SequenceType $Document
 	 */
 	public static $Document;
 
 	/**
+	 * Boolean
 	 * @var SequenceType $Boolean
 	 */
 	public static $Boolean;
 
 	/**
+	 * AnyAtomicType
 	 * @var SequenceType $AnyAtomicType
 	 */
 	public static $AnyAtomicType;
 
 	/**
+	 * AnyAtomicTypeO
 	 * @var SequenceType $AnyAtomicTypeO
 	 */
 	public static $AnyAtomicTypeO;
 
 	/**
+	 * Double
 	 * @var SequenceType $Double
 	 */
 	public static $Double;
 
 	/**
+	 * Float
 	 * @var SequenceType $Float
 	 */
 	public static $Float;
 
 	/**
+	 * Date
 	 * @var SequenceType $Date
 	 */
 	public static $Date;
 
 	/**
+	 * Time
 	 * @var SequenceType $Time
 	 */
 	public static $Time;
 
 	/**
+	 * DateTime
 	 * @var SequenceType $DateTime
 	 */
 	public static $DateTime;
 
 	/**
+	 * StringX
 	 * @var SequenceType $StringX
 	 */
 	public static $StringX;
 
 	/**
+	 * Int
 	 * @var SequenceType $Int
 	 */
 	public static $Int;
 
 	/**
+	 * AnyUri
 	 * @var SequenceType $AnyUri
 	 */
 	public static $AnyUri;

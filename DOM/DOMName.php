@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -71,30 +71,44 @@ class DOMName implements IXmlSchemaInfo
 	public $OwnerDocument = "";
 
 	/**
+	 * A flag indicating if this validated XML node was set as the result of a default
+	 * being applied during XML Schema Definition Language (XSD) schema validation
 	 * @var bool
 	 */
 	private $IsDefault = false;
+
 	/**
+	 * A flag indicating if the value for this validated XML node is nil
 	 * @var bool
 	 */
 	private $IsNil = false;
+
 	/**
+	 * The dynamic schema type for this validated XML node
 	 * @var bool
 	 */
 	private $MemberType = null;
+
 	/**
+	 * The XmlSchemaAttribute that corresponds to this validated XML node
 	 * @var XmlSchemaAttribute
 	 */
 	private $SchemaAttribute = null;
+
 	/**
+	 * The XmlSchemaElement that corresponds to this validated XML node.
 	 * @var XmlSchemaElement
 	 */
 	private $SchemaElement = null;
+
 	/**
+	 * The static XML Schema Definition Language (XSD) schema type of this validated XML node
 	 * @var DOMSchemaDatatype
 	 */
 	private $SchemaType = null;
+
 	/**
+	 * The validity state of the node (default: XmlSchemaValidity::NotKnown)
 	 * @var XmlSchemaValidity
 	 */
 	private $Validity;

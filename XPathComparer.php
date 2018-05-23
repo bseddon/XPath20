@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -42,6 +42,7 @@ class XPathComparer implements IComparer
 {
 	/**
 	 * Constructor to specify of the line number is used
+	 * @param bool $useLineNo
 	 */
 	public function __construct( $useLineNo = false )
 	{
@@ -49,6 +50,7 @@ class XPathComparer implements IComparer
 	}
 
 	/**
+	 * Holds the value from the constructor
 	 * @var bool
 	 */
 	private $useLineNo;
@@ -130,6 +132,5 @@ class XPathComparer implements IComparer
 	}
 
 }
-
 
 ?>

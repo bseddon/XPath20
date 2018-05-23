@@ -9,7 +9,7 @@
  *		 |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -47,7 +47,7 @@ use lyquidity\XPath2\XPath2Exception;
  */
 class IDFilterNodeIterator extends XPath2NodeIterator implements \Iterator
 {
-	public static $CLASSNAME = "lyquidity\XPath2\Iterator\IDFilterNodeIterator";
+
 
 	/**
 	 * A local copy of the context
@@ -74,6 +74,7 @@ class IDFilterNodeIterator extends XPath2NodeIterator implements \Iterator
 	private $types;
 
 	/**
+	 * type
 	 * @var bool $type False = ID, True - IDREF
 	 */
 	private $type;

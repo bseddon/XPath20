@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -50,6 +50,10 @@ use lyquidity\XPath2\XPath2Exception;
  */
 class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaType
 {
+	/**
+	 * CLASSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "lyquidity\XPath2\Value\DecimalValue";
 
 	/**
@@ -148,6 +152,7 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 	}
 
 	/**
+	 * Creates an instance from a Float value
 	 * @param float $value
 	 * @param bool $detail (optional: default = true) Expand the number to the most digits
 	 */
@@ -335,7 +340,7 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 
 	/**
 	 * Div
-	 * @param ValueProxy $val
+	 * @param ValueProxy $denominator
 	 * @return DecimalValue
 	 */
 	public function Div( $denominator )
@@ -435,6 +440,8 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 
 	/**
 	 * Remove spaces and any trailing zeros
+	 * @param string $number
+	 * @return string
 	 */
 	private function normalize( $number = null )
 	{
@@ -469,6 +476,7 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 
 	/**
 	 * True if the number has a fractional part and it is not zero
+	 * @param double $number
 	 * @return bool
 	 */
 	public function getIsDecimal( $number = false )
@@ -507,6 +515,7 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 
 	/**
 	 * Get the number that is one
+	 * @param int $scale
 	 * @return DecimalValue
 	 */
 	public function getFloor( $scale = false )
@@ -658,8 +667,10 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 	}
 
 	/**
+	 * Round the value to the required precision and using the required mode
 	 * @param $scale The scale to use for rounding.  The digit at this position will
 	 * 				 be rounded in the decimal part of the number will be rounded.
+	 * @param int $mode PHP_ROUND_HALF_UP (default), PHP_ROUND_HALF_DOWN, PHP_ROUND_HALF_EVEN, PHP_ROUND_HALF_ODD
 	 * @return string
 	 */
 	private function roundDigit( $scale, $mode = PHP_ROUND_HALF_UP )
@@ -706,6 +717,7 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 
 	/**
 	 * Test to see if the digit at scale + 1 is a 5
+	 * @param int $scale
 	 * @return bool
 	 */
 	public function getDecimalIsHalf( $scale = false )
@@ -736,6 +748,7 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 	}
 
 	/**
+	 * Test to determine if the value is and odd number
 	 * @return bool
 	 */
 	public function getIsIntegerOdd()
@@ -767,6 +780,8 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 
 	/**
 	 * Returns true if the number at the scale position in the decimal part of the number is closer to the next power.
+	 * @param int $precision
+	 * @param int $mode PHP_ROUND_HALF_UP (default), PHP_ROUND_HALF_DOWN, PHP_ROUND_HALF_EVEN, PHP_ROUND_HALF_ODD
 	 * @return bool
 	 */
 	public function getIsCloserToNext( $precision = false, $mode = PHP_ROUND_HALF_UP )
@@ -1133,6 +1148,9 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 		return $this->Compare( $number );
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		$int = new DecimalValue( 10 );

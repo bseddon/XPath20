@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -45,16 +45,19 @@ use lyquidity\XPath2\XPath2Exception;
 class FuncNode extends AbstractNode
 {
 	/**
+	 * Name of the function
 	 * @var String $_name
 	 */
 	private $_name;
 
 	/**
+	 * Namespace of the function
 	 * @var String $_ns
 	 */
 	private $_ns;
 
 	/**
+	 * The function table entry to use
 	 * @var XPathFunctionDef $_func
 	 */
 	private $_func;
@@ -62,8 +65,6 @@ class FuncNode extends AbstractNode
 	/**
 	 * Constructor
 	 * @param XPath2Context $context
-	 * @param string $name
-	 * @param string $ns
 	 */
 	public function __construct( $context )
 	{
@@ -75,6 +76,7 @@ class FuncNode extends AbstractNode
 	 * @param XPath2Context $context
 	 * @param string $name
 	 * @param string $ns
+	 * @param bool $raise If true and the function is null then an exception will be raised otherwise in instance will be returned
 	 */
 	public static function withoutArgs( $context, $name, $ns, $raise = true )
 	{
@@ -97,6 +99,7 @@ class FuncNode extends AbstractNode
 	 * @param string $name
 	 * @param string $ns
 	 * @param array $args
+	 * @param bool $raise If true and the function is null then an exception will be raised otherwise in instance will be returned
 	 */
 	public static function withArgs( $context, $name, $ns, $args, $raise = true )
 	{
@@ -193,11 +196,13 @@ class FuncNode extends AbstractNode
 	}
 
 	/**
+	 * Holds a list of the aggregate function names (set in the static constructor)
 	 * @var array $s_aggregates
 	 */
 	private static $s_aggregates;
 
 	/**
+	 * Holds a list of the context funtions (set in the static constructor)
 	 * @var array $s_contextDs
 	 */
 	private static  $s_contextDs;

@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -52,6 +52,7 @@ use lyquidity\XPath2\XPath2Exception;
 class FilterExprNode extends AbstractNode
 {
 	/**
+	 * Holds the flag set in the constructor that defines whether the operation should use the context
 	 * @var bool $m_contextSensitive
 	 */
 	private $m_contextSensitive;

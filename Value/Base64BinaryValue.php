@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -42,6 +42,10 @@ use lyquidity\XPath2\XPath2Exception;
  */
 class Base64BinaryValue implements IXmlConvertable, IXmlSchemaType
 {
+	/**
+	 * CLASSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "lyquidity\XPath2\Value\Base64BinaryValue";
 
 	/**
@@ -56,7 +60,8 @@ class Base64BinaryValue implements IXmlConvertable, IXmlSchemaType
 	}
 
 	/**
-	 * @var string $data
+	 * Constructor
+	 * @param string $data
 	 * @return Base64BinaryValue
 	 */
 	public static function fromString( $data )
@@ -83,6 +88,7 @@ class Base64BinaryValue implements IXmlConvertable, IXmlSchemaType
 	}
 
 	/**
+	 * BinaryValue
 	 * @var byte[] $BinaryValue
 	 */
 	public $BinaryValue;
@@ -171,6 +177,9 @@ class Base64BinaryValue implements IXmlConvertable, IXmlSchemaType
 	    }
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{}
 }

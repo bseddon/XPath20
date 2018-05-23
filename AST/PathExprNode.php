@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -43,29 +43,32 @@ use lyquidity\XPath2\XPath2Context;
  */
 class PathExprNode extends AbstractNode
 {
-	public static $CLASSNAME = "lyquidity\XPath2\AST\PathExprNode";
-
 	/**
+	 * Cached result from from calling isOrderedSet
 	 * @var bool $_isOrderedSet
 	 */
 	private $_isOrderedSet;
 
 	/**
+	 * An array representing each node of a query path
 	 * @var array $_path
 	 */
 	private $_path;
 
 	/**
+	 * Not used
 	 * @var bool $Unordered
 	 */
 	public $Unordered;
 
 	/**
+	 * When true the query will be evaluated from the document root.  Else from the current contet
 	 * @var bool $startFromRoot
 	 */
 	public $startPathFromRoot = false;
 
 	/**
+	 * FirstStep
 	 * @var PathStep $FirstStep
 	 */
 	public function getFirstStep()
@@ -313,6 +316,9 @@ class PathExprNode extends AbstractNode
 		return XPath2ResultType::NodeSet;
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		echo "test";

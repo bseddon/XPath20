@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -41,38 +41,55 @@ use lyquidity\xml\exceptions\NotSupportedException;
 class DOMSchemaInfo implements IXmlSchemaInfo
 {
 	/**
+	 * ContentType
 	 * @var XmlSchemaContentType
 	 */
 	private $ContentType = null;
+
 	/**
+	 * IsDefault
 	 * @var bool
 	 */
 	private $IsDefault = false;
+
 	/**
+	 * IsNil
 	 * @var bool
 	 */
 	private $IsNil = false;
+
 	/**
+	 * IsUnionType
 	 * @var bool
 	 */
 	private $IsUnionType = false;
+
 	/**
+	 * MemberType
 	 * @var  XmlSchemaSimpleType
 	 */
 	private $MemberType = null;
+
 	/**
+	 * SchemaAttribute
 	 * @var bool
 	 */
 	private $SchemaAttribute = null;
+
 	/**
+	 *SchemaElement
 	 * @var bool
 	 */
 	private $SchemaElement = null;
+
 	/**
+	 * SchemaType
 	 * @var bool
 	 */
 	private $SchemaType = null;
+
 	/**
+	 * Validity
 	 * @var bool
 	 */
 	private $Validity;

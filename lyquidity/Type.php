@@ -10,7 +10,7 @@
 *       |___/    |_|                    |___/
 *
 * @author Bill Seddon
-* @version 0.1.1
+* @version 0.9
 * @Copyright (C) 2017 Lyquidity Solutions Limited
 *
 * This program is free software: you can redistribute it and/or modify
@@ -85,11 +85,13 @@ class Type
 	const union = "union";
 
 	/**
+	 * Name passed from the constructor
 	 * @var string
 	 */
 	private $name;
 
 	/**
+	 * Type code passed from the constructor
 	 * @var TypeCode
 	 */
 	private $typeCode;
@@ -109,7 +111,7 @@ class Type
 	}
 
 	/**
-	 *
+	 * Constructor
 	 * @param string $name
 	 * @param int $typeCode
 	 */
@@ -150,7 +152,7 @@ class Type
 
 	/**
 	 * Generate a type value from a variable
-	 * @param mixed $className
+	 * @param mixed $value
 	 * @return Type
 	 */
 	public static function getTypeValueFromObject( $value )

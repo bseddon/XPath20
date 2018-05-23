@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -35,6 +35,9 @@ use lyquidity\XPath2\Value\DecimalValue;
 use lyquidity\XPath2\Value\Integer;
 use lyquidity\xml\exceptions\InvalidCastException;
 
+/**
+ * Implements a tokenizer to parse a query statement and return tokens
+ */
 class LexerState
 {
 	const DefaultState = 0;
@@ -54,24 +57,28 @@ class LexerState
 class /* struct */ CurrentToken
 {
 	/**
+	 * token
 	 * @var int $token
 	 */
-	public  $token;
+	public $token;
 
 	/**
+	 * value
 	 * @var object $value
 	 */
 	public  $value;
 
 	/**
+	 * anchor
 	 * @var int $anchor
 	 */
-	public  $anchor;
+	public $anchor;
 
 	/**
+	 * length
 	 * @var int $length
 	 */
-	public  $length;
+	public $length;
 }
 
 /**
@@ -80,29 +87,34 @@ class /* struct */ CurrentToken
 class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 {
 	/**
+	 * m_reader
 	 * @var StringReader $m_reader
 	 */
-	private  $m_reader;
+	private $m_reader;
 
 	/**
+	 * m_position
 	 * @var int $m_position
 	 */
-	private  $m_position = 0;
+	private $m_position = 0;
 
 	/**
+	 * m_state
 	 * @var LexerState $m_state = LexerState::DefaultState
 	 */
-	private  $m_state = LexerState::DefaultState;
+	private $m_state = LexerState::DefaultState;
 
 	/**
+	 * m_buffer
 	 * @var StringBuilder $m_buffer = new StringBuilder()
 	 */
-	private  $m_buffer = array(); // new StringBuilder();
+	private $m_buffer = array(); // new StringBuilder();
 
 	/**
+	 * m_states
 	 * @var Stack<LexerState> $m_states = new Stack<LexerState>()
 	 */
-	private  $m_states = array(); // new Stack<LexerState>();
+	private $m_states = array(); // new Stack<LexerState>();
 
 	/**
 	 * Holds the priorToken
@@ -111,38 +123,45 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 	private	 $m_priorToken;
 
 	/**
+	 * m_token
 	 * @var Queue<CurrentToken> $m_token = new Queue<CurrentToken>()
 	 */
-	private  $m_token = array(); // new Queue<CurrentToken>();
+	private $m_token = array(); // new Queue<CurrentToken>();
 
 	/**
+	 * m_anchor
 	 * @var int $m_anchor
 	 */
-	private  $m_anchor = 0;
+	private $m_anchor = 0;
 
 	/**
+	 * m_bookmark
 	 * @var int[] $m_bookmark
 	 */
-	private  $m_bookmark;
+	private $m_bookmark;
 
 	/**
+	 * m_length
 	 * @var int $m_length
 	 */
-	private  $m_length = 0;
+	private $m_length = 0;
 
 	/**
+	 * m_value
 	 * @var object $m_value
 	 */
-	private  $m_value;
+	private $m_value;
 
 	/**
+	 * LineNo
 	 * @var int $LineNo
 	 */
-	public  $LineNo = 0;
+	public $LineNo = 0;
 	/**
+	 * ColNo
 	 * @var int $ColNo
 	 */
-	public  $ColNo = 0;
+	public $ColNo = 0;
 
 	/**
 	 * Constructor
@@ -157,6 +176,7 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 	}
 
 	/**
+	 * Get the current position in the query string
 	 * @var int $Position
 	 */
 	public function getPosition()
@@ -1814,13 +1834,15 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 	}
 
 	/**
+	 * CurrentPos
 	 * @var int $CurrentPos
 	 */
-	public  $CurrentPos = 0;
+	public $CurrentPos = 0;
 	/**
+	 * CurrentLength
 	 * @var int $CurrentLength
 	 */
-	public  $CurrentLength = 0;
+	public $CurrentLength = 0;
 }
 
 /**
@@ -1840,13 +1862,15 @@ class VarName
 	}
 
 	/**
+	 * Prefix
 	 * @var String $Prefix
 	 */
-	public  $Prefix = "";
+	public $Prefix = "";
 	/**
+	 * LocalName
 	 * @var String $LocalName
 	 */
-	public  $LocalName = "";
+	public $LocalName = "";
 	/**
 	 * ToString
 	 * @return string
@@ -1864,22 +1888,45 @@ class VarName
 	}
 }
 
+/**
+ * Helper class that implements a string reader that knows its position
+ */
 class StringReader
 {
+	/**
+	 * Buffer
+	 * @var array
+	 */
 	private $buffer = array();
+
+	/**
+	 * Position
+	 * @var int
+	 */
 	private $position = -1;
 
+	/**
+	 * Constructor
+	 * @param string $string
+	 */
 	public function __construct( $string = "" )
 	{
 		if ( is_null( $string ) ) return;
 		$this->buffer = str_split( $string );
 	}
 
+	/**
+	 * Rewind the iterator to the beginning
+	 */
 	public function rewind()
 	{
 		$this->position = -1;
 	}
 
+	/**
+	 * Read the buffer and the current position
+	 * @return boolean|mixed
+	 */
 	public function read()
 	{
 		$this->position++;
@@ -1888,6 +1935,10 @@ class StringReader
 		return $this->buffer[ $this->position ];
 	}
 
+	/**
+	 * Look one char ahead in the buffer
+	 * @return number|mixed
+	 */
 	public function peek()
 	{
 		$peekPosition = $this->position + 1;
@@ -1897,6 +1948,10 @@ class StringReader
 		return $this->buffer[ $peekPosition ];
 	}
 
+	/**
+	 * Return the butter as a string
+	 * @return string
+	 */
 	public function toString()
 	{
 		return implode( "", $this->buffer );

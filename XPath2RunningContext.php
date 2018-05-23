@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -38,6 +38,7 @@ use lyquidity\xml\MS\XmlReservedNs;
 class XPath2RunningContext
 {
 	/**
+	 * now
 	 * @var DateTime $now
 	 */
 	public $now;
@@ -78,20 +79,27 @@ class XPath2RunningContext
 	}
 
 	/**
+	 * DefaultCulture
 	 * @var \Collator $DefaultCulture
 	 */
-	public  $DefaultCulture;
+	public $DefaultCulture;
+
 	/**
+	 * BaseUri
 	 * @var String $BaseUri
 	 */
-	public  $BaseUri;
+	public $BaseUri;
+
 	/**
+	 * IsOrdered
 	 * @var bool $IsOrdered
 	 */
-	public  $IsOrdered;
+	public $IsOrdered;
+
 	/**
+	 * NameBinder
 	 * @var NameBinder $NameBinder
 	 */
-	public  $NameBinder;
+	public $NameBinder;
 
 }

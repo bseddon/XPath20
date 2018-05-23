@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -89,6 +89,7 @@ trait DOMXPathItemTrait // implements \lyquidity\xml\xpath\XPathItem
 	}
 
 	/**
+	 * Convert the value to a boolean
 	 * @return bool
 	 */
 	public function getValueAsBoolean()
@@ -97,6 +98,7 @@ trait DOMXPathItemTrait // implements \lyquidity\xml\xpath\XPathItem
 	}
 
 	/**
+	 * Convert the value to a date time
 	 * @return DateTime
 	 */
 	public function getValueAsDateTime()
@@ -105,6 +107,7 @@ trait DOMXPathItemTrait // implements \lyquidity\xml\xpath\XPathItem
 	}
 
 	/**
+	 * Convert the value to a decimal
 	 * @return double
 	 */
 	public function getValueAsDecimal()
@@ -113,8 +116,8 @@ trait DOMXPathItemTrait // implements \lyquidity\xml\xpath\XPathItem
 		throw new InvalidOperationException( "The value '{$this->getValue()}' is not a valid decimal" );
 	}
 
-
 	/**
+	 * Convert the value to a double
 	 * @return double
 	 */
 	public function getValueAsDouble()
@@ -124,6 +127,7 @@ trait DOMXPathItemTrait // implements \lyquidity\xml\xpath\XPathItem
 	}
 
 	/**
+	 * Convert the value to a integer
 	 * @return int
 	 */
 	public function getValueAsInt()
@@ -133,6 +137,7 @@ trait DOMXPathItemTrait // implements \lyquidity\xml\xpath\XPathItem
 	}
 
 	/**
+	 * Convert the value to a long
 	 * @return long
 	 */
 	public function getValueAsLong()
@@ -171,6 +176,12 @@ trait DOMXPathItemTrait // implements \lyquidity\xml\xpath\XPathItem
 		return $this->domNode->schemaType;
 	}
 
+	/**
+	 * Get the value as the type defined in $name
+	 * @param string $name The name of the type to return
+	 * @throws NotSupportedException
+	 * @return boolean|object|string|\lyquidity\XPath2\DOM\DateTime|number|\lyquidity\XPath2\DOM\long|\lyquidity\XPath2\lyquidity\Type|\lyquidity\xml\MS\XmlSchemaType
+	 */
 	public function getAsProperties( $name )
 	{
 		switch( $name )
@@ -226,6 +237,7 @@ trait DOMXPathItemTrait // implements \lyquidity\xml\xpath\XPathItem
 	}
 
 	/**
+	 * Get the value convert to the type in $returnType
 	 * @param Type $returnType
 	 * @param IXmlNamespaceResolver $nsResolver
 	 *

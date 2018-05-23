@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -39,6 +39,7 @@ use lyquidity\XPath2\XPath2NodeIterator;
 class XPath2NodeIteratorDebugView
 {
 	/**
+	 * iter
 	 * @var XPath2NodeIterator $iter
 	 */
 	private $iter;
@@ -53,12 +54,13 @@ class XPath2NodeIteratorDebugView
 	}
 
 	/**
+	 * Return the first 10 items of the iterator
 	 * @var XPathItem[] $Items
 	 */
 	public function getItems()
 	{
 		/**
-		 * @var array $res // List<XPathItem>
+		 * @var array $res
 		 */
 		$res = array();
 		foreach ( $this->iter as /** @var XPathItem $item */ $item )
@@ -73,6 +75,7 @@ class XPath2NodeIteratorDebugView
 	}
 
 	/**
+	 * Get the current item of the iterator
 	 * @var XPathItem $Current
 	 */
 	public function getCurrent()
@@ -81,6 +84,7 @@ class XPath2NodeIteratorDebugView
 	}
 
 	/**
+	 * Get the current position of the iterator
 	 * @var int $CurrentPosition
 	 */
 	public function getCurrentPosition()

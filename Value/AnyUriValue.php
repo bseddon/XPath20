@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -46,6 +46,10 @@ use lyquidity\XPath2\XPath2Exception;
  */
 class AnyUriValue implements IXmlConvertable, IComparable, IXmlSchemaType
 {
+	/**
+	 * CLASSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "lyquidity\XPath2\Value\AnyUriValue";
 
 	/**
@@ -76,6 +80,7 @@ class AnyUriValue implements IXmlConvertable, IComparable, IXmlSchemaType
 	}
 
 	/**
+	 * Value
 	 * @var string $Value
 	 */
 	public $Value;
@@ -184,6 +189,9 @@ class AnyUriValue implements IXmlConvertable, IComparable, IXmlSchemaType
 	    return strcmp( $this->Value, $other->Value );
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		try

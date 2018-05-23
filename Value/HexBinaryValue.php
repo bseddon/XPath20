@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -41,6 +41,10 @@ use lyquidity\XPath2\XPath2Exception;
  */
 class HexBinaryValue implements IXmlConvertable, IXmlSchemaType
 {
+	/**
+	 * CLASSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "lyquidity\XPath2\Value\HexBinaryValue";
 
 	/**
@@ -72,9 +76,10 @@ class HexBinaryValue implements IXmlConvertable, IXmlSchemaType
 	}
 
 	/**
+	 * BinaryValue
 	 * @var string $BinaryValue byte[]
 	 */
-	public  $BinaryValue;
+	public $BinaryValue;
 
 	/**
 	 * Returns a schema type for the proxy value
@@ -160,10 +165,11 @@ class HexBinaryValue implements IXmlConvertable, IXmlSchemaType
 	    }
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{}
 }
-
-
 
 ?>

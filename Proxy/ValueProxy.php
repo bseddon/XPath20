@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -58,16 +58,19 @@ use lyquidity\xml\exceptions\KeyNotFoundException;
 abstract class ValueProxy implements IConvertable, IXmlSchemaType
 {
 	/**
+	 * CLASSNAME
+	 * @var string
+	 */
+	public static $CLASSNAME = "lyquidity\XPath2\Proxy\ValueProxy";
+
+	/**
+	 * Max types
 	 * @var int $TYPES_MAX = 24
 	 */
 	const TYPES_MAX = 24;
 
 	/**
-	 *
-	 */
-	public static $CLASSNAME = "lyquidity\XPath2\Proxy\ValueProxy";
-
-	/**
+	 * value;
 	 * @var object $value;
 	 */
 	protected $value;
@@ -240,6 +243,9 @@ abstract class ValueProxy implements IConvertable, IXmlSchemaType
 		return false;
 	}
 
+	/**
+	 * Static constructoe
+	 */
 	public static function __static()
 	{
 		ValueProxy::$valueFactory = array();
@@ -247,11 +253,13 @@ abstract class ValueProxy implements IConvertable, IXmlSchemaType
 	}
 
 	/**
+	 * dynamicValueType
 	 * @var Type $dynamicValueType = typeof(ValueProxy)
 	 */
 	private static $dynamicValueType;
 
 	/**
+	 * valueFactory
 	 * @var Dictionary<Type, ValueProxyFactory> $valueFactory
 	 */
 	protected static $valueFactory;
@@ -512,6 +520,12 @@ abstract class ValueProxy implements IConvertable, IXmlSchemaType
 		}
 	}
 
+	/**
+	 * Performs the operation $val1 > $val2
+	 * @param ValueProxy $val1
+	 * @param ValueProxy $val2
+	 * @return boolean
+	 */
 	public static function OperatorGreaterThan( ValueProxy $val1, ValueProxy $val2 )
 	{
 		switch ( ValueProxy::$conv_t[ $val1->GetValueCode() ][ $val2->GetValueCode() ] )
@@ -786,6 +800,12 @@ abstract class ValueProxy implements IConvertable, IXmlSchemaType
 		}
 	}
 
+	/**
+	 * Performs the operation $val1 % $val2
+	 * @param ValueProxy $val1
+	 * @param ValueProxy $val2
+	 * @return \lyquidity\XPath2\Proxy\ValueProxy
+	 */
 	public static function OperatorMod( ValueProxy  $val1, ValueProxy  $val2 )
 	{
 		switch ( ValueProxy::$conv_t[ $val1->GetValueCode() ][ $val2->GetValueCode() ] )
@@ -813,9 +833,6 @@ abstract class ValueProxy implements IConvertable, IXmlSchemaType
 				);
 		}
 	}
-
-	/*
-	*/
 
 	/**
 	 * op_IntegerDivide
@@ -1188,6 +1205,9 @@ abstract class ValueProxy implements IConvertable, IXmlSchemaType
 		return get_called_class() . " " . $this->ToString();
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		$proxy = ValueProxy::Create( 1 );

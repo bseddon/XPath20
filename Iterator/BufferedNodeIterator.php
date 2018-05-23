@@ -9,7 +9,7 @@
  *	    |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -40,12 +40,14 @@ class BufferedNodeIterator extends XPath2NodeIterator implements \Iterator
 	const CLASSNAME = "lyquidity\XPath2\BufferedNodeIterator";
 
 	/**
+	 * The buffered results
 	 * @var array $buffer
 	 */
 	private $buffer;
 
 	/**
-	 * @var XPath2NodeIterator $src
+	 * The base iterator set in the constructor
+	 * @var XPath2NodeIterator $src Set by fromSource or fromSourceWithClone
 	 */
 	private $src;
 

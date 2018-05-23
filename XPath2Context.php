@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -97,25 +97,33 @@ class XPath2Context
 	}
 
 	/**
+	 * RunningContext
 	 * @var XPath2RunningContext $RunningContext
 	 */
-	public  $RunningContext;
+	public $RunningContext;
 
 	/**
+	 * NameTable
 	 * @var XmlNameTable $NameTable
 	 */
-	public  $NameTable;
+	public $NameTable;
 
 	/**
+	 * NamespaceManager
 	 * @var XmlNamespaceManager $NamespaceManager
 	 */
-	public  $NamespaceManager;
+	public $NamespaceManager;
 
 	/**
-	  * @var XmlSchemaSet $SchemaSet
-	  */
+	 * SchemaSet
+	 * @var XmlSchemaSet $SchemaSet
+	 */
 	public  $SchemaSet;
 
+	/**
+	 * Unit tests
+	 * @param object $instance
+	 */
 	public static function tests( $instance )
 	{
 		$nsManager = new XmlNamespaceManager( SchemaTypes::getInstance()->getProcessedSchemas() );

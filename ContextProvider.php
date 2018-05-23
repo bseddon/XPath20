@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -35,6 +35,7 @@ namespace lyquidity\XPath2;
 class ContextProvider extends \ArrayIterator implements IContextProvider
 {
 	/**
+	 * Reference to the iterator passed into the constructor function 'fromIterator'
 	 * @var XPath2NodeIterator $m_iter
 	 */
 	private  $m_iter;
@@ -73,7 +74,8 @@ class ContextProvider extends \ArrayIterator implements IContextProvider
 	}
 
 	/**
-	 * @var XPath2NodeIterator $Iterator
+	 * Return the internal iterator
+	 * @return XPath2NodeIterator
 	 */
 	public function getIterator()
 	{
@@ -90,7 +92,8 @@ class ContextProvider extends \ArrayIterator implements IContextProvider
 	}
 
 	/**
-	 * @var XPathItem $Context
+	 * Get the current iterator value
+	 * @return XPathItem $Context
 	 */
 	public function getContext()
 	{
@@ -98,7 +101,8 @@ class ContextProvider extends \ArrayIterator implements IContextProvider
 	}
 
 	/**
-	 * @var int $CurrentPosition
+	 * Return the current position index
+	 * @return int $CurrentPosition
 	 */
 	public function getCurrentPosition()
 	{
@@ -106,6 +110,7 @@ class ContextProvider extends \ArrayIterator implements IContextProvider
 	}
 
 	/**
+	 * Get the previous position index
 	 * @var int $LastPosition
 	 */
 	public function getLastPosition()

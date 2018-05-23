@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -41,12 +41,17 @@ use lyquidity\XPath2\Properties\Resources;
 use lyquidity\xml\exceptions\InvalidCastException;
 use lyquidity\xml\exceptions\NotSupportedException;
 use lyquidity\XPath2\XPath2Exception;
+use lyquidity\xml\interfaces\IFormatProvider;
 
 /**
  * Long
  */
 class /* struct */ Long extends Integer implements IComparable, IConvertable, IEquatable, IXmlSchemaType
 {
+	/**
+	 * CLASSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "lyquidity\XPath2\Value\Long";
 
 	/**
@@ -54,6 +59,10 @@ class /* struct */ Long extends Integer implements IComparable, IConvertable, IE
 	 */
 	const ProxyValueCode = 4;
 
+	/**
+	 * Unsigned
+	 * @var bool $unsigned
+	 */
 	public $unsigned = false;
 
 	/**
@@ -196,6 +205,7 @@ class /* struct */ Long extends Integer implements IComparable, IConvertable, IE
 	/**
 	 * ToInteger
 	 * @param object $value
+	 * @param IFormatProvider $provider
 	 * @return Integer
 	 */
 	public static function ToInteger( $value, $provider = null )
@@ -225,12 +235,13 @@ class /* struct */ Long extends Integer implements IComparable, IConvertable, IE
 	    return $this->_value;
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 	}
 
 }
-
-
 
 ?>

@@ -9,7 +9,7 @@
  *	     |___/	  |_|					  |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -38,11 +38,13 @@ use lyquidity\xml\xpath\XPathItem;
 class PositionFilterNodeIterator extends XPath2NodeIterator implements \Iterator
 {
 	/**
+	 * Holds the base iter from the constructor
 	 * @var XPath2NodeIterator $iter
 	 */
 	private  $iter;
 
 	/**
+	 * The current position
 	 * @var int $position
 	 */
 	private  $position;

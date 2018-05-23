@@ -9,7 +9,7 @@
  *		 |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -38,8 +38,6 @@ use lyquidity\xml\xpath\XPathNavigator;
  */
 class AttributeNodeIterator extends SequentialAxisNodeIterator implements \Iterator
 {
-	public static $CLASSNAME ="lyquidity\XPath2\Iterator\AttributeNodeIterator";
-
 	/**
 	 * When true attributes if the xs:id type will not be included in the output (default: false)
 	 * @var bool
@@ -141,7 +139,5 @@ class AttributeNodeIterator extends SequentialAxisNodeIterator implements \Itera
 	}
 
 }
-
-
 
 ?>

@@ -9,7 +9,7 @@
  *	     |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -46,6 +46,10 @@ use lyquidity\XPath2\XPath2Exception;
  */
 class TimeValue implements IComparable, IXmlConvertable, IXmlSchemaType
 {
+	/**
+	 * CLASSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "lyquidity\XPath2\Value\TimeValue";
 
 	/**
@@ -56,6 +60,7 @@ class TimeValue implements IComparable, IXmlConvertable, IXmlSchemaType
 	/**
 	 * Constructor
 	 * @param \DateTime $value
+	 * @param bool $notLocal
 	 */
 	public  function __construct( $value, $notLocal = false )
 	{
@@ -66,14 +71,16 @@ class TimeValue implements IComparable, IXmlConvertable, IXmlSchemaType
 	}
 
 	/**
+	 * Value
 	 * @var \DateTime $Value
 	 */
 	public  $Value;
 
 	/**
+	 * IsLocal
 	 * @var bool $IsLocal
 	 */
-	public  $IsLocal;
+	public $IsLocal;
 
 	/**
 	 * Returns a schema type for the proxy value
@@ -408,6 +415,9 @@ class TimeValue implements IComparable, IXmlConvertable, IXmlSchemaType
 		}
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		$time1 = TimeValue::Parse( "17:10:11" );
@@ -426,6 +436,5 @@ class TimeValue implements IComparable, IXmlConvertable, IXmlSchemaType
 	}
 
 }
-
 
 ?>

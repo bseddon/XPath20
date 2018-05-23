@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -42,14 +42,14 @@ use lyquidity\XPath2\XPath2Item;
  */
 class ValueNode extends AbstractNode
 {
-	public static $CLASSNAME = "lyquidity\XPath2\AST\ValueNode";
-
 	/**
+	 * The original content passed into the constructor
 	 * @var object $_content
 	 */
 	private $_content = null;
 
 	/**
+	 * Returns the current content value
 	 * @var object $Content
 	 */
 	public function getContent()
@@ -84,7 +84,7 @@ class ValueNode extends AbstractNode
 		return $this->_content instanceof Undefined
 			? $this->_content
 			: XPath2Item::fromValue( $this->_content );
-		return $this->getContent();
+		// return $this->getContent();
 	}
 
 	/**

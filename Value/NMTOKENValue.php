@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -39,6 +39,10 @@ use lyquidity\XPath2\XPath2Exception;
  */
 class NMTOKENValue implements IXmlSchemaType
 {
+	/**
+	 * CLASSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "lyquidity\XPath2\Value\NMTOKENValue";
 
 	/**
@@ -57,6 +61,7 @@ class NMTOKENValue implements IXmlSchemaType
 	}
 
 	/**
+	 * Value
 	 * @var array $Value
 	 */
 	public $Value;
@@ -116,12 +121,13 @@ class NMTOKENValue implements IXmlSchemaType
 		return $this->ToString();
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 	}
 
 }
-
-
 
 ?>

@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -35,24 +35,26 @@ use lyquidity\XPath2\NameBinder\ReferenceLink;
 use lyquidity\XPath2\NameBinder\NameSlot;
 use lyquidity\xml\QName;
 
-// internal delegate void ChangeValueAction(NameBinder.ReferenceLink sender, object[] dataPool);
 /**
  * NameBinder (private)
  */
 class NameBinder
 {
 	/**
+	 * Current slot
 	 * @var int $_slotIndex = 0
 	 */
 	private  $_slotIndex = 0;
 
 	/**
+	 * A list of slots
 	 * @var array $_slots (List<NameSlot>)
 	 */
 	private  $_slots = array(); // new List<NameSlot>();
 
 	/**
-	 * @var int $Length
+	 * Get the number of entries
+	 * @return int
 	 */
 	public function getLength()
 	{
@@ -119,6 +121,9 @@ class NameBinder
 	}
 }
 
+/**
+ * Unit tests
+ */
 function Test()
 {
 	$nameBinder = new NameBinder();

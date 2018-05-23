@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -53,6 +53,9 @@ use lyquidity\XPath2\Value\DecimalValue;
 use lyquidity\XPath2\Value\DurationValue;
 use lyquidity\xml\TypeCode;
 
+/**
+ * This class iplements a list of types
+ */
 class Types
 {
 
@@ -111,175 +114,218 @@ class Types
 	}
 
 	/**
+	 * NullType
 	 * @var Type
 	 */
 	public static $NullType;
 	/**
+	 * ArrayType
 	 * @var Type
 	 */
 	public static $ArrayType;
 	/**
+	 * ByteType
 	 * @var Type
 	 */
 	public static $ByteType;
 	/**
+	 * BoolType
 	 * @var Type
 	 */
 	public static $BoolType;
 	/**
+	 * BooleanType
 	 * @var Type
 	 */
 	public static $BooleanType;
 	/**
+	 * CharType
 	 * @var Type
 	 */
 	public static $CharType;
 	/**
+	 * DecimalType
 	 * @var Type
 	 */
 	public static $DecimalType;
 	/**
+	 * DoubleType
 	 * @var Type
 	 */
 	public static $DoubleType;
 	/**
+	 * FloatType
 	 * @var Type
 	 */
 	public static $FloatType;
 	/**
+	 * Int16Type
 	 * @var Type
 	 */
 	public static $Int16Type;
 	/**
+	 * Int32Type
 	 * @var Type
 	 */
 	public static $Int32Type;
 	/**
+	 * Int64Type
 	 * @var Type
 	 */
 	public static $Int64Type;
 	/**
+	 * IntegerType
 	 * @var Type
 	 */
 	public static $IntegerType;
 	/**
+	 * IntType
 	 * @var Type
 	 */
 	public static $IntType;
 	/**
+	 * LongType
 	 * @var Type
 	 */
 	public static $LongType;
 	/**
+	 * SByteType
 	 * @var Type
 	 */
 	public static $SByteType;
 	/**
+	 * ShortType
 	 * @var Type
 	 */
 	public static $ShortType;
 	/**
+	 * StringType
 	 * @var Type
 	 */
 	public static $StringType;
 	/**
+	 * UInt16Type
 	 * @var Type
 	 */
 	public static $UInt16Type;
 	/**
+	 * UInt32Type
 	 * @var Type
 	 */
 	public static $UInt32Type;
 	/**
+	 * UInt64Type
 	 * @var Type
 	 */
 	public static $UInt64Type;
 
 	/**
+	 * AnyUriValueType
 	 * @var Type
 	 */
 	public static $AnyUriValueType;
 	/**
+	 * Base64BinaryValueType
 	 * @var Type
 	 */
 	public static $Base64BinaryValueType;
 	/**
+	 * DateTimeIntervalType
 	 * @var Type
 	 */
 	public static $DateTimeIntervalType;
 	/**
+	 * DateTimeValueType
 	 * @var Type
 	 */
 	public static $DateTimeValueType;
 	/**
+	 * DateValueType
 	 * @var Type
 	 */
 	public static $DateValueType;
 	/**
+	 * DayTimeDurationValueType
 	 * @var Type
 	 */
 	public static $DayTimeDurationValueType;
 	/**
+	 * DurationValueType
 	 * @var Type
 	 */
 	public static $DurationValueType;
 	/**
+	 * ENTITIESValueType
 	 * @var Type
 	 */
 	public static $ENTITIESValueType;
 	/**
+	 * GDayValueType
 	 * @var Type
 	 */
 	public static $GDayValueType;
 	/**
+	 * GMonthDayValueType
 	 * @var Type
 	 */
 	public static $GMonthDayValueType;
 	/**
+	 * GMonthValueType
 	 * @var Type
 	 */
 	public static $GMonthValueType;
 	/**
+	 * GYearMonthValueType
 	 * @var Type
 	 */
 	public static $GYearMonthValueType;
 	/**
+	 * GYearValueType
 	 * @var Type
 	 */
 	public static $GYearValueType;
 	/**
+	 * HexBinaryValueType
 	 * @var Type
 	 */
 	public static $HexBinaryValueType;
 	/**
+	 * IDREFSValueType
 	 * @var Type
 	 */
 	public static $IDREFSValueType;
 	/**
+	 * NMTOKENSValueType
 	 * @var Type
 	 */
 	public static $NMTOKENSValueType;
 	/**
+	 * ObjectType
 	 * @var Type
 	 */
 	public static $ObjectType;
 	/**
+	 * QNameValueType
 	 * @var Type
 	 */
 	public static $QNameValueType;
 	/**
+	 * TimeValueType
 	 * @var Type
 	 */
 	public static $TimeValueType;
 	/**
+	 * UntypedAtomicType
 	 * @var Type
 	 */
 	public static $UntypedAtomicType;
 	/**
+	 * YearMonthDurationValueType
 	 * @var Type
 	 */
 	public static $YearMonthDurationValueType;
 	/**
+	 * UNION
 	 * @var Type
 	 */
 	public static $UNION;

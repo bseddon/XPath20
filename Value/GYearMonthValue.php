@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -41,6 +41,10 @@ use lyquidity\XPath2\XPath2Exception;
  */
 class GYearMonthValue extends DateTimeValueBase implements IXmlSchemaType
 {
+	/**
+	 * CLASSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "lyquidity\XPath2\Value\GYearMonthValue";
 
 	/**
@@ -93,6 +97,7 @@ class GYearMonthValue extends DateTimeValueBase implements IXmlSchemaType
 
 	/**
 	 * ToString
+	 * @param IFormatProvider $provider
 	 * @return string
 	 */
 	public function ToString( $provider = null )
@@ -181,6 +186,9 @@ class GYearMonthValue extends DateTimeValueBase implements IXmlSchemaType
         throw XPath2Exception::withErrorCodeAndParams( "FORG0001", Resources::FORG0001, array( $text, "GYearMonth" ) );
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		$gYearMonth = GYearMonthValue::Parse( "2009-02Z" );
@@ -188,7 +196,5 @@ class GYearMonthValue extends DateTimeValueBase implements IXmlSchemaType
 	}
 
 }
-
-
 
 ?>

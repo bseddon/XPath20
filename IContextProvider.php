@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -37,19 +37,20 @@ use lyquidity\xml\xpath\XPathNavigator;
  */
 interface IContextProvider
 {
-	const ICONTEXTPROVIDERCLASSNAME = "lyquidity\XPath2\IContextProvider";
-
 	/**
+	 * Get the value
 	 * @return XPathNavigator
 	 */
 	function getContext();
 
 	/**
+	 * Get the current position index
 	 * @var int $CurrentPosition
 	 */
 	function getCurrentPosition();
 
 	/**
+	 * Get the last position index
 	 * @var int $LastPosition
 	 */
 	function getLastPosition();

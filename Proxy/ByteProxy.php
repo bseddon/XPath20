@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -41,9 +41,8 @@ use lyquidity\xml\interfaces\IXmlSchemaType;
  */
 class ByteProxy extends ValueProxy implements IXmlSchemaType
 {
-	public static $CLASSNAME = "lyquidity\XPath2\Proxy\ByteProxy";
-
 	/**
+	 * Value
 	 * @var int $_value
 	 */
 	private $_value;
@@ -67,7 +66,8 @@ class ByteProxy extends ValueProxy implements IXmlSchemaType
 	}
 
 	/**
-	 * @var object $Value
+	 * Get the value
+	 * @return object
 	 */
 	public function getValue()
 	{
@@ -390,6 +390,9 @@ class ByteProxy extends ValueProxy implements IXmlSchemaType
 		return Convert::ToUInt64( $this->_value, $provider );
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		$execute = function( $callback )

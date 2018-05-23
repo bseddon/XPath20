@@ -9,7 +9,7 @@
  *		 |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -48,23 +48,28 @@ use lyquidity\XPath2\XPath2Exception;
  */
 class DocumentOrderNodeIterator extends XPath2NodeIterator implements \Iterator
 {
-	public static $CLASSNAME ="lyquidity\XPath2\Iterator\DocumentOrderNodeIterator";
-
 	/**
+	 * Array passed into the constructor
 	 * @var array $itemSet was ItemSet
 	 */
 	private $itemSet;
 
 	/**
+	 * Copy of the last node processed
 	 * @var XPathNavigator $lastNode
 	 */
 	private $lastNode;
 
 	/**
+	 * Current node depth
 	 * @var int $index
 	 */
 	private $index = 0;
 
+	/**
+	 * allowSameElementRepeat
+	 * @var bool
+	 */
 	public $allowSameElementRepeat = false;
 
 	/**
@@ -74,8 +79,9 @@ class DocumentOrderNodeIterator extends XPath2NodeIterator implements \Iterator
 	{}
 
 	/**
-	 * fromParts
+	 * fromItemset
 	 * @param array $itemSet
+	 * @param bool $allowSameElementRepeat
 	 */
 	public static function fromItemset( $itemSet, $allowSameElementRepeat = false )
 	{
@@ -85,6 +91,12 @@ class DocumentOrderNodeIterator extends XPath2NodeIterator implements \Iterator
 		return $result;
 	}
 
+	/**
+	 * fromBaseIter
+	 * @param XPath2NodeIterator $baseIter
+	 * @param string $allowSameElementRepeat
+	 * @return \lyquidity\XPath2\Iterator\DocumentOrderNodeIterator
+	 */
 	public static function fromBaseIter( $baseIter, $allowSameElementRepeat = false )
 	{
 		$result = new DocumentOrderNodeIterator();

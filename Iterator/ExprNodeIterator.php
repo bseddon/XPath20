@@ -9,7 +9,7 @@
  *		 |___/	  |_|					 |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -40,34 +40,38 @@ use lyquidity\XPath2\NodeProvider;
  */
 class ExprNodeIterator extends XPath2NodeIterator
 {
-	public static $CLASSNAME ="lyquidity\XPath2\Iterator\ExprNodeIterator";
-
 	/**
+	 * Context passed to the constructors fromParts or fromExprNodeIteratorParts
 	 * @var XPath2Context $context
 	 */
 	private $context;
 
 	/**
+	 * Nde passed to the constructors fromParts or fromExprNodeIteratorParts
 	 * @var AbstractNode $node
 	 */
 	private $node;
 
 	/**
+	 * Datapool passed to the constructors fromParts or fromExprNodeIteratorParts
 	 * @var array $dataPool
 	 */
 	private $dataPool;
 
 	/**
+	 * baseIter passed to the constructors fromParts or fromExprNodeIteratorParts
 	 * @var XPath2NodeIterator $baseIter
 	 */
 	private $baseIter;
 
 	/**
+	 * Current iter
 	 * @var XPath2NodeIterator $iter
 	 */
 	private $iter;
 
 	/**
+	 * Current position
 	 * @var int $sequentialPosition
 	 */
 	private $sequentialPosition;

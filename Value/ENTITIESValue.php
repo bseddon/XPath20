@@ -9,7 +9,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -38,6 +38,10 @@ use lyquidity\xml\exceptions\ArgumentException;
  */
 class ENTITIESValue implements IXmlSchemaType
 {
+	/**
+	 * CLASSNAME
+	 * @var string
+	 */
 	public static $CLASSNAME = "lyquidity\XPath2\Value\ENTITIESValue";
 
 	/**
@@ -52,6 +56,7 @@ class ENTITIESValue implements IXmlSchemaType
 	}
 
 	/**
+	 * ValueList
 	 * @var array $ValueList
 	 */
 	public  $ValueList;
@@ -113,6 +118,9 @@ class ENTITIESValue implements IXmlSchemaType
 		return $this->ToString();
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function tests()
 	{
 		$entities1 = new ENTITIESValue( array( "a", "b", "c" ) );

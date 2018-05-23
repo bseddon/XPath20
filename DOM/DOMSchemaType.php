@@ -10,7 +10,7 @@
  *       |___/    |_|                    |___/
  *
  * @author Bill Seddon
- * @version 0.1.1
+ * @version 0.9
  * @Copyright (C) 2017 Lyquidity Solutions Limited
  *
  * This program is free software: you can redistribute it and/or modify
@@ -50,13 +50,18 @@ use lyquidity\xml\exceptions\NotSupportedException;
 class DOMSchemaType extends XmlSchemaType
 {
 
+	/**
+	 * Constructor
+	 * @param \DOMNode $domNode
+	 */
 	public function __construct( $domNode )
 	{
 	}
 
 	/**
 	 * Create an instance for a type in the SchemaTypes types list if there is one
-	 * @param QName $qualifiedName
+	 * @param QName $qname
+	 * @return DOMSchemaSimpleType
 	 */
 	public static function fromSchemaType( $qname )
 	{
@@ -289,6 +294,9 @@ class DOMSchemaType extends XmlSchemaType
 
 	}
 
+	/**
+	 * Unit tests
+	 */
 	public static function test()
 	{
 		try
