@@ -9,12 +9,26 @@
 
 ## About the project
 
-PHP does include an XPath 1.0 implementation but at the time of writing does not include processor to handle XPath 2.0 expressions.
+PHP does include an XPath 1.0 implementation but at the time of writing does not include processor to handle XPath 2.0 expressions. XPath queries
+are expected run against XML documents and are expected to respect the types implied by XML documents and the query.  Although PHP has only a 
+limited type system (string, integer, double/float, array) the XPath process respects all XML types an will coerce values of one type to another.
 
 This library implements the [XPath 2.0 specification](https://www.w3.org/TR/xpath20/) for PHP and is able to pass the 15,000 or so
 [XPath 2.0 conformance suite tests](https://dev.w3.org/2006/xquery-test-suite/PublicPagesStagingArea/).
 
-Note that this project does NOT implemen an XSLT 2.0 processor or an XQuery statement evaluator.
+Note that this project does NOT implement an XSLT 2.0 processor or an XQuery statement evaluator.
+
+### Status
+
+![XPath 2.0 conformance](https://www.xbrlquery.com/tests/status.php?test=conformance_xpath20&x=y "XPath 2.0 conformance suite tests")
+
+The conformance suite used is [XQTS 1.0.3 2010-09-17](https://dev.w3.org/2006/xquery-test-suite/PublicPagesStagingArea/XQTS_1_0_3.zip).  Not
+all the tests defined by the suite are used because many test XQueries.  Instead the tests used are the ones in the test case documents that
+declare an attribute @is-XPath2 with a value of 'true'.  There are about 9,000 such tests.
+
+### Statistics
+
+This project comprises 53972 lines in 191 files
 
 ### Motivation
 
