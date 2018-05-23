@@ -96,7 +96,7 @@ class DOMSchemaInfo implements IXmlSchemaInfo
 
 	public function __construct( $domNode )
 	{
-		$this->ContentType = XmlSchemaContentType::Empty;
+		$this->ContentType = XmlSchemaContentType::EmptyNode;
 		$this->Validity = XmlSchemaValidity::NotKnown;
 
 		if ( $domNode instanceof \DOMDocument ) return;
