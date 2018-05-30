@@ -80,6 +80,7 @@ function autoload( $className )
 	if ( ! file_exists( $fileName ) ) return;
 
 	require_once $fileName;
+	return true;
 }
 
 spl_autoload_register( '\\lyquidity\\XPath2\\autoload' );

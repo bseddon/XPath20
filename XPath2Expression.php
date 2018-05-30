@@ -152,7 +152,7 @@ class XPath2Expression
 	 */
 	public static function CompileSimple( $xpath )
 	{
-		return Compile( $xpath, null );
+		return self::Compile( $xpath, null );
 	}
 
 	/**
@@ -432,7 +432,7 @@ class XPath2Expression
 		 * @var object[] $datapool
 		 */
 		$dataPool = array(); // new object[ $runningContext->NameBinder->getLength() ];
-		if ( ! is_null( $vars ) )
+		if ( ! is_null( $variables ) )
 		{
 			for ( $k = 0; $k < count( $variables ); $k++ )
 			{

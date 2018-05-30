@@ -118,5 +118,3 @@ class XPath2Exception extends \Exception
 	}
 
 }
-
-
