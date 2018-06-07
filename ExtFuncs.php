@@ -2581,7 +2581,11 @@ class ExtFuncs
 			$s1 = \normalizer_normalize( $a, \Normalizer::FORM_C );
 			$s2 = \normalizer_normalize( $b, \Normalizer::FORM_C );
 
-			return strcmp( $s1, $s2 );
+			// On Windows the strcmp function return -1, 0, 1 but on Linux the strcmp function
+			// returns a value which is the difference in the ascii value of the first mismatched char
+			// This function makes sure both return -1, 0, 1
+			return ( $x = strcmp( $s1, $s2 ) ) == 0 ? 0 : ( $x >= 1 ? 1 : -1  );
+			// return strcmp( $s1, $s2 );
 		}
 		else
 		{
@@ -2593,7 +2597,11 @@ class ExtFuncs
 			{
 				throw XPath2Exception::withErrorCodeAndParam( "FOCH0002", Resources::FOCH0002, $collation );
 			}
-			return strcoll( $s1, $s2 );
+			// On Windows the strcoll function return -1, 0, 1 but on Linux the strcoll function
+			// returns a value which is the difference in the ascii value of the first mismatched char
+			// This function makes sure both return -1, 0, 1
+			return ( $x = strcoll( $s1, $s2 ) ) == 0 ? 0 : ( $x >= 1 ? 1 : -1  );
+			// return strcoll( $s1, $s2 );
 		}
 	}
 
