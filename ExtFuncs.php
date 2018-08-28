@@ -3586,8 +3586,8 @@ class ExtFuncs
 		//				  That is, '00:00:00' and '24:00:00' are synonyms for midnight at the beginning of the day.
 		//				  But the XBRL test uses '24:00:00' as midnight of the end of the day.
 		global $use_xbrl_functions;
-		// BMS 2018-06-08	This has been changed because relying of 23:00 was never
-		//					going to work and on another machine (Linux) is didn't.
+		// BMS 2018-06-08	This has been changed because relying on 23:00 was never
+		//					going to work and on another machine (Linux) it didn't.
 		//					Now if the hours are "00" but there is a non-zero timestamp
 		//					the assumption is the user meant midnight.
 		// if ( $use_xbrl_functions && $time->Value->getTimestamp() == 82800 )
