@@ -34,6 +34,8 @@ use lyquidity\XPath2\Value\AnyUriValue;
 use lyquidity\XPath2\Value\UntypedAtomic;
 use lyquidity\XPath2\Proxy\ValueProxy;
 use lyquidity\xml\interfaces\IComparer;
+use lyquidity\xml\MS\XmlTypeCode;
+use lyquidity\XPath2\XPath2Item;
 
 /**
  * DistinctComparer ( private )
@@ -47,12 +49,27 @@ class DistinctComparer implements IComparer
 	private $collation = null;
 
 	/**
+	 * A set of analogous numeric types
+	 * @var array
+	 */
+	private static $numericTypes = array();
+
+	/**
+	 * A set of analogous duration types
+	 * @var array
+	 */
+	private static $durationTypes = array();
+
+	/**
 	 * Constructor
 	 * @param string $collation
 	 */
 	public  function __construct( $collation = null )
 	{
 		$this->collation = $collation;
+
+		self::$numericTypes = array( XmlTypeCode::Decimal, XmlTypeCode::Float, XmlTypeCode::Double, XmlTypeCode::Integer );
+		self::$durationTypes = array( XmlTypeCode::YearMonthDuration, XmlTypeCode::DayTimeDuration );
 	}
 
 	/**
@@ -90,6 +107,56 @@ class DistinctComparer implements IComparer
 			else
 			{
 				return strcoll( $a, $b ) == 0;
+			}
+		}
+
+		if ( true )
+		{
+			$aTypeCode = $a instanceof XPath2Item ? $a->getSchemaType()->TypeCode : ( is_string( $a ) ? XmlTypeCode::String : XmlTypeCode::AnyAtomicType );
+			$bTypeCode = $b instanceof XPath2Item ? $b->getSchemaType()->TypeCode : ( is_string( $b ) ? XmlTypeCode::String : XmlTypeCode::AnyAtomicType );
+			$numericTypes =& DistinctComparer::$numericTypes;
+			$durationTypes =& DistinctComparer::$durationTypes;
+
+			if ( $aTypeCode != $bTypeCode )
+			{
+				// Handle the exceptions
+				$exceptions = (
+					( $aTypeCode == XmlTypeCode::Integer && in_array( $bTypeCode, $numericTypes ) ) ||
+				 	( $bTypeCode == XmlTypeCode::Integer && in_array( $aTypeCode, $numericTypes ) ) ||
+					( $aTypeCode == XmlTypeCode::Decimal && in_array( $bTypeCode, $numericTypes ) ) ||
+					( $bTypeCode == XmlTypeCode::Decimal && in_array( $aTypeCode, $numericTypes ) ) ||
+					( $aTypeCode == XmlTypeCode::Double && in_array( $bTypeCode, $numericTypes ) ) ||
+					( $bTypeCode == XmlTypeCode::Double && in_array( $aTypeCode, $numericTypes ) ) ||
+					( $aTypeCode == XmlTypeCode::Float && in_array( $bTypeCode, $numericTypes ) ) ||
+					( $bTypeCode == XmlTypeCode::Float && in_array( $aTypeCode, $numericTypes ) ) ||
+
+					( $aTypeCode == XmlTypeCode::YearMonthDuration && in_array( $bTypeCode, $durationTypes ) ) ||
+					( $bTypeCode == XmlTypeCode::YearMonthDuration && in_array( $aTypeCode, $durationTypes ) ) ||
+					( $aTypeCode == XmlTypeCode::DayTimeDuration && in_array( $bTypeCode, $durationTypes ) ) ||
+					( $bTypeCode == XmlTypeCode::DayTimeDuration && in_array( $aTypeCode, $durationTypes ) )
+				);
+				if ( ! $exceptions )
+				{
+					return 1;
+				}
+			}
+
+			// Check for NaN in numeric XPath2Item
+			if ( in_array( $aTypeCode, $numericTypes ) && in_array( $bTypeCode, $numericTypes ) )
+			{
+				$aValue = $a->getTypedValue();
+				$bValue = $b->getTypedValue();
+
+				if ( ! is_object( $aValue ) && ! is_object( $bValue ) && is_nan( $aValue ) && is_nan( $bValue ) )
+				{
+					return 0;
+				}
+			}
+
+			if ( in_array( $aTypeCode, $durationTypes ) && in_array( $bTypeCode, $durationTypes ) )
+			{
+				$a = $a->getTypedValue();
+				$b = $b->getTypedValue();
 			}
 		}
 

@@ -3039,14 +3039,14 @@ class ExtFuncs
 		    $item = $iter->getCurrent();
 		    if ( strlen( (string)$item->getValue() ) )
 		    {
-				$value = $item instanceof DOMXPathNavigator || $item instanceof XPath2Item
+				$value = $item instanceof DOMXPathNavigator // || $item instanceof XPath2Item
 					? $item->GetTypedValue()
 					: $item;
 
 				$found = false;
-				foreach ( $dict as $item )
+				foreach ( $dict as $itemComparer )
 				{
-					if ( $comparer->Compare( $item, $value ) == 0 )
+					if ( $comparer->Compare( $itemComparer, $value ) == 0 )
 					{
 						$found = true;
 						break;

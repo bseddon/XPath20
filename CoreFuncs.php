@@ -169,7 +169,8 @@ class CoreFuncs
 			new Proxy\TimeProxyFactory(),
 			new Proxy\DurationProxyFactory(),
 			new Proxy\YearMonthDurationProxyFactory(),
-			new Proxy\DayTimeDurationProxyFactory()
+			new Proxy\DayTimeDurationProxyFactory(),
+			new Proxy\QNameProxyFactory(),
 		);
 
 		Proxy\ValueProxy::AddFactory( $factories );
