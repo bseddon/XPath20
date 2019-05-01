@@ -71,7 +71,7 @@ class DecimalProxyFactory extends ValueProxyFactory
 
 	/**
 	 * Returns true if the value is numeric
-	 * @return bool 
+	 * @return bool
 	 */
 	public function getIsNumeric()
 	{
@@ -101,7 +101,8 @@ class DecimalProxyFactory extends ValueProxyFactory
 	            return 0;
 	        case FloatProxyFactory::Code:
 	        case DoubleProxyFactory::Code:
-	            return -1;
+	        case StringProxyFactory::Code: // BMS 2019-04-28
+	        	return -1;
 	        default:
 	            return -2;
 	    }

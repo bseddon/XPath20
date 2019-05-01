@@ -71,7 +71,7 @@ class StringProxyFactory extends ValueProxyFactory
 
 	/**
 	 * Returns true if the value is numeric
-	 * @return bool 
+	 * @return bool
 	 */
 	public function getIsNumeric()
 	{
@@ -85,7 +85,21 @@ class StringProxyFactory extends ValueProxyFactory
 	 */
 	public function Compare( $other )
 	{
-	    if ( $other->GetValueCode() == StringProxyFactory::Code )
+		// BMS 2019-04-28
+		// Probably need to do this for all other numeric types and the boolean
+	    switch ( $other->GetValueCode() )
+	    {
+			case DecimalProxyFactory::Code:
+				return 1;
+
+	    	case StringProxyFactory::Code:
+				return 0;
+
+	        default:
+	        	return -2;
+	    }
+
+		if ( $other->GetValueCode() == StringProxyFactory::Code )
 	        return 0;
 	    return -2;
 	}
