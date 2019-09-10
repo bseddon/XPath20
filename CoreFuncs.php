@@ -100,6 +100,17 @@ class FalseValue extends ReferenceType
 	{
 		return "false";
 	}
+
+	/**
+	 * Returns a typed value for this reference type
+	 * @return boolean
+	 * @desc BMS 2019-09-09 Pointed out by Tim Vandecasteele
+	 * @see https://github.com/tim-vandecasteele/xbrl-experiment/commit/a9024c8f1368aa46e7dd2e5c070223c6b99ff08d
+	 */
+	public function getTypedValue()
+	{
+		return false;
+	}
 }
 
 /**
@@ -114,6 +125,15 @@ class TrueValue extends ReferenceType
 	public function __toString()
 	{
 		return "true";
+	}
+
+	/**
+	 * Returns a typed value for this reference type
+	 * @return boolean
+	 */
+	public function getTypedValue()
+	{
+		return true;
 	}
 }
 
@@ -260,11 +280,17 @@ class CoreFuncs
 			}
 		}
 		// BMS 2017-12-27 Added this because at the time of writing using the XPath 2.0 'doc()' function does not
-		//				  add any schema related to the imported file so all values are treated as untypedAtomic.
+		//				  add a schema related to the imported file so all values are treated as untypedAtomic.
 		//				  As a result, simple numeric comparisons fail.
 		else if ( $arg1 instanceof UntypedAtomic && $arg2 instanceof UntypedAtomic && is_numeric( $a ) && is_numeric( $b ) )
 		{
 			return $a == $b;
+		}
+
+		// BMS 2019-09-09 Suggested by Tim Vandecasteele
+		//				  https://github.com/tim-vandecasteele/xbrl-experiment/commit/b976b6cb01f9e2860adc2379448076119b1bef2e
+		else if ( $typeA == Types::$BooleanType || $typeB == Types::$BooleanType ) {
+			return CoreFuncs::BooleanValue($a) == CoreFuncs::BooleanValue($b);
 		}
 		else if ( $raiseExceptionOnMismatch )
 		{
@@ -822,7 +848,7 @@ class CoreFuncs
 		// Unicode 6.0 spec says: Three letterlike symbols have been given canonical equivalence
 		// to regular letters: U+2126 OHM SIGN, U+212A KELVIN SIGN, and U+212B ANGSTROM SIGN.
 		// In all three instances, the regular letter should be used. If text is normalized according
-		// to Unicode Standard Annex #15, “Unicode Normalization Forms,” these three characters will
+		// to Unicode Standard Annex #15, "Unicode Normalization Forms," these three characters will
 		// be replaced by their regular equivalents.
 		if ( strpos( $result, "&#x212A;" ) !== false )
 		{
