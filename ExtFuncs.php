@@ -1003,9 +1003,17 @@ class ExtFuncs
 		else
 		    $substr = $arg2 . "";
 
-		if ( strlen( $substr ) == 0 ) return true;
+		// BMS 2019-09-09 As a consequence of the change suggested by Tim Vandecasteele
+		//				  this should also return a `CoreFuncs`-bool instead of just true/false.
+		if ( strlen( $substr ) == 0 ) return CoreFuncs::$True;
 
-		return SchemaTypes::endsWith( $str, $substr );
+		// return SchemaTypes::endsWith( $str, $substr );
+		// BMS 2019-09-09 Suggested by Tim Vandecasteele
+		//				  see https://github.com/tim-vandecasteele/xbrl-experiment/commit/1f79ef270987c79adcfe00eca26647a819cb457e
+		// should return a `CoreFuncs`-bool instead of just true/false.
+		// The error this hit when this was not the case was `The precondition with label 'pre_SchemaRef-rcorp'
+		// did not return a boolean result`. This can be seen in the file `be-tax-f-rcorp-2001-2019-04-30-assertion.xml` of the be-tax taxonomy.
+		return SchemaTypes::endsWith( $str, $substr ) ? CoreFuncs::$True : CoreFuncs::$False ;
 	}
 
 	/**
