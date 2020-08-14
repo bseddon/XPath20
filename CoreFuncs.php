@@ -289,8 +289,15 @@ class CoreFuncs
 
 		// BMS 2019-09-09 Suggested by Tim Vandecasteele
 		//				  https://github.com/tim-vandecasteele/xbrl-experiment/commit/b976b6cb01f9e2860adc2379448076119b1bef2e
-		else if ( $typeA == Types::$BooleanType || $typeB == Types::$BooleanType ) {
-			return CoreFuncs::BooleanValue($a) == CoreFuncs::BooleanValue($b);
+		else if ( $typeA == Types::$BooleanType || $typeB == Types::$BooleanType ) 
+		{
+			// BMS 2020-08-13 Suggested by Tim Vandecasteele as a further correction.  His comment is:
+			// 		"The earler version works with combination of multiple tests for example:
+			//		(string($ModifiedClosingDateTaxPeriodFrom2017-07-26ForeignCompany) eq 'false') and (string($COVID19AidTemporaryAdjustmentPrepaymentsCalculation) eq 'true'))
+			//		But doesn't work with single statements as it doesn't return a CoreFuncs::BooleanValue."
+
+			// return CoreFuncs::BooleanValue($a) == CoreFuncs::BooleanValue($b);
+			return CoreFuncs::BooleanValue(CoreFuncs::BooleanValue($a) == CoreFuncs::BooleanValue($b));
 		}
 		else if ( $raiseExceptionOnMismatch )
 		{
