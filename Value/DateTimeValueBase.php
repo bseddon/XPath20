@@ -66,6 +66,11 @@ class DateTimeValueBase implements IComparable, IConvertable
 			throw new \InvalidArgumentException( "$value" );
 		}
 
+		if ( ! property_exists( $value, 'microseconds' ) )
+		{
+			$value->microseconds = 0;
+		}
+
 		$this->S = $sign;
 		$this->Value = $value;
 		$this->IsLocal = ! $notLocal && $value->getTimezone()->getName() == date_default_timezone_get();
