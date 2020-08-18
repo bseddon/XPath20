@@ -285,7 +285,7 @@ class DateValue extends DateTimeValueBase implements IXmlConvertable, IXmlSchema
 			$dt = $dat->Value;
 
 			// This is a convoluted way to add dates.  But its necessary because the
-			// PHP DateTime call cannot handle negative years and, so, all not the
+			// PHP DateTime class cannot handle negative years and, so, not all the
 			// weirdness that happens around year zero.  So instead of relying on the
 			// ability of the DataTime class to handle negative year these lines convert
 			// the date to the corresponding julian days and perform maths on this number
