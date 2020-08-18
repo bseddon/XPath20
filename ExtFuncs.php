@@ -3172,7 +3172,7 @@ class ExtFuncs
 		{
 			// This probably needs changing.  If the $item is an XPathNavigator then the
 			// value will be assumed to be numeric but it could be text
-			$curr = CoreFuncs::CastToNumber1( $context, $item instanceof XPathNavigator ? $item->GetTypedValue() : $item );
+			$curr = XPath2Item::fromValue( CoreFuncs::CastToNumber1( $context, $item instanceof XPathNavigator ? $item->GetTypedValue() : $item ) );
 			if ( $curr->getTypedValue() instanceof AnyUriValue )
 			{
 				$curr = $curr->getTypedValue() . "";
@@ -3253,7 +3253,7 @@ class ExtFuncs
 		{
 			// This probably needs changing.  If the $item is an XPathNavigator then the
 			// value will be assumed to be numeric but it could be text
-			$curr = CoreFuncs::CastToNumber1( $context, $item instanceof XPathNavigator ? $item->GetTypedValue() : $item );
+			$curr = XPath2Item::fromValue( CoreFuncs::CastToNumber1( $context, $item instanceof XPathNavigator ? $item->GetTypedValue() : $item ) );
 			if ( $curr->GetTypedValue() instanceof AnyUriValue )
 			{
 				$curr = $curr->GetTypedValue() . "";
