@@ -88,7 +88,7 @@ class DOMSchemaElement extends XmlSchemaElement
 		// }
 		$elementType = is_array( $type ) ? false : $types->getType( $type );
 		$result->ElementSchemaType = $elementType;
-		$result->SchemaTypeName = $elementType['name'];
+		$result->SchemaTypeName = $elementType['name'] ?? null;
 		$result->SubstitutionGroup = isset( $element['substitutionGroup'] ) ? $element['substitutionGroup'] : $type;
 		// error_log( __CLASS__ . " need to populate the DOMSchemaElement instance" );
 		return $result;

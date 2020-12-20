@@ -128,9 +128,13 @@ class TimeValue implements IComparable, IXmlConvertable, IXmlSchemaType
 		$result = "";
 		$format = "H:i:s";
 
-		if ( ! @empty( $this->Value->microseconds != 0 ) )
+		// BMS 2020-12-16 This property may not exist and, amyway, the previous test clearly wrong.
+		//
+		// if ( ! @empty( $this->Value->microseconds != 0 ) )
+		if ( property_exists( $this->Value, 'microseconds' ) && ! @empty( $this->Value->microseconds ) )
 		{
 			$format .= "." . rtrim( $this->Value->microseconds, "0" );
+			$format = rtrim( $format, "." );
 		}
 
 		if ( ! $this->IsLocal )

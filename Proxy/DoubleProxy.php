@@ -84,7 +84,7 @@ class DoubleProxy extends ValueProxy implements IXmlSchemaType
 
 	/**
 	 * Get the value
-	 * @return object 
+	 * @return object
 	 */
 	public function getValue()
 	{
@@ -271,7 +271,8 @@ class DoubleProxy extends ValueProxy implements IXmlSchemaType
 
 		// Replace the handler because the status test handler traps any error and terminates the session
 		$previousHandler = set_error_handler(null);
-		$result = new DoubleProxy( @($numerator / $denominator) );
+		// BMS 2020-12-16 For PHP 8.0 use the new fdiv function
+		$result = new DoubleProxy( PHP_VERSION_ID >= 80000 ? @fdiv( $numerator, $denominator ) :  @($numerator / $denominator) );
 		set_error_handler( $previousHandler );
 		return $result;
 

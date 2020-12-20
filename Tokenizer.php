@@ -685,7 +685,7 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 		        $this->BeginToken();
 		        $this->ConsumeChar( $this->Read() );
 		        $c = $this->Peek( 0 );
-		        if ( $c != 0 && preg_match( "/[\p{L}_]/u", $s[0] ) ) // NCName Start char
+		        if ( $c != 0 && preg_match( "/[\p{L}_]/u", $c ) ) // NCName Start char
 		            $this->ConsumeNCName();
 		        else
 		            throw XPath2Exception::withErrorCode( "XPST0003", Resources::ExpectedNCName );
