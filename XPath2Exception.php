@@ -54,7 +54,7 @@ class XPath2Exception extends \Exception
 	/**
 	 * asDefault
 	 * @param string $message
-	 * @param Exception $innerException
+	 * @param \Exception $innerException
 	 * @return XPath2Exception
 	 */
 	public static function asDefault( $message, $innerException )
@@ -66,7 +66,7 @@ class XPath2Exception extends \Exception
 	 * withErrorCode
 	 * @param string $errorCode
 	 * @param string $message
-	 * @param Exception $innerException (Default: null)
+	 * @param \Exception $innerException (Default: null)
 	 * @return XPath2Exception
 	 */
 	public static function withErrorCode($errorCode, $message, $innerException= null)
@@ -81,7 +81,7 @@ class XPath2Exception extends \Exception
 	 * @param string $errorCode
 	 * @param string $message
 	 * @param object $parameter
-	 * @param Exception $innerException (Default: null)
+	 * @param \Exception $innerException (Default: null)
 	 * @return XPath2Exception
 	 */
 	public static function withErrorCodeAndParam($errorCode, $message, $parameter, $innerException = null)
@@ -96,7 +96,7 @@ class XPath2Exception extends \Exception
 	 * @param string $errorCode
 	 * @param string $message
 	 * @param List<object> $parameters
-	 * @param Exception $innerException (Default: null)
+	 * @param \Exception $innerException (Default: null)
 	 * @return XPath2Exception
 	 */
 	public static function withErrorCodeAndParams($errorCode, $message, $parameters, $innerException = null)

@@ -30,6 +30,7 @@
 namespace lyquidity\XPath2\Proxy;
 
 use lyquidity\XPath2\SequenceType;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\MS\XmlTypeCardinality;
 use \lyquidity\XPath2\lyquidity\Convert;
 use lyquidity\XPath2\Properties\Resources;
@@ -78,7 +79,7 @@ class BoolProxy extends ValueProxy implements IXmlSchemaType
 
 	/**
 	 * Gets the value
-	 * @return object 
+	 * @return object
 	 */
 	public function getValue()
 	{

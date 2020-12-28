@@ -29,6 +29,7 @@
 
 namespace lyquidity\XPath2\XPath2NodeIterator;
 
+use lyquidity\XPath2\XPath2NodeIterator;
 use lyquidity\xml\interfaces\IEnumerator;
 use lyquidity\xml\exceptions\InvalidOperationException;
 

@@ -29,12 +29,15 @@
 
 namespace lyquidity\XPath2\Value;
 
+use lyquidity\xml\MS\XmlNamespaceManager;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\xml\interfaces\IComparable;
 use lyquidity\XPath2\Properties\Resources;
 use lyquidity\XPath2\DOM\XmlSchema;
 use lyquidity\xml\interfaces\IXmlSchemaType;
 use lyquidity\XPath2\CoreFuncs;
+use lyquidity\XPath2\SequenceType;
 use lyquidity\XPath2\Undefined;
 use lyquidity\xml\exceptions\InvalidCastException;
 use lyquidity\xml\exceptions\ArgumentException;
@@ -243,7 +246,7 @@ class TimeValue implements IComparable, IXmlConvertable, IXmlSchemaType
 		$T = $date && $time ? "T" : "";
 
 		/**
-		 * @var DateTime $dateTime
+		 * @var \DateTime $dateTime
 		 */
 		$dateTime = new \DateTime( "{$date}$T{$time}$offset" );
 		$dateTime->microseconds = $microseconds;

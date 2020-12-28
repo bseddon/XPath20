@@ -30,6 +30,8 @@
 
 namespace lyquidity\XPath2\NameBinder;
 
+use lyquidity\xml\QName;
+
 /**
  * NameSlot (private)
  */

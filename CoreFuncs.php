@@ -35,6 +35,7 @@ use lyquidity\XPath2\Value\AnyUriValue;
 use \lyquidity\XPath2\lyquidity\Type;
 use lyquidity\XPath2\Value\DurationValue;
 use lyquidity\xml\interfaces\IComparable;
+use lyquidity\xml\interfaces\IEnumerable;
 use lyquidity\xml\xpath\XPathItem;
 use lyquidity\xml\MS\XmlTypeCardinality;
 use lyquidity\XPath2\Properties\Resources;
@@ -48,10 +49,12 @@ use \lyquidity\XPath2\lyquidity\Convert;
 use lyquidity\XPath2\Iterator\EmptyIterator;
 use lyquidity\xml\MS\XmlNodeOrder;
 use lyquidity\XPath2\Value\Integer;
+use lyquidity\XPath2\Value\Long;
 use lyquidity\XPath2\Value\QNameValue;
 use lyquidity\XPath2\Value\DateTimeValueBase;
 use lyquidity\XPath2\Value\TimeValue;
 use lyquidity\xml\MS\XmlReservedNs;
+use lyquidity\xml\MS\XmlSchemaObject;
 use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\XPath2\DOM\DOMSchemaType;
 use lyquidity\XPath2\Iterator\NodeIterator;
@@ -289,7 +292,7 @@ class CoreFuncs
 
 		// BMS 2019-09-09 Suggested by Tim Vandecasteele
 		//				  https://github.com/tim-vandecasteele/xbrl-experiment/commit/b976b6cb01f9e2860adc2379448076119b1bef2e
-		else if ( $typeA == Types::$BooleanType || $typeB == Types::$BooleanType ) 
+		else if ( $typeA == Types::$BooleanType || $typeB == Types::$BooleanType )
 		{
 			// BMS 2020-08-13 Suggested by Tim Vandecasteele as a further correction.  His comment is:
 			// 		"The earler version works with combination of multiple tests for example:

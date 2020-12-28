@@ -37,13 +37,13 @@ use lyquidity\XPath2\DOM\XmlSchema;
 use lyquidity\xml\interfaces\IXmlSchemaType;
 use lyquidity\xml\exceptions\NotImplementedException;
 use lyquidity\XPath2\XPath2Exception;
+use lyquidity\xml\MS\XmlSchemaType;
 
 /**
  * Proxy (internal)
  */
 class DurationProxy extends ValueProxy implements IXmlSchemaType
 {
-
 
 	/**
 	 * Value
@@ -80,7 +80,7 @@ class DurationProxy extends ValueProxy implements IXmlSchemaType
 
 	/**
 	 * Get the value
-	 * @return object 
+	 * @return object
 	 */
 	public function getValue()
 	{

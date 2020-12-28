@@ -31,6 +31,7 @@ namespace lyquidity\XPath2\Proxy;
 
 use lyquidity\XPath2\Value\YearMonthDurationValue;
 use lyquidity\XPath2\SequenceType;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\MS\XmlTypeCardinality;
 use \lyquidity\XPath2\lyquidity\Convert;
 use lyquidity\XPath2\Value\DurationValue;
@@ -84,7 +85,7 @@ class YearMonthDurationProxy extends ValueProxy implements IXmlSchemaType
 
 	/**
 	 * Get the value
-	 * @return object 
+	 * @return object
 	 */
 	public function getValue()
 	{

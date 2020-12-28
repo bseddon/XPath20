@@ -42,6 +42,7 @@ use lyquidity\XPath2\DOM\XmlSchema;
 use lyquidity\xml\interfaces\IXmlSchemaType;
 use lyquidity\xml\exceptions\InvalidCastException;
 use lyquidity\XPath2\XPath2Exception;
+use lyquidity\xml\MS\XmlSchemaType;
 
 /**
  * Proxy (new internal)
@@ -85,7 +86,7 @@ class DayTimeDurationProxy extends ValueProxy implements IXmlSchemaType
 
 	/**
 	 * Return the value
-	 * @return \DayTimeDurationValue $Value
+	 * @return DayTimeDurationValue $Value
 	 */
 	public function getValue()
 	{

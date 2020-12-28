@@ -31,16 +31,20 @@ namespace lyquidity\XPath2\Proxy;
 
 use lyquidity\xml\TypeCode;
 use \lyquidity\XPath2\lyquidity\Convert;
+use lyquidity\XPath2\lyquidity\Type;
+use lyquidity\XPath2\Value\DateTimeValue;
 use lyquidity\XPath2\Value\Integer;
 use lyquidity\XPath2\SequenceType;
 use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\XPath2\DOM\XmlSchema;
+use lyquidity\xml\interfaces\IFormatProvider;
 use lyquidity\xml\interfaces\IXmlSchemaType;
 use lyquidity\XPath2\Properties\Resources;
 use lyquidity\XPath2\Value\DecimalValue;
 use lyquidity\XPath2\XPath2Item;
 use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\XPath2\XPath2Exception;
+use lyquidity\XPath2\Value\Long;
 
 /**
  * Float (internal final)
@@ -82,7 +86,7 @@ class FloatProxy extends ValueProxy implements IXmlSchemaType
 
 	/**
 	 * Get the value
-	 * @return XPath2Item 
+	 * @return XPath2Item
 	 */
 	public function getValue()
 	{
@@ -297,7 +301,7 @@ class FloatProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToByte
 	 * @param IFormatProvider $provider
-	 * @return byte
+	 * @return ByteProxy
 	 */
 	public function ToByte( $provider )
 	{
@@ -307,7 +311,7 @@ class FloatProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToChar
 	 * @param IFormatProvider $provider
-	 * @return char
+	 * @return string
 	 */
 	public function ToChar( $provider )
 	{
@@ -317,7 +321,7 @@ class FloatProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToDateTime
 	 * @param IFormatProvider $provider
-	 * @return DateTime
+	 * @return DateTimeValue
 	 */
 	public function ToDateTime( $provider )
 	{
@@ -347,7 +351,7 @@ class FloatProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToInt16
 	 * @param IFormatProvider $provider
-	 * @return short
+	 * @return ShortProxy
 	 */
 	public function ToInt16( $provider )
 	{
@@ -377,7 +381,7 @@ class FloatProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToInt64
 	 * @param IFormatProvider $provider
-	 * @return long
+	 * @return Long
 	 */
 	public function ToInt64( $provider )
 	{
@@ -387,7 +391,7 @@ class FloatProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToSByte
 	 * @param IFormatProvider $provider
-	 * @return sbyte
+	 * @return SByteProxy
 	 */
 	public function ToSByte( $provider )
 	{
@@ -428,7 +432,7 @@ class FloatProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt16
 	 * @param IFormatProvider $provider
-	 * @return ushort
+	 * @return UShortProxy
 	 */
 	public function ToUInt16( $provider )
 	{
@@ -438,7 +442,7 @@ class FloatProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt32
 	 * @param IFormatProvider $provider
-	 * @return uint
+	 * @return UIntProxy
 	 */
 	public function ToUInt32( $provider )
 	{
@@ -448,7 +452,7 @@ class FloatProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt64
 	 * @param IFormatProvider $provider
-	 * @return ulong
+	 * @return ULongProxy
 	 */
 	public function ToUInt64( $provider )
 	{

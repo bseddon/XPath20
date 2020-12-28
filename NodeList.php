@@ -60,7 +60,7 @@ class NodeList implements \IteratorAggregate
 	/**
 	 * Constructor
 	 * @param XPath2NodeIterator $iter
-	 * @param XmlDocument $doc
+	 * @param XPath2NodeIterator $doc
 	 */
 	public function __construct( $iter, $doc )
 	{
@@ -92,7 +92,7 @@ class NodeList implements \IteratorAggregate
 	/**
 	 * ToXmlNode
 	 * @param XPathNavigator $nav
-	 * @return DOMNode
+	 * @return \DOMNode
 	 */
 	public static function ToXmlNode( $nav )
 	{
@@ -106,7 +106,7 @@ class NodeList implements \IteratorAggregate
 	/**
 	 * getIterator
 	 * {@inheritDoc}
-	 * @see IteratorAggregate::getIterator()
+	 * @see \IteratorAggregate::getIterator()
 	 */
 	public function getIterator()
 	{
@@ -121,7 +121,7 @@ class NodeList implements \IteratorAggregate
 	/**
 	 * Item
 	 * @param int $index
-	 * @return DOMNode
+	 * @return \DOMNode
 	 */
 	public function Item( $index )
 	{
@@ -133,7 +133,7 @@ class NodeList implements \IteratorAggregate
 				if ( $this->_iter->MoveNext() )
 				{
 					/**
-					 * @var XmlNode $node
+					 * @var \DOMNode $node
 					 */
 					$node = $this->GetNode( $this->_iter->getCurrent() );
 					if ( ! is_null( $node ) )

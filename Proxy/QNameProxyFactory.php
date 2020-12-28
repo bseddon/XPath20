@@ -30,6 +30,7 @@
 namespace lyquidity\XPath2\Proxy;
 
 use \lyquidity\XPath2\lyquidity\Types;
+use lyquidity\XPath2\lyquidity\Type;
 
 /**
  * QNameProxyFactory (internal)

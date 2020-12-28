@@ -29,6 +29,7 @@
 
 namespace lyquidity\XPath2;
 
+use lyquidity\xml\xpath\XPathItem;
 use \lyquidity\xml\xpath\XPathNavigator;
 use \lyquidity\XPath2\Properties\Resources;
 use \lyquidity\xml\interfaces\IComparer;

@@ -31,6 +31,7 @@ namespace lyquidity\XPath2\Proxy;
 
 use lyquidity\XPath2\Properties\Resources;
 use lyquidity\XPath2\Value\TimeValue;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\MS\XmlTypeCardinality;
 use lyquidity\XPath2\SequenceType;
 use lyquidity\XPath2\Value\YearMonthDurationValue;
@@ -73,7 +74,7 @@ class TimeProxy extends ValueProxy implements IXmlSchemaType
 
 	/**
 	 * Get the value
-	 * @return object 
+	 * @return object
 	 */
 	public function getValue()
 	{

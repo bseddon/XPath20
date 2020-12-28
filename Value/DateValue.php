@@ -29,10 +29,13 @@
 
 namespace lyquidity\XPath2\Value;
 
+use lyquidity\xml\MS\XmlNamespaceManager;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\XPath2\SequenceType;
 use lyquidity\XPath2\Properties\Resources;
 use lyquidity\XPath2\DOM\XmlSchema;
+use lyquidity\xml\interfaces\IFormatProvider;
 use lyquidity\xml\interfaces\IXmlSchemaType;
 use lyquidity\XPath2\CoreFuncs;
 use lyquidity\xml\exceptions\InvalidCastException;
@@ -58,7 +61,7 @@ class DateValue extends DateTimeValueBase implements IXmlConvertable, IXmlSchema
 	/**
 	 * Constructor
 	 * @param bool $sign
-	 * @param DateTime $value
+	 * @param \DateTime $value
 	 * @param bool $notLocal
 	 */
 	public function __construct( $sign, $value, $notLocal = false )
@@ -204,7 +207,7 @@ class DateValue extends DateTimeValueBase implements IXmlConvertable, IXmlSchema
 		$notlocal = ! empty( $matches['offset'] );
 
 		/**
-		 * @var DateTime $dateTime
+		 * @var \$dateTime
 		 */
 		$dateTime = new \DateTime( "{$date}" . ( $time ? "T$time" : "" ) . $offset );
 		$dateTime->microseconds = $microseconds;

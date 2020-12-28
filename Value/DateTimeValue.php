@@ -204,7 +204,7 @@ class DateTimeValue extends DateTimeValueBase implements IXmlConvertable, IXmlSc
 
 		if ( ! $error )
 		{
-			$matches = null;
+			$offsetMatches = null;
 			$timeSeconds = ( empty( $matches['hour'] ) ? 0 : $matches['hour'] * 3600 ) +
 						   ( empty( $matches['minute'] ) ? 0 : $matches['minute'] * 60 ) +
 						   ( empty( $matches['second'] ) ? 0 : $matches['second'] * 1 ) +
@@ -213,7 +213,6 @@ class DateTimeValue extends DateTimeValueBase implements IXmlConvertable, IXmlSc
 
 			if ( ! $error && ! empty( $matches['offset'] ) && preg_match( "/^[+-](?<hours>\d{2})(:(?<minutes>\d{2}))?$/", $matches['offset'], $offsetMatches ) )
 			{
-				$offsetMatches = null;
 				$error = ( ! empty( $offsetMatches['hours'] ) && $offsetMatches['hours'] > 14 ) ||
 				empty( $offsetMatches['minutes'] ) ||
 				$offsetMatches['minutes'] > 59;
@@ -224,8 +223,6 @@ class DateTimeValue extends DateTimeValueBase implements IXmlConvertable, IXmlSc
 		{
 			throw XPath2Exception::withErrorCodeAndParams( "FORG0001", Resources::FORG0001, array( $text, "DateTime" ) );
 		}
-
-		$matches = null;
 
 		$sign = empty( $matches['sign'] ) ? false : $matches['sign'] == "-" ;
 		$date = empty( $matches['date'] ) ? "" : $matches['date'];

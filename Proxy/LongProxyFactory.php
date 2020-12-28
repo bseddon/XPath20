@@ -30,6 +30,7 @@
 namespace lyquidity\XPath2\Proxy;
 
 use \lyquidity\XPath2\lyquidity\Types;
+use lyquidity\XPath2\lyquidity\Type;
 
 /**
  * LongProxyFactory (internal)
@@ -71,7 +72,7 @@ class LongProxyFactory extends ValueProxyFactory
 
 	/**
 	 * Returns true if the value is numeric
-	 * @return bool 
+	 * @return bool
 	 */
 	public function getIsNumeric()
 	{
