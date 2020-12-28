@@ -31,6 +31,10 @@ namespace lyquidity\XPath2\DOM;
 
 use lyquidity\XPath2\DOM\XmlSchema;
 use lyquidity\xml\QName;
+use lyquidity\xml\MS\XmlNameTable;
+use lyquidity\xml\MS\XmlSchemaAttribute;
+use lyquidity\xml\MS\XmlSchemaElement;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\exceptions\XmlSchemaException;
 use lyquidity\xml\exceptions\ArgumentNullException;
 use lyquidity\xml\exceptions\NotSupportedException;
@@ -87,7 +91,7 @@ class XmlSchemaSet
 	 * Gets the XmlSchemaCompilationSettings for the XmlSchemaSet.
 	 * Currently this is not suppported.
 	 *
-	 * @return XmlSchemaCompilationSettings		The XmlSchemaCompilationSettings for the XmlSchemaSet.
+	 * @return mixed		The XmlSchemaCompilationSettings for the XmlSchemaSet.
 	 *											The default is an XmlSchemaCompilationSettings instance with
 	 * 											the XmlSchemaCompilationSettings.EnableUpaCheck property set to true.
 	 * @throws
@@ -99,7 +103,7 @@ class XmlSchemaSet
 	 * Gets or sets the XmlSchemaCompilationSettings for the XmlSchemaSet.
 	 * Currently this is not suppported.
 	 *
-	 * @param XmlSchemaCompilationSettings	$compilationSettings	The XmlSchemaCompilationSettings for the XmlSchemaSet.
+	 * @param mixed	$compilationSettings	The XmlSchemaCompilationSettings for the XmlSchemaSet.
 	 *																The default is an XmlSchemaCompilationSettings instance with
 	 * 																the XmlSchemaCompilationSettings.EnableUpaCheck property set to true.
 	 * @return void
@@ -212,7 +216,7 @@ class XmlSchemaSet
 	 */
 	public function AddSchemaSet( $schemas )
 	{
-		if ( is_null( $schema ) ) throw new \lyquidity\xml\exceptions\ArgumentNullException();
+		if ( is_null( $schemas ) ) throw new \lyquidity\xml\exceptions\ArgumentNullException();
 
 		if ( ! $schemas instanceof XmlSchemaSet ) throw new XmlSchemaException( "Parameter is not an XmlSchemaSet instance" );
 
@@ -309,7 +313,7 @@ class XmlSchemaSet
 	 * @param XmlSchema $schemaToRemove  The XmlSchema object to remove from the XmlSchemaSet.
 	 * @return bool  true if the XmlSchema object and all its imports were successfully removed; otherwise, false.
 	 * @throws
-	 *   ArgumentException  The XmlSchema object passed as a parameter does not already exists XmlSchemaSet.
+	 *   \Exception ArgumentException  The XmlSchema object passed as a parameter does not already exists XmlSchemaSet.
 	 *   NotSupportedException
 	 */
 	public function RemoveRecursive( $schemaToRemove ) { throw new NotSupportedException( "XmlSchemaSet::Reprocess is not supported" ); }

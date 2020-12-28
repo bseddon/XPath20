@@ -49,7 +49,7 @@ class DescendantNodeIterator extends AxisNodeIterator implements \Iterator
 	 * Constructor
 	 * @param XPath2Context $context
 	 * @param object $nodeTest
-	 * @param boo $matchSelf
+	 * @param bool $matchSelf
 	 * @param XPath2NodeIterator $iter
 	 */
 	public static function fromNodeTest( $context, $nodeTest, $matchSelf, $iter )

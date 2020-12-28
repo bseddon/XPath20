@@ -31,7 +31,9 @@ namespace lyquidity\XPath2\AST;
 
 use lyquidity\XPath2\Value\Integer;
 use lyquidity\XPath2\ContextProvider;
+use lyquidity\XPath2\IContextProvider;
 use lyquidity\XPath2\Undefined;
+use lyquidity\XPath2\XPath2Context;
 use lyquidity\XPath2\XPath2NodeIterator;
 use lyquidity\XPath2\Properties\Resources;
 use lyquidity\xml\MS\XmlTypeCardinality;

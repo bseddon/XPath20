@@ -175,7 +175,7 @@ class DistinctComparer implements IComparer
 			}
 		}
 
-		$res;
+		$res = 0;
 		if ( ValueProxy::EqValues( $a, $b, $res ) && $res )
     		return 0;
 

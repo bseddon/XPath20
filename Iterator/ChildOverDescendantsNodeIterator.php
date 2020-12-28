@@ -148,7 +148,7 @@ class ChildOverDescendantsNodeIterator extends XPath2NodeIterator implements \It
 	 */
 	public function CreateBufferedIterator()
 	{
-		return new BufferedNodeIterator( $this->Clone() );
+		return new BufferedNodeIterator( $this->CloneInstance() );
 	}
 
 	/**

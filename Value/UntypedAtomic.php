@@ -33,16 +33,24 @@ use \lyquidity\xml\interfaces\ICloneable;
 use \lyquidity\xml\interfaces\IComparable;
 use \lyquidity\xml\interfaces\IConvertable;
 use \lyquidity\xml\interfaces\IEquatable;
+use lyquidity\XPath2\lyquidity\Type;
 use \lyquidity\XPath2\lyquidity\Types;
 use lyquidity\xml\TypeCode;
 use \lyquidity\XPath2\lyquidity\Convert;
 use lyquidity\XPath2\Properties\Resources;
 use lyquidity\XPath2\DOM\XmlSchema;
 use lyquidity\xml\interfaces\IXmlSchemaType;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\exceptions\NotImplementedException;
 use lyquidity\xml\exceptions\FormatException;
 use lyquidity\XPath2\XPath2Exception;
 use lyquidity\xml\interfaces\IFormatProvider;
+use lyquidity\XPath2\Proxy\ByteProxy;
+use lyquidity\XPath2\Proxy\ShortProxy;
+use lyquidity\XPath2\Proxy\SByteProxy;
+use lyquidity\XPath2\Proxy\UShortProxy;
+use lyquidity\XPath2\Proxy\UIntProxy;
+use lyquidity\XPath2\Proxy\ULongProxy;
 
 /**
  * UntypedAtomic (public)
@@ -230,7 +238,7 @@ class UntypedAtomic implements ICloneable, IComparable, IConvertable, IEquatable
 			return $this->Value != "";
 			// return Convert::ToBoolean( $this->Value, $provider );
 		}
-		catch ( \lyquidity\xml\exceptionsFormatException $ex )
+		catch ( \lyquidity\xml\exceptions\FormatException $ex )
 		{
 			throw XPath2Exception::withErrorCodeAndParams("FORG0001", Resources::FORG0001, array( $this->Value, "xs:boolean") );
 		}
@@ -239,7 +247,7 @@ class UntypedAtomic implements ICloneable, IComparable, IConvertable, IEquatable
 	/**
 	 * ToByte
 	 * @param IFormatProvider $provider
-	 * @return byte
+	 * @return ByteProxy
 	 */
 	public function ToByte( $provider )
 	{
@@ -256,7 +264,7 @@ class UntypedAtomic implements ICloneable, IComparable, IConvertable, IEquatable
 	/**
 	 * ToChar
 	 * @param IFormatProvider $provider
-	 * @return char
+	 * @return string
 	 */
 	public function ToChar( $provider )
 	{
@@ -266,7 +274,7 @@ class UntypedAtomic implements ICloneable, IComparable, IConvertable, IEquatable
 	/**
 	 * ToDateTime
 	 * @param IFormatProvider $provider
-	 * @return DateTime
+	 * @return DateTimeValue
 	 */
 	public function ToDateTime( $provider )
 	{
@@ -344,7 +352,7 @@ class UntypedAtomic implements ICloneable, IComparable, IConvertable, IEquatable
 	/**
 	 * ToInt16
 	 * @param IFormatProvider $provider
-	 * @return short
+	 * @return ShortProxy
 	 */
 	public function ToInt16( $provider )
 	{
@@ -395,7 +403,7 @@ class UntypedAtomic implements ICloneable, IComparable, IConvertable, IEquatable
 	/**
 	 * ToSByte
 	 * @param IFormatProvider $provider
-	 * @return sbyte
+	 * @return SByteProxy
 	 */
 	public function ToSByte( $provider )
 	{
@@ -442,7 +450,7 @@ class UntypedAtomic implements ICloneable, IComparable, IConvertable, IEquatable
 	/**
 	 * ToUInt16
 	 * @param IFormatProvider $provider
-	 * @return ushort
+	 * @return UShortProxy
 	 */
 	public function ToUInt16( $provider )
 	{
@@ -459,7 +467,7 @@ class UntypedAtomic implements ICloneable, IComparable, IConvertable, IEquatable
 	/**
 	 * ToUInt32
 	 * @param IFormatProvider $provider
-	 * @return uint
+	 * @return UIntProxy
 	 */
 	public function ToUInt32( $provider )
 	{
@@ -476,7 +484,7 @@ class UntypedAtomic implements ICloneable, IComparable, IConvertable, IEquatable
 	/**
 	 * ToUInt64
 	 * @param IFormatProvider $provider
-	 * @return ulong
+	 * @return ULongProxy
 	 */
 	public function ToUInt64( $provider )
 	{
@@ -504,7 +512,7 @@ class UntypedAtomic implements ICloneable, IComparable, IConvertable, IEquatable
 		$result = $xxx->Equals( $yyy ); // False
 		$result = $zzz->Equals( $zzz ); // True
 
-		$num;
+		$num = null;
 		$result = $xxx->TryParseDouble( $num ); // False
 		$result = $www->TryParseDouble( $num ); // True
 

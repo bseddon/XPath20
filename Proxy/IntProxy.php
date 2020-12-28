@@ -31,22 +31,24 @@ namespace lyquidity\XPath2\Proxy;
 
 use lyquidity\xml\TypeCode;
 use \lyquidity\XPath2\lyquidity\Convert;
+use lyquidity\XPath2\lyquidity\Type;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\XPath2\SequenceType;
 use lyquidity\XPath2\Value\Integer;
 use lyquidity\XPath2\Properties\Resources;
 use lyquidity\XPath2\Value\DecimalValue;
+use lyquidity\xml\interfaces\IFormatProvider;
 use lyquidity\xml\interfaces\IXmlSchemaType;
 use lyquidity\XPath2\DOM\XmlSchema;
 use lyquidity\XPath2\XPath2Exception;
+use lyquidity\XPath2\Value\DateTimeValue;
 
 /**
  * Int (internal final)
  */
 class IntProxy extends ValueProxy implements IXmlSchemaType
 {
-
-
 	/**
 	 * Value
 	 * @var int $_value
@@ -73,7 +75,7 @@ class IntProxy extends ValueProxy implements IXmlSchemaType
 
 	/**
 	 * Get the value
-	 * @return object 
+	 * @return object
 	 */
 	public function getValue()
 	{
@@ -194,7 +196,7 @@ class IntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * IDiv
 	 * @param ValueProxy $val
-	 * @return Integer
+	 * @return \lyquidity\XPath2\Value\Integer
 	 */
 	protected function IDiv( $val )
 	{
@@ -244,7 +246,7 @@ class IntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToBoolean
 	 * @param IFormatProvider $provider
-	 * @return bool
+	 * @return BoolProxy
 	 */
 	public function ToBoolean( $provider )
 	{
@@ -254,7 +256,7 @@ class IntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToByte
 	 * @param IFormatProvider $provider
-	 * @return byte
+	 * @return ByteProxy
 	 */
 	public function ToByte( $provider )
 	{
@@ -264,7 +266,7 @@ class IntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToChar
 	 * @param IFormatProvider $provider
-	 * @return char
+	 * @return StringProxy
 	 */
 	public function ToChar( $provider )
 	{
@@ -274,7 +276,7 @@ class IntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToDateTime
 	 * @param IFormatProvider $provider
-	 * @return DateTime
+	 * @return DateTimeValue
 	 */
 	public function ToDateTime( $provider )
 	{
@@ -294,7 +296,7 @@ class IntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToDouble
 	 * @param IFormatProvider $provider
-	 * @return double
+	 * @return DoubleProxy
 	 */
 	public function ToDouble( $provider )
 	{
@@ -304,7 +306,7 @@ class IntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToInt16
 	 * @param IFormatProvider $provider
-	 * @return short
+	 * @return ShortProxy
 	 */
 	public function ToInt16( $provider )
 	{
@@ -314,7 +316,7 @@ class IntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToInt32
 	 * @param IFormatProvider $provider
-	 * @return int
+	 * @return IntegerProxy
 	 */
 	public function ToInt32( $provider )
 	{
@@ -324,7 +326,7 @@ class IntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToInt64
 	 * @param IFormatProvider $provider
-	 * @return long
+	 * @return LongProxy
 	 */
 	public function ToInt64( $provider )
 	{
@@ -334,7 +336,7 @@ class IntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToSByte
 	 * @param IFormatProvider $provider
-	 * @return sbyte
+	 * @return SByteProxy
 	 */
 	public function ToSByte($provider )
 	{
@@ -344,7 +346,7 @@ class IntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToSingle
 	 * @param IFormatProvider $provider
-	 * @return float
+	 * @return FloatProxy
 	 */
 	public function ToSingle( $provider )
 	{
@@ -375,7 +377,7 @@ class IntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt16
 	 * @param IFormatProvider $provider
-	 * @return ushort
+	 * @return UShortProxy
 	 */
 	public function ToUInt16( $provider )
 	{
@@ -385,7 +387,7 @@ class IntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt32
 	 * @param IFormatProvider $provider
-	 * @return uint
+	 * @return UIntProxy
 	 */
 	public function ToUInt32( $provider )
 	{
@@ -395,7 +397,7 @@ class IntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt64
 	 * @param IFormatProvider $provider
-	 * @return ulong
+	 * @return ULongProxy
 	 */
 	public function ToUInt64( $provider )
 	{

@@ -33,6 +33,8 @@ namespace lyquidity\XPath2;
 use lyquidity\XPath2\Iterator\ExprIterator;
 use lyquidity\XPath2\Iterator\ChildNodeIterator;
 use lyquidity\XPath2\Iterator\ElementOrderNodeIterator;
+use lyquidity\xml\xpath\XPathNavigator;
+use lyquidity\xml\xpath\XPathNodeIterator;
 
 /**
  * XEqualComparer (public)
@@ -127,7 +129,7 @@ class XEqualComparer extends TreeComparer
 			{
 				if ( $iter1Current->getIsNode() && $iter2Current->getIsNode() )
 				{
-					if ( $elementsOnly && $iter1Current->getNodeType() != XPathNodeType::Element )
+					if ( $elementsOnly && $iter1Current->getNodeType() != \lyquidity\xml\xpath\XPathNodeType::Element )
 					{
 						continue;
 					}

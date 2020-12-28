@@ -39,7 +39,7 @@ class XPath2RunningContext
 {
 	/**
 	 * now
-	 * @var DateTime $now
+	 * @var \DateTime $now
 	 */
 	public $now;
 
@@ -59,18 +59,18 @@ class XPath2RunningContext
 	/**
 	 * GetCulture
 	 * @param string $locale
-	 * @return CultureInfo
+	 * @return \Collator
 	 */
 	public function GetCulture( $locale )
 	{
-		if ( is_null( $locale ) || empty( $locale ) || $locale == XmlReservedNs::CollationCodepoint )
+		if ( is_null( $locale ) || empty( $locale ) || $locale == XmlReservedNs::collationCodepoint )
 		{
 			return null;
 		}
 
 		try
 		{
-			return Collator::create( $locale );
+			return \Collator::create( $locale );
 		}
 		catch ( \Exception $ex )
 		{

@@ -31,6 +31,7 @@ namespace lyquidity\XPath2\Value;
 
 use lyquidity\XPath2\DOM\XmlSchema;
 use lyquidity\xml\interfaces\IXmlSchemaType;
+use lyquidity\xml\MS\XmlSchemaType;
 
 /**
  * IDREFSValue (public)
@@ -50,7 +51,7 @@ class IDREFSValue implements IXmlSchemaType
 	public  function __construct( $value )
 	{
 		if ( is_null( $value ) || ! is_array( $value ) )
-			throw new ArgumentException ("$value");
+			throw new \Exception ("$value");
 		$this->ValueList = $value;
 	}
 

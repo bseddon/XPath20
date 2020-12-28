@@ -31,6 +31,7 @@ namespace lyquidity\XPath2\Iterator;
 
 use lyquidity\XPath2\XPath2Context;
 use lyquidity\XPath2\XPath2NodeIterator;
+use lyquidity\xml\xpath\XPathNavigator;
 
 /**
  * FollowingSiblingNodeIterator (final)

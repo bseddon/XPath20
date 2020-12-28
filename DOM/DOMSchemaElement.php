@@ -33,6 +33,7 @@ namespace lyquidity\XPath2\DOM;
 use lyquidity\xml\MS\XmlSchemaElement;
 use lyquidity\xml\MS\XmlSchemaDerivationMethod;
 use lyquidity\xml\MS\XmlSchemaForm;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\QName;
 use lyquidity\xml\schema\SchemaTypes;
 
@@ -67,7 +68,7 @@ class DOMSchemaElement extends XmlSchemaElement
 		}
 		else
 		{
-			throw new \InvalidArgumentException( "$qname must be string or a QName instance" );
+			throw new \InvalidArgumentException( "$name must be string or a QName instance" );
 		}
 
 		$element = $types->getElement( $qname );
@@ -240,7 +241,7 @@ class DOMSchemaElement extends XmlSchemaElement
 	 * Gets or sets the name of a built-in data type defined in this schema or another
 	 * schema indicated by the specified namespace.
 	 *
-	 * @var XmlQualifiedName $SchemaTypeName
+	 * @var QName $SchemaTypeName
 	 * The name of the built-in data type.
 	 */
 	public $SchemaTypeName = null;
@@ -248,7 +249,7 @@ class DOMSchemaElement extends XmlSchemaElement
 	/**
 	 * Gets or sets the name of an element that is being substituted by this element.
 	 *
-	 * @var XmlQualifiedName $SubstitutionGroup
+	 * @var QName $SubstitutionGroup
 	 * The qualified name of an element that is being substituted by this element.Optional.
 	 */
 	public $SubstitutionGroup = null;

@@ -35,6 +35,8 @@ use lyquidity\xml\interfaces\IXmlSchemaType;
 use lyquidity\XPath2\CoreFuncs;
 use lyquidity\xml\schema\SchemaTypes;
 use lyquidity\XPath2\XPath2Exception;
+use lyquidity\xml\MS\XmlSchemaType;
+use lyquidity\xml\interfaces\IFormatProvider;
 
 /**
  * GYearValue (public)

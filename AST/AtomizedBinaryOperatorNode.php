@@ -29,11 +29,11 @@
 
 namespace lyquidity\XPath2\AST;
 
-use lyquidity\XPath2;
 use lyquidity\XPath2\CoreFuncs;
 use lyquidity\XPath2\Undefined;
 use lyquidity\XPath2\IContextProvider;
 use lyquidity\XPath2\XPath2Context;
+use lyquidity\XPath2\XPath2ResultType;
 
 /**
  * AtomizedBinaryOperatorNode (private)
@@ -43,7 +43,7 @@ class AtomizedBinaryOperatorNode extends BinaryOperatorNode
 	/**
 	 * Constructor
 	 * @param XPath2Context $context
-	 * @param BinaryOperator $action
+	 * @param \Closure $action
 	 * @param object $node1
 	 * @param object $node2
 	 * @param XPath2ResultType $resultType

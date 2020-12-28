@@ -80,7 +80,7 @@ class yyDebugSimple implements yyDebug
 			return;
 		}
 
-		switch (errorFlag)
+		switch ($errorFlag)
 		{
 			default:				// normally
 				$this->println( "shift\tfrom state $from to $to" );

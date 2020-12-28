@@ -34,6 +34,7 @@ use lyquidity\XPath2\DOM\DOMXPathItem;
 use lyquidity\xml\MS\XmlQualifiedNameTest;
 use lyquidity\XPath2\CoreFuncs;
 use lyquidity\XPath2\Properties\Resources;
+use lyquidity\xml\xpath\XPathItem;
 use lyquidity\xml\xpath\XPathNavigator;
 use lyquidity\XPath2\XPathComparer;
 use lyquidity\XPath2\XPath2Exception;

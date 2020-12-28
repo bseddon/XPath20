@@ -62,7 +62,7 @@ class AncestorNodeIterator extends SequentialAxisNodeIterator implements \Iterat
 	 * Constructor
 	 * @param AxisNodeIterator $src
 	 */
-	private  function fromSource( $src )
+	private static function fromSource( $src )
 	{
 		$result = new AncestorNodeIterator();
 		$result->AssignFrom( $src );
@@ -75,7 +75,7 @@ class AncestorNodeIterator extends SequentialAxisNodeIterator implements \Iterat
 	 */
 	public function CloneInstance()
 	{
-		return AncestorNodeIterator::fromSource( $this );
+		return self::fromSource( $this );
 	}
 
 	/**

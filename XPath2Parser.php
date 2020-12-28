@@ -54,15 +54,16 @@ use lyquidity\XPath2\AST\VarRefNode;
 use lyquidity\XPath2\AST\ContextItemNode;
 use lyquidity\xml\MS\XmlReservedNs;
 use lyquidity\XPath2\AST\FuncNode;
+use lyquidity\xml\MS\XmlSchemaAttribute;
 use lyquidity\xml\MS\XmlSchemaObject;
 use lyquidity\xml\MS\XmlQualifiedNameTest;
 use lyquidity\xml\MS\XmlSchemaElement;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\XPath2\AST\XPath2ExprType;
 use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\XPath2\AST\ValueNode;
 use lyquidity\XPath2\DOM\XmlSchema;
 use lyquidity;
-use lyquidity\Log;
 use lyquidity\XPath2\AST\RangeNode;
 use lyquidity\XPath2\parser\yyDebugSimple;
 use lyquidity\xml\QName;
@@ -132,7 +133,7 @@ class XPath2Parser
 	{
 		try
 		{
-			return yyparseYyd ( $tok, $yyDebug );
+			return $this->yyparseYyd ( $tok, $yyDebug );
 		}
 		catch( XPath2Exception $ex )
 		{
@@ -140,7 +141,7 @@ class XPath2Parser
 		}
 		catch( \Exception $ex )
 		{
-			$errorMsg = $this->errorText->ToString();
+			$errorMsg = implode( "", $this->errorText );
 			throw XPath2Exception::withErrorCode( "XPST0003", "{$errorMsg} at line {$tok->LineNo} pos {$tok->ColNo}" );
 		}
 	}
@@ -152,12 +153,12 @@ class XPath2Parser
 	 */
 	public function yyparseDebug ( $tok )
 	{
-		return yyparseSafeDebug ( $tok, new yyDebugSimple() );
+		return $this->yyparseSafeDebug ( $tok, new yyDebugSimple() );
 	}
 
 	/**
 	 * Gets the current logging state
-	 * @return unknown
+	 * @return bool
 	 */
 	public function getLoggingState()
 	{
@@ -479,7 +480,7 @@ class XPath2Parser
 	public static function yyname( $token )
 	{
 		if ( $token < 0 ||  $token > count( XPath2Parser::$yyName ) ) return "[ illegal ]";
-		$name;
+		$name = null;
 		if ( ( $name = XPath2Parser::$yyName[ $token ] ) != null ) return $name;
 		return "[ unknown ]";
 	}
@@ -532,14 +533,14 @@ class XPath2Parser
 	 * The generated parser, with debugging messages.
 	 * Maintains a state and a value stack, currently with fixed maximum size.
 	 * @param XPath2Parser.yyInput $yyLex scanner.
-	 * @param yydebug $yyd debug message writer implementing yyDebug, or null.
-	 * @return result of the last reduction, if any.
+	 * @param mixed $yyd debug message writer implementing yyDebug, or null.
+	 * @return int result of the last reduction, if any.
 	 * @throws \lyquidity\XPath2\parser\yyException on irrecoverable parse error.
 	 */
 	public function yyparseYyd ( $yyLex, $yyd )
 	{
 		// $this->debug = yyd;
-		return yyparse( $yyLex );
+		return $this->yyparse( $yyLex );
 	}
 
 	/**
@@ -565,7 +566,7 @@ class XPath2Parser
 	/** the generated parser.
 	 *	Maintains a state and a value stack, currently with fixed maximum size.
 	 *	@param XPath2Parser.yyInput $yyLex scanner.
-	 *	@return object Result of the last reduction, if any.
+	 *	@return int Result of the last reduction, if any.
 	 *	@throws \lyquidity\XPath2\parser\yyException on irrecoverable parse error.
 	 */
 	public function yyparse ( $yyLex )
@@ -625,7 +626,7 @@ class XPath2Parser
 						&& ( $yyN < count( XPath2Parser::$yyTable ) ) && ( XPath2Parser::$yyCheck[ $yyN ] == $yyToken ) )
 					{
 						if ( isset( $this->debug ) && ! is_null( $this->debug ) )
-							$this->debug->shift( XPath2Parser::$yyState, XPath2Parser::$yyTable[ $yyN ], $yyErrorFlag - 1 );
+							$this->debug->shift( $yyState, XPath2Parser::$yyTable[ $yyN ], $yyErrorFlag - 1 );
 
 						$yyState = XPath2Parser::$yyTable[ $yyN ];		// shift to yyN
 						$yyVal = $yyLex->value();
@@ -684,7 +685,7 @@ class XPath2Parser
 
 				if ( isset( $this->debug ) && ! is_null( $this->debug ) )
 				{
-					$this->debug->reduce( $yyState, $yyStates[ $yyV - 1 ], $yyN, XPath2Parser::$yyRule[ $yyN ], XPath2Parser::$yyLen[ $yyN ] );
+					// $this->debug->reduce( $yyState, $yyStates[ $yyV - 1 ], $yyN, XPath2Parser::$yyRule[ $yyN ], XPath2Parser::$yyLen[ $yyN ] );
 				}
 
 				$yyVal = $this->yyDefault( $yyV > $yyTop ? null : $yyVals[ $yyV ] );
@@ -1201,7 +1202,7 @@ class XPath2Parser
 						 * @var bool $isString
 						 */
 						// BMS Changed line 978 and 980.  XmlSchema is SchemaTypes
-						$isString = is_string( $yyVals[ -2+$yyTop ] ) || ( is_null( $value ) && is_string( $value.Content ) );
+						$isString = is_string( $yyVals[ -2+$yyTop ] ) || ( is_null( $value ) && is_string( $value->Content ) );
 						if ( is_null( $destType ) )
 						   throw XPath2Exception::withErrorCodeAndParam( "XPST0051", Resources::XPST0051, "xs:untyped" );
 						if ( $destType->SchemaType == XmlSchema::$AnyType )
@@ -1805,7 +1806,7 @@ class XPath2Parser
 						/**
 						 * @var XmlSchemaType xmlType
 						 */
-						$xmlType;
+						$xmlType = null;
 						CoreFuncs::TryProcessTypeName( $context, ( string )$yyVals[ 0+$yyTop ], true, /* out */ $xmlType );
 						if ( is_null( $xmlType ) )
 						{
@@ -1918,7 +1919,7 @@ class XPath2Parser
 						/**
 						 * @var XmlSchemaType xmlType
 						 */
-						$xmlType;
+						$xmlType = null;
 						CoreFuncs::TryProcessTypeName( $context, ( string )$yyVals[ -1+$yyTop ], true, /* out */ $xmlType );
 						// $yyVal = new SequenceType( XmlTypeCode::Element, /* XmlQualifiedNameTest */ $yyVals[ -3+$yyTop ], xmlType, false );
 						$yyVal = SequenceType::WithTypeCodeWithQNameTestWithSchemaTypeWithIsOptional( XmlTypeCode::Element, /* XmlQualifiedNameTest */ $yyVals[ -3+$yyTop ], /*XmlSchemaType*/ $xmlType, false );
@@ -1931,7 +1932,7 @@ class XPath2Parser
 						/**
 						 * @var XmlSchemaType xmlType
 						 */
-						$xmlType;
+						$xmlType = null;
 						CoreFuncs::TryProcessTypeName( $context, ( string )$yyVals[ -2+$yyTop ], true, /* out */ $xmlType );
 						// $yyVal = new SequenceType( XmlTypeCode::Element, /* XmlQualifiedNameTest */ $yyVals[ -4+$yyTop ], $xmlType, true );
 						$yyVal = SequenceType::WithTypeCodeWithQNameTestWithSchemaTypeWithIsOptional( XmlTypeCode::Element, /* XmlQualifiedNameTest */ $yyVals[ -4+$yyTop ], /*XmlSchemaType*/ $xmlType, false );
@@ -1978,7 +1979,7 @@ class XPath2Parser
 						/**
 						 * @var XmlSchemaType xmlType
 						 */
-						$xmlType;
+						$xmlType = null;
 						CoreFuncs::TryProcessTypeName( $context, ( string )$yyVals[ -1+$yyTop ], true, /* out */ $xmlType );
 						// $yyVal = new SequenceType( XmlTypeCode::Attribute, /* XmlQualifiedNameTest */ $yyVals[ -3+$yyTop ], xmlType );
 						$yyVal = SequenceType::WithTypeCodeWithQNameTestWithSchemaType( XmlTypeCode::Attribute, /* XmlQualifiedNameTest */ $yyVals[ -3+$yyTop ], /* XmlSchemaType */ $xmlType );
@@ -2094,7 +2095,7 @@ class XPath2Parser
 	}
 
 	/**
-	 * @var short [] $yyLhs  = {					   -1,
+	 * @var int [] $yyLhs  = {					   -1,
 		0,    0,    1,    1,    1,    1,    2,    6,    7,    7,
 		8,    3,    3,    9,    9,   10,    4,    5,    5,   11,
 	   11,   12,   12,   12,   12,   15,   15,   15,   15,   15,
@@ -2137,7 +2138,7 @@ class XPath2Parser
 	);
 
 	/**
-	 * @var short [] $yyLen = {					2,
+	 * @var int [] $yyLen = {					2,
 		1,    3,    1,    1,    1,    1,    3,    2,    1,    3,
 		4,    4,    4,    1,    3,    4,    8,    1,    3,    1,
 		3,    1,    1,    1,    1,    3,    4,    3,    4,    3,
@@ -2180,7 +2181,7 @@ class XPath2Parser
 	);
 
 	/**
-	 * @var short [] $yyDefRed = {					 0,
+	 * @var int [] $yyDefRed = {					 0,
 		0,    0,    0,    0,    0,    0,    0,    1,    3,    4,
 		5,    0,    0,    0,   20,    0,   23,   24,   25,    0,
 		0,    0,    0,   54,    0,    0,    0,    0,    0,    0,
@@ -2247,7 +2248,7 @@ class XPath2Parser
 	);
 
 	/**
-	 * @var short [] $yyDgoto  = {					  7,
+	 * @var int [] $yyDgoto  = {					  7,
 		8,    9,   10,   11,   12,   13,   31,   32,   35,   36,
 	   14,   15,   16,   17,   18,   19,   20,   21,   22,   23,
 	   24,   25,  176,   26,   27,  181,   28,   29,  106,  107,
@@ -2268,7 +2269,7 @@ class XPath2Parser
 	);
 
 	/**
-	 * @var short [] $yySindex = {				-16,
+	 * @var int [] $yySindex = {				-16,
 	   11,   14,   24,   24,   31,   31,   34,    0,    0,    0,
 		0, -190, -184, -172,    0, 1280,    0,    0,    0,  -40,
 	 -232, -115, -165,    0, -182, -185, -174, -168, 1934, -137,
@@ -2335,7 +2336,7 @@ class XPath2Parser
 	);
 
 	/**
-	 * @var short [] $yyRindex = {			   2009,
+	 * @var int [] $yyRindex = {			   2009,
 		0,    0,    0,    0, 2009, 2009,    0,    0,    0,    0,
 		0,  453,    0, 1098,    0,  667,    0,    0,    0, 1873,
 	 1792, 1432, 1330,    0, 1063,  989,  955,  887,    0,    0,
@@ -2402,7 +2403,7 @@ class XPath2Parser
 	);
 
 	/**
-	 * @var short [] $yyGindex = {				-26,
+	 * @var int [] $yyGindex = {				-26,
 	  -29,    0,    0,    0,    0,    0,    0,   80,  212,   82,
 	  178,  182, 1876,    0,    0,    0,  171,   78,   -3,   74,
 	   79,    0,  161,    0,    0,  162,    0,  140,    0,    0,
@@ -2423,7 +2424,7 @@ class XPath2Parser
 	);
 
 	/**
-	 * @var short [] $yyTable = {					259,
+	 * @var int [] $yyTable = {					259,
 	  103,  217,   56,  211,   57,    5,  138,    6,   63,   40,
 	  143,    5,  145,    6,    5,  192,    6,  240,  292,    5,
 	  221,    6,  225,  141,  141,   40,    5,  222,    6,  159,
@@ -2918,7 +2919,7 @@ class XPath2Parser
 	);
 
 	/**
-	 * @var short [] $yyCheck = {					 41,
+	 * @var int [] $yyCheck = {					 41,
 		0,   47,   43,   41,   45,   43,   33,   45,  124,   44,
 	   40,   43,   42,   45,   43,   83,   45,   41,   41,   43,
 	  113,   45,   41,   44,   44,   44,   43,  120,   45,   61,

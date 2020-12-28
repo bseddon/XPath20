@@ -29,11 +29,13 @@
 
 namespace lyquidity\XPath2\Iterator;
 
+use lyquidity\XPath2\IContextProvider;
 use lyquidity\XPath2\XPath2NodeIterator;
 use lyquidity\XPath2\XPath2Item;
 use lyquidity\xml\xpath\XPathItem;
 use lyquidity\XPath2\Undefined;
 use lyquidity\XPath2\AST\AbstractNode;
+use lyquidity\XPath2\AST\ExprNode;
 
 /**
  * ExprIterator (private final)
@@ -81,7 +83,7 @@ class ExprIterator extends XPath2NodeIterator implements \Iterator
 	 * @param IContextProvider $provider
 	 * @param array $dataPool object[]
 	 */
-	public function fromNodes( $nodes, $provider, $dataPool )
+	public static function fromNodes( $nodes, $provider, $dataPool )
 	{
 		$result = new ExprIterator();
 		$result->nodes = $nodes;

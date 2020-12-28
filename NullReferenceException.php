@@ -1,4 +1,5 @@
 <?php
+
 /**
  * XPath 2.0 for PHP
  *  _                      _     _ _ _
@@ -27,47 +28,11 @@
  *
  */
 
-namespace lyquidity\XPath2\AST;
-
-use lyquidity\XPath2\Undefined;
-use lyquidity\XPath2\CoreFuncs;
-use lyquidity\XPath2\XPath2Context;
-use lyquidity\XPath2\IContextProvider;
-use lyquidity\XPath2\XPath2ResultType;
+namespace lyquidity\XPath2;
 
 /**
- * AtomizedUnaryOperatorNode (private)
+ * Extension to allow a caller to raise a null exception
  */
-class AtomizedUnaryOperatorNode extends UnaryOperatorNode
-{
-	/**
-	 * Constructor
-	 * @param XPath2Context $context
-	 * @param \Closure $action
-	 * @param object $node
-	 * @param XPath2ResultType $resultType
-	 */
-	public function __construct( $context, $action, $node, $resultType )
-	{
-		parent::__construct( $context, $action, $node, $resultType );
-	}
-
-	/**
-	 * Execute
-	 * @param IContextProvider $provider
-	 * @param object[] $dataPool
-	 * @return object
-	 */
-	public function Execute( $provider, $dataPool )
-	{
-		$value = CoreFuncs::Atomize( $this->getAbstractNode(0)->Execute( $provider, $dataPool ) );
-		if ( ! $value instanceof Undefined )
-			return call_user_func( $this->_unaryOper, $provider, $value );
-		return Undefined::getValue();
-	}
-
-}
-
-
+class NullReferenceException extends \Exception {}
 
 ?>

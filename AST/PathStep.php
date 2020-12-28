@@ -48,6 +48,9 @@ use lyquidity\XPath2\Iterator\ChildOverDescendantsNodeIterator;
 use lyquidity\XPath2\Value\Integer;
 use lyquidity\XPath2\lyquidity\Convert;
 use lyquidity\xml\exceptions\NotSupportedException;
+use lyquidity\XPath2\SequenceTypes;
+use lyquidity\XPath2\XPath2Context;
+use lyquidity\XPath2\XPath2NodeIterator;
 
 /**
  * PathStep (private)

@@ -273,7 +273,7 @@ class FunctionTable
 				try
 				{
 					/**
-					 * @var \QNameValue $qname
+					 * @var QNameValue $qname
 					 */
 					$qname = CoreFuncs::CastArg( $context, $args[0], SequenceType::WithTypeCodeAndCardinality( XmlTypeCode::QName, XmlTypeCardinality::One ) );
 					// error_log( "XPath 2.0 error (qname: {$qname->Prefix}:{$qname->LocalName})" );
@@ -553,8 +553,6 @@ class FunctionTable
 				throw XPath2Exception::withErrorCodeAndParams( "FORG0001", Resources::FORG0001, array(
 					$value, "boolean",
 				) );
-
-				return ExtFuncs::CreateDateTime( $date, $time );
 			}
 		);
 
@@ -1815,7 +1813,7 @@ class FunctionTable
 	 * @param string $ns
 	 * @param string $name
 	 * @param XPath2ResultType $resultType
-	 * @param XPathFunctionDelegate $action
+	 * @param \Closure $action
 	 * @return void
 	 */
 	public function Add( $ns, $name, $resultType, $action )
@@ -1829,7 +1827,7 @@ class FunctionTable
 	 * @param string $name
 	 * @param int $arity
 	 * @param XPath2ResultType $resultType
-	 * @param XPathFunctionDelegate $action
+	 * @param \Closure $action
 	 * @return void
 	 */
 	public function AddWithArity( $ns, $name, $arity, $resultType, $action )

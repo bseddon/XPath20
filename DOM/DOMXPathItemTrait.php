@@ -30,6 +30,7 @@
 
 namespace lyquidity\XPath2\DOM;
 
+use lyquidity\xml\MS\IXmlNamespaceResolver;
 use \lyquidity\xml\MS\XmlSchemaType;
 use \lyquidity\XPath2\lyquidity\Type;
 use lyquidity\xml\xpath\XPathItem;
@@ -99,7 +100,7 @@ trait DOMXPathItemTrait // implements \lyquidity\xml\xpath\XPathItem
 
 	/**
 	 * Convert the value to a date time
-	 * @return DateTime
+	 * @return \DateTime
 	 */
 	public function getValueAsDateTime()
 	{
@@ -138,7 +139,7 @@ trait DOMXPathItemTrait // implements \lyquidity\xml\xpath\XPathItem
 
 	/**
 	 * Convert the value to a long
-	 * @return long
+	 * @return int
 	 */
 	public function getValueAsLong()
 	{
@@ -151,11 +152,11 @@ trait DOMXPathItemTrait // implements \lyquidity\xml\xpath\XPathItem
 	 */
 	public function getValueType()
 	{
-		$xmlType =SchemaTypes::getInstance()->getTypeForDOMNode( $this->domNode );
+		$xmlType = SchemaTypes::getInstance()->getTypeForDOMNode( $this->domNode );
 		// $xmlType = $this->types->getType( $this->domNode->localName, $this->domNode->prefix );
 		if ( $xmlType )
 		{
-			$type = Type::XmlTypeToPHPType( $xmlType );
+			$type = Type::XmlTypeToType( $xmlType );
 			if ( $type ) return $type;
 		}
 		return Type::string;
@@ -180,7 +181,7 @@ trait DOMXPathItemTrait // implements \lyquidity\xml\xpath\XPathItem
 	 * Get the value as the type defined in $name
 	 * @param string $name The name of the type to return
 	 * @throws NotSupportedException
-	 * @return boolean|object|string|\lyquidity\XPath2\DOM\DateTime|number|\lyquidity\XPath2\DOM\long|\lyquidity\XPath2\lyquidity\Type|\lyquidity\xml\MS\XmlSchemaType
+	 * @return boolean|object|string|\DateTime|number|int|\lyquidity\XPath2\lyquidity\Type|\lyquidity\xml\MS\XmlSchemaType
 	 */
 	public function getAsProperties( $name )
 	{

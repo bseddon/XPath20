@@ -1186,7 +1186,7 @@ class XPath2Convert
 					if ( $value instanceof Integer )
 					{
 						/**
-						 * @var Integer $integer
+						 * @var \lyquidity\XPath2\Value\Integer $integer
 						 */
 						$integer = $value;
 						return round( $integer->getValue() );
@@ -1512,12 +1512,12 @@ class XPath2Convert
 	 */
 	public static function GetSchemaType( $item )
 	{
-		if ( $nav instanceof XPath2Item )
+		if ( $item instanceof XPath2Item )
 		{
 			return $item->getSchemaType();
 		}
 
-		if ( $nav instanceof XPathNavigator )
+		if ( $item instanceof XPathNavigator )
 		{
 			/**
 			 * @var XPathNavigator $nav
@@ -1538,7 +1538,7 @@ class XPath2Convert
 	 */
 	public static function tests()
 	{
-		XPath2Convert::ValueAs($value, $type, $nameTable, $nsmgr);
+		// XPath2Convert::ValueAs($value, $type, $nameTable, $nsmgr);
 	}
 }
 

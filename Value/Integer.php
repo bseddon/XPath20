@@ -36,6 +36,7 @@ use \lyquidity\xml\interfaces\IConvertable;
 use lyquidity\xml\interfaces\IEquatable;
 use \lyquidity\XPath2\lyquidity\Convert;
 use lyquidity\XPath2\SequenceType;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\XPath2\DOM\XmlSchema;
 use lyquidity\xml\interfaces\IXmlSchemaType;
@@ -45,11 +46,17 @@ use lyquidity\xml\exceptions\ArgumentException;
 use lyquidity\xml\exceptions\NotSupportedException;
 use lyquidity\XPath2\XPath2Exception;
 use lyquidity\xml\interfaces\IFormatProvider;
+use lyquidity\XPath2\Proxy\ByteProxy;
+use lyquidity\XPath2\Proxy\ShortProxy;
+use lyquidity\XPath2\Proxy\SByteProxy;
+use lyquidity\XPath2\Proxy\UShortProxy;
+use lyquidity\XPath2\Proxy\UIntProxy;
+use lyquidity\XPath2\Proxy\ULongProxy;
 
 /**
  * Integer
  */
-class /* struct */ Integer implements IComparable, IConvertable, IEquatable, IXmlSchemaType
+class Integer implements IComparable, IConvertable, IEquatable, IXmlSchemaType
 {
 	/**
 	 * CLASSNAME
@@ -245,7 +252,7 @@ class /* struct */ Integer implements IComparable, IConvertable, IEquatable, IXm
 	/**
 	 * ToByte
 	 * @param IFormatProvider $provider
-	 * @return byte
+	 * @return ByteProxy
 	 */
 	public function ToByte( $provider )
 	{
@@ -255,7 +262,7 @@ class /* struct */ Integer implements IComparable, IConvertable, IEquatable, IXm
 	/**
 	 * ToChar
 	 * @param IFormatProvider $provider
-	 * @return char
+	 * @return string
 	 */
 	public function ToChar( $provider )
 	{
@@ -265,7 +272,7 @@ class /* struct */ Integer implements IComparable, IConvertable, IEquatable, IXm
 	/**
 	 * ToDateTime
 	 * @param IFormatProvider $provider
-	 * @return DateTime
+	 * @return DateTimeValue
 	 */
 	public function ToDateTime( $provider )
 	{
@@ -295,7 +302,7 @@ class /* struct */ Integer implements IComparable, IConvertable, IEquatable, IXm
 	/**
 	 * ToInt16
 	 * @param IFormatProvider $provider
-	 * @return short
+	 * @return ShortProxy
 	 */
 	public function ToInt16( $provider )
 	{
@@ -335,7 +342,7 @@ class /* struct */ Integer implements IComparable, IConvertable, IEquatable, IXm
 	/**
 	 * ToSByte
 	 * @param IFormatProvider $provider
-	 * @return sbyte
+	 * @return SByteProxy
 	 */
 	public function ToSByte( $provider )
 	{
@@ -385,7 +392,7 @@ class /* struct */ Integer implements IComparable, IConvertable, IEquatable, IXm
 	/**
 	 * ToUInt16
 	 * @param IFormatProvider $provider
-	 * @return ushort
+	 * @return UShortProxy
 	 */
 	public function ToUInt16( $provider )
 	{
@@ -395,7 +402,7 @@ class /* struct */ Integer implements IComparable, IConvertable, IEquatable, IXm
 	/**
 	 * ToUInt32
 	 * @param IFormatProvider $provider
-	 * @return uint
+	 * @return UIntProxy
 	 */
 	public function ToUInt32( $provider )
 	{
@@ -405,7 +412,7 @@ class /* struct */ Integer implements IComparable, IConvertable, IEquatable, IXm
 	/**
 	 * ToUInt64
 	 * @param IFormatProvider $provider
-	 * @return ulong
+	 * @return ULongProxy
 	 */
 	public function ToUInt64( $provider )
 	{

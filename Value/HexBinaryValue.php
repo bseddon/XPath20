@@ -29,12 +29,15 @@
 
 namespace lyquidity\XPath2\Value;
 
+use lyquidity\xml\MS\XmlNamespaceManager;
 use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\XPath2\DOM\XmlSchema;
 use lyquidity\xml\interfaces\IXmlSchemaType;
 use lyquidity\XPath2\Properties\Resources;
 use lyquidity\xml\exceptions\InvalidCastException;
+use lyquidity\XPath2\SequenceType;
 use lyquidity\XPath2\XPath2Exception;
+use lyquidity\xml\MS\XmlSchemaType;
 
 /**
  * HexBinaryValue (public)
@@ -60,7 +63,7 @@ class HexBinaryValue implements IXmlConvertable, IXmlSchemaType
 
 	/**
 	 * Convert a string representation of a hex value to is binary version and create a HexBinaryValue instance
-	 * @param unknown $string
+	 * @param string $string
 	 */
 	public static function fromString( $string )
 	{

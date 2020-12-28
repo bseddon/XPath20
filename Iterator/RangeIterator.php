@@ -115,7 +115,7 @@ class RangeIterator extends XPath2NodeIterator implements \Iterator
 	 */
 	public function CreateBufferedIterator()
 	{
-		return CloneInstance();
+		return BufferedNodeIterator::fromSource( $this );
 	}
 
 	/**

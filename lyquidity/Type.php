@@ -249,32 +249,32 @@ class Type
 				return Types::$GDayValueType;
 			}
 
-			if ( $value instanceof QNameValue )
+			if ( $value instanceof \lyquidity\XPath2\Value\QNameValue )
 			{
 				return Types::$QNameValueType;
 			}
 
-			if ( $value instanceof HexBinaryValue )
+			if ( $value instanceof \lyquidity\XPath2\Value\HexBinaryValue )
 			{
 				return Types::$HexBinaryValueType;
 			}
 
-			if ( $value instanceof Base64BinaryValue )
+			if ( $value instanceof \lyquidity\XPath2\Value\Base64BinaryValue )
 			{
 				return Types::$Base64BinaryValueType;
 			}
 
-			if ( $value instanceof IDREFSValue )
+			if ( $value instanceof \lyquidity\XPath2\Value\IDREFSValue )
 			{
 				return Types::$IDREFSValueType;
 			}
 
-			if ( $value instanceof NMTOKENSValue )
+			if ( $value instanceof \lyquidity\XPath2\Value\NMTOKENSValue )
 			{
 				return Types::$NMTOKENSValueType;
 			}
 
-			if ( $value instanceof ENTITIESValue )
+			if ( $value instanceof \lyquidity\XPath2\Value\ENTITIESValue )
 			{
 				return Types::$ENTITIESValueType;
 			}
@@ -297,7 +297,7 @@ class Type
 			}
 
 			else if ( $className == Types::$BoolType->getFullName() )
-				return Types::$BooType;
+				return Types::$BoolType;
 			else if ( $className == Types::$BooleanType->getFullName() )
 				return Types::$BooleanType;
 			else if ( $className == Types::$CharType->getFullName() )

@@ -30,6 +30,8 @@
 
 namespace lyquidity\XPath2\Value;
 
+use lyquidity\XPath2\SequenceType;
+
 /**
  * Interface allows a class to declare support for the ValueAs function
  */

@@ -29,7 +29,8 @@
 
 namespace lyquidity\XPath2\AST;
 
-use lyquidity\XPath2;
+use lyquidity\XPath2\IContextProvider;
+use lyquidity\XPath2\XPath2ResultType;
 use lyquidity\XPath2\XPath2Context;
 use lyquidity\xml\exceptions\IndexOutOfRangeException;
 use lyquidity\xml\exceptions\InvalidOperationException;
@@ -109,8 +110,7 @@ class AbstractNode implements \IteratorAggregate
 
 	/**
 	 * getIterator
-	 * {@inheritDoc}
-	 * @see IteratorAggregate::getIterator()
+	 * @return \ArrayIterator
 	 */
 	public function getIterator()
 	{
@@ -246,7 +246,7 @@ class AbstractNode implements \IteratorAggregate
 
 	/**
 	 * TraverseSubtree
-	 * @param Function $action
+	 * @param \Closure $action
 	 * @return void
 	 */
 	public function TraverseSubtree( $action )

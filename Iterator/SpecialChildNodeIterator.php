@@ -29,6 +29,7 @@
 
 namespace lyquidity\XPath2\Iterator;
 
+use lyquidity\xml\xpath\XPathNavigator;
 use lyquidity\xml\xpath\XPathNodeType;
 use lyquidity\XPath2\XPath2Context;
 use lyquidity\XPath2\XPath2NodeIterator;

@@ -30,6 +30,7 @@
 namespace lyquidity\XPath2\AST;
 
 use \lyquidity\XPath2\CoreFuncs;
+use lyquidity\XPath2\IContextProvider;
 use \lyquidity\XPath2\XPath2ResultType;
 use \lyquidity\XPath2\Undefined;
 use lyquidity\XPath2\XPath2Context;
@@ -51,17 +52,17 @@ class ArithmeticBinaryOperatorNode extends AtomizedBinaryOperatorNode
 
 	/**
 	 * Holds a callback defined by the constructor
-	 * @var GetReturnTypeDelegate $_returnTypeDelegate
+	 * @var \Closure $_returnTypeDelegate
 	 */
 	private  $_returnTypeDelegate;
 
 	/**
 	 * Constructor
 	 * @param XPath2Context $context
-	 * @param BinaryOperator $action
+	 * @param \Closure $action
 	 * @param object $node1
 	 * @param object $node2
-	 * @param GetReturnTypeDelegate $returnTypeDelegate (Default: null)
+	 * @param \Closure $returnTypeDelegate (Default: null)
 	 * @todo The last param should be ' = null ' but this causes all the arguments to be set to null!!
 	 *       Obviously some problem with the PHP interpreter
 	 */

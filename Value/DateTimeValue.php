@@ -30,10 +30,13 @@
 
 namespace lyquidity\XPath2\Value;
 
+use lyquidity\xml\MS\XmlNamespaceManager;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\XPath2\SequenceType;
 use lyquidity\XPath2\Properties\Resources;
 use lyquidity\XPath2\DOM\XmlSchema;
+use lyquidity\xml\interfaces\IFormatProvider;
 use lyquidity\xml\interfaces\IXmlSchemaType;
 use lyquidity\xml\exceptions\InvalidCastException;
 use lyquidity\xml\exceptions\ArgumentOutOfRangeException;
@@ -188,6 +191,7 @@ class DateTimeValue extends DateTimeValueBase implements IXmlConvertable, IXmlSc
 		$patternOffset = "(?<offset>(?=[+\-a-zA-Z])(([+\-]\d{2}(:\d{2}))|Z|((\?!-|\\+)(?i)[^0-9].{3,})))";
 		$pattern = "^(?<sign>-?(?=[0-9])){$patternDate}T{$patternTime}{$patternOffset}?$";
 
+		$matches = null;
 		$result = ! empty( $text ) && preg_match( "/$pattern/", $text, $matches );
 		$error = ! $result ||
 				 ( ! empty( $matches['offset'] ) && $matches['offset'] == $text ) ||
@@ -200,6 +204,7 @@ class DateTimeValue extends DateTimeValueBase implements IXmlConvertable, IXmlSc
 
 		if ( ! $error )
 		{
+			$matches = null;
 			$timeSeconds = ( empty( $matches['hour'] ) ? 0 : $matches['hour'] * 3600 ) +
 						   ( empty( $matches['minute'] ) ? 0 : $matches['minute'] * 60 ) +
 						   ( empty( $matches['second'] ) ? 0 : $matches['second'] * 1 ) +
@@ -208,6 +213,7 @@ class DateTimeValue extends DateTimeValueBase implements IXmlConvertable, IXmlSc
 
 			if ( ! $error && ! empty( $matches['offset'] ) && preg_match( "/^[+-](?<hours>\d{2})(:(?<minutes>\d{2}))?$/", $matches['offset'], $offsetMatches ) )
 			{
+				$offsetMatches = null;
 				$error = ( ! empty( $offsetMatches['hours'] ) && $offsetMatches['hours'] > 14 ) ||
 				empty( $offsetMatches['minutes'] ) ||
 				$offsetMatches['minutes'] > 59;
@@ -219,6 +225,8 @@ class DateTimeValue extends DateTimeValueBase implements IXmlConvertable, IXmlSc
 			throw XPath2Exception::withErrorCodeAndParams( "FORG0001", Resources::FORG0001, array( $text, "DateTime" ) );
 		}
 
+		$matches = null;
+
 		$sign = empty( $matches['sign'] ) ? false : $matches['sign'] == "-" ;
 		$date = empty( $matches['date'] ) ? "" : $matches['date'];
 		$time = empty( $matches['time'] ) ? "" : $matches['time'];
@@ -228,7 +236,7 @@ class DateTimeValue extends DateTimeValueBase implements IXmlConvertable, IXmlSc
 		$notlocal = ! empty( $matches['offset'] );
 
 		/**
-		 * @var DateTime $dateTime
+		 * @var \DateTime $dateTime
 		 */
 		$dateTime = new \DateTime( "{$date}T{$time}$offset" );
 		$dateTime->microseconds = $microseconds;

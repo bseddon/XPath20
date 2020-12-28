@@ -62,7 +62,7 @@ class XPathNavigatorEqualityComparer implements IEqualityComparer
 		else
 			throw XPath2Exception::withErrorCodeAndParams( "XPTY0004", Resources::XPTY0004,
 				array(
-					"$xs:anyAtomicType",
+					"xs:anyAtomicType",
 					"node()* in function op:union,op:intersect and op:except"
 				)
 			);

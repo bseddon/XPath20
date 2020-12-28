@@ -28,14 +28,17 @@
  */
 
 namespace lyquidity\XPath2\Value;
-
+use lyquidity\xml\MS\XmlNamespaceManager;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\XPath2\DOM\XmlSchema;
 use lyquidity\xml\interfaces\IXmlSchemaType;
 use lyquidity\XPath2\Properties\Resources;
 use lyquidity\xml\schema\SchemaTypes;
 use lyquidity\xml\exceptions\InvalidCastException;
+use lyquidity\XPath2\SequenceType;
 use lyquidity\XPath2\XPath2Exception;
+use lyquidity\XPath2\NullReferenceException;
 
 /**
  * Base64BinaryValue (public)
@@ -55,7 +58,7 @@ class Base64BinaryValue implements IXmlConvertable, IXmlSchemaType
 	public function __construct( $binaryValue )
 	{
 		if ( is_null( $binaryValue ) )
-			throw new \NullReferenceException();
+			throw new NullReferenceException();
 		$this->BinaryValue = $binaryValue;
 	}
 
@@ -89,7 +92,7 @@ class Base64BinaryValue implements IXmlConvertable, IXmlSchemaType
 
 	/**
 	 * BinaryValue
-	 * @var byte[] $BinaryValue
+	 * @var string $BinaryValue
 	 */
 	public $BinaryValue;
 
@@ -161,7 +164,7 @@ class Base64BinaryValue implements IXmlConvertable, IXmlSchemaType
 	    {
 	        case XmlTypeCode::AnyAtomicType:
 	        case XmlTypeCode::Base64Binary:
-	            return this;
+	            return $this;
 
 	        case XmlTypeCode::String:
 	            return $this->ToString();

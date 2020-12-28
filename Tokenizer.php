@@ -106,7 +106,7 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 
 	/**
 	 * m_buffer
-	 * @var StringBuilder $m_buffer = new StringBuilder()
+	 * @var array $m_buffer = new StringBuilder()
 	 */
 	private $m_buffer = array(); // new StringBuilder();
 
@@ -187,7 +187,7 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 	/**
 	 * $this->Peek
 	 * @param int $lookahead
-	 * @return char
+	 * @return string
 	 */
 	protected function Peek( $lookahead )
 	{
@@ -207,11 +207,11 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 
 	/**
 	 * Read
-	 * @return char
+	 * @return string
 	 */
 	protected function Read()
 	{
-		$ch;
+		$ch = null;
 		if ( count( $this->m_buffer ) > 0 )
 		{
 		    $ch = array_shift( $this->m_buffer );
@@ -360,7 +360,7 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 		$this->BeginToken();
 		$quote = $this->Read();
 		$sb = array();
-		$c;
+		$c = null;
 		while ( ( $c = $this->Peek( 0 ) ) != $quote || $this->Peek( 1 ) == $quote )
 		{
 			// if ( $this->Peek( 0 ) == '\0' )
@@ -385,7 +385,7 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 	 */
 	private function ConsumeNCName()
 	{
-		$c;
+		$c = null;
 		$sb = array();
 		$this->BeginToken();
 		while ( ( $c = $this->Peek( 0 ) ) && ord( $c ) != 0 && preg_match( "/[\p{L}\p{N}_\-.]/u", $c ) )
@@ -402,7 +402,7 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 	 */
 	private function ConsumeQName()
 	{
-		$c;
+		$c = null;
 		$sb = array();
 		$this->BeginToken();
 		while ( ( $c = $this->Peek( 0 ) ) && ord( $c ) != 0 && preg_match( "/^[\p{L}\p{N}_\-.:]/u", $c ) )
@@ -415,7 +415,7 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 
 	/**
 	 * $this->ConsumeChar
-	 * @param char $token
+	 * @param string $token
 	 * @return void
 	 */
 	private function ConsumeChar( $token )
@@ -521,7 +521,7 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 		$i = 0;
 		for ( $sp = 0; $sp < count( $identifer ); $sp++ )
 		{
-			$c;
+			$c = null;
 			while ( true )
 			{
 				if ( ( $c = $this->Peek( $i ) ) && ord( $c ) != 0 && preg_match( "/\s/", $c ) )
@@ -591,7 +591,7 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 			// if ( XmlCharType.Instance.IsWhiteSpace( $this->Peek( 0 ) ) )
 			if ( preg_match( "/\s/", $this->Peek( 0 ) ) )
 			{
-				$c;
+				$c = null;
 				while ( ( $c = $this->Peek( 0 ) ) && ord( $c ) != 0 && preg_match( "/\s/", $c ) )
 				{
 					$this->Read();

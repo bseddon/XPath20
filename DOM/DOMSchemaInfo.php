@@ -31,9 +31,14 @@
 namespace lyquidity\XPath2\DOM;
 
 use \lyquidity\xml\MS\IXmlSchemaInfo;
+use lyquidity\xml\MS\XmlSchemaAttribute;
 use \lyquidity\xml\MS\XmlSchemaContentType;
+use lyquidity\xml\MS\XmlSchemaElement;
+use lyquidity\xml\MS\XmlSchemaSimpleType;
+use lyquidity\xml\MS\XmlSchemaType;
 use \lyquidity\xml\MS\XmlSchemaValidity;
 use lyquidity\xml\exceptions\NotSupportedException;
+use \lyquidity\xml\schema\SchemaTypes;
 
 /**
  * Represents the post-schema-validation infoset of a validated XML node.

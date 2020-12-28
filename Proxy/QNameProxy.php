@@ -31,14 +31,18 @@ namespace lyquidity\XPath2\Proxy;
 
 use lyquidity\XPath2\SequenceType;
 use \lyquidity\XPath2\lyquidity\Convert;
+use lyquidity\XPath2\lyquidity\Type;
 use lyquidity\XPath2\Properties\Resources;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\MS\XmlTypeCardinality;
 use lyquidity\xml\TypeCode;
 use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\XPath2\DOM\XmlSchema;
+use lyquidity\xml\interfaces\IFormatProvider;
 use lyquidity\xml\interfaces\IXmlSchemaType;
 use lyquidity\XPath2\XPath2Exception;
 use lyquidity\XPath2\Value\QNameValue;
+use lyquidity\XPath2\Value\Integer;
 
 /**
  * StringProxy (internal)
@@ -240,7 +244,7 @@ class QNameProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToBoolean
 	 * @param IFormatProvider $provider
-	 * @return bool
+	 * @return BoolProxy
 	 */
 	public function ToBoolean( $provider )
 	{
@@ -250,7 +254,7 @@ class QNameProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToByte
 	 * @param IFormatProvider $provider
-	 * @return byte
+	 * @return ByteProxy
 	 */
 	public function ToByte( $provider )
 	{
@@ -260,7 +264,7 @@ class QNameProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToChar
 	 * @param IFormatProvider $provider
-	 * @return char
+	 * @return string
 	 */
 	public function ToChar( $provider )
 	{
@@ -270,7 +274,7 @@ class QNameProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToDateTime
 	 * @param IFormatProvider $provider
-	 * @return DateTime
+	 * @return DateTimeProxy
 	 */
 	public function ToDateTime( $provider )
 	{
@@ -280,7 +284,7 @@ class QNameProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToDecimal
 	 * @param IFormatProvider $provider
-	 * @return DecimalValue
+	 * @return DecimalProxy
 	 */
 	public function ToDecimal( $provider )
 	{
@@ -300,7 +304,7 @@ class QNameProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToInt16
 	 * @param IFormatProvider $provider
-	 * @return short
+	 * @return ShortProxy
 	 */
 	public function ToInt16( $provider )
 	{
@@ -310,7 +314,7 @@ class QNameProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToInt32
 	 * @param IFormatProvider $provider
-	 * @return int
+	 * @return Integer
 	 */
 	public function ToInt32( $provider )
 	{
@@ -320,7 +324,7 @@ class QNameProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToInt64
 	 * @param IFormatProvider $provider
-	 * @return long
+	 * @return LongProxy
 	 */
 	public function ToInt64( $provider )
 	{
@@ -330,7 +334,7 @@ class QNameProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToSByte
 	 * @param IFormatProvider $provider
-	 * @return sbyte
+	 * @return SByteProxy
 	 */
 	public function ToSByte( $provider )
 	{
@@ -340,7 +344,7 @@ class QNameProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToSingle
 	 * @param IFormatProvider $provider
-	 * @return float
+	 * @return FloatProxy
 	 */
 	public function ToSingle( $provider )
 	{
@@ -371,7 +375,7 @@ class QNameProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt16
 	 * @param IFormatProvider $provider
-	 * @return ushort
+	 * @return UShortProxy
 	 */
 	public function ToUInt16( $provider )
 	{
@@ -381,7 +385,7 @@ class QNameProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt32
 	 * @param IFormatProvider $provider
-	 * @return uint
+	 * @return UIntProxy
 	 */
 	public function ToUInt32( $provider )
 	{
@@ -391,7 +395,7 @@ class QNameProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt64
 	 * @param IFormatProvider $provider
-	 * @return ulong
+	 * @return ULongProxy
 	 */
 	public function ToUInt64( $provider )
 	{
@@ -422,24 +426,24 @@ class QNameProxy extends ValueProxy implements IXmlSchemaType
 		$string2 = new StringProxy( "YYY" );
 		$promote = new DoubleProxy( 10 );
 
-		$result = $execute( function() use( $string1, $string2 ) { return $string1->GetValueCode(); } );
-		$result = $execute( function() use( $string1, $string2 ) { return $string1->getValue(); } );
-		$result = $execute( function() use( $string1, $string2 ) { return $string1->Eq( $string1 ); } );
-		$result = $execute( function() use( $string1, $string2 ) { return $string1->Eq( $string2 ); } );
-		$result = $execute( function() use( $string1, $string2 ) { $out = null; $result = $string1->TryEq( $string1, $out ); return $out; } );
-		$result = $execute( function() use( $string1, $string2 ) { $out = null; $result = $string1->TryEq( $string2, $out ); return $out; } );
-		$result = $execute( function() use( $string1, $string2 ) { return $string1->Gt( $string2 ); } );
-		$result = $execute( function() use( $string1, $string2 ) { return $string2->Gt( $string1 ); } );
-		$result = $execute( function() use( $string1, $string2 ) { $out = null; $result = $string1->TryGt( $string2, $out ); return $out; } );
-		$result = $execute( function() use( $string1, $string2 ) { $out = null; $result = $string2->TryGt( $string1, $out ); return $out; } );
-		$result = $execute( function() use( $string1, $promote ) { return $string1->Promote( $promote ); } );
-		$result = $execute( function() use( $string1, $string2 ) { return $string1->Neg(); } );
-		$result = $execute( function() use( $string1, $string2 ) { return $string1->Add( $string2 ); } );
-		$result = $execute( function() use( $string1, $string2 ) { return $string1->Sub( $string2 ); } );
-		$result = $execute( function() use( $string1, $string2 ) { return $string1->Mul( $string2 ); } );
-		$result = $execute( function() use( $string1, $string2 ) { return $string1->Div( $string2 ); } );
-		$result = $execute( function() use( $string1, $string2 ) { return $string1->IDiv( $string2 ); } );
-		$result = $execute( function() use( $string1, $string2 ) { return $string1->Mod( $string2 ); } );
+		// $result = $execute( function() use( $string1, $string2 ) { return $string1->GetValueCode(); } );
+		// $result = $execute( function() use( $string1, $string2 ) { return $string1->getValue(); } );
+		// $result = $execute( function() use( $string1, $string2 ) { return $string1->Eq( $string1 ); } );
+		// $result = $execute( function() use( $string1, $string2 ) { return $string1->Eq( $string2 ); } );
+		// $result = $execute( function() use( $string1, $string2 ) { $out = null; $result = $string1->TryEq( $string1, $out ); return $out; } );
+		// $result = $execute( function() use( $string1, $string2 ) { $out = null; $result = $string1->TryEq( $string2, $out ); return $out; } );
+		// $result = $execute( function() use( $string1, $string2 ) { return $string1->Gt( $string2 ); } );
+		// $result = $execute( function() use( $string1, $string2 ) { return $string2->Gt( $string1 ); } );
+		// $result = $execute( function() use( $string1, $string2 ) { $out = null; $result = $string1->TryGt( $string2, $out ); return $out; } );
+		// $result = $execute( function() use( $string1, $string2 ) { $out = null; $result = $string2->TryGt( $string1, $out ); return $out; } );
+		// $result = $execute( function() use( $string1, $promote ) { return $string1->Promote( $promote ); } );
+		// $result = $execute( function() use( $string1, $string2 ) { return $string1->Neg(); } );
+		// $result = $execute( function() use( $string1, $string2 ) { return $string1->Add( $string2 ); } );
+		// $result = $execute( function() use( $string1, $string2 ) { return $string1->Sub( $string2 ); } );
+		// $result = $execute( function() use( $string1, $string2 ) { return $string1->Mul( $string2 ); } );
+		// $result = $execute( function() use( $string1, $string2 ) { return $string1->Div( $string2 ); } );
+		// $result = $execute( function() use( $string1, $string2 ) { return $string1->IDiv( $string2 ); } );
+		// $result = $execute( function() use( $string1, $string2 ) { return $string1->Mod( $string2 ); } );
 
 		$provider = null;
 		$result = $string1->ToBoolean( $provider );

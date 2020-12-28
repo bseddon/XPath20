@@ -34,6 +34,8 @@ use lyquidity\xml\MS\XmlSchemaAttribute;
 use lyquidity\xml\MS\XmlSchemaSimpleType;
 use lyquidity\xml\QName;
 use lyquidity\xml\schema\SchemaTypes;
+use lyquidity\xml\MS\XmlSchemaForm;
+use lyquidity\xml\MS\XmlSchemaUse;
 
 /**
  * Represents the attribute element from the XML Schema as specified by the World

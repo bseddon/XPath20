@@ -33,6 +33,7 @@ use lyquidity\XPath2\DOM\XmlSchema;
 use lyquidity\xml\interfaces\IXmlSchemaType;
 use lyquidity\XPath2\Properties\Resources;
 use lyquidity\XPath2\XPath2Exception;
+use lyquidity\xml\MS\XmlSchemaType;
 
 /**
  * NMTOKENValue (public)
@@ -53,6 +54,7 @@ class NMTOKENValue implements IXmlSchemaType
 	{
 		$value = trim( $value );
 		$pattern = "/^" . NameValue::$nameChar . "+$/u";
+		$matches = null;
 		if ( ! preg_match( $pattern, $value, $matches ) )
 		{
 			throw XPath2Exception::withErrorCodeAndParams( "FORG0001", Resources::FORG0001, array( $value, "xs:NMTOKEN" ) );

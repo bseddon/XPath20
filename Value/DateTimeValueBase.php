@@ -31,10 +31,19 @@ namespace lyquidity\XPath2\Value;
 
 use \lyquidity\xml\interfaces\IComparable;
 use \lyquidity\xml\interfaces\IConvertable;
+use lyquidity\xml\interfaces\IFormatProvider;
 use \lyquidity\XPath2\lyquidity\Convert;
+use lyquidity\XPath2\lyquidity\Type;
 use lyquidity\xml\TypeCode;
 use lyquidity\XPath2\Undefined;
 use lyquidity\xml\exceptions\ArgumentException;
+use lyquidity\XPath2\Proxy\ByteProxy;
+use lyquidity\XPath2\Proxy\DateTimeProxy;
+use lyquidity\XPath2\Proxy\ShortProxy;
+use lyquidity\XPath2\Proxy\SByteProxy;
+use lyquidity\XPath2\Proxy\UShortProxy;
+use lyquidity\XPath2\Proxy\UIntProxy;
+use lyquidity\XPath2\Proxy\ULongProxy;
 
 /**
  * DateTimeValueBase (public abstract)
@@ -289,7 +298,7 @@ class DateTimeValueBase implements IComparable, IConvertable
 	/**
 	 * ToByte
 	 * @param IFormatProvider $provider
-	 * @return byte
+	 * @return ByteProxy
 	 */
 	public function ToByte( $provider )
 	{
@@ -299,7 +308,7 @@ class DateTimeValueBase implements IComparable, IConvertable
 	/**
 	 * ToChar
 	 * @param IFormatProvider $provider
-	 * @return char
+	 * @return string
 	 */
 	public function ToChar( $provider )
 	{
@@ -309,7 +318,7 @@ class DateTimeValueBase implements IComparable, IConvertable
 	/**
 	 * ToDateTime
 	 * @param IFormatProvider $provider
-	 * @return DateTime
+	 * @return DateTimeProxy
 	 */
 	public function ToDateTime( $provider )
 	{
@@ -339,7 +348,7 @@ class DateTimeValueBase implements IComparable, IConvertable
 	/**
 	 * ToInt16
 	 * @param IFormatProvider $provider
-	 * @return short
+	 * @return ShortProxy
 	 */
 	public function ToInt16( $provider )
 	{
@@ -379,7 +388,7 @@ class DateTimeValueBase implements IComparable, IConvertable
 	/**
 	 * ToSByte
 	 * @param IFormatProvider $provider
-	 * @return sbyte
+	 * @return SByteProxy
 	 */
 	public function ToSByte( $provider )
 	{
@@ -420,7 +429,7 @@ class DateTimeValueBase implements IComparable, IConvertable
 	/**
 	 * ToUInt16
 	 * @param IFormatProvider $provider
-	 * @return ushort
+	 * @return UShortProxy
 	 */
 	public function ToUInt16( $provider )
 	{
@@ -430,7 +439,7 @@ class DateTimeValueBase implements IComparable, IConvertable
 	/**
 	 * ToUInt32
 	 * @param IFormatProvider $provider
-	 * @return uint
+	 * @return UIntProxy
 	 */
 	public function ToUInt32( $provider )
 	{
@@ -440,7 +449,7 @@ class DateTimeValueBase implements IComparable, IConvertable
 	/**
 	 * ToUInt64
 	 * @param IFormatProvider $provider
-	 * @return ulong
+	 * @return ULongProxy
 	 */
 	public function ToUInt64( $provider )
 	{

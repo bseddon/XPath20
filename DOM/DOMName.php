@@ -30,12 +30,12 @@
 
 namespace lyquidity\XPath2\DOM;
 
-use lyquidity\XPath2\DOM\DOMSchemaType;
 use lyquidity\xml\MS\IXmlSchemaInfo;
+use lyquidity\xml\MS\XmlSchemaSimpleType;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\MS\XmlSchemaValidity;
 use lyquidity\xml\MS\XmlSchemaElement;
 use lyquidity\xml\MS\XmlSchemaAttribute;
-use lyquidity\xml\QName;
 use lyquidity\xml\schema\SchemaTypes;
 use lyquidity\xml\exceptions\NotSupportedException;
 
@@ -115,7 +115,7 @@ class DOMName implements IXmlSchemaInfo
 
 	/**
 	 * Constructor for DOMName
-	 * @param DOMNode $domNode
+	 * @param \DOMNode $domNode
 	 */
 	public function __construct( $domNode )
 	{

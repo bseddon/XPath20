@@ -44,7 +44,7 @@ class SingletonBinaryOperatorNode extends BinaryOperatorNode
 	/**
 	 * Constructor
 	 * @param XPath2Context $context
-	 * @param BinaryOperatorNode $action
+	 * @param \Closure $action
 	 * @param object $node1
 	 * @param object $node2
 	 * @param XPath2ResultType $resultType

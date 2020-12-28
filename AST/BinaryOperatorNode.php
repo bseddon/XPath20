@@ -29,6 +29,7 @@
 
 namespace lyquidity\XPath2\AST;
 
+use lyquidity\XPath2\IContextProvider;
 use lyquidity\XPath2\XPath2ResultType;
 use lyquidity\XPath2\XPath2Context;
 use lyquidity\xml\MS\XmlNamespaceManager;
@@ -42,7 +43,7 @@ class BinaryOperatorNode extends AbstractNode
 {
 	/**
 	 * Holds the action defined in the constructor
-	 * @var BinaryOperator $_binaryOper
+	 * @var \Closure $_binaryOper
 	 */
 	protected $_binaryOper = null;
 
@@ -55,7 +56,7 @@ class BinaryOperatorNode extends AbstractNode
 	/**
 	 * Constructor
 	 * @param XPath2Context $context
-	 * @param BinaryOperatorNode $action (provider, arg1, arg2)
+	 * @param \Closure $action (provider, arg1, arg2)
 	 * @param object $node1
 	 * @param object $node2
 	 * @param XPath2ResultType $resultType

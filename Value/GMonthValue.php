@@ -31,6 +31,8 @@ namespace lyquidity\XPath2\Value;
 
 use lyquidity\XPath2\Properties\Resources;
 use lyquidity\XPath2\DOM\XmlSchema;
+use lyquidity\xml\MS\XmlSchemaType;
+use lyquidity\xml\interfaces\IFormatProvider;
 use lyquidity\xml\interfaces\IXmlSchemaType;
 use lyquidity\XPath2\XPath2Exception;
 

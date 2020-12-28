@@ -48,7 +48,7 @@ use lyquidity\XPath2\DOM\DOMXPathNavigator;
 use lyquidity\xml\xpath\XPathNodeType;
 use lyquidity\XPath2\NodeProvider;
 use lyquidity\XPath2\XPath2Exception;
-use lyquidity\Log;
+use lyquidity\XPath2\lyquidity\Log;
 use lyquidity\XPath2\FunctionTable;
 use lyquidity\XPath2\Iterator\DocumentOrderNodeIterator;
 use lyquidity\XPath2\XPath2ResultType;

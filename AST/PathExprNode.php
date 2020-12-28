@@ -37,6 +37,7 @@ use lyquidity\XPath2\Iterator\ChildOverDescendantsNodeIterator\NodeTest;
 use lyquidity\XPath2\XPath2ResultType;
 use lyquidity\XPath2\Iterator\DocumentOrderNodeIterator;
 use lyquidity\XPath2\XPath2Context;
+use lyquidity\xml\xpath\XPathDocumentNavigator;
 
 /**
  * PathExprNode (final)
@@ -263,6 +264,7 @@ class PathExprNode extends AbstractNode
 
 		/**
 		 * TODO BMS 2017-07-30 Not sure how to translate the use of XPathDocumentNavigator here
+		 *      BMS 2020-12-24 Implemented a stub XPathDocumentNavigator class so linting errors don't occur
 		 * @var bool $special
 		 */
 		$special = ! is_null( $provider ) && $provider->getContext() instanceof XPathDocumentNavigator;

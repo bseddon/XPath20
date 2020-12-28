@@ -125,7 +125,7 @@ class XPath2Context
 
 	/**
 	 * NamespaceManager
-	 * @var XmlNamespaceManager $NamespaceManager
+	 * @var \lyquidity\xml\MS\XmlNamespaceManager $NamespaceManager
 	 */
 	public $NamespaceManager;
 

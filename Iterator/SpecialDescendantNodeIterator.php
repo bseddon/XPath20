@@ -62,8 +62,8 @@ class SpecialDescendantNodeIterator extends AxisNodeIterator implements \Iterato
 		$result = new SpecialDescendantNodeIterator();
 		$result->__construct( $context, $nodeTest, $matchSelf, $iter );
 		$result->kind = XPathNodeType::All;
-		if ( ! is_null( $this->nameTest ) || ( ! is_null( $this->typeTest ) && $this->typeTest->GetNodeKind() == XPathNodeType::Element ) )
-			$this->kind = XPathNodeType::Element;
+		// if ( ! is_null( $this->nameTest ) || ( ! is_null( $this->typeTest ) && $this->typeTest->GetNodeKind() == XPathNodeType::Element ) )
+		// 	$this->kind = XPathNodeType::Element;
 		return $result;
 	}
 

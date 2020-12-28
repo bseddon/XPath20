@@ -29,6 +29,7 @@
 
 namespace lyquidity\XPath2\Proxy;
 
+use lyquidity\XPath2\lyquidity\Type;
 use \lyquidity\XPath2\lyquidity\Types;
 
 /**

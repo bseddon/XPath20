@@ -30,6 +30,7 @@
 namespace lyquidity\XPath2\Iterator;
 
 use lyquidity\XPath2\XPath2NodeIterator;
+use lyquidity\xml\xpath\XPathItem;
 
 /**
  * NodeIterator (public final)
@@ -56,7 +57,7 @@ class NodeIterator extends XPath2NodeIterator implements \Iterator // \IteratorA
 
 	/**
 	 * Constructor
-	 * @param Function $enumerable
+	 * @param \Closure $enumerable
 	 */
 	public function __construct( $enumerable )
 	{
@@ -105,8 +106,7 @@ class NodeIterator extends XPath2NodeIterator implements \Iterator // \IteratorA
 
 	/**
 	 * This function is used with the caller uses the 'foreach' syntax.
-	 * {@inheritDoc}
-	 * @see IteratorAggregate::getIterator()
+	 * @return \Iterator
 	 */
 	public function getIterator()
 	{

@@ -34,6 +34,7 @@ use lyquidity\xml\interfaces\IXmlSchemaType;
 use lyquidity\XPath2\Properties\Resources;
 use lyquidity\xml\schema\SchemaTypes;
 use lyquidity\XPath2\XPath2Exception;
+use lyquidity\xml\MS\XmlSchemaType;
 
 /**
  * NameValue (public)

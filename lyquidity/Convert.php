@@ -32,6 +32,7 @@ namespace lyquidity\XPath2\lyquidity;
 
 use lyquidity\xml\interfaces\IFormatProvider;
 use lyquidity\XPath2\Proxy\ValueProxy;
+use lyquidity\XPath2\NodeProvider;
 use lyquidity\XPath2\XPath2Item;
 use lyquidity\XPath2\Value\DecimalValue;
 use lyquidity\XPath2\Value\Integer;
@@ -41,6 +42,12 @@ use lyquidity\XPath2\Properties\Resources;
 use lyquidity\XPath2\Value\UntypedAtomic;
 use lyquidity\xml\exceptions\NotSupportedException;
 use lyquidity\XPath2\XPath2Exception;
+use lyquidity\XPath2\Proxy\ShortProxy;
+use lyquidity\XPath2\Value\Long;
+use lyquidity\XPath2\Proxy\SByteProxy;
+use lyquidity\XPath2\Proxy\UShortProxy;
+use lyquidity\XPath2\Proxy\UIntProxy;
+use lyquidity\XPath2\Proxy\ULongProxy;
 
 /**
  * Class to centralize
@@ -82,7 +89,7 @@ class Convert
 	 *
 	 * @param object $value The value to convert
 	 * @param IFormatProvider $provider An interface implementation that supplies culture-specific formatting information.
-	 * @return char A Unicode character equivalent to the value of this instance.
+	 * @return string A Unicode character equivalent to the value of this instance.
 	 */
 	public static function ToChar( $value, $provider = null )
 	{
@@ -123,7 +130,7 @@ class Convert
 	 *
 	 * @param object $value The value to convert
 	 * @param IFormatProvider $provider An interface implementation that supplies culture-specific formatting information.
-	 * @return DateTime A DateTime instance equivalent to the value of this instance.
+	 * @return \DateTime A DateTime instance equivalent to the value of this instance.
 	 */
 	public static function ToDateTime( $value, $provider = null )
 	{
@@ -321,7 +328,7 @@ class Convert
 	 * ToInt16
 	 * @param object $value The value to convert
 	 * @param IFormatProvider $provider
-	 * @return short
+	 * @return ShortProxy
 	 */
 	public static function ToInt16( $value, $provider = null )
 	{
@@ -343,7 +350,7 @@ class Convert
 	 * ToInt64
 	 * @param object $value The value to convert
 	 * @param IFormatProvider $provider
-	 * @return long
+	 * @return Long
 	 */
 	public static function ToInt64( $value, $provider = null )
 	{
@@ -354,7 +361,7 @@ class Convert
 	 * ToSByte
 	 * @param object $value The value to convert
 	 * @param IFormatProvider $provider
-	 * @return sbyte
+	 * @return SByteProxy
 	 */
 	public static function ToSByte( $value, $provider = null )
 	{
@@ -425,7 +432,7 @@ class Convert
 	 * ToUInt16
 	 * @param object $value The value to convert
 	 * @param IFormatProvider $provider
-	 * @return ushort
+	 * @return UShortProxy
 	 */
 	public static function ToUInt16( $value, $provider = null )
 	{
@@ -438,7 +445,7 @@ class Convert
 	 * ToUInt32
 	 * @param object $value The value to convert
 	 * @param IFormatProvider $provider
-	 * @return uint
+	 * @return UIntProxy
 	 */
 	public static function ToUInt32( $value, $provider = null )
 	{
@@ -451,7 +458,7 @@ class Convert
 	 * ToUInt64
 	 * @param object $value The value to convert
 	 * @param IFormatProvider $provider
-	 * @return ulong
+	 * @return ULongProxy
 	 */
 	public static function ToUInt64( $value, $provider = null )
 	{

@@ -34,7 +34,6 @@ use \lyquidity\XPath2\lyquidity\Type;
 use lyquidity\xml\interfaces\IComparable;
 use \lyquidity\xml\interfaces\IConvertable;
 use lyquidity\xml\interfaces\IEquatable;
-use \lyquidity\XPath2\lyquidity\Convert;
 use lyquidity\XPath2\DOM\XmlSchema;
 use lyquidity\xml\interfaces\IXmlSchemaType;
 use lyquidity\XPath2\Properties\Resources;
@@ -42,6 +41,7 @@ use lyquidity\xml\exceptions\InvalidCastException;
 use lyquidity\xml\exceptions\NotSupportedException;
 use lyquidity\XPath2\XPath2Exception;
 use lyquidity\xml\interfaces\IFormatProvider;
+use lyquidity\xml\MS\XmlSchemaType;
 
 /**
  * Long
@@ -80,7 +80,7 @@ class /* struct */ Long extends Integer implements IComparable, IConvertable, IE
 	 * @param object $value
 	 * @param bool $unsigned
 	 * @return Long
-	 * @throws ArgumentException if the argument is not numeric or is not an Interger instance
+	 * @throws \Exception ArgumentException if the argument is not numeric or is not an Interger instance
 	 */
 	public static function FromValue( $value, $unsigned = false )
 	{

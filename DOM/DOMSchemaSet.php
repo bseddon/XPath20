@@ -30,6 +30,9 @@
 
 namespace lyquidity\XPath2\DOM;
 
+use lyquidity\xml\MS\XmlNameTable;
+use lyquidity\xml\MS\XmlSchemaAttribute;
+use lyquidity\xml\MS\XmlSchemaElement;
 use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\QName;
 use lyquidity\xml\schema\SchemaTypes;

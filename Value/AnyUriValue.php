@@ -31,6 +31,7 @@ namespace lyquidity\XPath2\Value;
 
 use lyquidity\XPath2\SequenceType;
 use lyquidity\xml\MS\XmlNamespaceManager;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\xml\interfaces\IComparable;
 use lyquidity\XPath2\DOM\XmlSchema;

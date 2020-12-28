@@ -30,6 +30,7 @@
 namespace lyquidity\XPath2\Value;
 
 use lyquidity\xml\MS\XmlNamespaceManager;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\XPath2\SequenceType;
 use lyquidity\XPath2\Properties\Resources;
@@ -72,17 +73,17 @@ class QNameValue implements IXmlConvertable, IXmlSchemaType
 	{
 		if ( is_null( $localName ) )
 		{
-			throw new \NullReferenceException("$localName");
+			throw new \Exception("$localName");
 		}
 
 		if ( is_null( $ns ) )
 		{
-			throw new \NullReferenceException("$ns");
+			throw new \Exception("$ns");
 		}
 
 		if ( is_null( $resolver ) )
 		{
-			throw new \NullReferenceException("$resolver");
+			throw new \Exception("$resolver");
 		}
 
 		if ($prefix != "" && $ns == "")
@@ -288,7 +289,7 @@ class QNameValue implements IXmlConvertable, IXmlSchemaType
 
 	/**
 	 * ToQualifiedName
-	 * @return XmlQualifiedName
+	 * @return QName
 	 */
 	public function ToQualifiedName()
 	{

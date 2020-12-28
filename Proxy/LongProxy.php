@@ -31,13 +31,17 @@ namespace lyquidity\XPath2\Proxy;
 
 use lyquidity\xml\TypeCode;
 use \lyquidity\XPath2\lyquidity\Convert;
+use lyquidity\XPath2\lyquidity\Type;
 use lyquidity\XPath2\Value\Integer;
 use lyquidity\XPath2\SequenceType;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\XPath2\DOM\XmlSchema;
 use lyquidity\XPath2\Value\Long;
+use lyquidity\xml\interfaces\IFormatProvider;
 use lyquidity\xml\interfaces\IXmlSchemaType;
 use lyquidity\XPath2\Value\DecimalValue;
+use lyquidity\XPath2\Value\DateTimeValue;
 
 /**
  * Long (internal final)
@@ -88,7 +92,7 @@ class LongProxy extends ValueProxy implements IXmlSchemaType
 
 	/**
 	 * Get the value
-	 * @return object 
+	 * @return object
 	 */
 	public function getValue()
 	{
@@ -217,7 +221,7 @@ class LongProxy extends ValueProxy implements IXmlSchemaType
 
 	/**
 	 * GetType::Code
-	 * @return Typ::Code
+	 * @return TypeCode
 	 */
 	public function GetTypeCode()
 	{
@@ -227,7 +231,7 @@ class LongProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToBoolean
 	 * @param IFormatProvider $provider
-	 * @return bool
+	 * @return BoolProxy
 	 */
 	public function ToBoolean( $provider )
 	{
@@ -237,7 +241,7 @@ class LongProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToByte
 	 * @param IFormatProvider $provider
-	 * @return byte
+	 * @return ByteProxy
 	 */
 	public function ToByte( $provider )
 	{
@@ -247,7 +251,7 @@ class LongProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToChar
 	 * @param IFormatProvider $provider
-	 * @return char
+	 * @return string
 	 */
 	public function ToChar( $provider )
 	{
@@ -257,7 +261,7 @@ class LongProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToDateTime
 	 * @param IFormatProvider $provider
-	 * @return DateTime
+	 * @return DateTimeValue
 	 */
 	public function ToDateTime( $provider )
 	{
@@ -277,7 +281,7 @@ class LongProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToDouble
 	 * @param IFormatProvider $provider
-	 * @return double
+	 * @return DoubleProxy
 	 */
 	public function ToDouble( $provider )
 	{
@@ -287,7 +291,7 @@ class LongProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToInt16
 	 * @param IFormatProvider $provider
-	 * @return short
+	 * @return ShortProxy
 	 */
 	public function ToInt16( $provider )
 	{
@@ -297,7 +301,7 @@ class LongProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToInt32
 	 * @param IFormatProvider $provider
-	 * @return int
+	 * @return Integer
 	 */
 	public function ToInt32( $provider )
 	{
@@ -317,7 +321,7 @@ class LongProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToSByte
 	 * @param IFormatProvider $provider
-	 * @return sbyte
+	 * @return SByteProxy
 	 */
 	public function ToSByte( $provider )
 	{
@@ -358,7 +362,7 @@ class LongProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt16
 	 * @param IFormatProvider $provider
-	 * @return ushort
+	 * @return UShortProxy
 	 */
 	public function ToUInt16( $provider )
 	{
@@ -368,7 +372,7 @@ class LongProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt32
 	 * @param IFormatProvider $provider
-	 * @return uint
+	 * @return UIntProxy
 	 */
 	public function ToUInt32( $provider )
 	{
@@ -378,7 +382,7 @@ class LongProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt64
 	 * @param IFormatProvider $provider
-	 * @return ulong
+	 * @return ULongProxy
 	 */
 	public function ToUInt64( $provider )
 	{
@@ -407,24 +411,24 @@ class LongProxy extends ValueProxy implements IXmlSchemaType
 
 		$byte1 = new DoubleProxy( 10 );
 		$byte2 = new DoubleProxy( 20 );
-		$result = $execute( function() use( $byte1, $byte2 ) { return $byte1->GetValueCode(); } );
-		$result = $execute( function() use( $byte1, $byte2 ) { return $byte1->getValue(); } );
-		$result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Eq( $byte1 ); } );
-		$result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Eq( $byte2 ); } );
-		$result = $execute( function() use( $byte1, $byte2 ) { $out = null; $result = $byte1->TryEq( $byte1, $out ); return $out; } );
-		$result = $execute( function() use( $byte1, $byte2 ) { $out = null; $result = $byte1->TryEq( $byte2, $out ); return $out; } );
-		$result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Gt( $byte2 ); } );
-		$result = $execute( function() use( $byte1, $byte2 ) { return $byte2->Gt( $byte1 ); } );
-		$result = $execute( function() use( $byte1, $byte2 ) { $out = null; $result = $byte1->TryGt( $byte2, $out ); return $out; } );
-		$result = $execute( function() use( $byte1, $byte2 ) { $out = null; $result = $byte2->TryGt( $byte1, $out ); return $out; } );
-		$result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Promote( $byte2 ); } );
-		$result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Neg(); } );
-		$result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Add( $byte2 ); } );
-		$result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Sub( $byte2 ); } );
-		$result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Mul( $byte2 ); } );
-		$result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Div( $byte2 ); } );
-		$result = $execute( function() use( $byte1, $byte2 ) { return $byte1->IDiv( $byte2 ); } );
-		$result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Mod( $byte2 ); } );
+		// $result = $execute( function() use( $byte1, $byte2 ) { return $byte1->GetValueCode(); } );
+		// $result = $execute( function() use( $byte1, $byte2 ) { return $byte1->getValue(); } );
+		// $result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Eq( $byte1 ); } );
+		// $result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Eq( $byte2 ); } );
+		// $result = $execute( function() use( $byte1, $byte2 ) { $out = null; $result = $byte1->TryEq( $byte1, $out ); return $out; } );
+		// $result = $execute( function() use( $byte1, $byte2 ) { $out = null; $result = $byte1->TryEq( $byte2, $out ); return $out; } );
+		// $result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Gt( $byte2 ); } );
+		// $result = $execute( function() use( $byte1, $byte2 ) { return $byte2->Gt( $byte1 ); } );
+		// $result = $execute( function() use( $byte1, $byte2 ) { $out = null; $result = $byte1->TryGt( $byte2, $out ); return $out; } );
+		// $result = $execute( function() use( $byte1, $byte2 ) { $out = null; $result = $byte2->TryGt( $byte1, $out ); return $out; } );
+		// $result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Promote( $byte2 ); } );
+		// $result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Neg(); } );
+		// $result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Add( $byte2 ); } );
+		// $result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Sub( $byte2 ); } );
+		// $result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Mul( $byte2 ); } );
+		// $result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Div( $byte2 ); } );
+		// $result = $execute( function() use( $byte1, $byte2 ) { return $byte1->IDiv( $byte2 ); } );
+		// $result = $execute( function() use( $byte1, $byte2 ) { return $byte1->Mod( $byte2 ); } );
 
 		$provider = null;
 		$result = $byte1->ToBoolean( $provider );

@@ -33,6 +33,8 @@ use lyquidity\XPath2\IContextProvider;
 use lyquidity\XPath2\NameBinder\ReferenceLink;
 use lyquidity\XPath2\VarName;
 use lyquidity\XPath2\CoreFuncs;
+use lyquidity\XPath2\XPath2Context;
+use lyquidity\XPath2\XPath2ResultType;
 use lyquidity\XPath2\Properties\Resources;
 use lyquidity\XPath2\Value\QNameValue;
 use lyquidity\xml\QName;
@@ -77,6 +79,7 @@ class VarRefNode extends AbstractNode
 		$qnValue = QNameValue::fromNCName( $this->_varName->ToString(), $this->getContext()->NamespaceManager );
 		return $qname;
 	}
+
 	/**
 	 * Constructor
 	 * @param XPath2Context $context

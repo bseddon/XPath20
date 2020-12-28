@@ -56,8 +56,8 @@ class IDFilterNodeIterator extends XPath2NodeIterator implements \Iterator
 	private $context;
 
 	/**
-	 * A comma separated list of IDs
-	 * @var string
+	 * A comma separated list of IDs or an array of IDs
+	 * @var string|array
 	 */
 	private $IDRef;
 
@@ -186,7 +186,7 @@ class IDFilterNodeIterator extends XPath2NodeIterator implements \Iterator
 					{
 						if ( $type['prefix'] != SCHEMA_PREFIX ||
 							 $type['name'] != ( $this->type ? "IDREF" : "ID" ) ||
-							 ! in_array( $attribute->getValue(), $this->IDRef )
+							 ! in_array( $attribute->getValue(), array_map( function( $id ) { return trim( $id ); }, is_array( $this->IDRef ) ? $this->IDRef : explode( ',',  $this->IDRef ) ) )
 						) continue;
 						return CoreFuncs::CloneInstance( $this->type ? $attribute : $node );
 					}

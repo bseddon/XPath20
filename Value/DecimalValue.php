@@ -34,6 +34,7 @@ use \lyquidity\XPath2\lyquidity\Type;
 use lyquidity\xml\interfaces\IComparable;
 use \lyquidity\xml\interfaces\IConvertable;
 use lyquidity\xml\interfaces\IEquatable;
+use lyquidity\xml\interfaces\IFormatProvider;
 use \lyquidity\XPath2\lyquidity\Convert;
 use lyquidity\XPath2\Properties\Resources;
 use lyquidity\XPath2\TrueValue;
@@ -42,8 +43,14 @@ use lyquidity\XPath2\Proxy\ValueProxy;
 use lyquidity\XPath2\DOM\XmlSchema;
 use lyquidity\xml\interfaces\IXmlSchemaType;
 use lyquidity\XPath2\XPath2Item;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\exceptions\NotSupportedException;
 use lyquidity\XPath2\XPath2Exception;
+use lyquidity\XPath2\Proxy\ByteProxy;
+use lyquidity\XPath2\Proxy\SByteProxy;
+use lyquidity\XPath2\Proxy\UShortProxy;
+use lyquidity\XPath2\Proxy\UIntProxy;
+use lyquidity\XPath2\Proxy\ULongProxy;
 
 /**
  * Integer
@@ -68,7 +75,7 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 
 	/**
 	 * Decimal values are stored as string an operated on by BC Math functions
-	 * @var string $_value
+	 * @var string|float|int $_value
 	 */
 	private  $_value;
 
@@ -201,7 +208,7 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 	/**
 	 * Create an instance
 	 * @param object $value
-	 * @throws ArgumentException if the argument is not numeric or is not an Interger instance
+	 * @throws \Exception if the argument is not numeric or is not an Interger instance
 	 */
 	public static function FromValue( $value )
 	{
@@ -219,7 +226,7 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 
 	/**
 	 * Returns the contained value
-	 * @return string
+	 * @return float|int|string|object
 	 */
 	public function getValue()
 	{
@@ -668,7 +675,7 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 
 	/**
 	 * Round the value to the required precision and using the required mode
-	 * @param $scale The scale to use for rounding.  The digit at this position will
+	 * @param int $scale The scale to use for rounding.  The digit at this position will
 	 * 				 be rounded in the decimal part of the number will be rounded.
 	 * @param int $mode PHP_ROUND_HALF_UP (default), PHP_ROUND_HALF_DOWN, PHP_ROUND_HALF_EVEN, PHP_ROUND_HALF_ODD
 	 * @return string
@@ -816,7 +823,7 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 	 * Not
 	 * ToByte
 	 * @param IFormatProvider $provider
-	 * @return byte
+	 * @return ByteProxy
 	 */
 	public function ToByte( $provider )
 	{
@@ -826,7 +833,7 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 	/**
 	 * ToChar
 	 * @param IFormatProvider $provider
-	 * @return char
+	 * @return string
 	 */
 	public function ToChar( $provider )
 	{
@@ -836,7 +843,7 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 	/**
 	 * ToDateTime
 	 * @param IFormatProvider $provider
-	 * @return DateTime
+	 * @return DateTimeValue
 	 */
 	public function ToDateTime( $provider )
 	{
@@ -844,10 +851,9 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 	}
 
 	/**
-	 * Not
 	 * ToDecimal
 	 * @param IFormatProvider $provider
-	 * @return decimal
+	 * @return DecimalValue
 	 */
 	public function ToDecimal( $provider )
 	{
@@ -896,10 +902,9 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 	}
 
 	/**
-	 * Not
 	 * ToSByte
 	 * @param IFormatProvider $provider
-	 * @return sbyte
+	 * @return SByteProxy
 	 */
 	public function ToSByte( $provider )
 	{
@@ -1109,7 +1114,7 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 	 * Not
 	 * ToUInt16
 	 * @param IFormatProvider $provider
-	 * @return ushort
+	 * @return UShortProxy
 	 */
 	public function ToUInt16( $provider )
 	{
@@ -1120,7 +1125,7 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 	 * Not
 	 * ToUInt32
 	 * @param IFormatProvider $provider
-	 * @return uint
+	 * @return UIntProxy
 	 */
 	public function ToUInt32( $provider )
 	{
@@ -1131,7 +1136,7 @@ class DecimalValue implements IComparable, IConvertable, IEquatable, IXmlSchemaT
 	 * Not
 	 * ToUInt64
 	 * @param IFormatProvider $provider
-	 * @return ulong
+	 * @return ULongProxy
 	 */
 	public function ToUInt64( $provider )
 	{

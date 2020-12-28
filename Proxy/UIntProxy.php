@@ -30,10 +30,14 @@
 namespace lyquidity\XPath2\Proxy;
 
 use \lyquidity\XPath2\lyquidity\Convert;
+use lyquidity\XPath2\lyquidity\Type;
 use lyquidity\XPath2\SequenceType;
+use lyquidity\xml\TypeCode;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\XPath2\Value\Integer;
 use lyquidity\XPath2\DOM\XmlSchema;
+use lyquidity\xml\interfaces\IFormatProvider;
 use lyquidity\xml\interfaces\IXmlSchemaType;
 
 /**
@@ -42,16 +46,15 @@ use lyquidity\xml\interfaces\IXmlSchemaType;
 class UIntProxy extends ValueProxy implements IXmlSchemaType
 {
 
-
 	/**
 	 * Value
-	 * @var uint $_value
+	 * @var int $_value
 	 */
 	private $_value;
 
 	/**
 	 * Constructor
-	 * @param uint $value
+	 * @param int $value
 	 */
 	public function __construct( $value )
 	{
@@ -78,7 +81,7 @@ class UIntProxy extends ValueProxy implements IXmlSchemaType
 
 	/**
 	 * Get the value
-	 * @return object 
+	 * @return object
 	 */
 	public function getValue()
 	{
@@ -166,11 +169,11 @@ class UIntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * Div
 	 * @param ValueProxy $val
-	 * @return DecimalValue
+	 * @return DecimalProxy
 	 */
 	protected function Div( $val )
 	{
-		return new DecimalProxy( Convert::ToDouble( $this->_value) /  Convert::Toouble( $val->getValue() ) );
+		return new DecimalProxy( Convert::ToDouble( $this->_value) /  Convert::ToDouble( $val->getValue() ) );
 	}
 
 	/**
@@ -199,13 +202,13 @@ class UIntProxy extends ValueProxy implements IXmlSchemaType
 	 */
 	public function GetTypeCode()
 	{
-		return TypeCode::UInt32;
+		return \lyquidity\xml\TypeCode::UInt32;
 	}
 
 	/**
 	 * ToBoolean
 	 * @param IFormatProvider $provider
-	 * @return bool
+	 * @return BoolProxy
 	 */
 	public function ToBoolean( $provider )
 	{
@@ -215,7 +218,7 @@ class UIntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToByte
 	 * @param IFormatProvider $provider
-	 * @return byte
+	 * @return ByteProxy
 	 */
 	public function ToByte( $provider )
 	{
@@ -225,7 +228,7 @@ class UIntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToChar
 	 * @param IFormatProvider $provider
-	 * @return char
+	 * @return string
 	 */
 	public function ToChar( $provider )
 	{
@@ -235,7 +238,7 @@ class UIntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToDateTime
 	 * @param IFormatProvider $provider
-	 * @return DateTime
+	 * @return DateTimeProxy
 	 */
 	public function ToDateTime( $provider )
 	{
@@ -245,7 +248,7 @@ class UIntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToDecimal
 	 * @param IFormatProvider $provider
-	 * @return DecimalValue
+	 * @return DecimalProxy
 	 */
 	public function ToDecimal( $provider )
 	{
@@ -265,7 +268,7 @@ class UIntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToInt16
 	 * @param IFormatProvider $provider
-	 * @return short
+	 * @return ShortProxy
 	 */
 	public function ToInt16( $provider )
 	{
@@ -285,7 +288,7 @@ class UIntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToInt64
 	 * @param IFormatProvider $provider
-	 * @return long
+	 * @return LongProxy
 	 */
 	public function ToInt64( $provider )
 	{
@@ -295,7 +298,7 @@ class UIntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToSByte
 	 * @param IFormatProvider $provider
-	 * @return sbyte
+	 * @return SByteProxy
 	 */
 	public function ToSByte( $provider )
 	{
@@ -336,7 +339,7 @@ class UIntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt16
 	 * @param IFormatProvider $provider
-	 * @return ushort
+	 * @return UShortProxy
 	 */
 	public function ToUInt16( $provider )
 	{
@@ -346,7 +349,7 @@ class UIntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt32
 	 * @param IFormatProvider $provider
-	 * @return uint
+	 * @return UIntProxy
 	 */
 	public function ToUInt32( $provider )
 	{
@@ -356,7 +359,7 @@ class UIntProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt64
 	 * @param IFormatProvider $provider
-	 * @return ulong
+	 * @return ULongProxy
 	 */
 	public function ToUInt64( $provider )
 	{

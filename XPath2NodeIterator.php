@@ -34,6 +34,7 @@ use lyquidity\XPath2\XPath2NodeIterator\SingleIterator;
 use lyquidity\xml\xpath\XPathItem;
 use lyquidity\xml\interfaces\ICloneable;
 use lyquidity\xml\interfaces\IEnumerable;
+use lyquidity\xml\interfaces\IEnumerator;
 use lyquidity\XPath2\Iterator\EmptyIterator;
 use lyquidity\XPath2\Iterator\ExprIterator;
 use lyquidity\xml\xpath\XPathNavigator;
@@ -44,7 +45,7 @@ use lyquidity\xml\exceptions\InvalidOperationException;
 /**
  * XPath2NodeIterator (public abstract)
  */
-class XPath2NodeIterator implements ICloneable, IEnumerable //, \Iterator
+class XPath2NodeIterator implements ICloneable, IEnumerable  //, \Iterator
 {
 	/**
 	 * Used for debugging because it can become confusing which iterator is being processed

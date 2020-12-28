@@ -41,6 +41,7 @@ use lyquidity\XPath2\Value\Long;
 use lyquidity\XPath2\AST\VarRefNode;
 use lyquidity\XPath2\AST\ForNode;
 use lyquidity\xml\QName;
+use lyquidity\xml\MS\IXmlNamespaceResolver;
 use lyquidity\xml\exceptions\ArgumentException;
 
 /**
@@ -198,7 +199,7 @@ class XPath2Expression
 	 */
 	public static function SelectValuesWithArg($xpath, $arg)
 	{
-		return SelectValuesWithArgAndResolver($xpath, null, $arg);
+		return self::SelectValuesWithArgAndResolver($xpath, null, $arg);
 	}
 
 	/**
@@ -213,7 +214,7 @@ class XPath2Expression
 		/**
 		 * @var XPath2NodeIterator $iter
 		 */
-		$iter = XPath2NodeIterator::Create( Compile( $xpath, $resolver )->EvaluateWithProperties( null, $arg ) );
+		$iter = XPath2NodeIterator::Create( self::Compile( $xpath, $resolver )->EvaluateWithProperties( null, $arg ) );
 		while ( $iter->MoveNext() )
 			yield $iter->getCurrent()->GetTypedValue();
 	}
@@ -226,7 +227,7 @@ class XPath2Expression
 	 */
 	public static function SelectValuesWithParam( $xpath, $param )
 	{
-		return SelectValuesWithParamAndResolver( $xpath, null, $param );
+		return self::SelectValuesWithParamAndResolver( $xpath, null, $param );
 	}
 
 	/**
@@ -241,7 +242,7 @@ class XPath2Expression
 		/**
 		 * @var XPath2NodeIterator $iter
 		 */
-		$iter = XPath2NodeIterator::Create( Compile( $xpath, $resolver )->EvaluateWithVars( null, $vars ) );
+		$iter = XPath2NodeIterator::Create( self::Compile( $xpath, $resolver )->EvaluateWithVars( null, $vars ) );
 		while ( $iter->MoveNext() )
 		{
 			yield $iter->getCurrent()->GetTypedValue();
@@ -372,7 +373,7 @@ class XPath2Expression
 	/**
 	 * Navigate the hierarchy of nodes from $node and call $callback for each one
 	 * @param AbstractNode $node
-	 * @param Function $callback
+	 * @param \Closure $callback
 	 * @return boolean
 	 */
 	private function traverseNodes( $node, $callback )
@@ -569,7 +570,7 @@ class XPath2Expression
 	 */
 	public function getExpression()
 	{
-		return $expr;
+		return $this->expr;
 	}
 
 	/**

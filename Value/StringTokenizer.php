@@ -31,7 +31,7 @@ namespace lyquidity\XPath2\Value;
 
 /**
  * StringTokenizer (private)
- * This class is not required.  It was need in the C# implementation to pase
+ * This class is not required.  It was need in the C# implementation to parse
  * duration values like P1Y2M but in PHP this is handled by the DateInterval class
  */
 class StringTokenizer
@@ -88,7 +88,7 @@ class StringTokenizer
 	 * TokenInt
 	 * @var int $TokenInt = 1
 	 */
-	public static $TokenInt = 1;
+	public const TokenInt = 1;
 
 	/**
 	 * ToString
@@ -135,7 +135,7 @@ class StringTokenizer
 			case '\r':
 
 				$this->_offset++;
-				if ( $this->_offset < strlen( $this->_text.Length ) - 1 && $this->_text[ $this->_offset ] == '\n')
+				if ( $this->_offset < strlen( $this->_text ) - 1 && $this->_text[ $this->_offset ] == '\n')
 					$this->_offset++;
 				$this->LineCount++;
 				$this->Token = '\n';
@@ -171,12 +171,12 @@ class StringTokenizer
 
 	/**
 	 * SkipTo
-	 * @param char $ch
+	 * @param string $ch
 	 * @return void
 	 */
 	public function SkipToChar( $ch )
 	{
-		SkipToArray( array( $ch ) );
+		$this->SkipToArray( array( $ch ) );
 	}
 
 	/**
@@ -186,7 +186,7 @@ class StringTokenizer
 	 */
 	public function SkipToArray( $charset )
 	{
-		SkipToString( implode( "", $charset ) );
+		$this->SkipToString( implode( "", $charset ) );
 	}
 
 	/**
@@ -199,7 +199,7 @@ class StringTokenizer
 
 		$anchor = $this->_offset;
 		while ( $this->Token != 0 && strpos( $charset, $this->Token ) == -1 )
-			NextToken();
+			$this->NextToken();
 		$this->Value = substr( $this->_text, $anchor, $this->_offset - $anchor );
 	}
 

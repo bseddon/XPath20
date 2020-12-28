@@ -31,6 +31,7 @@
 namespace lyquidity\XPath2\DOM;
 
 use \lyquidity\xml\interfaces\ICloneable;
+use lyquidity\xml\interfaces\IEqualityComparer;
 use \lyquidity\xml\MS\IXmlNamespaceResolver;
 use \lyquidity\xml\xpath\XPathItem;
 use \lyquidity\xml\xpath\XPathNavigator;
@@ -39,12 +40,13 @@ use \lyquidity\xml\xpath\XPathNamespaceScope;
 use \lyquidity\xml\MS\IXmlSchemaInfo;
 use lyquidity\xml\MS\XmlNamespaceManager;
 use lyquidity\xml\MS\XmlNameTable;
-use lyquidity\xml\xpath\XPathNavigatorEqualityComparer;
+use lyquidity\XPath2\XPathNavigatorEqualityComparer;
 use lyquidity\xml\xpath\XPathNodeIterator;
 use lyquidity\xml\MS\XmlNodeOrder;
 use lyquidity\xml\MS\XmlReservedNs;
 use lyquidity\xml\schema\SchemaTypes;
 use lyquidity\xml\exceptions\NotSupportedException;
+use \lyquidity\XPath2\Iterator\EmptyIterator;
 
 /**
  * Provides a cursor model for navigating XML data.
@@ -337,7 +339,7 @@ class DOMXPathNavigator extends XPathNavigator implements XPathItem, ICloneable,
 	 */
 	public function getIsEmptyElement()
 	{
-		return ! $this->HasChildren();
+		return ! $this->getHasChildren();
 	}
 
 	/**
@@ -1087,10 +1089,10 @@ class DOMXPathNavigator extends XPathNavigator implements XPathItem, ICloneable,
 		if ( ! $clone->getHasChildren() )
 			return EmptyIterator::$Shared; // XPathNodeIterator( null, null );
 
-			if ( ! $clone->MoveToFirstChild() )
-				return EmptyIterator::$Shared; //XPathNodeIterator( null, null );
+		if ( ! $clone->MoveToFirstChild() )
+			return EmptyIterator::$Shared; //XPathNodeIterator( null, null );
 
-				return new XPathNodeIterator( $clone, function( /** @var DOMXPathNavigator $nav */ $nav ) use( $type )
+		return new XPathNodeIterator( $clone, function( /** @var DOMXPathNavigator $nav */ $nav ) use( $type )
 				{
 					$nodeType = $nav->getNodeType();
 					return $type == XPathNodeType::All || $type == $nodeType;
@@ -1176,7 +1178,7 @@ class DOMXPathNavigator extends XPathNavigator implements XPathItem, ICloneable,
 		echo "$doc->nodeType\n";
 		/**
 		 *
-		 * @var DOMNode $result
+		 * @var \DOMNode $result
 		 */
 		// $result = $doc->nextSibling; // Null
 		// $result = $doc->firstChild; // PI

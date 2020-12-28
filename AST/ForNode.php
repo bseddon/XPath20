@@ -80,7 +80,11 @@ class ForNode extends AbstractNode
 		if ( $this->getCount() == 1 )
 			$this->Add( $expr );
 		else
-			$this->getAbstractNode(1)->AddTail( $expr );
+		{
+			$forNode = $this->getAbstractNode(1);
+			/** @var ForNode $forNode */
+			$forNode->AddTail( $expr );
+		}
 	}
 
 	/**

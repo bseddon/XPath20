@@ -29,6 +29,8 @@
 
 namespace lyquidity\XPath2\Value;
 
+use lyquidity\xml\MS\XmlNamespaceManager;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\XPath2\SequenceType;
 use lyquidity\XPath2\DOM\XmlSchema;

@@ -35,12 +35,12 @@ interface yyInput
 {
 	/** move on to next token.
 	 * @return bool false if positioned beyond tokens.
-	 * @throws \IOException on input error.
+	 * @throws \Exception on input error.
 	 */
 	function advance ();
 	/** classifies current token.
 	 * Should not be called if advance() returned false.
-	 * @return current %token or single character.
+	 * @return string current %token or single character.
 	 */
 	function token ();
 	/** associated with current token.

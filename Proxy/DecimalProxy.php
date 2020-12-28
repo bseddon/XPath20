@@ -32,19 +32,23 @@ namespace lyquidity\XPath2\Proxy;
 // use \lyquidity\XPath2\lyquidity\Convert;
 use lyquidity\XPath2\Value\Integer;
 use lyquidity\XPath2\SequenceType;
+use lyquidity\xml\TypeCode;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\XPath2\Value\DecimalValue;
 use \lyquidity\XPath2\lyquidity\Convert;
+use lyquidity\XPath2\lyquidity\Type;
 use lyquidity\XPath2\DOM\XmlSchema;
+use lyquidity\xml\interfaces\IFormatProvider;
 use lyquidity\xml\interfaces\IXmlSchemaType;
+use lyquidity\XPath2\Value\DateTimeValue;
+use lyquidity\XPath2\Value\Long;
 
 /**
  * DecimalProxy (internal final)
  */
 class DecimalProxy extends ValueProxy implements IXmlSchemaType
 {
-
-
 	/**
 	 * Value
 	 * @var DecimalValue $_value
@@ -87,7 +91,7 @@ class DecimalProxy extends ValueProxy implements IXmlSchemaType
 
 	/**
 	 * Get the value
-	 * @return DecimalValue 
+	 * @return DecimalValue
 	 */
 	public function getValue()
 	{
@@ -208,7 +212,7 @@ class DecimalProxy extends ValueProxy implements IXmlSchemaType
 	 */
 	public function GetTypeCode()
 	{
-	    return TypeCode::Decimal;
+	    return \lyquidity\xml\TypeCode::Decimal;
 	}
 
 	/**
@@ -224,7 +228,7 @@ class DecimalProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToByte
 	 * @param IFormatProvider $provider
-	 * @return byte
+	 * @return ByteProxy
 	 */
 	public function ToByte( $provider )
 	{
@@ -234,7 +238,7 @@ class DecimalProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToChar
 	 * @param IFormatProvider $provider
-	 * @return char
+	 * @return string
 	 */
 	public function ToChar( $provider )
 	{
@@ -244,7 +248,7 @@ class DecimalProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToDateTime
 	 * @param IFormatProvider $provider
-	 * @return DateTime
+	 * @return DateTimeValue
 	 */
 	public function ToDateTime( $provider )
 	{
@@ -274,7 +278,7 @@ class DecimalProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToInt16
 	 * @param IFormatProvider $provider
-	 * @return short
+	 * @return ShortProxy
 	 */
 	public function ToInt16( $provider )
 	{
@@ -284,7 +288,7 @@ class DecimalProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToInt
 	 * @param IFormatProvider $provider
-	 * @return int
+	 * @return Integer
 	 */
 	public function ToInt( $provider )
 	{
@@ -304,7 +308,7 @@ class DecimalProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToInt64
 	 * @param IFormatProvider $provider
-	 * @return long
+	 * @return Long
 	 */
 	public function ToInt64( $provider )
 	{
@@ -314,7 +318,7 @@ class DecimalProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToSByte
 	 * @param IFormatProvider $provider
-	 * @return sbyte
+	 * @return SByteProxy
 	 */
 	public function ToSByte( $provider )
 	{
@@ -355,7 +359,7 @@ class DecimalProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt16
 	 * @param IFormatProvider $provider
-	 * @return ushort
+	 * @return UShortProxy
 	 */
 	public function ToUInt16( $provider )
 	{
@@ -365,7 +369,7 @@ class DecimalProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt32
 	 * @param IFormatProvider $provider
-	 * @return uint
+	 * @return Integer
 	 */
 	public function ToUInt32( $provider )
 	{
@@ -375,7 +379,7 @@ class DecimalProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt64
 	 * @param IFormatProvider $provider
-	 * @return ulong
+	 * @return ULongProxy
 	 */
 	public function ToUInt64( $provider )
 	{

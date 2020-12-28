@@ -29,11 +29,13 @@
 
 namespace lyquidity\XPath2\AST;
 
+use lyquidity\XPath2\XPath2Context;
 use lyquidity\XPath2\XPath2ResultType;
 use lyquidity\XPath2\IContextProvider;
 use lyquidity\XPath2\CoreFuncs;
 use lyquidity\xml\exceptions\DivideByZeroException;
 use lyquidity\XPath2\XPath2Exception;
+use lyquidity\XPath2\Undefined;
 
 /**
  * ArithmeticUnaryOperatorNode (private)
@@ -43,7 +45,7 @@ class ArithmeticUnaryOperatorNode extends AtomizedUnaryOperatorNode
 	/**
 	 * Constructor
 	 * @param XPath2Context $context
-	 * @param UnaryOperatorNode $action
+	 * @param \Closure $action
 	 * @param object $node
 	 */
 	public function __construct( $context, $action, $node )

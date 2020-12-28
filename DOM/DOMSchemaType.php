@@ -33,6 +33,8 @@ namespace lyquidity\XPath2\DOM;
 use \lyquidity\XPath2\DOM\DOMSchemaDatatype;
 use \lyquidity\XPath2\DOM\DOMSchemaSimpleType;
 use \lyquidity\XPath2\DOM\DOMSchemaComplexType;
+use lyquidity\xml\MS\XmlSchemaComplexType;
+use lyquidity\xml\MS\XmlSchemaSimpleType;
 use \lyquidity\xml\MS\XmlTypeCode;
 use \lyquidity\xml\MS\XmlSchemaDerivationMethod;
 use \lyquidity\xml\MS\XmlSchemaType;
@@ -102,7 +104,7 @@ class DOMSchemaType extends XmlSchemaType
 	 *
 	 * @param QName|string $qualifiedName The QName of the complex type.
 	 *
-	 * @return The XmlSchemaComplexType that represents the built-in complex type.
+	 * @return XmlSchemaComplexType The XmlSchemaComplexType that represents the built-in complex type.
 	 *
 	 * @except \lyquidity\xml\exceptions\ArgumentNullException The XmlQualifiedName parameter is null.
 	 */

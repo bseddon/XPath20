@@ -30,6 +30,7 @@
 namespace lyquidity\XPath2\Value;
 
 use lyquidity\xml\interfaces\IComparable;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\XPath2\SequenceType;
 use lyquidity\XPath2\Properties\Resources;
@@ -56,7 +57,7 @@ class YearMonthDurationValue extends DurationValue implements IComparable, IXmlS
 
 	/**
 	 * Constructor
-	 * @param DateInterval $value
+	 * @param \DateInterval $value
 	 */
 	public  function __construct( $value )
 	{
@@ -70,7 +71,7 @@ class YearMonthDurationValue extends DurationValue implements IComparable, IXmlS
 
 	/**
 	 * Create a YearMonthDurationValue instance from a DurationValue or a DateInterval
-	 * @param unknown $duration
+	 * @param \DateInterval|DayTimeDurationValue $duration
 	 */
 	public static function FromDuration( $duration )
 	{

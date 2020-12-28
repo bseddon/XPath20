@@ -31,22 +31,25 @@ namespace lyquidity\XPath2\Proxy;
 
 use lyquidity\xml\TypeCode;
 use \lyquidity\XPath2\lyquidity\Convert;
+use lyquidity\XPath2\lyquidity\Type;
 use lyquidity\XPath2\Value\Integer;
 use lyquidity\XPath2\SequenceType;
+use lyquidity\xml\MS\XmlSchemaType;
 use lyquidity\xml\MS\XmlTypeCode;
 use lyquidity\XPath2\Properties\Resources;
 use lyquidity\XPath2\DOM\XmlSchema;
+use lyquidity\xml\interfaces\IFormatProvider;
 use lyquidity\xml\interfaces\IXmlSchemaType;
 use lyquidity\XPath2\Value\DecimalValue;
 use lyquidity\XPath2\XPath2Exception;
+use lyquidity\XPath2\Value\DateTimeValue;
+use lyquidity\XPath2\Value\Long;
 
 /**
  * DoubleProxy (internal final)
  */
 class DoubleProxy extends ValueProxy implements IXmlSchemaType
 {
-
-
 	/**
 	 * Value
 	 * @var double $_value
@@ -272,7 +275,7 @@ class DoubleProxy extends ValueProxy implements IXmlSchemaType
 		// Replace the handler because the status test handler traps any error and terminates the session
 		$previousHandler = set_error_handler(null);
 		// BMS 2020-12-16 For PHP 8.0 use the new fdiv function
-		$result = new DoubleProxy( PHP_VERSION_ID >= 80000 ? @fdiv( $numerator, $denominator ) :  @($numerator / $denominator) );
+		$result = new DoubleProxy( PHP_VERSION_ID >= 80000 ? @\fdiv( $numerator, $denominator ) :  @($numerator / $denominator) );
 		set_error_handler( $previousHandler );
 		return $result;
 
@@ -356,7 +359,7 @@ class DoubleProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToByte
 	 * @param IFormatProvider $provider
-	 * @return byte
+	 * @return ByteProxy
 	 */
 	public function ToByte( $provider )
 	{
@@ -366,7 +369,7 @@ class DoubleProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToChar
 	 * @param IFormatProvider $provider
-	 * @return char
+	 * @return StringProxy
 	 */
 	public function ToChar( $provider )
 	{
@@ -376,7 +379,7 @@ class DoubleProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToDateTime
 	 * @param IFormatProvider $provider
-	 * @return DateTime
+	 * @return DateTimeValue
 	 */
 	public function ToDateTime(  $provider )
 	{
@@ -386,7 +389,7 @@ class DoubleProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToDecimal
 	 * @param IFormatProvider $provider
-	 * @return decimal
+	 * @return DecimalValue
 	 */
 	public function ToDecimal( $provider )
 	{
@@ -406,7 +409,7 @@ class DoubleProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToInt16
 	 * @param IFormatProvider $provider
-	 * @return short
+	 * @return ShortProxy
 	 */
 	public function ToInt16( $provider )
 	{
@@ -426,7 +429,7 @@ class DoubleProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToInt64
 	 * @param IFormatProvider $provider
-	 * @return long
+	 * @return Long
 	 */
 	public function ToInt64( $provider )
 	{
@@ -436,7 +439,7 @@ class DoubleProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToSByte
 	 * @param IFormatProvider $provider
-	 * @return sbyte
+	 * @return SByteProxy
 	 */
 	public function ToSByte( $provider )
 	{
@@ -477,7 +480,7 @@ class DoubleProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt16
 	 * @param IFormatProvider $provider
-	 * @return ushort
+	 * @return UShortProxy
 	 */
 	public function ToUInt16( $provider )
 	{
@@ -487,7 +490,7 @@ class DoubleProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt32
 	 * @param IFormatProvider $provider
-	 * @return uint
+	 * @return UIntProxy
 	 */
 	public function ToUInt32( $provider )
 	{
@@ -497,7 +500,7 @@ class DoubleProxy extends ValueProxy implements IXmlSchemaType
 	/**
 	 * ToUInt64
 	 * @param IFormatProvider $provider
-	 * @return ulong
+	 * @return ULongProxy
 	 */
 	public function ToUInt64( $provider )
 	{

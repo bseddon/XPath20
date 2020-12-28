@@ -67,7 +67,7 @@ class MathsFuncs
 			$value = self::toDouble( Integer::ToInteger( $value, null ) );
 		}
 		else
-		    throw XPath2Exception::withErrorCodeAndParams( "XPTY0004", Resources::XPTY0004,
+		    throw XPath2Exception::withErrorCodeAndParams( "XPTY0004", \lyquidity\XPath2\Properties\Resources::XPTY0004,
 				array(
 					SequenceType::WithTypeCodeAndCardinality( SequenceType::GetXmlTypeCodeFromObject( $value ), XmlTypeCardinality::OneOrMore ),
 					"xs:float | xs:double | xs:decimal | xs:integer in math:pow()"
@@ -250,4 +250,64 @@ class MathsFuncs
 
 	}
 
+	/**
+	 * exp
+	 * @param object $value
+	 * @return object
+	 */
+	public static function exp( $value )
+	{
+		if ( $value instanceof Undefined )
+			return $value;
+
+		$value = self::toDouble( $value );
+		return XPath2Item::fromValueAndType( exp( $value ), XmlSchema::$Double );
+
+	}
+
+
+	/**
+	 * exp10
+	 * @param object $value
+	 * @return object
+	 */
+	public static function exp10( $value )
+	{
+		if ( $value instanceof Undefined )
+			return $value;
+
+		$value = self::toDouble( $value );
+		return XPath2Item::fromValueAndType( exp( $value ), XmlSchema::$Double );
+
+	}
+
+	/**
+	 * log
+	 * @param object $value
+	 * @return object
+	 */
+	public static function log( $value )
+	{
+		if ( $value instanceof Undefined )
+			return $value;
+
+		$value = self::toDouble( $value );
+		return XPath2Item::fromValueAndType( log( $value ), XmlSchema::$Double );
+
+	}
+
+	/**
+	 * log10
+	 * @param object $value
+	 * @return object
+	 */
+	public static function log10( $value )
+	{
+		if ( $value instanceof Undefined )
+			return $value;
+
+		$value = self::toDouble( $value );
+		return XPath2Item::fromValueAndType( log( $value ), XmlSchema::$Double );
+
+	}
 }

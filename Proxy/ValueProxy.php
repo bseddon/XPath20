@@ -31,9 +31,10 @@
 namespace lyquidity\XPath2\Proxy;
 
 use \lyquidity\xml\interfaces\IConvertable;
+use lyquidity\xml\interfaces\IFormatProvider;
 use \lyquidity\XPath2\XPath2Exception;
 use \lyquidity\xml\MS\XmlTypeCardinality;
-use \lyquidity\Convert;
+use \lyquidity\XPath2\lyquidity\Convert;
 use \lyquidity\xml\TypeCode;
 use \lyquidity\XPath2\lyquidity\Type;
 use \lyquidity\XPath2\SequenceType;
@@ -51,6 +52,7 @@ use lyquidity\XPath2\XPath2Item;
 use lyquidity\xml\exceptions\InvalidCastException;
 use lyquidity\xml\exceptions\InvalidOperationException;
 use lyquidity\xml\exceptions\KeyNotFoundException;
+use lyquidity\XPath2\Value\Integer;
 
 /**
  * ValueProxy (internal abstract)
@@ -209,8 +211,8 @@ abstract class ValueProxy implements IConvertable, IXmlSchemaType
 	{
 		if ( $obj instanceof ValueProxy )
 		{
-			$res;
-			if ( ValueProxy::Eq( $this, $obj, $res))
+			$res = null;
+			if ( self::Eq( $this, $obj, $res))
 				return $res;
 		}
 		return false;
@@ -288,6 +290,9 @@ abstract class ValueProxy implements IConvertable, IXmlSchemaType
 			}
 			else if ( $value instanceof IXmlSchemaType )
 			{
+				/**
+				 * @var \lyquidity\XPath2\Value\AnyUriValue $value Not really - just need a proper class that has $CLASSNAME to hide from the type checker
+				 */
 				$typeName = $value::$CLASSNAME;
 			}
 			else
@@ -400,14 +405,14 @@ abstract class ValueProxy implements IConvertable, IXmlSchemaType
 		 * @var ValueProxyFactory $factory1
 		 */
 		$factory1 = isset( ValueProxy::$valueFactory[ $type1->getFullName() ] )
-			? ValueProxy::$valueFactory[ $type->getFullName() ]
+			? ValueProxy::$valueFactory[ $type1->getFullName() ]
 			: null;
 
 		/**
 		 * @var ValueProxyFactory $factory2
 		 */
 		$factory2 = isset( ValueProxy::$valueFactory[ $type2->getFullName() ] )
-			? ValueProxy::$valueFactory[ $type->getFullName() ]
+			? ValueProxy::$valueFactory[ $type2->getFullName() ]
 			: null;
 
 		if ( is_null( $factory1 ) || is_null( $factory1 ) ) return Types::$ObjectType;
@@ -1139,7 +1144,7 @@ abstract class ValueProxy implements IConvertable, IXmlSchemaType
 	/**
 	 * ToChar
 	 * @param IFormatProvider $provider
-	 * @return char
+	 * @return string
 	 */
 	public function ToChar( $provider )
 	{
@@ -1149,7 +1154,7 @@ abstract class ValueProxy implements IConvertable, IXmlSchemaType
 	/**
 	 * ToDateTime
 	 * @param IFormatProvider $provider
-	 * @return DateTime
+	 * @return DateTimeProxy
 	 */
 	public function ToDateTime( $provider )
 	{
@@ -1159,7 +1164,7 @@ abstract class ValueProxy implements IConvertable, IXmlSchemaType
 	/**
 	 * ToDecimal
 	 * @param IFormatProvider $provider
-	 * @return DecimalValue
+	 * @return DecimalProxy
 	 */
 	public function ToDecimal( $provider )
 	{
@@ -1169,7 +1174,7 @@ abstract class ValueProxy implements IConvertable, IXmlSchemaType
 	/**
 	 * ToDouble
 	 * @param IFormatProvider $provider
-	 * @return double
+	 * @return DoubleProxy
 	 */
 	public function ToDouble( $provider )
 	{
@@ -1179,7 +1184,7 @@ abstract class ValueProxy implements IConvertable, IXmlSchemaType
 	/**
 	 * ToInt
 	 * @param IFormatProvider $provider
-	 * @return int
+	 * @return Integer
 	 */
 	public function ToInt( $provider )
 	{
@@ -1187,7 +1192,7 @@ abstract class ValueProxy implements IConvertable, IXmlSchemaType
 	}
 
 	/**
-	 * ToInt
+	 * ToString
 	 * @param IFormatProvider $provider
 	 * @return int
 	 */

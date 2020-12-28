@@ -23,6 +23,8 @@
 
 namespace lyquidity\XPath2\lyquidity;
 
+use lyquidity\XPath2\XPath2Exception;
+
 /**
  * Load the Log class if not already loaded
  */
@@ -46,7 +48,7 @@ class Log
 {
 	/**
 	 * A reference to this singleton instance
-	 * @var Singleton
+	 * @var Log Singleton
 	 */
 	private static $instance;
 
@@ -165,7 +167,7 @@ class Log
 	 */
 	public function err( $message )
 	{
-		$ex = new Exception();
+		$ex = new \Exception();
 		echo $ex->getTraceAsString();
 
 		if ( ! $this->log ) return;
@@ -282,7 +284,7 @@ class Log
 			)
 		);
 
-		$logComposite = Log::singleton( 'composite' );
+		$logComposite = \Log::singleton( 'composite' );
 		$logComposite->addChild( $logConsole );
 		$logComposite->addChild( $logError );
 
