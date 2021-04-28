@@ -274,18 +274,20 @@ class XPath2Item implements XPathItem, IConvertable
 
 			case XmlTypeCode::Double:
 
-				if ( is_nan( $this->_value ) )
+				/** @var float */
+				$number = $this->_value;
+				if ( is_nan( $number ) )
 				{
 					return "NaN";
 				}
 
-				if ( is_infinite( $this->_value ) )
+				if ( is_infinite( $number ) )
 				{
 					return $this->_value > 0 ? INF . "" : -INF . "";
 				}
 
 				$maxDigits = 17;
-				if ( preg_match( DecimalValue::Pattern, $this->_value, $matches ) )
+				if ( preg_match( DecimalValue::Pattern, $number, $matches ) )
 				{
 					if ( ! isset( $matches['exponent'] ) )
 					{
@@ -297,18 +299,20 @@ class XPath2Item implements XPathItem, IConvertable
 
 			case XmlTypeCode::Float:
 
-				if ( is_nan( $this->_value ) )
+				/** @var float */
+				$number = $this->_value;
+				if ( is_nan( $number ) )
 				{
 					return "NaN";
 				}
 
-				if ( is_infinite( $this->_value ) )
+				if ( is_infinite( $number ) )
 				{
 					return $this->_value > 0 ? INF . "" : -INF . "";
 				}
 
 				$maxDigits = 8;
-				if ( preg_match( DecimalValue::Pattern, $this->_value, $matches ) )
+				if ( preg_match( DecimalValue::Pattern, $number, $matches ) )
 				{
 					$maxDigits = min( @strlen( $matches['digits'] ) + ( isset( $matches['decimals'] ) ? @strlen( $matches['decimals'] ) : 0 ), $maxDigits );
 				}
@@ -345,7 +349,7 @@ class XPath2Item implements XPathItem, IConvertable
 
 	/**
 	 * getTypedValue
-	 * @return object
+	 * @return object|float
 	 */
 	public function getTypedValue()
 	{
@@ -376,7 +380,9 @@ class XPath2Item implements XPathItem, IConvertable
 
 			case XmlTypeCode::Double:
 
-				if ( is_infinite( $this->_value ) )
+				/** @var float */
+				$number = $this->_value;
+				if ( is_infinite( $number ) )
 				{
 					return $this->_value > 0 ? INF : -INF;
 				}
@@ -385,7 +391,9 @@ class XPath2Item implements XPathItem, IConvertable
 
 			case XmlTypeCode::Float:
 
-				if ( is_infinite( $this->_value ) )
+				/** @var float */
+				$number = $this->_value;
+				if ( is_infinite( $number ) )
 				{
 					return $this->_value > 0 ? INF : -INF;
 				}
@@ -413,7 +421,9 @@ class XPath2Item implements XPathItem, IConvertable
 
 			case XmlTypeCode::Double:
 
-				if ( is_infinite( $this->_value ) )
+				/** @var float */
+				$number = $this->_value;
+				if ( is_infinite( $number ) )
 				{
 					return $this->_value > 0 ? INF : -INF;
 				}
@@ -438,13 +448,15 @@ class XPath2Item implements XPathItem, IConvertable
 
 			case XmlTypeCode::Float:
 
-				if ( is_infinite( $this->_value ) )
+				/** @var float */
+				$number = $this->_value;
+				if ( is_infinite( $number ) )
 				{
 					return $this->_value > 0 ? INF : -INF;
 				}
 
 				$maxDigits = 8;
-				if ( preg_match( DecimalValue::Pattern, $this->_value, $matches ) )
+				if ( preg_match( DecimalValue::Pattern, $number, $matches ) )
 				{
 					// if ( isset( $matches['exponent'] ) )
 					// {
