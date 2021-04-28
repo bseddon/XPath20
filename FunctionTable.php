@@ -440,6 +440,7 @@ class FunctionTable
 							SequenceTypes::$StringX,
 						) );
 					}
+					/** @var string */
 					$qName = CoreFuncs::CastString( $context, $args[0] );
 				}
 				catch ( XPath2Exception $ex )
@@ -1458,7 +1459,7 @@ class FunctionTable
 			function( $context, $provider, $args ) {
 
 				$startingLoc = CoreFuncs::Number( $context, $args[1] );
-				if ( is_nan( $startingLoc->getTypedValue()) )
+				if ( is_nan( /** @var number */ ( $startingLoc->getTypedValue() ) ) )
 				{
 					throw XPath2Exception::withErrorCodeAndParams( "XPTY0004", Resources::XPTY0004, array(
 						SequenceType::GetXmlTypeCodeFromObject( $startingLoc ),
@@ -1485,7 +1486,9 @@ class FunctionTable
 			function( $context, $provider, $args ) {
 
 				$startingLoc = CoreFuncs::Number( $context, $args[1] );
-				if ( is_nan( $startingLoc->GetTypeCode() ) )
+				/** @var float */
+				$number = $startingLoc->GetTypeCode();
+				if ( is_nan( $number ) )
 				{
 					throw XPath2Exception::withErrorCodeAndParams( "XPTY0004", Resources::XPTY0004, array(
 							SequenceType::GetXmlTypeCodeFromObject( $startingLoc ),
