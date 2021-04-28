@@ -112,7 +112,7 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 
 	/**
 	 * m_states
-	 * @var Stack<LexerState> $m_states = new Stack<LexerState>()
+	 * @var string[]
 	 */
 	private $m_states = array(); // new Stack<LexerState>();
 
@@ -124,7 +124,7 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 
 	/**
 	 * m_token
-	 * @var Queue<CurrentToken> $m_token = new Queue<CurrentToken>()
+	 * @var object[]
 	 */
 	private $m_token = array(); // new Queue<CurrentToken>();
 
@@ -148,7 +148,7 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 
 	/**
 	 * m_value
-	 * @var object $m_value
+	 * @var string 
 	 */
 	private $m_value;
 
@@ -388,7 +388,8 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 		$c = null;
 		$sb = array();
 		$this->BeginToken();
-		while ( ( $c = $this->Peek( 0 ) ) && ord( $c ) != 0 && preg_match( "/[\p{L}\p{N}_\-.]/u", $c ) )
+		// while ( ( $c = $this->Peek( 0 ) ) && ord( $c ) != 0 && preg_match( "/[\p{L}\p{N}_\-.]/u", $c ) )
+		while ( ( $c = ord( $this->Peek( 0 ) ) ) && preg_match( "/[\p{L}\p{N}_\-.]/u", chr( $c ) ) )
 		{
 			$sb[] = $this->Read();
 		}
@@ -405,7 +406,8 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 		$c = null;
 		$sb = array();
 		$this->BeginToken();
-		while ( ( $c = $this->Peek( 0 ) ) && ord( $c ) != 0 && preg_match( "/^[\p{L}\p{N}_\-.:]/u", $c ) )
+		// while ( ( $c = $this->Peek( 0 ) ) && ord( $c ) != 0 && preg_match( "/^[\p{L}\p{N}_\-.:]/u", $c ) )
+		while ( ( $c = ord( $this->Peek( 0 ) ) ) && preg_match( "/^[\p{L}\p{N}_\-.:]/u", chr( $c ) ) )
 		{
 			$sb[] = $this->Read();
 		}
@@ -498,7 +500,7 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 		for ( $k = 0; $k < strlen( $text ); $k++ )
 		{
 			$ch = $this->Peek( $k );
-			if ( $ch == 0 || $ch != $text[ $k ] )
+			if ( ord( $ch ) == 0 || $ch != $text[ $k ] )
 				return false;
 		}
 		for ( $k = 0; $k < strlen( $text ); $k++ )
@@ -524,9 +526,11 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 			$c = null;
 			while ( true )
 			{
-				if ( ( $c = $this->Peek( $i ) ) && ord( $c ) != 0 && preg_match( "/\s/", $c ) )
+				// if ( ( $c = $this->Peek( $i ) ) && ord( $c ) != 0 && preg_match( "/\s/", $c ) )
+				if ( ( $c = ord( $this->Peek( $i ) ) ) && preg_match( "/\s/", chr( $c ) ) )
 				{
-					while ( ( $c = $this->Peek( $i ) ) && ord( $c ) != 0 && preg_match( "/\s/", $c ) )
+					// while ( ( $c = $this->Peek( $i ) ) && ord( $c ) != 0 && preg_match( "/\s/", $c ) )
+					while ( ( $c = ord( $this->Peek( $i ) ) ) && preg_match( "/\s/", chr( $c ) ) )
 						$i++;
 					continue;
 				}
@@ -592,7 +596,8 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 			if ( preg_match( "/\s/", $this->Peek( 0 ) ) )
 			{
 				$c = null;
-				while ( ( $c = $this->Peek( 0 ) ) && ord( $c ) != 0 && preg_match( "/\s/", $c ) )
+				// while ( ( $c = $this->Peek( 0 ) ) && ord( $c ) != 0 && preg_match( "/\s/", $c ) )
+				while ( ( $c = ord( $this->Peek( 0 ) ) ) && preg_match( "/\s/", chr( $c ) ) )
 				{
 					$this->Read();
 				}
@@ -685,7 +690,7 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 		        $this->BeginToken();
 		        $this->ConsumeChar( $this->Read() );
 		        $c = $this->Peek( 0 );
-		        if ( $c != 0 && preg_match( "/[\p{L}_]/u", $c ) ) // NCName Start char
+		        if ( ord( $c ) != 0 && preg_match( "/[\p{L}_]/u", $c ) ) // NCName Start char
 		            $this->ConsumeNCName();
 		        else
 		            throw XPath2Exception::withErrorCode( "XPST0003", Resources::ExpectedNCName );
@@ -914,7 +919,8 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 		else if ( preg_match( "/[\p{L}_]/u", $c ) ) // Start NCName char
 		{
 		    $sb = array();
-		    while ( ( $c = $this->Peek( 0 ) ) && ord( $c ) != 0 && preg_match( "/[\p{L}\p{N}_\-.]/u", $c ) ) // NCName
+			// while ( ( $c = $this->Peek( 0 ) ) && ord( $c ) != 0 && preg_match( "/[\p{L}\p{N}_\-.]/u", $c ) ) // NCName
+			while ( ( $c = ord( $this->Peek( 0 ) ) ) && preg_match( "/[\p{L}\p{N}_\-.:]/u", chr( $c ) ) ) // NCName
 		        $sb[] = $this->Read();
 		    if ( $this->Peek( 0 ) == ':' )
 		    {
@@ -930,8 +936,10 @@ class Tokenizer implements \lyquidity\XPath2\parser\yyInput
 		        }
 		        else
 		        {
-		            while ( ( $c = $this->Peek( 0 ) ) && ord( $c ) != 0 && preg_match( "/[\p{L}\p{N}_\-.:]/u", $c ) ) // Name char
+		            // while ( ( $c = $this->Peek( 0 ) ) && ord( $c ) != 0 && preg_match( "/[\p{L}\p{N}_\-.:]/u", $c ) ) // Name char
+		            while ( ( $c = ord( $this->Peek( 0 ) ) ) && preg_match( "/[\p{L}\p{N}_\-.:]/u", chr( $c ) ) ) // Name char
 		                $sb[] = $this->Read();
+	
 		            $this->EndToken();
 		            $this->ConsumeToken2( Token::QName, implode( "", $sb ) );
 		            $this->SkipWhitespace();
