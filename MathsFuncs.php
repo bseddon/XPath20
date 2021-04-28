@@ -45,6 +45,8 @@ class MathsFuncs
 		if ( $value instanceof XPath2Item )
 		{
 			$value = $value->getTypedValue();
+			if ( $value instanceof DecimalValue ) 
+				$value = $value->ToDouble(null);
 		}
 		else if ( $value instanceof DecimalValue )
 		{
@@ -277,7 +279,7 @@ class MathsFuncs
 			return $value;
 
 		$value = self::toDouble( $value );
-		return XPath2Item::fromValueAndType( exp( $value ), XmlSchema::$Double );
+		return XPath2Item::fromValueAndType( pow( 10, $value ), XmlSchema::$Double );
 
 	}
 
@@ -307,7 +309,7 @@ class MathsFuncs
 			return $value;
 
 		$value = self::toDouble( $value );
-		return XPath2Item::fromValueAndType( log( $value ), XmlSchema::$Double );
+		return XPath2Item::fromValueAndType( log10( $value ), XmlSchema::$Double );
 
 	}
 }
