@@ -97,8 +97,13 @@ class BoolProxyFactory extends ValueProxyFactory
 	 */
 	public function Compare( $other )
     {
-		if ( $other->GetValueCode() == BoolProxyFactory::Code )
-			return 0;
+		switch ( $other->GetValueCode() )
+		{
+			case StringProxyFactory::Code:
+				return 1;
+			case BoolProxyFactory::Code:
+				return 0;
+		}
 		return -2;
     }
 

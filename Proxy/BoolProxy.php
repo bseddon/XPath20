@@ -94,10 +94,33 @@ class BoolProxy extends ValueProxy implements IXmlSchemaType
 	protected function Eq( $val )
 	{
 		if ( ! $val instanceof BoolProxy ) return false;
-		return  ( $this->_value instanceof CoreFuncs::$False && $val->getValue() instanceof CoreFuncs::$False ) ||
-				( $this->_value instanceof CoreFuncs::$True && $val->getValue() instanceof CoreFuncs::$True ) ||
-				( is_bool( $this->_value ) && is_bool( $val->getValue() ) && $this->_value == $val->getValue() );
-		// return $this->_value == (bool)$val->_value;
+		if ( $this->_value instanceof CoreFuncs::$False )
+		{
+			if ( $val->getValue() instanceof CoreFuncs::$False ) return true;
+			if ( is_bool( $val->getValue() ) && ! $val->getValue() ) return true;
+			return is_string( $val->_value ) && strtolower( (string)$val->getValue() ) == "false";
+		}
+		if ( $this->_value instanceof CoreFuncs::$True )
+		{
+			if ( $val->getValue() instanceof CoreFuncs::$True ) return true;
+			if ( is_bool( $val->getValue() ) && $val->getValue() ) return true;
+			return is_string( $val->_value ) && strtolower( (string)$val->getValue() ) == "true";
+		}
+
+		if ( $val->_value instanceof CoreFuncs::$False )
+		{
+			return is_bool( $this->getValue() ) && ! $this->getValue();
+		}
+		if ( $val->_value instanceof CoreFuncs::$True )
+		{
+			return is_bool( $this->getValue() ) && $this->getValue();
+		}
+
+		return false;
+
+		// return  ( $this->_value instanceof CoreFuncs::$False && ( $val->getValue() instanceof CoreFuncs::$False ) ) ||
+		//		( $this->_value instanceof CoreFuncs::$True && $val->getValue() instanceof CoreFuncs::$True ) ||
+		//		( is_bool( $this->_value ) && is_bool( $val->getValue() ) && $this->_value == $val->getValue() );
 	}
 
 	/**
