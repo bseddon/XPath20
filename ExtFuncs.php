@@ -776,7 +776,7 @@ class ExtFuncs
 		}
 
 		$value = $arg . "";
-		return normalizer_normalize( $arg, \Normalizer::FORM_C );
+		return normalizer_normalize( $value, \Normalizer::FORM_C );
 	}
 
 	/**
@@ -2269,7 +2269,7 @@ class ExtFuncs
 
 		if ( $value instanceof Long )
 		{
-			return new Long( abs( $value->getValue() ) );
+			return new Long( abs( (int) $value->getValue() ) );
 		}
 
 		if ( Integer::IsDerivedSubtype( $value ) )
@@ -2283,7 +2283,7 @@ class ExtFuncs
 			 * @var Integer $integer
 			 */
 			$integer = $value;
-		    return Integer::FromValue( abs( $integer->getValue() ) );
+		    return Integer::FromValue( abs( (int) $integer->getValue() ) );
 		}
 		else
 		    throw XPath2Exception::withErrorCodeAndParams( "XPTY0004", Resources::XPTY0004,
@@ -2560,7 +2560,7 @@ class ExtFuncs
 			 * @var \lyquidity\XPath2\Value\Integer $integer
 			 */
 			$integer = $value;
-			return Integer::FromValue( round( $integer->getValue(), $p, PHP_ROUND_HALF_EVEN ) );
+			return Integer::FromValue( round( (int) $integer->getValue(), $p, PHP_ROUND_HALF_EVEN ) );
 		}
 		else
 		   throw XPath2Exception::withErrorCodeAndParams( "XPTY0004", Resources::XPTY0004,
@@ -2588,8 +2588,8 @@ class ExtFuncs
 
 		if ( $collation == XmlReservedNs::collationCodepoint )
 		{
-			$s1 = \normalizer_normalize( $a, \Normalizer::FORM_C );
-			$s2 = \normalizer_normalize( $b, \Normalizer::FORM_C );
+			$s1 = \normalizer_normalize( (string) $a, \Normalizer::FORM_C );
+			$s2 = \normalizer_normalize( (string) $b, \Normalizer::FORM_C );
 
 			// On Windows the strcmp function return -1, 0, 1 but on Linux the strcmp function
 			// returns a value which is the difference in the ascii value of the first mismatched char
@@ -3590,7 +3590,7 @@ class ExtFuncs
 		// $dtv = DateTimeValue::Parse( $date->Value->format("Y-m-d") . "T" . $time->Value->format("H:i:s$microseconds$offsetChar") );
 		$dtv = DateTimeValue::Parse( $date->Value->format("Y-m-d") . "T" . $time->Value->format("H:i:s$microseconds") . $offsetChar );
 		// BMS 2018-03-23 Changed to this.  Handles test case 48230 V-05.
-		// 				  The XPath 2.0 specification is clear that these two are equivalent and event give an example:
+		// 				  The XPath 2.0 specification is clear that these two are equivalent and even give an example:
 		//						fn:dateTime(xs:date('2018-03-23'),xs:time('00:00:00'))
 		//						fn:dateTime(xs:date('2018-03-23'),xs:time('24:00:00'))
 		//				  That is, '00:00:00' and '24:00:00' are synonyms for midnight at the beginning of the day.

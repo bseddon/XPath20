@@ -402,7 +402,7 @@ class XPath2Parser
 	//t    "TypeName : QName",
 	//t	};
 	/**
-	 * @var string [] $yyName = {
+	 * @var string[] $yyName = {
     "end-of-file",null,null,null,null,null,null,null,null,null,null,null,
     null,null,null,null,null,null,null,null,null,null,null,null,null,null,
     null,null,null,null,null,null,null,"'!'",null,null,"'$'",null,null,
@@ -2424,7 +2424,7 @@ class XPath2Parser
 	);
 
 	/**
-	 * @var int [] $yyTable = {					259,
+	 * @var int[] $yyTable = {					259,
 	  103,  217,   56,  211,   57,    5,  138,    6,   63,   40,
 	  143,    5,  145,    6,    5,  192,    6,  240,  292,    5,
 	  221,    6,  225,  141,  141,   40,    5,  222,    6,  159,

@@ -281,7 +281,7 @@ class SequenceType
 		$result->IsNode = $src->IsNode;
 		$result->ItemType = $src->ItemType;
 
-		return result;
+		return $result;
 	}
 
 	/**
@@ -375,7 +375,7 @@ class SequenceType
 	 */
 	public function getIsUntypedAtomic()
 	{
-		return TypeCode == XmlTypeCode::UntypedAtomic;
+		return $this->TypeCode == XmlTypeCode::UntypedAtomic;
 	}
 
 	/**
@@ -726,7 +726,7 @@ class SequenceType
 						// BMS 2017-07-10 Changed result
 						return false;
 						$value = $item->getTypedValue(); // ->ValueAs( Types::$DoubleType );
-						return $value == floor( $value );
+						return $value == floor( (float)$value );
 				}
 				break;
 
@@ -747,7 +747,7 @@ class SequenceType
 						return true;
 
 					case XmlTypeCode::Double:
-						if ( is_nan( $item->getTypedValue() ) )
+						if ( is_nan( (float)$item->getTypedValue() ) )
 						{
 							return true;
 						}

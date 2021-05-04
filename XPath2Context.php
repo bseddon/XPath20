@@ -47,7 +47,7 @@ class XPath2Context
 {
 	/**
 	 * Constructor
-	 * @param IXmlNamespaceResolver $nsManager
+	 * @param IXmlNamespaceManager $nsManager
 	 */
 	public  function __construct( $nsManager )
 	{

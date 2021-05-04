@@ -74,12 +74,22 @@ use lyquidity\XPath2\DOM\DOMXPathNavigator;
 use lyquidity\xml\QName;
 use lyquidity\xml\exceptions\InvalidCastException;
 use lyquidity\xml\exceptions\FormatException;
+use lyquidity\xml\MS\XmlSchemaComplexType;
 
 /**
  * Base class for reference types
  */
 class ReferenceType
 {
+	/**
+	 * Magic function to return a string representation
+	 * @return string
+	 */
+	public function __toString()
+	{
+		return "";
+	}
+
 	/**
 	 * Function to return a string representation
 	 * @return string
@@ -223,7 +233,7 @@ class CoreFuncs
 			$arg2 = CoreFuncs::$False;
 		}
 
-		$res;
+		$res = null;
 		if ( ValueProxy::EqValues( $arg1, $arg2, $res ) )
 		{
 			return $res ? CoreFuncs::$True : CoreFuncs::$False;
@@ -331,7 +341,7 @@ class CoreFuncs
 		if ( is_null( $arg2 ) )
 			$arg2 = CoreFuncs::$False;
 
-		$res;
+		$res = null;
 		if ( ValueProxy::GtValues( $arg1, $arg2, $res ) )
 			return $res ? CoreFuncs::$True : CoreFuncs::$False;
 
@@ -526,7 +536,7 @@ class CoreFuncs
 		return;
 
 		/**
-		 * @var XPathItem $item
+		 * @var XPath2NodeIterator $item
 		 */
 		foreach ( $iter1 as $item )
 		{
@@ -580,7 +590,7 @@ class CoreFuncs
 		$set = array();
 
 		/**
-		 * @var XPathItem $item
+		 * @var XPath2NodeIterator $item
 		 */
 		foreach ( $iter1 as $item )
 		{
@@ -650,11 +660,11 @@ class CoreFuncs
 					throw XPath2Exception::withErrorCodeAndParams( "XPTY0004", Resources::XPTY0004, array( "item()+", $destType ) );
 			}
 
-			yield $item->ChangeType( $itemType, $context );
+			yield self::ChangeType( $item, $itemType, $context );
 			$num++;
 		}
 
-		if (num == 0 )
+		if ($num == 0 )
 		{
 			if ( $destType->Cardinality == XmlTypeCardinality::One || $destType->Cardinality == XmlTypeCardinality::OneOrMore )
 				throw XPath2Exception::withErrorCodeAndParams( "XPTY0004", Resources::XPTY0004, array( "item()?", $destType ) );
@@ -788,7 +798,7 @@ class CoreFuncs
 
 	/**
 	 * ChangeType
-	 * @param XPathItem $item
+	 * @param XPath2Item $item
 	 * @param SequenceType $destType
 	 * @param XPath2Context $context
 	 * @return XPathItem
@@ -800,11 +810,11 @@ class CoreFuncs
 			if ( ! $destType->Match( $item, $context ) )
 				throw XPath2Exception::withErrorCodeAndParams( "XPTY0004", Resources::XPTY0004,
 					array(
-						SequenceType::WithTypeCode( $item.GetSchemaType().TypeCode ),
+						SequenceType::WithTypeCode( $item->GetSchemaType()->TypeCode ),
 						$destType
 					)
 				);
-			return $item->CloneInstance();
+			return self::CloneInstance( $item );
 		}
 		else
 		{
@@ -812,7 +822,7 @@ class CoreFuncs
 				return CoreFuncs::CloneInstance( $item );
 			else if ( $destType->TypeCode == XmlTypeCode::Item &&
 					( $destType->Cardinality == XmlTypeCardinality::One || $destType->Cardinality == XmlTypeCardinality::ZeroOrOne ) )
-				return $item->CloneInstance();
+				return self::CloneInstance( $item );
 			else
 			{
 				if ( ! $destType->SchemaType instanceof XmlSchemaSimpleType )
@@ -900,7 +910,7 @@ class CoreFuncs
 		}
 
 		/**
-		 * @var XPathItem $item
+		 * @var XPath2Item $item
 		 */
 		$item = null;
 		$xmlType = null;
@@ -953,10 +963,10 @@ class CoreFuncs
 
 				case XmlTypeCode::Float:
 				case XmlTypeCode::Double:
-					return ! is_nan( $item->getValueAsDouble() ) && $item->getValueAsDouble() != 0.0;
+					return ! is_nan( (float)$item->getValueAsDouble() ) && $item->getValueAsDouble() != 0.0;
 
 				case XmlTypeCode::Decimal:
-					return $item->ValueAs( Types::$DecimalType )->ToBoolean( null ) != 0;
+					return $item->ValueAs( Types::$DecimalType, null )->ToBoolean( null ) != 0;
 
 				case XmlTypeCode::Integer:
 				case XmlTypeCode::NonPositiveInteger:
@@ -971,7 +981,7 @@ class CoreFuncs
 				case XmlTypeCode::NonNegativeInteger:
 				case XmlTypeCode::UnsignedLong:
 				case XmlTypeCode::PositiveInteger:
-					return $item->getTypedValue() + 0.0;
+					return (int)$item->getTypedValue() + 0.0;
 				// BMS 2018-03-02	Added this for AnyType. This means that any thing
 				//					which is an object that is not null will return true.
 				case XmlTypeCode::AnyType:
@@ -1042,6 +1052,7 @@ class CoreFuncs
 
 				case TypeCode::Single:
 				case TypeCode::Double:
+					/** @var float */
 					$double = Convert::ToDouble( $value, null );
 					return $double != 0.0 && ! is_nan( $double );
 
@@ -1068,7 +1079,7 @@ class CoreFuncs
 
 	/**
 	 * NormalizeSpace
-	 * @param object $item
+	 * @param string $item
 	 * @return string
 	 */
 	public static function NormalizeSpace( $item )
@@ -1100,6 +1111,14 @@ class CoreFuncs
 			// return $item->getTypedValue();
 		}
 
+		if ( $value instanceof DOMXPathNavigator )
+		{
+			/** @var DOMXPathNavigator */
+			$nav = $value;
+			// XFI test 90313 V-11 says that atomising a complex type should throw error FOTY0012
+			if ( $nav->getSchemaType() instanceof XmlSchemaComplexType )
+				throw XPath2Exception::withErrorCodeAndParam( "FOTY0012", Resources::FOTY0012, new QName( $nav->getLocalName(), $nav->getNamespaceURI(), false ) );
+		}
 		if ( $value instanceof XPathItem )
 		{
 			/**
@@ -1460,7 +1479,7 @@ class CoreFuncs
 					if ( ! $destType->Match( $iter->getCurrent(), $context ) )
 						throw XPath2Exception::withErrorCodeAndParams( "XPTY0004", Resources::XPTY0004,
 							array(
-								SequenceType::WithSchemaTypeWithCardinality( $iter->getCurrent().GetSchemaType(), XmlTypeCardinality::OneOrMore ),
+								SequenceType::WithSchemaTypeWithCardinality( $iter->getCurrent()->GetSchemaType(), XmlTypeCardinality::OneOrMore ),
 								$destType
 							)
 						);
@@ -1555,17 +1574,17 @@ class CoreFuncs
 				if ( $destType->TypeCode == XmlTypeCode::None )
 					throw XPath2Exception::withErrorCodeAndParams( "XPTY0004", Resources::XPTY0004,
 						array(
-							SequenceType::WithSchemaTypeWithCardinality( $iter->getCurrent().GetSchemaType(), XmlTypeCardinality::OneOrMore ),
+							SequenceType::WithSchemaTypeWithCardinality( $iter->getCurrent()->GetSchemaType(), XmlTypeCardinality::OneOrMore ),
 							"empty-sequence()"
 						)
 					);
 
 				if ( $destType->IsNode )
 				{
-					if ( ! $destType->Match( $iter.getCurrent(), $context ))
+					if ( ! $destType->Match( $iter->getCurrent(), $context ))
 						throw XPath2Exception::withErrorCodeAndParams( "XPTY0004", Resources::XPTY0004,
 							array(
-								SequenceType::WithSchemaTypeWithCardinality( $iter->getCurrent().GetSchemaType(), XmlTypeCardinality::OneOrMore ),
+								SequenceType::WithSchemaTypeWithCardinality( $iter->getCurrent()->GetSchemaType(), XmlTypeCardinality::OneOrMore ),
 								$destType
 							)
 						);
@@ -1922,8 +1941,8 @@ class CoreFuncs
 			$iter = $iter2->CloneInstance();
 			while ( $iter->MoveNext() )
 			{
-				$x;
-				$y;
+				$x = null;
+				$y = null;
 				CoreFuncs::MagnitudeRelationship( $context, $iter1->getCurrent(), $iter->getCurrent(), $x, $y );
 				if ( CoreFuncs::OperatorEq( $x, $y ) instanceof TrueValue )
 					return CoreFuncs::$True;
@@ -1959,8 +1978,8 @@ class CoreFuncs
 			$iter = $iter2->CloneInstance();
 			while ( $iter->MoveNext() )
 			{
-				$x;
-				$y;
+				$x = null;
+				$y = null;
 				CoreFuncs::MagnitudeRelationship( $context, $iter1->getCurrent(), $iter->getCurrent(), $x, $y );
 				if ( CoreFuncs::OperatorGt( $x, $y ) instanceof TrueValue )
 					return CoreFuncs::$True;
@@ -1995,8 +2014,8 @@ class CoreFuncs
 			$iter = $iter2->CloneInstance();
 			while ( $iter->MoveNext() )
 			{
-				$x;
-				$y;
+				$x = null;
+				$y = null;
 				CoreFuncs::MagnitudeRelationship( $context, $iter1->getCurrent(), $iter->getCurrent(), $x, $y );
 				if ( CoreFuncs::OperatorEq( $x, $y ) instanceof FalseValue )
 					return CoreFuncs::$True;
@@ -2031,8 +2050,8 @@ class CoreFuncs
 			$iter = $iter2->CloneInstance();
 			while ( $iter->MoveNext() )
 			{
-				$x;
-				$y;
+				$x = null;
+				$y = null;
 				CoreFuncs::MagnitudeRelationship( $context, $iter1->getCurrent(), $iter->getCurrent(), $x, $y );
 				if ( CoreFuncs::OperatorEq( $x, $y ) instanceof TrueValue || CoreFuncs::OperatorGt( $x, $y ) instanceof TrueValue )
 					return CoreFuncs::$True;
@@ -2067,8 +2086,8 @@ class CoreFuncs
 			$iter = $iter2->CloneInstance();
 			while ( $iter->MoveNext() )
 			{
-				$x;
-				$y;
+				$x = null;
+				$y = null;
 				CoreFuncs::MagnitudeRelationship( $context, $iter1->getCurrent(), $iter->getCurrent(), $x, $y );
 				if ( CoreFuncs::OperatorGt( $y, $x ) instanceof TrueValue )
 					return CoreFuncs::$True;
@@ -2103,8 +2122,8 @@ class CoreFuncs
 			$iter = $iter2->CloneInstance();
 			while ( $iter->MoveNext() )
 			{
-				$x;
-				$y;
+				$x = null;
+				$y = null;
 				CoreFuncs::MagnitudeRelationship( $context, $iter1->getCurrent(), $iter->getCurrent(), $x, $y );
 				if ( CoreFuncs::OperatorEq( $x, $y ) instanceof TrueValue || CoreFuncs::OperatorGt( $y, $x ) instanceof TrueValue )
 					return CoreFuncs::$True;
@@ -2451,7 +2470,7 @@ class CoreFuncs
 
 		if ( $node instanceof IContextProvider )
 		{
-			$node = CoreFuncs::GetRoot( CoreFuncs::NodeValue( CoreFuncs::ContextNode( $provider ) ) );
+			$node = CoreFuncs::GetRoot( CoreFuncs::NodeValue( CoreFuncs::ContextNode( $node ) ) );
 		}
 
 		if ( ! $node instanceof XPathNavigator )

@@ -56,7 +56,7 @@ class MathsFuncs
 		{
 			return $value->ToDouble( null );
 		}
-		else if ( is_int( $value ) )
+		else if ( is_int( $value ) || is_double( $value ) )
 		{
 			// Do nothing
 		}
@@ -93,15 +93,30 @@ class MathsFuncs
 		$value = self::toDouble( $value );
 		$power = self::toDouble( $power );
 
-		if ( $value === 0 || $value === 0.0 )
-		{
-			if ( $power < 0 && is_int( $power ) && abs( $power ) % 2 == 1 )
-			{
-				return XPath2Item::fromValueAndType( INF, XmlSchema::$Double );
-			}
-		}
+		// if ( $value === 0 || $value === 0.0 )
+		// {
+		// 	if ( $power < 0 && is_int( $power ) && abs( $power ) % 2 == 1 )
+		// 	{
+		// 		return XPath2Item::fromValueAndType( INF, XmlSchema::$Double );
+		// 	}
+		// }
 		return XPath2Item::fromValueAndType( pow( $value, $power ), XmlSchema::$Double );
 
+	}
+
+	/**
+	 * sqrt
+	 * @param object $value
+	 * @return object
+	 */
+	public static function sqrt( $value )
+	{
+		if ( $value instanceof Undefined )
+			return $value;
+
+		$value = self::toDouble( $value );
+
+		return XPath2Item::fromValueAndType( sqrt( $value ), XmlSchema::$Double );
 	}
 
 	/**

@@ -42,7 +42,7 @@ class UnaryOperatorNode extends AbstractNode
 {
 	/**
 	 * The action to perform (set in the constructor)
-	 * @var UnaryOperatorNode $_unaryOper
+	 * @var callable $_unaryOper
 	 */
 	protected $_unaryOper;
 
@@ -55,7 +55,7 @@ class UnaryOperatorNode extends AbstractNode
 	/**
 	 * Constructor
 	 * @param XPath2Context $context
-	 * @param UnaryOperatorNode $action
+	 * @param callable $action
 	 * @param object $node
 	 * @param XPath2ResultType $resultType
 	 */

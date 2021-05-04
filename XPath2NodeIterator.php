@@ -294,7 +294,7 @@ class XPath2NodeIterator implements ICloneable, IEnumerable  //, \Iterator
 		$iter = $this->CloneInstance();
 
 		/**
-		 * @var array $res List<XPathItem>
+		 * @var \Traversable $iter List<XPathItem>
 		 */
 		return iterator_to_array( $iter );
 	}
