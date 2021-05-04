@@ -194,7 +194,6 @@ class CoreFuncs
 			new Proxy\ByteProxyFactory(),
 			new Proxy\UShortProxyFactory(),
 			new Proxy\UIntProxyFactory(),
-			new Proxy\LongProxyFactory(),
 			new Proxy\ULongProxyFactory(),
 			new Proxy\BoolProxyFactory(),
 			new Proxy\DateTimeProxyFactory(),
