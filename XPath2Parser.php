@@ -1518,8 +1518,6 @@ class XPath2Parser
 						{
 							throw XPath2Exception::withErrorCodeAndParam( "XPST0003", Resources::XPST0003, "Invalid Qualified name '{$yyVals[ 0+$yyTop ]}'");
 						}
-						// $qualifiedName = QNameParser.Parse( $yyVals[ 0+$yyTop ], $context->NamespaceManager, "", $context->NameTable );
-						// $yyVal = XmlQualifiedNameTest::Create( $qualifiedName->localName, empty( $qualifiedName->prefix ) ? $context->NamespaceManager->getDefaultNamespace() : $qualifiedName->namespaceURI );
 						$yyVal = XmlQualifiedNameTest::Create( $qualifiedName->localName, empty( $qualifiedName->prefix ) ? null : $qualifiedName->namespaceURI );
 
 						break;
