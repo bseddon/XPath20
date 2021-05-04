@@ -118,7 +118,7 @@ abstract class ValueProxy implements IConvertable, IXmlSchemaType
 	{
 		$res = false;
 		if ( ! $val instanceof ValueProxy ) return false;
-		if ( $val->GetValueCode() != $this->GetValueCode() ) return false;
+		// if ( $val->GetValueCode() != $this->GetValueCode() ) return false;
 
 		$res = $this->Eq( $val );
 		return true; // This SHOULD return true to indicate the comparison was successful
@@ -212,7 +212,7 @@ abstract class ValueProxy implements IConvertable, IXmlSchemaType
 		if ( $obj instanceof ValueProxy )
 		{
 			$res = null;
-			if ( self::Eq( $this, $obj, $res))
+			if ( $this->Eq( $this, $obj, $res))
 				return $res;
 		}
 		return false;
@@ -262,7 +262,7 @@ abstract class ValueProxy implements IConvertable, IXmlSchemaType
 
 	/**
 	 * valueFactory
-	 * @var Dictionary<Type, ValueProxyFactory> $valueFactory
+	 * @var ValueProxyFactory[] $valueFactory
 	 */
 	protected static $valueFactory;
 
@@ -324,7 +324,7 @@ abstract class ValueProxy implements IConvertable, IXmlSchemaType
 	 */
 	public static function IsProxyType( $type )
 	{
-		return is_subclass_of( $type->getFullName(), ValueProxy::$dynamicValueType );
+		return is_subclass_of( $type->getFullName(), (string)ValueProxy::$dynamicValueType );
 	}
 
 	/**

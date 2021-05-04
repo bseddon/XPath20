@@ -114,17 +114,23 @@ class DateValue extends DateTimeValueBase implements IXmlConvertable, IXmlSchema
 	 */
 	public function Equals( $obj )
 	{
-		if ( ! $obj instanceof DateValue )
+		if ( $obj instanceof DateValue )
 		{
-			return false;
+			/**
+			 * @var DateValue $other
+			 */
+			$other = $obj;
+			return $this->Value == $other->Value;
 		}
-
-		/**
-		 * @var DateTimeValueBase $other
-		 */
-		$other = $obj;
-		return $this->Value == $other->Value;
-		// return $this->ToString( null ) == $other->ToString( null );
+		else if ( $obj instanceof DateTimeValue )
+		{
+			/**
+			 * @var DateTimeValueBase $other
+			 */
+			$other = $obj;
+			return $this->Value->format('Y-m-d') == $other->Value->format('Y-m-d');
+		}
+		return false;
 	}
 
 	/**

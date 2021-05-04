@@ -153,18 +153,24 @@ class DateTimeValueBase implements IComparable, IConvertable
 	 */
 	public function Equals( $obj )
 	{
-		if ( ! $obj instanceof DateTimeValueBase )
+		if ( $obj instanceof DateValue )
 		{
-			return false;
+			/**
+			 * @var DateValue $other
+			 */
+			$other = $obj;
+			return $this->Value->format('Y-m-d') == $other->Value->format('Y-m-d');
 		}
-
-		/**
-		 * @var DateTimeValueBase $other
-		 */
-	    $other = $obj;
-		return $this->Value == $other->Value &&
+		else if ( $obj instanceof DateTimeValue )
+		{
+			/**
+			 * @var DateTimeValueBase $other
+			 */
+			$other = $obj;
+			return $this->Value == $other->Value &&
 			( isset( $this->Value->microseconds ) ? $this->Value->microseconds : 0 ) ==
 			( isset( $other->Value->microseconds ) ? $other->Value->microseconds : 0 );
+		}
 	}
 
 	/**
